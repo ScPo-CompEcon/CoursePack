@@ -6,9 +6,9 @@ mv Notebooks/Index.html  index.html
 
 
 # jupyter-nbconvert --to slides Notebooks/basic-computing.ipynb --post serve 
-jupyter-nbconvert --to slides basic-computing.ipynb --reveal-prefix=reveal.js
+jupyter-nbconvert --to slides Notebooks/BasicComputing.ipynb --reveal-prefix=reveal.js
 # Move to the Slides directory
-mv Notebooks/basic-computing.slides.html  ./Slides/basic-computing.html
+mv Notebooks/BasicComputing.slides.html  Slides/BasicComputing.html
 
 # cd Notebooks
 # arr=(*.ipynb)
