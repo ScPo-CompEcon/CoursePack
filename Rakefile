@@ -11,7 +11,7 @@ task :html => SOURCE_FILES.ext("html")
 task :slides => SOURCE_FILES.ext("slides.html")
 task :pdf => SOURCE_FILES.ext("pdf")
 task :md => SOURCE_FILES.ext("md")
-task :offline => :slides
+# task :offline => :slides
 
 task :clean_md do
 	sh "rm -rf *.md"
@@ -20,6 +20,7 @@ end
 task :clean_html do
 	sh "rm -rf *.html"
 	sh "rm -rf ../Html/*.html"
+	sh "rm -rf ../index.html"
 end
 
 task :clean_slides do
@@ -48,9 +49,12 @@ end
 
 
 rule ".html" => ".ipynb" do |t|
-	sh "which python"
 	sh "jupyter-nbconvert --to html #{t.source}"
-	FileUtils.mv("#{t.name}", "../Html/#{t.name}")
+	if "#{t.name}" == "Index.html"
+		FileUtils.mv("#{t.name}", "../index.html")
+	else
+		FileUtils.mv("#{t.name}", "../Html/#{t.name}")
+	end
 end
 
 # special rule for .slides.html file ending!
