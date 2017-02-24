@@ -62,10 +62,11 @@ rule( /\.slides\.html$/ => [
     proc {|task_name| task_name.sub(/\.slides\.html$/, '.ipynb') }
 ]) do |t|
 	sh "jupyter-nbconvert --to slides #{t.source} --reveal-prefix=reveal.js"
+	# sh "jupyter-nbconvert --to slides #{t.source} "
 	FileUtils.cp("#{t.name}", File.join("..","Slides",File.basename("#{t.name}",".slides.html")+".html"))
 	FileUtils.cp("#{t.name}", File.join("..","OfflineSlides",File.basename("#{t.name}",".slides.html")+".html"))
 	Dir.chdir "../Slides"
-	sh "find ./ -type f -exec sed -i '' s,reveal.js/css/theme/simple.css,reveal.js/css/theme/solarized.css, {} +;"
+	# sh "find ./ -type f -exec sed -i '' s,reveal.js/css/theme/simple.css,reveal.js/css/theme/solarized.css, {} +;"
 	Dir.chdir "../Notebooks"
 	sh "rm -rf #{t.name}"
 end
