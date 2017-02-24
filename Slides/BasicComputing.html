@@ -12074,7 +12074,7 @@ a.anchor-link {
 </div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.7</span>
@@ -12084,6 +12084,24 @@ a.anchor-link {
 </pre></div>
 
 </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[1]:</div>
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>u (generic function with 1 method)</pre>
+</div>
+
+</div>
+
 </div>
 </div>
 
@@ -12103,7 +12121,7 @@ a.anchor-link {
 </div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="n">u2</span><span class="p">(</span><span class="n">c</span><span class="p">,</span><span class="n">l</span><span class="p">)</span>      <span class="o">=</span> <span class="n">exp</span><span class="p">(</span> <span class="n">alpha</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">gamma</span><span class="p">)</span> <span class="o">*</span> <span class="n">log</span><span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">alpha</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">gamma</span><span class="p">)</span> <span class="o">*</span> <span class="n">log</span><span class="p">(</span><span class="n">l</span><span class="p">)</span> <span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">gamma</span><span class="p">)</span>
@@ -12119,6 +12137,22 @@ a.anchor-link {
 </pre></div>
 
 </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>u1 takes 1.27 times longer than u2
+</pre>
+</div>
+</div>
+
 </div>
 </div>
 
@@ -12151,7 +12185,7 @@ a.anchor-link {
 </div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="k">for</span> <span class="n">T</span> <span class="kp">in</span> <span class="p">[</span><span class="kt">Int8</span><span class="p">,</span><span class="kt">Int16</span><span class="p">,</span><span class="kt">Int32</span><span class="p">,</span><span class="kt">Int64</span><span class="p">,</span><span class="kt">Int128</span><span class="p">,</span><span class="kt">UInt8</span><span class="p">,</span><span class="kt">UInt16</span><span class="p">,</span><span class="kt">UInt32</span><span class="p">,</span>
@@ -12161,6 +12195,33 @@ a.anchor-link {
 </pre></div>
 
 </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>   Int8: [-128,127]
+  Int16: [-32768,32767]
+  Int32: [-2147483648,2147483647]
+  Int64: [-9223372036854775808,9223372036854775807]
+ Int128: [-170141183460469231731687303715884105728,170141183460469231731687303715884105727]
+  UInt8: [0,255]
+ UInt16: [0,65535]
+ UInt32: [0,4294967295]
+ UInt64: [0,18446744073709551615]
+UInt128: [0,340282366920938463463374607431768211455]
+Float32: [-Inf,Inf]
+Float64: [-Inf,Inf]
+</pre>
+</div>
+</div>
+
 </div>
 </div>
 
@@ -12278,7 +12339,7 @@ a.anchor-link {
 </div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="c"># types</span>
@@ -12319,10 +12380,28 @@ a.anchor-link {
 </div>
 </div>
 
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[4]:</div>
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>do_your_thing</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
 </div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="n">j</span> <span class="o">=</span> <span class="n">Jaguar</span><span class="p">(</span><span class="mf">130.1</span><span class="p">,</span><span class="s">&quot;roaaarrrrrrr&quot;</span><span class="p">)</span>
@@ -12330,6 +12409,24 @@ a.anchor-link {
 </pre></div>
 
 </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[5]:</div>
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>Pussycat(9.8,&#34;miauuu&#34;)</pre>
+</div>
+
+</div>
+
 </div>
 </div>
 
@@ -12367,7 +12464,7 @@ a.anchor-link {
 </div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="k">function</span> <span class="n">t1</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
@@ -12387,6 +12484,23 @@ a.anchor-link {
 </pre></div>
 
 </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+
+<div class="output_subarea output_text output_error">
+<pre>
+cannot define function t1; it already has a value
+</pre>
+</div>
+</div>
+
 </div>
 </div>
 
@@ -12697,7 +12811,7 @@ Inside the control system unit (VCSU) is a countdown timer that ticks off time i
 </div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="k">using</span> <span class="n">Logging</span>
@@ -12728,11 +12842,11 @@ Inside the control system unit (VCSU) is a countdown timer that ticks off time i
 <div class="output_subarea output_stream output_stderr output_text">
 <pre>WARNING: Method definition warn(Any...) in module Base at util.jl:350 overwritten in module Logging at /Users/florian.oswald/.julia/v0.5/Logging/src/Logging.jl:115.
 WARNING: Method definition info(Any...) in module Base at util.jl:320 overwritten in module Logging at /Users/florian.oswald/.julia/v0.5/Logging/src/Logging.jl:115.
-09-Feb 22:02:19:DEBUG:root:debug message
-09-Feb 22:02:19:INFO:root:info message
-09-Feb 22:02:19:WARNING:root:warning message
-09-Feb 22:02:19:ERROR:root:error message
-09-Feb 22:02:19:CRITICAL:root:critical message
+24-Feb 09:47:03:DEBUG:root:debug message
+24-Feb 09:47:03:INFO:root:info message
+24-Feb 09:47:03:WARNING:root:warning message
+24-Feb 09:47:03:ERROR:root:error message
+24-Feb 09:47:03:CRITICAL:root:critical message
 </pre>
 </div>
 </div>
@@ -12753,7 +12867,7 @@ WARNING: Method definition info(Any...) in module Base at util.jl:320 overwritte
 </div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="nd">@Logging</span><span class="o">.</span><span class="n">configure</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="n">DEBUG</span><span class="p">)</span>
@@ -12787,18 +12901,11 @@ WARNING: Method definition info(Any...) in module Base at util.jl:320 overwritte
 <div class="prompt"></div>
 
 <div class="output_subarea output_stream output_stderr output_text">
-<pre>WARNING: Method definition @debug(Any...) in module Main at /Users/florian.oswald/.julia/v0.5/Logging/src/logging_macros.jl:11 overwritten at /Users/florian.oswald/.julia/v0.5/Logging/src/logging_macros.jl:11.
-WARNING: Method definition @info(Any...) in module Main at /Users/florian.oswald/.julia/v0.5/Logging/src/logging_macros.jl:11 overwritten at /Users/florian.oswald/.julia/v0.5/Logging/src/logging_macros.jl:11.
-WARNING: Method definition @warn(Any...) in module Main at /Users/florian.oswald/.julia/v0.5/Logging/src/logging_macros.jl:11 overwritten at /Users/florian.oswald/.julia/v0.5/Logging/src/logging_macros.jl:11.
-WARNING: Method definition @err(Any...) in module Main at /Users/florian.oswald/.julia/v0.5/Logging/src/logging_macros.jl:11 overwritten at /Users/florian.oswald/.julia/v0.5/Logging/src/logging_macros.jl:11.
-WARNING: Method definition @error(Any...) in module Main at /Users/florian.oswald/.julia/v0.5/Logging/src/logging_macros.jl:11 overwritten at /Users/florian.oswald/.julia/v0.5/Logging/src/logging_macros.jl:11.
-WARNING: Method definition @critical(Any...) in module Main at /Users/florian.oswald/.julia/v0.5/Logging/src/logging_macros.jl:11 overwritten at /Users/florian.oswald/.julia/v0.5/Logging/src/logging_macros.jl:11.
-WARNING: Method definition macro_log_test() in module Main at In[2]:4 overwritten at In[3]:4.
-09-Feb 22:02:47:DEBUG:root:debug message
-09-Feb 22:02:47:INFO:root:info message
-09-Feb 22:02:47:WARNING:root:warning message
-09-Feb 22:02:47:ERROR:root:error message
-09-Feb 22:02:47:CRITICAL:root:critical message
+<pre>24-Feb 09:47:04:DEBUG:root:debug message
+24-Feb 09:47:04:INFO:root:info message
+24-Feb 09:47:04:WARNING:root:warning message
+24-Feb 09:47:04:ERROR:root:error message
+24-Feb 09:47:04:CRITICAL:root:critical message
 </pre>
 </div>
 </div>
@@ -12808,20 +12915,6 @@ WARNING: Method definition macro_log_test() in module Main at In[2]:4 overwritte
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>turning logging off completely
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-<div class="prompt"></div>
-
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>WARNING: Method definition @debug(Any...) in module Main at /Users/florian.oswald/.julia/v0.5/Logging/src/logging_macros.jl:11 overwritten at /Users/florian.oswald/.julia/v0.5/Logging/src/logging_macros.jl:11.
-WARNING: Method definition @info(Any...) in module Main at /Users/florian.oswald/.julia/v0.5/Logging/src/logging_macros.jl:11 overwritten at /Users/florian.oswald/.julia/v0.5/Logging/src/logging_macros.jl:11.
-WARNING: Method definition @warn(Any...) in module Main at /Users/florian.oswald/.julia/v0.5/Logging/src/logging_macros.jl:11 overwritten at /Users/florian.oswald/.julia/v0.5/Logging/src/logging_macros.jl:11.
-WARNING: Method definition @err(Any...) in module Main at /Users/florian.oswald/.julia/v0.5/Logging/src/logging_macros.jl:11 overwritten at /Users/florian.oswald/.julia/v0.5/Logging/src/logging_macros.jl:11.
-WARNING: Method definition @error(Any...) in module Main at /Users/florian.oswald/.julia/v0.5/Logging/src/logging_macros.jl:11 overwritten at /Users/florian.oswald/.julia/v0.5/Logging/src/logging_macros.jl:11.
-WARNING: Method definition @critical(Any...) in module Main at /Users/florian.oswald/.julia/v0.5/Logging/src/logging_macros.jl:11 overwritten at /Users/florian.oswald/.julia/v0.5/Logging/src/logging_macros.jl:11.
 </pre>
 </div>
 </div>
@@ -12886,7 +12979,7 @@ git checkout dbg
 </div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="k">using</span> <span class="n">RDatasets</span>   <span class="c"># popular Datasets from R</span>
@@ -12904,7 +12997,7 @@ git checkout dbg
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[4]:</div>
+<div class="prompt output_prompt">Out[9]:</div>
 
 
 <div class="output_html rendered_html output_subarea output_execute_result">
@@ -12919,7 +13012,7 @@ git checkout dbg
 </div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="n">println</span><span class="p">(</span><span class="n">iris</span><span class="p">[</span><span class="o">:</span><span class="n">SepalLength</span><span class="p">][</span><span class="mi">1</span><span class="o">:</span><span class="mi">6</span><span class="p">])</span>  <span class="c"># get a column</span>
@@ -13019,7 +13112,7 @@ Unique  3
 </div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[17]:</div>
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="c"># subsetting a dataframe can become cumbersome</span>
@@ -13036,11 +13129,11 @@ Unique  3
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[17]:</div>
+<div class="prompt output_prompt">Out[11]:</div>
 
 
 <div class="output_html rendered_html output_subarea output_execute_result">
-<table class="data-frame"><thead><tr><th></th><th>A</th><th>B</th><th>C</th></tr></thead><tbody><tr><th>1</th><td>0.7841789992362542</td><td>2</td><td>word 1</td></tr><tr><th>2</th><td>0.3524596750310567</td><td>2</td><td>word 5</td></tr></tbody></table>
+<table class="data-frame"><thead><tr><th></th><th>A</th><th>B</th><th>C</th></tr></thead><tbody><tr><th>1</th><td>0.5859358302033426</td><td>2</td><td>word 2</td></tr><tr><th>2</th><td>0.727457222599889</td><td>2</td><td>word 4</td></tr><tr><th>3</th><td>0.8685718049038844</td><td>2</td><td>word 9</td></tr><tr><th>4</th><td>0.13524032380172413</td><td>2</td><td>word 10</td></tr></tbody></table>
 </div>
 
 </div>
@@ -13087,7 +13180,7 @@ Unique  3
 </div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[19]:</div>
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="k">using</span> <span class="n">DataFramesMeta</span>
@@ -13118,11 +13211,11 @@ Unique  3
 </div>
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[19]:</div>
+<div class="prompt output_prompt">Out[12]:</div>
 
 
 <div class="output_html rendered_html output_subarea output_execute_result">
-<table class="data-frame"><thead><tr><th></th><th>meanX</th><th>meanY</th><th>var</th></tr></thead><tbody><tr><th>1</th><td>0.33469251506474523</td><td>3.3469251506474524</td><td>5</td></tr><tr><th>2</th><td>0.41160013128392264</td><td>4.116001312839225</td><td>2</td></tr><tr><th>3</th><td>0.723341174170108</td><td>7.2334117417010795</td><td>10</td></tr></tbody></table>
+<table class="data-frame"><thead><tr><th></th><th>meanX</th><th>meanY</th><th>var</th></tr></thead><tbody><tr><th>1</th><td>0.23243840769215388</td><td>2.324384076921539</td><td>10</td></tr><tr><th>2</th><td>0.6060686352270752</td><td>6.060686352270753</td><td>5</td></tr><tr><th>3</th><td>0.8161635544368376</td><td>8.161635544368377</td><td>2</td></tr></tbody></table>
 </div>
 
 </div>
@@ -13153,7 +13246,7 @@ Unique  3
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[13]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="k">using</span> <span class="n">Query</span>
@@ -13168,6 +13261,26 @@ Unique  3
 </pre></div>
 
 </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+
+<div class="output_subarea output_text output_error">
+<pre>
+ArgumentError: Module Query not found in current path.
+Run `Pkg.add(&#34;Query&#34;)` to install the Query package.
+
+ in require(::Symbol) at ./loading.jl:365
+ in require(::Symbol) at /Applications/Julia-0.5.app/Contents/Resources/julia/lib/julia/sys.dylib:?</pre>
+</div>
+</div>
+
 </div>
 </div>
 
@@ -13192,7 +13305,7 @@ Unique  3
 </div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="k">using</span> <span class="n">Plots</span>
@@ -13360,17 +13473,17 @@ a.hasLines(e)||l(t,e,d)),d("hoverinfo",1===f._dataLength?"a+b+c+text":void 0),"t
 </div>
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[1]:</div>
+<div class="prompt output_prompt">Out[14]:</div>
 
 
 <div class="output_html rendered_html output_subarea output_execute_result">
-<div id="ab660e2d-1ac9-43c2-b704-638a169965eb" class="plotly-graph-div"></div>
+<div id="1d80acb5-1104-44f6-8470-093aa7a286c4" class="plotly-graph-div"></div>
 
 <script>
     window.PLOTLYENV=window.PLOTLYENV || {};
     window.PLOTLYENV.BASE_URL="https://plot.ly";
     require(['plotly'], function(Plotly) {
-        Plotly.newPlot('ab660e2d-1ac9-43c2-b704-638a169965eb', [{"yaxis":"y","y":[0.012124382160196338,0.01322122297179859,0.02827418922376734,0.056187258288557,0.06808132770520002,0.08194843158263729,0.09798863970899607,0.11639471600998517,0.1533908330325605,0.19835242072850787,0.25667538790317196,0.3248043368807302,0.3956164678287736,0.47279721606364,0.5603901749939368,0.6498620660253045,0.75074755972831,0.8422375195952561,0.8780912825797589,0.9101876479748812,0.9380120116601153,0.961107690784153,0.9771623122871544,0.9890729351616165,0.996682610645794,0.9998903974736826,0.9983233373075441,0.9914989658379114,0.9795249976544765,0.9625892296497713,0.9408126450656756,0.9146187831527196,0.8844064646814112,0.8506257453500651,0.7657434068331027,0.671519609379197,0.5784237473268526,0.4865649776723335,0.3964003142071558,0.31477449340992936,0.2541450041648112,0.2015016204470466,0.14808786235210436,0.10592712156620919,0.07542307660074267,0.05243430607610905,0.027862351851417996,0.013923977140564918,0.012446141475382302],"showlegend":true,"name":"y1","type":"scatter","xaxis":"x","line":{"width":1,"dash":"solid","color":"rgba(0, 154, 250, 1.000)","shape":"linear"},"x":[-2.9707025429406357,-2.941405085881271,-2.670507791435517,-2.399610496989763,-2.3182115057838866,-2.23681251457801,-2.1554135233721334,-2.074014532166257,-1.9363709099358313,-1.7987272877054057,-1.6492077337535487,-1.4996881798016914,-1.3618443762969612,-1.224000572792231,-1.076217447176646,-0.928434321561061,-0.7572130777649336,-0.5859918339688063,-0.5099112163100725,-0.4338305986513388,-0.357749980992605,-0.2816693633338713,-0.21495351769007348,-0.14823767204627564,-0.08152182640247779,-0.014805980758679935,0.05793219941396923,0.1306703795866184,0.20340855975926758,0.27614673993191674,0.3493172230781557,0.42248770622439463,0.49565818937063355,0.5688286725168725,0.730627324131649,0.8924259757464256,1.0463733101077433,1.2003206444690608,1.360390152768582,1.5204596610681032,1.655204091534587,1.7899485220010707,1.9544561989596276,2.1189638759181846,2.273605944345218,2.4282480127722508,2.6759965984343053,2.9237451840963593,2.96187259204818],"mode":"lines"}],
+        Plotly.newPlot('1d80acb5-1104-44f6-8470-093aa7a286c4', [{"yaxis":"y","y":[0.012124382160196338,0.01322122297179859,0.02827418922376734,0.056187258288557,0.06808132770520002,0.08194843158263729,0.09798863970899607,0.11639471600998517,0.1533908330325605,0.19835242072850787,0.25667538790317196,0.3248043368807302,0.3956164678287736,0.47279721606364,0.5603901749939368,0.6498620660253045,0.75074755972831,0.8422375195952561,0.8780912825797589,0.9101876479748812,0.9380120116601153,0.961107690784153,0.9771623122871544,0.9890729351616165,0.996682610645794,0.9998903974736826,0.9983233373075441,0.9914989658379114,0.9795249976544765,0.9625892296497713,0.9408126450656756,0.9146187831527196,0.8844064646814112,0.8506257453500651,0.7657434068331027,0.671519609379197,0.5784237473268526,0.4865649776723335,0.3964003142071558,0.31477449340992936,0.2541450041648112,0.2015016204470466,0.14808786235210436,0.10592712156620919,0.07542307660074267,0.05243430607610905,0.027862351851417996,0.013923977140564918,0.012446141475382302],"showlegend":true,"name":"y1","type":"scatter","xaxis":"x","line":{"width":1,"dash":"solid","color":"rgba(0, 154, 250, 1.000)","shape":"linear"},"x":[-2.9707025429406357,-2.941405085881271,-2.670507791435517,-2.399610496989763,-2.3182115057838866,-2.23681251457801,-2.1554135233721334,-2.074014532166257,-1.9363709099358313,-1.7987272877054057,-1.6492077337535487,-1.4996881798016914,-1.3618443762969612,-1.224000572792231,-1.076217447176646,-0.928434321561061,-0.7572130777649336,-0.5859918339688063,-0.5099112163100725,-0.4338305986513388,-0.357749980992605,-0.2816693633338713,-0.21495351769007348,-0.14823767204627564,-0.08152182640247779,-0.014805980758679935,0.05793219941396923,0.1306703795866184,0.20340855975926758,0.27614673993191674,0.3493172230781557,0.42248770622439463,0.49565818937063355,0.5688286725168725,0.730627324131649,0.8924259757464256,1.0463733101077433,1.2003206444690608,1.360390152768582,1.5204596610681032,1.655204091534587,1.7899485220010707,1.9544561989596276,2.1189638759181846,2.273605944345218,2.4282480127722508,2.6759965984343053,2.9237451840963593,2.96187259204818],"mode":"lines"}],
                {"yaxis":{"type":"-","titlefont":{"size":15,"color":"rgba(0, 0, 0, 1.000)","family":"sans-serif"},"title":"","tickfont":{"size":11,"color":"rgba(0, 0, 0, 1.000)","family":"sans-serif"},"ticks":"inside","tickmode":"array","showgrid":true,"tickvals":[0.25,0.5,0.75],"domain":[0.03762029746281716,0.9901574803149606],"ticktext":["0.25","0.50","0.75"],"tickangle":0,"zeroline":false,"linecolor":"rgba(0, 0, 0, 1.000)","tickcolor":"rgba(0, 0, 0, 1.000)","anchor":"x"},"annotations":[],"width":600,"plot_bgcolor":"rgba(255, 255, 255, 1.000)","showlegend":true,"legend":{"bgcolor":"rgba(255, 255, 255, 1.000)","y":1.0,"font":{"size":11,"color":"rgba(0, 0, 0, 1.000)","family":"sans-serif"},"bordercolor":"rgba(0, 0, 0, 1.000)","x":1.0},"xaxis":{"type":"-","titlefont":{"size":15,"color":"rgba(0, 0, 0, 1.000)","family":"sans-serif"},"title":"","tickfont":{"size":11,"color":"rgba(0, 0, 0, 1.000)","family":"sans-serif"},"ticks":"inside","tickmode":"array","showgrid":true,"tickvals":[-2.0,-1.0,0.0,1.0,2.0],"domain":[0.0658209390492855,0.9934383202099738],"ticktext":["-2","-1","0","1","2"],"tickangle":0,"zeroline":false,"linecolor":"rgba(0, 0, 0, 1.000)","tickcolor":"rgba(0, 0, 0, 1.000)","anchor":"y"},"paper_bgcolor":"rgba(255, 255, 255, 1.000)","margin":{"r":0,"l":0,"b":0,"t":20},"height":400}, {showLink: false});
 
     });
@@ -13386,7 +13499,7 @@ a.hasLines(e)||l(t,e,d)),d("hoverinfo",1===f._dataLength?"a+b+c+text":void 0),"t
 </div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="prompt input_prompt">In&nbsp;[15]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="c"># We can add to the current plot with the `plot!` function:</span>
@@ -13408,23 +13521,23 @@ a.hasLines(e)||l(t,e,d)),d("hoverinfo",1===f._dataLength?"a+b+c+text":void 0),"t
 <div class="prompt"></div>
 
 <div class="output_subarea output_stream output_stderr output_text">
-<pre>WARNING: Method definition f(Any) in module Main at In[1]:3 overwritten at In[2]:1.
+<pre>WARNING: Method definition f(Any) in module Main at In[14]:3 overwritten at In[15]:2.
 </pre>
 </div>
 </div>
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[2]:</div>
+<div class="prompt output_prompt">Out[15]:</div>
 
 
 <div class="output_html rendered_html output_subarea output_execute_result">
-<div id="3b5f07e7-7d14-4fa5-be20-c0461161b867" class="plotly-graph-div"></div>
+<div id="48448644-66f5-4b3c-b584-c7869b142322" class="plotly-graph-div"></div>
 
 <script>
     window.PLOTLYENV=window.PLOTLYENV || {};
     window.PLOTLYENV.BASE_URL="https://plot.ly";
     require(['plotly'], function(Plotly) {
-        Plotly.newPlot('3b5f07e7-7d14-4fa5-be20-c0461161b867', [{"yaxis":"y","y":[0.29297035407720545,0.29473404586298735,0.2965039942879808,0.2982801847060358,0.300062602106923,0.30185123111503886,0.30274787006671006,0.3036460559881297,0.30409572843049687,0.30454578685402073,0.30477096072853377,0.30499623100193624,0.3051089022781242,0.305221597641907,0.3053343170892303,0.30544706061603444,0.3064906772759416,0.30753634906468835,0.30858407270397503,0.3096338448740385,0.31173952131967175,0.31385335101135015,0.31810535722860883,0.32238963099867984,0.3310539970226743,0.3398443716675946,0.3577939559280253,0.3762182159997392,0.3950940970193111,0.4143956272439617,0.42419709360073604,0.4340939055209165,0.43907680146623873,0.4440819935724684,0.44659278331188024,0.449108944833642,0.4503690185138454,0.45163040925310116,0.4528931083313294,0.45415710698474243,0.45491733898455594,0.45567803522802275,0.4564391937903436,0.45720081274103974,0.45872542405727273,0.460251853619469,0.4633101047999234,0.466375440015145,0.47252685027394054,0.47870504550183557,0.4911375213524694,0.5036641033927663,0.5162756720847458,0.5289627602347385,0.5353315726674136,0.5417155616951568,0.544912849108356,0.5481134501787973,0.5497149425233931,0.5513172021545266,0.5521186132883341,0.552920208537247,0.5537219853225711,0.5545239410609042,0.5552021221297156,0.5558804277059891,0.5565588562204861,0.5572374061015842,0.5585948636652038,0.5599527877763781,0.5626699849705771,0.5653888959670049,0.5708314495177061,0.576279622847262,0.5871894802618014,0.5981116811451572,0.6090392989438005,0.6199652740972909,0.6254254048715585,0.6308824208567052,0.6336094745902813,0.6363354052899851,0.6376979133675963,0.6390600972723881,0.6397410631215686,0.6404219424782167,0.6411027335225296,0.6417834344331055,0.6425227621565011,0.6432619790316172,0.6440010827173979,0.6447400708706044,0.646217691195492,0.6476948212171432,0.6506475350236073,0.6535980612998153,0.6594919446676752,0.6653752530378569,0.6771052326790425,0.6887781037327103,0.7003838633718092,0.7119124160541995,0.7176445630232051,0.7233535875551138,0.7261990285002091,0.729038207943209,0.7304553993913225,0.7318709651907189,0.7325781321874532,0.7332848852291896,0.7339912218004474,0.7346971393851909,0.7353475596004222,0.7359976195991088,0.7366473174086174,0.7372966510559547,0.7385942179703989,0.7398903045516619,0.742477973526147,0.7450595315560407,0.7502038087628305,0.7553221236234917,0.7654768134963603,0.7755154949159904,0.7854300680252332,0.795212450067268,0.8000515509106089,0.804854586194939,0.8072422664141538,0.8096205552135939,0.8108061388852219,0.8119893279936825,0.8125800197295744,0.8131701069978523,0.8137595878580921,0.8143484603707768,0.8149791160083208,0.8156090677887678,0.8162383133256265,0.8168668502336605,0.8181217886286772,0.8193738639176044,0.8218693490580221,0.824353153634641,0.8292851148287153,0.8341685388051074,0.8437849732552356,0.8531929259925677,0.871345914258677,0.8885540805119617,0.9244128072601779,0.9540199749390245,0.9745306764296434,0.9891834928010919,0.9969923278561295,0.9999699506498015,0.9976621674276029,0.9896012965057607,0.975829083758545,0.9566155082090031,0.9294387376131615,0.8965761056956201,0.8791348901095793,0.8606338478265487,0.8510113101433947,0.8411547063720977,0.8361419576833083,0.8310747048668279,0.8285210628529961,0.8259543039418386,0.8246660589832078,0.8233745988577257,0.8227276697973485,0.822079944976594,0.8214314270760996,0.820782118778163,0.8201061535159526,0.8194293396618527,0.8187516802366457,0.8180731782629673,0.8167136587698709,0.8153508053998637,0.8126151940387234,0.8098665384696103,0.8043308739321109,0.7987453740471595,0.7874311444916149,0.7759364466231641,0.7642739320416563,0.7524562842791169,0.746493252227308,0.7404961962211153,0.7374854044437498,0.7344667006813916,0.732954443596034,0.7314402826411651,0.7306824959273223,0.7299242425021601,0.7291655254494004,0.7284063478519464,0.7277669272738609,0.7271271843732892,0.7264871209877553,0.725846738954335,0.7245650262898435,0.7232820610671253,0.7207124316573756,0.7181379680642669,0.7129750069934262,0.7077941136827225,0.6973822604072363,0.6869098381110453,0.6763842223393497,0.6658127260181583,0.6605120388280252,0.6552025913855325,0.652544861823902,0.6498852766400132,0.6485548228207145,0.6472239466094374,0.6465583544176936,0.6458926617982297,0.6452268704715525,0.6445609821567562,0.6437478790104456,0.6429346369802884,0.6421212591860528,0.6413077487443006,0.6396803423683495,0.6380524427200931,0.6347952628142798,0.6315364069078957,0.6250144542609406,0.6184881501460412,0.6054286746701696,0.5923701984231093,0.5793246772463041,0.5663037886034938,0.559806150788976,0.5533189162971903,0.5500796306863103,0.5468434598775765,0.5452265952934778,0.5436105725737724,0.5428028834436605,0.5419954126062833,0.5411881626600048,0.540381136198122,0.5396227136165415,0.5388644929511366,0.5381064763437597,0.5373486659322726,0.5358336722284148,0.5343195288623448,0.5312938609126531,0.5282717969737781,0.5222390154747596,0.516222242518551,0.5042408694775101,0.49233579848516085,0.4805148674196573,0.4687856253872015,0.4629576665767671,0.4571553274339981,0.4542640347831973,0.451379468143853,0.4499397398022128,0.4485017320834784,0.4477833774872398,0.44706545787286966,0.4463479748393845,0.44563092998114123,0.44448308580737816,0.443336376867635,0.4421908096429762,0.44104639058367956,0.43876102260819266,0.4364803239266778,0.43193313591583743,0.42740522453815344,0.41840878390994285,0.4094940268135456,0.39192102306062726,0.3747078516150216,0.3578741017560103,0.34143732314675374,0.3333727292238061,0.3254130453308159,0.32147305890296746,0.3175599017736076,0.3156134422140509,0.31367375865565794,0.3127064647421,0.31174087300840414,0.31077698612005844,0.3098148067133357,0.30966688334567855,0.30951900048899367,0.30937115815270577,0.30922335634622355,0.30892787436022845,0.30863255460595035,0.308042402091008,0.3074528993957152,0.30627584582051265,0.30510139855159174,0.30276034128526064,0.30042976363936946,0.29810970059948705,0.2958001860987683,0.2935012530227135],"showlegend":true,"name":"y1","type":"scatter","xaxis":"x","line":{"width":1,"dash":"solid","color":"rgba(0, 154, 250, 1.000)","shape":"linear"},"x":[-1.5669612986337897,-1.5631262704726832,-1.5592912423115766,-1.5554562141504698,-1.551621185989363,-1.5477861578282561,-1.5458686437477027,-1.5439511296671493,-1.5429923726268726,-1.542033615586596,-1.5415542370664577,-1.5410748585463194,-1.5408351692862503,-1.5405954800261812,-1.540355790766112,-1.5401161015060427,-1.5378998281984693,-1.535683554890896,-1.5334672815833228,-1.5312510082757496,-1.526818461660603,-1.5223859150454566,-1.5135208218151637,-1.5046557285848707,-1.4869255421242846,-1.4691953556636985,-1.4337349827425263,-1.398274609821354,-1.3628142369001819,-1.3273538639790097,-1.3096236775184236,-1.2918934910578375,-1.2830283978275445,-1.2741633045972514,-1.2697307579821047,-1.2652982113669582,-1.263081938059385,-1.2608656647518117,-1.2586493914442385,-1.2564331181366653,-1.2551012302575923,-1.2537693423785194,-1.2524374544994465,-1.2511055666203736,-1.2484417908622278,-1.2457780151040818,-1.24045046358779,-1.2351229120714984,-1.2244678090389152,-1.2138127060063317,-1.192502499941165,-1.1711922938759982,-1.1498820878108313,-1.1285718817456645,-1.117916778713081,-1.1072616756804976,-1.101934124164206,-1.0966065726479144,-1.0939427968897686,-1.0912790211316228,-1.0899471332525499,-1.088615245373477,-1.087283357494404,-1.085951469615331,-1.0848253753642565,-1.0836992811131818,-1.0825731868621074,-1.081447092611033,-1.079194904108884,-1.076942715606735,-1.0724383386024372,-1.0679339615981394,-1.0589252075895437,-1.049916453580948,-1.0318989455637566,-1.0138814375465652,-0.9958639295293737,-0.9778464215121823,-0.9688376675035866,-0.9598289134949909,-0.955324536490693,-0.9508201594863952,-0.9485679709842463,-0.9463157824820974,-0.9451896882310229,-0.9440635939799484,-0.942937499728874,-0.9418114054777994,-0.9405881514875307,-0.9393648974972619,-0.9381416435069933,-0.9369183895167246,-0.9344718815361872,-0.9320253735556498,-0.9271323575945751,-0.9222393416335004,-0.9124533097113509,-0.9026672777892013,-0.8830952139449022,-0.8635231501006032,-0.8439510862563042,-0.8243790224120051,-0.8145929904898556,-0.804806958567706,-0.7999139426066313,-0.7950209266455566,-0.7925744186650192,-0.7901279106844818,-0.7889046566942132,-0.7876814027039445,-0.7864581487136757,-0.785234894723407,-0.7841071627431119,-0.7829794307628167,-0.7818516987825216,-0.7807239668022264,-0.7784685028416362,-0.7762130388810459,-0.7717021109598653,-0.7671911830386847,-0.7581693271963236,-0.7491474713539624,-0.7311037596692401,-0.7130600479845178,-0.6950163362997955,-0.6769726246150732,-0.6679507687727121,-0.6589289129303509,-0.6544179850091704,-0.6499070570879898,-0.6476515931273995,-0.6453961291668092,-0.6442683971865141,-0.6431406652062189,-0.6420129332259238,-0.6408852012456286,-0.6396761533764659,-0.6384671055073032,-0.6372580576381406,-0.6360490097689779,-0.6336309140306526,-0.6312128182923273,-0.6263766268156767,-0.6215404353390261,-0.611868052385725,-0.6021956694324238,-0.5828509035258213,-0.5635061376192187,-0.5248166058060137,-0.48612707399280886,-0.3964758403847387,-0.3068246067766686,-0.22715317027091797,-0.14748173376516732,-0.07761706358097205,-0.007752393396776782,0.06841885075851831,0.1445900949138134,0.22121404568442676,0.29783799645504017,0.38255557233399295,0.4672731482129457,0.5075764661020495,0.5478797839911534,0.5680314429357054,0.5881831018802574,0.5982589313525333,0.6083347608248093,0.6133726755609473,0.6184105902970853,0.6209295476651543,0.6234485050332232,0.6247079837172578,0.6259674624012923,0.6272269410853268,0.6284864197693613,0.6297959853718027,0.631105550974244,0.6324151165766855,0.6337246821791269,0.6363438133840098,0.6389629445888927,0.6442012069986583,0.649439469408424,0.6599159942279553,0.6703925190474866,0.6913455686865494,0.7122986183256121,0.7332516679646749,0.7542047176037376,0.764681242423269,0.7751577672428004,0.780396029652566,0.7856342920623318,0.7882534232672147,0.7908725544720975,0.7921821200745389,0.7934916856769803,0.7948012512794217,0.7961108168818631,0.7972131921757841,0.7983155674697051,0.7994179427636261,0.800520318057547,0.8027250686453888,0.8049298192332308,0.8093393204089145,0.8137488215845984,0.822567823935966,0.8313868262873336,0.849024830990069,0.8666628356928042,0.8843008403955395,0.9019388450982748,0.9107578474496425,0.9195768498010101,0.9239863509766939,0.9283958521523776,0.9306006027402196,0.9328053533280615,0.9339077286219823,0.9350101039159033,0.9361124792098243,0.9372148545037453,0.9385607297886207,0.939906605073496,0.9412524803583713,0.9425983556432467,0.9452901062129972,0.9479818567827479,0.9533653579222492,0.9587488590617506,0.9695158613407532,0.9802828636197558,1.001816868177761,1.0233508727357663,1.0448848772937716,1.0664188818517768,1.0771858841307793,1.087952886409782,1.0933363875492834,1.0987198886887848,1.1014116392585354,1.104103389828286,1.1054492651131613,1.1067951403980367,1.1081410156829121,1.1094868909677873,1.110752053431606,1.1120172158954245,1.113282378359243,1.1145475408230614,1.1170778657506983,1.1196081906783353,1.1246688405336092,1.129729490388883,1.1398507900994308,1.1499720898099786,1.1702146892310743,1.19045728865217,1.2106998880732658,1.2309424874943615,1.2410637872049093,1.2511850869154573,1.2562457367707314,1.2613063866260052,1.2638367115536422,1.2663670364812791,1.2676321989450976,1.268897361408916,1.2701625238727345,1.271427686336553,1.273454574713254,1.275481463089955,1.2775083514666559,1.2795352398433568,1.2835890165967587,1.2876427933501606,1.2957503468569644,1.3038579003637685,1.3200730073773763,1.336288114390984,1.3687183284181994,1.4011485424454149,1.4335787564726303,1.4660089704998458,1.4822240775134534,1.4984391845270613,1.5065467380338653,1.514654291540669,1.518708068294071,1.522761845047473,1.5247887334241739,1.5268156218008748,1.5288425101775758,1.5308693985542767,1.5311813276811566,1.5314932568080364,1.5318051859349162,1.532117115061796,1.5327409733155557,1.5333648315693154,1.5346125480768347,1.5358602645843542,1.538355697599393,1.5408511306144317,1.5458419966445092,1.5508328626745866,1.5558237287046641,1.5608145947347416,1.565805460764819],"mode":"lines"},{"yaxis":"y","y":[-0.2276838557080465,-0.22168186872091988,-0.2156945891747899,-0.2097220170696561,-0.2037641524055187,-0.19782099518237772,-0.19189254540023315,-0.18597880305908565,-0.1319944307816341,-0.07926749655189069,-0.027798000369856135,0.02241405776447003,0.07136867785108747,0.1190658598899963,0.16550560388119662,0.21068790982468832,0.26332935736879326,0.3141543053827387,0.36316275386652497,0.4103547028201515,0.48602221529925516,0.556495638255966,0.6271638846201655,0.69170308005436,0.7457726839841585,0.794633079412175,0.8412304164327351,0.8818402339655951,0.9026265119415324,0.9214034539956076,0.9381710601278206,0.9529293303381713,0.9742007186179357,0.9891245691028101,0.9969877957205336,0.9999699501983108,0.9976594304304418,0.9895468522264073,0.9755321729959642,0.9556462639338238,0.9268256170381055,0.8908279024795812,0.8499138711469035,0.8025024100827451,0.746315339165712,0.6831037836218463,0.6543979725379374,0.6244477646144537,0.593253159851395,0.5608141582487618,0.5195227536467256,0.4763764956354727,0.4313753842150031,0.38451941938531664,0.33878209632903533,0.29140572194746195,0.24239029624059683,0.19173581920843985,0.10716703766869429,0.018391381001544693,-0.07459115079300882,-0.17178055771496648,-0.18711110335788628,-0.20254128397572657,-0.2180710995684878],"showlegend":true,"name":"y2","type":"scatter","xaxis":"x","line":{"width":1,"dash":"solid","color":"rgba(227, 111, 71, 1.000)","shape":"linear"},"x":[-1.5669612986337897,-1.5631262704726832,-1.5592912423115766,-1.5554562141504698,-1.551621185989363,-1.5477861578282561,-1.5439511296671493,-1.5401161015060427,-1.5046557285848707,-1.4691953556636985,-1.4337349827425263,-1.398274609821354,-1.3628142369001819,-1.3273538639790097,-1.2918934910578375,-1.2564331181366653,-1.2138127060063317,-1.1711922938759982,-1.1285718817456645,-1.085951469615331,-1.0138814375465652,-0.9418114054777994,-0.8635231501006032,-0.785234894723407,-0.7130600479845178,-0.6408852012456286,-0.5635061376192187,-0.48612707399280886,-0.4413014571887738,-0.3964758403847387,-0.35165022358070364,-0.3068246067766686,-0.22715317027091797,-0.14748173376516732,-0.07761706358097205,-0.007752393396776782,0.06841885075851831,0.1445900949138134,0.22121404568442676,0.29783799645504017,0.38255557233399295,0.4672731482129457,0.5478797839911534,0.6284864197693613,0.7122986183256121,0.7961108168818631,0.8313868262873336,0.8666628356928042,0.9019388450982748,0.9372148545037453,0.9802828636197558,1.0233508727357663,1.0664188818517768,1.1094868909677873,1.1499720898099786,1.19045728865217,1.2309424874943615,1.271427686336553,1.336288114390984,1.4011485424454149,1.4660089704998458,1.5308693985542767,1.5408511306144317,1.5508328626745866,1.5608145947347416],"mode":"lines"}],
+        Plotly.newPlot('48448644-66f5-4b3c-b584-c7869b142322', [{"yaxis":"y","y":[0.2920908589017111,0.29297035407720545,0.29385141698899664,0.29473404586298735,0.29561823890244915,0.2965039942879808,0.2973913101774666,0.2982801847060358,0.2991706159860221,0.300062602106923,0.30095614113536,0.30185123111503886,0.30274787006671006,0.3036460559881297,0.3038708439456772,0.30409572843049687,0.3043207094106282,0.30454578685402073,0.3046583617393995,0.30477096072853377,0.3048835838173918,0.30499623100193624,0.3051089022781242,0.305221597641907,0.3053343170892303,0.30544706061603444,0.3064906772759416,0.30753634906468835,0.30858407270397503,0.3096338448740385,0.31173952131967175,0.31385335101135015,0.31810535722860883,0.32238963099867984,0.326705928994908,0.3310539970226743,0.33543356995433105,0.3398443716675946,0.3487585016317734,0.3577939559280253,0.3669481243194428,0.3762182159997392,0.3856012585269927,0.3950940970193111,0.40469339362056744,0.4143956272439617,0.42419709360073604,0.4340939055209165,0.4365825333515515,0.43907680146623873,0.44157664379772493,0.4440819935724684,0.4453367126915081,0.44659278331188024,0.44785019688881406,0.449108944833642,0.4503690185138454,0.45163040925310116,0.4528931083313294,0.45415710698474243,0.45491733898455594,0.45567803522802275,0.4564391937903436,0.45720081274103974,0.45872542405727273,0.460251853619469,0.4633101047999234,0.466375440015145,0.47252685027394054,0.47870504550183557,0.4911375213524694,0.5036641033927663,0.5162756720847458,0.5289627602347385,0.5353315726674136,0.5417155616951568,0.544912849108356,0.5481134501787973,0.5497149425233931,0.5513172021545266,0.5521186132883341,0.552920208537247,0.5537219853225711,0.5545239410609042,0.5552021221297156,0.5558804277059891,0.5565588562204861,0.5572374061015842,0.5585948636652038,0.5599527877763781,0.5613111657768175,0.5626699849705771,0.564029232624224,0.5653888959670049,0.5708314495177061,0.576279622847262,0.5817325810864702,0.5871894802618014,0.5926494674845091,0.5981116811451572,0.6035752511135192,0.6090392989438005,0.6145029380851333,0.6199652740972909,0.6226956718143616,0.6254254048715585,0.6281543593441649,0.6308824208567052,0.6336094745902813,0.6363354052899851,0.6376979133675963,0.6390600972723881,0.6397410631215686,0.6404219424782167,0.6411027335225296,0.6417834344331055,0.6425227621565011,0.6432619790316172,0.6440010827173979,0.6447400708706044,0.646217691195492,0.6476948212171432,0.6506475350236073,0.6535980612998153,0.6565462485265445,0.6594919446676752,0.6624349971824512,0.6653752530378569,0.6771052326790425,0.6887781037327103,0.694590001439951,0.7003838633718092,0.70615842479466,0.7119124160541995,0.7176445630232051,0.7233535875551138,0.7261990285002091,0.729038207943209,0.7297470056167197,0.7304553993913225,0.7311633867538991,0.7318709651907189,0.7325781321874532,0.7332848852291896,0.7339912218004474,0.7346971393851909,0.7353475596004222,0.7359976195991088,0.7366473174086174,0.7372966510559547,0.7385942179703989,0.7398903045516619,0.7411848950038258,0.742477973526147,0.74376952431337,0.7450595315560407,0.7476348521508085,0.7502038087628305,0.7527662747975217,0.7553221236234917,0.7604134630009145,0.7654768134963603,0.7705111617787267,0.7755154949159904,0.7804888007086807,0.7854300680252332,0.7903382871390725,0.795212450067268,0.7976364460275251,0.8000515509106089,0.8024576393606997,0.804854586194939,0.8072422664141538,0.8096205552135939,0.8108061388852219,0.8119893279936825,0.8125800197295744,0.8131701069978523,0.8137595878580921,0.8143484603707768,0.8149791160083208,0.8156090677887678,0.8162383133256265,0.8168668502336605,0.8174946761289043,0.8181217886286772,0.818748185351599,0.8193738639176044,0.8206230570652701,0.8218693490580221,0.8231127209042057,0.824353153634641,0.8292851148287153,0.8341685388051074,0.8437849732552356,0.8531929259925677,0.8623829932906996,0.871345914258677,0.8800725863123846,0.8885540805119617,0.9072171080937163,0.9244128072601779,0.9400436770298471,0.9540199749390245,0.9649861468929065,0.9745306764296434,0.9826090845055355,0.9891834928010919,0.9936863319233897,0.9969923278561295,0.9990894218050815,0.9999699506498015,0.9976621674276029,0.9896012965057607,0.975829083758545,0.9566155082090031,0.9294387376131615,0.8965761056956201,0.8791348901095793,0.8606338478265487,0.85585249783849,0.8510113101433947,0.8461116033648193,0.8411547063720977,0.8361419576833083,0.8310747048668279,0.8285210628529961,0.8259543039418386,0.8253105846955032,0.8246660589832078,0.8240207294787663,0.8233745988577257,0.8227276697973485,0.822079944976594,0.8214314270760996,0.820782118778163,0.8201061535159526,0.8194293396618527,0.8187516802366457,0.8180731782629673,0.817393836765284,0.8167136587698709,0.8160326473047891,0.8153508053998637,0.8126151940387234,0.8098665384696103,0.8043308739321109,0.7987453740471595,0.7931116066629957,0.7874311444916149,0.7817055643864903,0.7759364466231641,0.770125374183159,0.7642739320416563,0.7583837064593797,0.7524562842791169,0.746493252227308,0.7404961962211153,0.738991801693641,0.7374854044437498,0.7359770292000676,0.7344667006813916,0.7337108116657061,0.732954443596034,0.7321975995591685,0.7314402826411651,0.7306824959273223,0.7299242425021601,0.7291655254494004,0.7284063478519464,0.7277669272738609,0.7271271843732892,0.7264871209877553,0.725846738954335,0.7245650262898435,0.7232820610671253,0.7207124316573756,0.7181379680642669,0.7155587874904485,0.7129750069934262,0.7103867434769957,0.7077941136827225,0.7025962213649609,0.6973822604072363,0.6921531580436217,0.6869098381110453,0.6816532207884521,0.6763842223393497,0.6711037548578295,0.6658127260181583,0.6605120388280252,0.6552025913855325,0.653873965494487,0.652544861823902,0.6512152942531243,0.6498852766400132,0.6492201033922325,0.6485548228207145,0.6478894366515483,0.6472239466094374,0.6465583544176936,0.6458926617982297,0.6452268704715525,0.6445609821567562,0.6437478790104456,0.6429346369802884,0.6421212591860528,0.6413077487443006,0.6396803423683495,0.6380524427200931,0.6347952628142798,0.6315364069078957,0.6250144542609406,0.6184881501460412,0.6054286746701696,0.5923701984231093,0.5793246772463041,0.5663037886034938,0.559806150788976,0.5533189162971903,0.5500796306863103,0.5468434598775765,0.5452265952934778,0.5436105725737724,0.5428028834436605,0.5419954126062833,0.5411881626600048,0.540381136198122,0.5396227136165415,0.5388644929511366,0.5381064763437597,0.5373486659322726,0.5358336722284148,0.5343195288623448,0.5312938609126531,0.5282717969737781,0.5252534708946418,0.5222390154747596,0.5192285624566714,0.516222242518551,0.5042408694775101,0.49233579848516085,0.4864143368088106,0.4805148674196573,0.474638324884866,0.4687856253872015,0.4658684980207041,0.4629576665767671,0.46005324034344763,0.4571553274339981,0.45570884693897384,0.4542640347831973,0.45282090414880544,0.451379468143853,0.4499397398022128,0.4485017320834784,0.4477833774872398,0.44706545787286966,0.4463479748393845,0.44563092998114123,0.44448308580737816,0.443336376867635,0.4421908096429762,0.44104639058367956,0.43876102260819266,0.4364803239266778,0.43193313591583743,0.42740522453815344,0.41840878390994285,0.4094940268135456,0.4006638502303771,0.39192102306062726,0.3832681860048899,0.3747078516150216,0.3578741017560103,0.34143732314675374,0.3373920191320684,0.3333727292238061,0.32937966875137137,0.3254130453308159,0.32147305890296746,0.3175599017736076,0.3156134422140509,0.31367375865565794,0.3127064647421,0.31174087300840414,0.31077698612005844,0.3098148067133357,0.30966688334567855,0.30951900048899367,0.30937115815270577,0.30922335634622355,0.3090755950789391,0.30892787436022845,0.3087801941994511,0.30863255460595035,0.308042402091008,0.3074528993957152,0.30627584582051265,0.30510139855159174,0.30276034128526064,0.30042976363936946,0.29810970059948705,0.2958001860987683,0.2935012530227135],"showlegend":true,"name":"y1","type":"scatter","xaxis":"x","line":{"width":1,"dash":"solid","color":"rgba(0, 154, 250, 1.000)","shape":"linear"},"x":[-1.5688788127143432,-1.5669612986337897,-1.5650437845532363,-1.5631262704726832,-1.56120875639213,-1.5592912423115766,-1.5573737282310232,-1.5554562141504698,-1.5535387000699163,-1.551621185989363,-1.5497036719088095,-1.5477861578282561,-1.5458686437477027,-1.5439511296671493,-1.543471751147011,-1.5429923726268726,-1.5425129941067341,-1.542033615586596,-1.5417939263265268,-1.5415542370664577,-1.5413145478063885,-1.5410748585463194,-1.5408351692862503,-1.5405954800261812,-1.540355790766112,-1.5401161015060427,-1.5378998281984693,-1.535683554890896,-1.5334672815833228,-1.5312510082757496,-1.526818461660603,-1.5223859150454566,-1.5135208218151637,-1.5046557285848707,-1.4957906353545778,-1.4869255421242846,-1.4780604488939915,-1.4691953556636985,-1.4514651692031124,-1.4337349827425263,-1.4160047962819402,-1.398274609821354,-1.380544423360768,-1.3628142369001819,-1.3450840504395958,-1.3273538639790097,-1.3096236775184236,-1.2918934910578375,-1.287460944442691,-1.2830283978275445,-1.278595851212398,-1.2741633045972514,-1.271947031289678,-1.2697307579821047,-1.2675144846745314,-1.2652982113669582,-1.263081938059385,-1.2608656647518117,-1.2586493914442385,-1.2564331181366653,-1.2551012302575923,-1.2537693423785194,-1.2524374544994465,-1.2511055666203736,-1.2484417908622278,-1.2457780151040818,-1.24045046358779,-1.2351229120714984,-1.2244678090389152,-1.2138127060063317,-1.192502499941165,-1.1711922938759982,-1.1498820878108313,-1.1285718817456645,-1.117916778713081,-1.1072616756804976,-1.101934124164206,-1.0966065726479144,-1.0939427968897686,-1.0912790211316228,-1.0899471332525499,-1.088615245373477,-1.087283357494404,-1.085951469615331,-1.0848253753642565,-1.0836992811131818,-1.0825731868621074,-1.081447092611033,-1.079194904108884,-1.076942715606735,-1.0746905271045861,-1.0724383386024372,-1.0701861501002883,-1.0679339615981394,-1.0589252075895437,-1.049916453580948,-1.0409076995723523,-1.0318989455637566,-1.022890191555161,-1.0138814375465652,-1.0048726835379695,-0.9958639295293737,-0.986855175520778,-0.9778464215121823,-0.9733420445078844,-0.9688376675035866,-0.9643332904992887,-0.9598289134949909,-0.955324536490693,-0.9508201594863952,-0.9485679709842463,-0.9463157824820974,-0.9451896882310229,-0.9440635939799484,-0.942937499728874,-0.9418114054777994,-0.9405881514875307,-0.9393648974972619,-0.9381416435069933,-0.9369183895167246,-0.9344718815361872,-0.9320253735556498,-0.9271323575945751,-0.9222393416335004,-0.9173463256724257,-0.9124533097113509,-0.907560293750276,-0.9026672777892013,-0.8830952139449022,-0.8635231501006032,-0.8537371181784537,-0.8439510862563042,-0.8341650543341547,-0.8243790224120051,-0.8145929904898556,-0.804806958567706,-0.7999139426066313,-0.7950209266455566,-0.7937976726552879,-0.7925744186650192,-0.7913511646747505,-0.7901279106844818,-0.7889046566942132,-0.7876814027039445,-0.7864581487136757,-0.785234894723407,-0.7841071627431119,-0.7829794307628167,-0.7818516987825216,-0.7807239668022264,-0.7784685028416362,-0.7762130388810459,-0.7739575749204556,-0.7717021109598653,-0.769446646999275,-0.7671911830386847,-0.7626802551175041,-0.7581693271963236,-0.753658399275143,-0.7491474713539624,-0.7401256155116013,-0.7311037596692401,-0.722081903826879,-0.7130600479845178,-0.7040381921421567,-0.6950163362997955,-0.6859944804574344,-0.6769726246150732,-0.6724616966938927,-0.6679507687727121,-0.6634398408515315,-0.6589289129303509,-0.6544179850091704,-0.6499070570879898,-0.6476515931273995,-0.6453961291668092,-0.6442683971865141,-0.6431406652062189,-0.6420129332259238,-0.6408852012456286,-0.6396761533764659,-0.6384671055073032,-0.6372580576381406,-0.6360490097689779,-0.6348399618998153,-0.6336309140306526,-0.63242186616149,-0.6312128182923273,-0.628794722554002,-0.6263766268156767,-0.6239585310773514,-0.6215404353390261,-0.611868052385725,-0.6021956694324238,-0.5828509035258213,-0.5635061376192187,-0.5441613717126162,-0.5248166058060137,-0.5054718398994114,-0.48612707399280886,-0.4413014571887738,-0.3964758403847387,-0.35165022358070364,-0.3068246067766686,-0.2669888885237933,-0.22715317027091797,-0.18731745201804265,-0.14748173376516732,-0.11254939867306968,-0.07761706358097205,-0.04268472848887442,-0.007752393396776782,0.06841885075851831,0.1445900949138134,0.22121404568442676,0.29783799645504017,0.38255557233399295,0.4672731482129457,0.5075764661020495,0.5478797839911534,0.5579556134634294,0.5680314429357054,0.5781072724079814,0.5881831018802574,0.5982589313525333,0.6083347608248093,0.6133726755609473,0.6184105902970853,0.6196700689811199,0.6209295476651543,0.6221890263491887,0.6234485050332232,0.6247079837172578,0.6259674624012923,0.6272269410853268,0.6284864197693613,0.6297959853718027,0.631105550974244,0.6324151165766855,0.6337246821791269,0.6350342477815684,0.6363438133840098,0.6376533789864512,0.6389629445888927,0.6442012069986583,0.649439469408424,0.6599159942279553,0.6703925190474866,0.680869043867018,0.6913455686865494,0.7018220935060808,0.7122986183256121,0.7227751431451435,0.7332516679646749,0.7437281927842063,0.7542047176037376,0.764681242423269,0.7751577672428004,0.7777768984476832,0.780396029652566,0.7830151608574489,0.7856342920623318,0.7869438576647733,0.7882534232672147,0.789562988869656,0.7908725544720975,0.7921821200745389,0.7934916856769803,0.7948012512794217,0.7961108168818631,0.7972131921757841,0.7983155674697051,0.7994179427636261,0.800520318057547,0.8027250686453888,0.8049298192332308,0.8093393204089145,0.8137488215845984,0.8181583227602822,0.822567823935966,0.8269773251116498,0.8313868262873336,0.8402058286387013,0.849024830990069,0.8578438333414367,0.8666628356928042,0.8754818380441718,0.8843008403955395,0.8931198427469071,0.9019388450982748,0.9107578474496425,0.9195768498010101,0.9217816003888519,0.9239863509766939,0.9261911015645358,0.9283958521523776,0.9294982274462986,0.9306006027402196,0.9317029780341406,0.9328053533280615,0.9339077286219823,0.9350101039159033,0.9361124792098243,0.9372148545037453,0.9385607297886207,0.939906605073496,0.9412524803583713,0.9425983556432467,0.9452901062129972,0.9479818567827479,0.9533653579222492,0.9587488590617506,0.9695158613407532,0.9802828636197558,1.001816868177761,1.0233508727357663,1.0448848772937716,1.0664188818517768,1.0771858841307793,1.087952886409782,1.0933363875492834,1.0987198886887848,1.1014116392585354,1.104103389828286,1.1054492651131613,1.1067951403980367,1.1081410156829121,1.1094868909677873,1.110752053431606,1.1120172158954245,1.113282378359243,1.1145475408230614,1.1170778657506983,1.1196081906783353,1.1246688405336092,1.129729490388883,1.134790140244157,1.1398507900994308,1.1449114399547047,1.1499720898099786,1.1702146892310743,1.19045728865217,1.2005785883627178,1.2106998880732658,1.2208211877838138,1.2309424874943615,1.2360031373496354,1.2410637872049093,1.2461244370601832,1.2511850869154573,1.2537154118430944,1.2562457367707314,1.2587760616983683,1.2613063866260052,1.2638367115536422,1.2663670364812791,1.2676321989450976,1.268897361408916,1.2701625238727345,1.271427686336553,1.273454574713254,1.275481463089955,1.2775083514666559,1.2795352398433568,1.2835890165967587,1.2876427933501606,1.2957503468569644,1.3038579003637685,1.3200730073773763,1.336288114390984,1.3525032214045916,1.3687183284181994,1.3849334354318072,1.4011485424454149,1.4335787564726303,1.4660089704998458,1.4741165240066496,1.4822240775134534,1.4903316310202572,1.4984391845270613,1.5065467380338653,1.514654291540669,1.518708068294071,1.522761845047473,1.5247887334241739,1.5268156218008748,1.5288425101775758,1.5308693985542767,1.5311813276811566,1.5314932568080364,1.5318051859349162,1.532117115061796,1.5324290441886759,1.5327409733155557,1.5330529024424355,1.5333648315693154,1.5346125480768347,1.5358602645843542,1.538355697599393,1.5408511306144317,1.5458419966445092,1.5508328626745866,1.5558237287046641,1.5608145947347416,1.565805460764819],"mode":"lines"},{"yaxis":"y","y":[-0.22168186872091988,-0.2097220170696561,-0.19782099518237772,-0.18597880305908565,-0.07926749655189069,0.02241405776447003,0.1190658598899963,0.21068790982468832,0.3141543053827387,0.4103547028201515,0.48602221529925516,0.556495638255966,0.6271638846201655,0.69170308005436,0.7457726839841585,0.794633079412175,0.8412304164327351,0.8818402339655951,0.9214034539956076,0.9529293303381713,0.9742007186179357,0.9891245691028101,0.9969877957205336,0.9999699501983108,0.9976594304304418,0.9895468522264073,0.9755321729959642,0.9556462639338238,0.9268256170381055,0.8908279024795812,0.8499138711469035,0.8025024100827451,0.746315339165712,0.6831037836218463,0.6244477646144537,0.5608141582487618,0.4763764956354727,0.38451941938531664,0.29140572194746195,0.19173581920843985,0.10716703766869429,0.018391381001544693,-0.07459115079300882,-0.17178055771496648,-0.18711110335788628,-0.20254128397572657,-0.2180710995684878],"showlegend":true,"name":"y2","type":"scatter","xaxis":"x","line":{"width":1,"dash":"solid","color":"rgba(227, 111, 71, 1.000)","shape":"linear"},"x":[-1.5631262704726832,-1.5554562141504698,-1.5477861578282561,-1.5401161015060427,-1.4691953556636985,-1.398274609821354,-1.3273538639790097,-1.2564331181366653,-1.1711922938759982,-1.085951469615331,-1.0138814375465652,-0.9418114054777994,-0.8635231501006032,-0.785234894723407,-0.7130600479845178,-0.6408852012456286,-0.5635061376192187,-0.48612707399280886,-0.3964758403847387,-0.3068246067766686,-0.22715317027091797,-0.14748173376516732,-0.07761706358097205,-0.007752393396776782,0.06841885075851831,0.1445900949138134,0.22121404568442676,0.29783799645504017,0.38255557233399295,0.4672731482129457,0.5478797839911534,0.6284864197693613,0.7122986183256121,0.7961108168818631,0.8666628356928042,0.9372148545037453,1.0233508727357663,1.1094868909677873,1.19045728865217,1.271427686336553,1.336288114390984,1.4011485424454149,1.4660089704998458,1.5308693985542767,1.5408511306144317,1.5508328626745866,1.5608145947347416],"mode":"lines"}],
                {"yaxis":{"type":"-","titlefont":{"size":15,"color":"rgba(0, 0, 0, 1.000)","family":"sans-serif"},"title":"","tickfont":{"size":11,"color":"rgba(0, 0, 0, 1.000)","family":"sans-serif"},"ticks":"inside","tickmode":"array","showgrid":true,"tickvals":[0.0,0.25,0.5,0.75],"domain":[0.03762029746281716,0.9901574803149606],"ticktext":["0.00","0.25","0.50","0.75"],"tickangle":0,"zeroline":false,"linecolor":"rgba(0, 0, 0, 1.000)","tickcolor":"rgba(0, 0, 0, 1.000)","anchor":"x"},"annotations":[],"width":600,"plot_bgcolor":"rgba(255, 255, 255, 1.000)","showlegend":true,"legend":{"bgcolor":"rgba(255, 255, 255, 1.000)","y":1.0,"font":{"size":11,"color":"rgba(0, 0, 0, 1.000)","family":"sans-serif"},"bordercolor":"rgba(0, 0, 0, 1.000)","x":1.0},"xaxis":{"type":"-","titlefont":{"size":15,"color":"rgba(0, 0, 0, 1.000)","family":"sans-serif"},"title":"","tickfont":{"size":11,"color":"rgba(0, 0, 0, 1.000)","family":"sans-serif"},"ticks":"inside","tickmode":"array","showgrid":true,"tickvals":[-1.0,0.0,1.0],"domain":[0.0658209390492855,0.9934383202099738],"ticktext":["-1","0","1"],"tickangle":0,"zeroline":false,"linecolor":"rgba(0, 0, 0, 1.000)","tickcolor":"rgba(0, 0, 0, 1.000)","anchor":"y"},"paper_bgcolor":"rgba(255, 255, 255, 1.000)","margin":{"r":0,"l":0,"b":0,"t":20},"height":400}, {showLink: false});
 
     });
