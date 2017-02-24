@@ -11710,10 +11710,8 @@ ul.typeahead-list > li > a {
 .highlight .mh { color: #666666 } /* Literal.Number.Hex */
 .highlight .mi { color: #666666 } /* Literal.Number.Integer */
 .highlight .mo { color: #666666 } /* Literal.Number.Oct */
-.highlight .sa { color: #BA2121 } /* Literal.String.Affix */
 .highlight .sb { color: #BA2121 } /* Literal.String.Backtick */
 .highlight .sc { color: #BA2121 } /* Literal.String.Char */
-.highlight .dl { color: #BA2121 } /* Literal.String.Delimiter */
 .highlight .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
 .highlight .s2 { color: #BA2121 } /* Literal.String.Double */
 .highlight .se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
@@ -11724,11 +11722,9 @@ ul.typeahead-list > li > a {
 .highlight .s1 { color: #BA2121 } /* Literal.String.Single */
 .highlight .ss { color: #19177C } /* Literal.String.Symbol */
 .highlight .bp { color: #008000 } /* Name.Builtin.Pseudo */
-.highlight .fm { color: #0000FF } /* Name.Function.Magic */
 .highlight .vc { color: #19177C } /* Name.Variable.Class */
 .highlight .vg { color: #19177C } /* Name.Variable.Global */
 .highlight .vi { color: #19177C } /* Name.Variable.Instance */
-.highlight .vm { color: #19177C } /* Name.Variable.Magic */
 .highlight .il { color: #666666 } /* Literal.Number.Integer.Long */
     </style>
 <style type="text/css">
@@ -12128,12 +12124,12 @@ a.anchor-link {
 <span class="c"># benchmark</span>
 <span class="c"># 1) same result?</span>
 <span class="k">using</span> <span class="n">Base</span><span class="o">.</span><span class="n">Test</span>
-<span class="nd">@test_approx_eq</span> <span class="n">u</span><span class="p">(</span><span class="mf">1.1</span><span class="p">,</span><span class="mf">0.8</span><span class="p">)</span> <span class="n">u2</span><span class="p">(</span><span class="mf">1.1</span><span class="p">,</span><span class="mf">0.8</span><span class="p">)</span>
+<span class="p">@</span><span class="n">test_approx_eq</span> <span class="n">u</span><span class="p">(</span><span class="mf">1.1</span><span class="p">,</span><span class="mf">0.8</span><span class="p">)</span> <span class="n">u2</span><span class="p">(</span><span class="mf">1.1</span><span class="p">,</span><span class="mf">0.8</span><span class="p">)</span>
 <span class="c"># 2) timing?</span>
 <span class="n">n</span> <span class="o">=</span> <span class="mf">1e7</span> 	<span class="c"># get a reasonable sample size</span>
-<span class="n">t1</span> <span class="o">=</span> <span class="nd">@elapsed</span> <span class="k">for</span> <span class="n">i</span> <span class="kp">in</span> <span class="mi">1</span><span class="o">:</span><span class="n">n</span> <span class="n">u</span><span class="p">(</span><span class="mf">1.1</span><span class="p">,</span><span class="mf">0.8</span><span class="p">)</span> <span class="k">end</span>
-<span class="n">t2</span> <span class="o">=</span> <span class="nd">@elapsed</span> <span class="k">for</span> <span class="n">i</span> <span class="kp">in</span> <span class="mi">1</span><span class="o">:</span><span class="n">n</span> <span class="n">u2</span><span class="p">(</span><span class="mf">1.1</span><span class="p">,</span><span class="mf">0.8</span><span class="p">)</span> <span class="k">end</span>
-<span class="n">println</span><span class="p">(</span><span class="s">&quot;u1 takes </span><span class="si">$</span><span class="p">(</span><span class="n">round</span><span class="p">(</span><span class="n">t1</span><span class="o">/</span><span class="n">t2</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span><span class="s"> times longer than u2&quot;</span><span class="p">)</span>
+<span class="n">t1</span> <span class="o">=</span> <span class="p">@</span><span class="n">elapsed</span> <span class="k">for</span> <span class="n">i</span> <span class="k">in</span> <span class="mi">1</span><span class="p">:</span><span class="n">n</span> <span class="n">u</span><span class="p">(</span><span class="mf">1.1</span><span class="p">,</span><span class="mf">0.8</span><span class="p">)</span> <span class="k">end</span>
+<span class="n">t2</span> <span class="o">=</span> <span class="p">@</span><span class="n">elapsed</span> <span class="k">for</span> <span class="n">i</span> <span class="k">in</span> <span class="mi">1</span><span class="p">:</span><span class="n">n</span> <span class="n">u2</span><span class="p">(</span><span class="mf">1.1</span><span class="p">,</span><span class="mf">0.8</span><span class="p">)</span> <span class="k">end</span>
+<span class="n">println</span><span class="p">(</span><span class="s">&quot;u1 takes </span><span class="si">$(round(t1/t2,2))</span><span class="s"> times longer than u2&quot;</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -12167,7 +12163,7 @@ a.anchor-link {
 <li>Infinity: A number greater than all representable numbers on your computer. <a href="http://docs.julialang.org/en/release-0.4/manual/integers-and-floating-point-numbers/?highlight=infinity#special-floating-point-values">Obeys some arithmethmic rules</a><ul>
 <li>Overflow: If you perform an operation where the result is greater than the largest representable number.</li>
 <li>Underflow: You take two (very small) representable numbers, but the result is smaller than <code>eps()</code>. </li>
-<li>In Julia, you are wrapped around the end of your representable space:<div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">typemax</span><span class="p">(</span><span class="kt">Int64</span><span class="p">)</span>
+<li>In Julia, you are wrapped around the end of your representable space:<div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="nb">typemax</span><span class="p">(</span><span class="kt">Int64</span><span class="p">)</span>
 <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span>
 </pre></div>
 </li>
@@ -12188,9 +12184,9 @@ a.anchor-link {
 <div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-julia"><pre><span></span><span class="k">for</span> <span class="n">T</span> <span class="kp">in</span> <span class="p">[</span><span class="kt">Int8</span><span class="p">,</span><span class="kt">Int16</span><span class="p">,</span><span class="kt">Int32</span><span class="p">,</span><span class="kt">Int64</span><span class="p">,</span><span class="kt">Int128</span><span class="p">,</span><span class="kt">UInt8</span><span class="p">,</span><span class="kt">UInt16</span><span class="p">,</span><span class="kt">UInt32</span><span class="p">,</span>
-		  <span class="kt">UInt64</span><span class="p">,</span><span class="kt">UInt128</span><span class="p">,</span><span class="kt">Float32</span><span class="p">,</span><span class="kt">Float64</span><span class="p">]</span>
-         <span class="n">println</span><span class="p">(</span><span class="s">&quot;</span><span class="si">$</span><span class="p">(</span><span class="n">lpad</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="mi">7</span><span class="p">))</span><span class="s">: [</span><span class="si">$</span><span class="p">(</span><span class="n">typemin</span><span class="p">(</span><span class="n">T</span><span class="p">))</span><span class="s">,</span><span class="si">$</span><span class="p">(</span><span class="n">typemax</span><span class="p">(</span><span class="n">T</span><span class="p">))</span><span class="s">]&quot;</span><span class="p">)</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="k">for</span> <span class="n">T</span> <span class="k">in</span> <span class="p">[</span><span class="kt">Int8</span><span class="p">,</span><span class="kt">Int16</span><span class="p">,</span><span class="kt">Int32</span><span class="p">,</span><span class="kt">Int64</span><span class="p">,</span><span class="n">Int128</span><span class="p">,</span><span class="n">UInt8</span><span class="p">,</span><span class="n">UInt16</span><span class="p">,</span><span class="n">UInt32</span><span class="p">,</span>
+		  <span class="n">UInt64</span><span class="p">,</span><span class="n">UInt128</span><span class="p">,</span><span class="kt">Float32</span><span class="p">,</span><span class="kt">Float64</span><span class="p">]</span>
+         <span class="n">println</span><span class="p">(</span><span class="s">&quot;</span><span class="si">$(lpad(T,7))</span><span class="s">: [</span><span class="si">$(typemin(T))</span><span class="s">,</span><span class="si">$(typemax(T))</span><span class="s">]&quot;</span><span class="p">)</span>
 <span class="k">end</span>
 </pre></div>
 
@@ -12284,14 +12280,14 @@ Float64: [-Inf,Inf]
 <li>The great thing is that you can create you own types. </li>
 <li>Going with the example from the wikibook, we could have types <code>Jaguar</code> and <code>Pussycat</code> as being subtypes of <code>feline</code>:</li>
 </ul>
-<div class="highlight"><pre><span></span><span class="k">abstract</span> <span class="n">Feline</span>
-<span class="k">type</span> <span class="n">Jaguar</span> <span class="o">&lt;:</span> <span class="n">Feline</span>
-    <span class="n">weight</span><span class="o">::</span><span class="kt">Float64</span>
-    <span class="n">sound</span><span class="o">::</span><span class="kt">AbstractString</span>
+<div class="highlight"><pre><span></span><span class="k">abstract</span><span class="nc"> Feline</span>
+<span class="k">type</span><span class="nc"> Jaguar</span> <span class="o">&lt;:</span> <span class="n">Feline</span>
+    <span class="n">weight</span><span class="p">::</span><span class="kt">Float64</span>
+    <span class="n">sound</span><span class="p">::</span><span class="n">AbstractString</span>
 <span class="k">end</span>
-<span class="k">type</span> <span class="n">Pussycat</span> <span class="o">&lt;:</span> <span class="n">Feline</span>
-    <span class="n">weight</span><span class="o">::</span><span class="kt">Float64</span>
-    <span class="n">sound</span><span class="o">::</span><span class="kt">AbstractString</span>
+<span class="k">type</span><span class="nc"> Pussycat</span> <span class="o">&lt;:</span> <span class="n">Feline</span>
+    <span class="n">weight</span><span class="p">::</span><span class="kt">Float64</span>
+    <span class="n">sound</span><span class="p">::</span><span class="n">AbstractString</span>
 <span class="k">end</span>
 </pre></div>
 
@@ -12308,14 +12304,14 @@ Float64: [-Inf,Inf]
 <li>They have common fields <code>weight</code> and <code>sound</code>.</li>
 <li>but there could be different functions. We call function specific to a type 'methods'</li>
 </ul>
-<div class="highlight"><pre><span></span><span class="k">function</span> <span class="n">do_your_thing</span><span class="p">(</span><span class="n">j</span><span class="o">::</span><span class="n">Jaguar</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><span class="k">function</span><span class="nf"> do_your_thing</span><span class="p">(</span><span class="n">j</span><span class="p">::</span><span class="n">Jaguar</span><span class="p">)</span>
     <span class="n">println</span><span class="p">(</span><span class="n">j</span><span class="o">.</span><span class="n">sound</span><span class="p">)</span>
-    <span class="n">println</span><span class="p">(</span><span class="s">&quot;I am going to throw my entire </span><span class="si">$</span><span class="p">(</span><span class="n">j</span><span class="o">.</span><span class="n">weight</span><span class="p">)</span><span class="s"> kg at you, I&#39;ll catch, kill and eat you!&quot;</span><span class="p">)</span>
-    <span class="n">println</span><span class="p">(</span><span class="s">&quot;I am a </span><span class="si">$</span><span class="p">(</span><span class="n">typeof</span><span class="p">(</span><span class="n">j</span><span class="p">))</span><span class="s">!!!!&quot;</span><span class="p">)</span>
+    <span class="n">println</span><span class="p">(</span><span class="s">&quot;I am going to throw my entire </span><span class="si">$(j.weight)</span><span class="s"> kg at you, I&#39;ll catch, kill and eat you!&quot;</span><span class="p">)</span>
+    <span class="n">println</span><span class="p">(</span><span class="s">&quot;I am a </span><span class="si">$(typeof(j))</span><span class="s">!!!!&quot;</span><span class="p">)</span>
 <span class="k">end</span>
-<span class="k">function</span> <span class="n">do_your_thing</span><span class="p">(</span><span class="n">c</span><span class="o">::</span><span class="n">Pussycat</span><span class="p">)</span>
+<span class="k">function</span><span class="nf"> do_your_thing</span><span class="p">(</span><span class="n">c</span><span class="p">::</span><span class="n">Pussycat</span><span class="p">)</span>
     <span class="n">println</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">sound</span><span class="p">)</span>
-    <span class="n">println</span><span class="p">(</span><span class="s">&quot;I should watch my line, </span><span class="si">$</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">weight</span><span class="p">)</span><span class="s"> is enough for a </span><span class="si">$</span><span class="p">(</span><span class="n">typeof</span><span class="p">(</span><span class="n">c</span><span class="p">))</span><span class="s">&quot;</span><span class="p">)</span>
+    <span class="n">println</span><span class="p">(</span><span class="s">&quot;I should watch my line, </span><span class="si">$(c.weight)</span><span class="s"> is enough for a </span><span class="si">$(typeof(c))</span><span class="s">&quot;</span><span class="p">)</span>
     <span class="n">println</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">sound</span><span class="p">)</span>
 <span class="k">end</span>
 </pre></div>
@@ -12343,35 +12339,35 @@ Float64: [-Inf,Inf]
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="c"># types</span>
-<span class="k">abstract</span> <span class="n">Feline</span>
-<span class="k">type</span> <span class="n">Jaguar</span> <span class="o">&lt;:</span> <span class="n">Feline</span>
-	<span class="n">weight</span><span class="o">::</span><span class="kt">Float64</span>
-	<span class="n">sound</span><span class="o">::</span><span class="kt">AbstractString</span>
+<span class="k">abstract</span><span class="nc"> Feline</span>
+<span class="k">type</span><span class="nc"> Jaguar</span> <span class="o">&lt;:</span> <span class="n">Feline</span>
+	<span class="n">weight</span><span class="p">::</span><span class="kt">Float64</span>
+	<span class="n">sound</span><span class="p">::</span><span class="n">AbstractString</span>
 <span class="k">end</span>
-<span class="k">type</span> <span class="n">Pussycat</span> <span class="o">&lt;:</span> <span class="n">Feline</span>
-	<span class="n">weight</span><span class="o">::</span><span class="kt">Float64</span>
-	<span class="n">sound</span><span class="o">::</span><span class="kt">AbstractString</span>
+<span class="k">type</span><span class="nc"> Pussycat</span> <span class="o">&lt;:</span> <span class="n">Feline</span>
+	<span class="n">weight</span><span class="p">::</span><span class="kt">Float64</span>
+	<span class="n">sound</span><span class="p">::</span><span class="n">AbstractString</span>
 <span class="k">end</span>
 
 <span class="c"># methods</span>
-<span class="n">hello</span><span class="p">(</span><span class="n">who</span><span class="o">::</span><span class="kt">AbstractString</span><span class="p">)</span> <span class="o">=</span> <span class="s">&quot;Hello, </span><span class="si">$who</span><span class="s">&quot;</span>
-<span class="n">domath</span><span class="p">(</span><span class="n">x</span><span class="o">::</span><span class="kt">Number</span><span class="p">)</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="mi">5</span><span class="p">)</span>
+<span class="n">hello</span><span class="p">(</span><span class="n">who</span><span class="p">::</span><span class="n">AbstractString</span><span class="p">)</span> <span class="o">=</span> <span class="s">&quot;Hello, </span><span class="si">$who</span><span class="s">&quot;</span>
+<span class="n">domath</span><span class="p">(</span><span class="n">x</span><span class="p">::</span><span class="n">Number</span><span class="p">)</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="mi">5</span><span class="p">)</span>
 
 <span class="s">&quot;&quot;&quot;</span>
 <span class="s">makes a jaguar do their thing. </span>
 <span class="s">&quot;&quot;&quot;</span>
-<span class="k">function</span> <span class="n">do_your_thing</span><span class="p">(</span><span class="n">j</span><span class="o">::</span><span class="n">Jaguar</span><span class="p">)</span>
+<span class="k">function</span><span class="nf"> do_your_thing</span><span class="p">(</span><span class="n">j</span><span class="p">::</span><span class="n">Jaguar</span><span class="p">)</span>
 	<span class="n">println</span><span class="p">(</span><span class="n">j</span><span class="o">.</span><span class="n">sound</span><span class="p">)</span>
-	<span class="n">println</span><span class="p">(</span><span class="s">&quot;I am going to throw my entire </span><span class="si">$</span><span class="p">(</span><span class="n">j</span><span class="o">.</span><span class="n">weight</span><span class="p">)</span><span class="s"> kg at you, I&#39;ll catch, kill and eat you!&quot;</span><span class="p">)</span>
-	<span class="n">println</span><span class="p">(</span><span class="s">&quot;I am a </span><span class="si">$</span><span class="p">(</span><span class="n">typeof</span><span class="p">(</span><span class="n">j</span><span class="p">))</span><span class="s">!!!!&quot;</span><span class="p">)</span>
+	<span class="n">println</span><span class="p">(</span><span class="s">&quot;I am going to throw my entire </span><span class="si">$(j.weight)</span><span class="s"> kg at you, I&#39;ll catch, kill and eat you!&quot;</span><span class="p">)</span>
+	<span class="n">println</span><span class="p">(</span><span class="s">&quot;I am a </span><span class="si">$(typeof(j))</span><span class="s">!!!!&quot;</span><span class="p">)</span>
 <span class="k">end</span>
 
 <span class="s">&quot;&quot;&quot;</span>
 <span class="s">makes a pussycat do their thing. </span>
 <span class="s">&quot;&quot;&quot;</span>
-<span class="k">function</span> <span class="n">do_your_thing</span><span class="p">(</span><span class="n">c</span><span class="o">::</span><span class="n">Pussycat</span><span class="p">)</span>
+<span class="k">function</span><span class="nf"> do_your_thing</span><span class="p">(</span><span class="n">c</span><span class="p">::</span><span class="n">Pussycat</span><span class="p">)</span>
 	<span class="n">println</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">sound</span><span class="p">)</span>
-	<span class="n">println</span><span class="p">(</span><span class="s">&quot;I should watch my weight, </span><span class="si">$</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">weight</span><span class="p">)</span><span class="s"> is enough for a </span><span class="si">$</span><span class="p">(</span><span class="n">typeof</span><span class="p">(</span><span class="n">c</span><span class="p">))</span><span class="s">&quot;</span><span class="p">)</span>
+	<span class="n">println</span><span class="p">(</span><span class="s">&quot;I should watch my weight, </span><span class="si">$(c.weight)</span><span class="s"> is enough for a </span><span class="si">$(typeof(c))</span><span class="s">&quot;</span><span class="p">)</span>
 	<span class="n">println</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">sound</span><span class="p">)</span>
 <span class="k">end</span>
 </pre></div>
@@ -12467,20 +12463,20 @@ Float64: [-Inf,Inf]
 <div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-julia"><pre><span></span><span class="k">function</span> <span class="n">t1</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="k">function</span><span class="nf"> t1</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
     <span class="n">s</span>  <span class="o">=</span> <span class="mi">0</span>  <span class="c"># typeof(s) = Int</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="kp">in</span> <span class="mi">1</span><span class="o">:</span><span class="n">n</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="k">in</span> <span class="mi">1</span><span class="p">:</span><span class="n">n</span>
         <span class="n">s</span> <span class="o">+=</span> <span class="n">s</span><span class="o">/</span><span class="n">i</span>
     <span class="k">end</span>
 <span class="k">end</span>
-<span class="k">function</span> <span class="n">t2</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+<span class="k">function</span><span class="nf"> t2</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
     <span class="n">s</span>  <span class="o">=</span> <span class="mf">0.0</span>   <span class="c"># typeof(s) = Float64</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="kp">in</span> <span class="mi">1</span><span class="o">:</span><span class="n">n</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="k">in</span> <span class="mi">1</span><span class="p">:</span><span class="n">n</span>
         <span class="n">s</span> <span class="o">+=</span> <span class="n">s</span><span class="o">/</span><span class="n">i</span>
     <span class="k">end</span>
 <span class="k">end</span>
-<span class="nd">@time</span> <span class="n">t1</span><span class="p">(</span><span class="mi">10000000</span><span class="p">)</span>
-<span class="nd">@time</span> <span class="n">t2</span><span class="p">(</span><span class="mi">10000000</span><span class="p">)</span>
+<span class="p">@</span><span class="n">time</span> <span class="n">t1</span><span class="p">(</span><span class="mi">10000000</span><span class="p">)</span>
+<span class="p">@</span><span class="n">time</span> <span class="n">t2</span><span class="p">(</span><span class="mi">10000000</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -12527,7 +12523,7 @@ cannot define function t1; it already has a value
 <h3 id="An-example-Module">An example Module<a class="anchor-link" href="#An-example-Module">&#182;</a></h3><div class="highlight"><pre><span></span><span class="k">module</span> <span class="n">MyModule</span>
     <span class="c"># which other modules to use: imports</span>
     <span class="k">using</span> <span class="n">Lib</span>
-    <span class="k">using</span> <span class="n">BigLib</span><span class="o">:</span> <span class="n">thing1</span><span class="p">,</span> <span class="n">thing2</span>
+    <span class="k">using</span> <span class="n">BigLib</span><span class="p">:</span> <span class="n">thing1</span><span class="p">,</span> <span class="n">thing2</span>
     <span class="k">import</span> <span class="n">Base</span><span class="o">.</span><span class="n">show</span>
     <span class="k">importall</span> <span class="n">OtherLib</span>
 
@@ -12535,15 +12531,15 @@ cannot define function t1; it already has a value
     <span class="k">export</span> <span class="n">MyType</span><span class="p">,</span> <span class="n">foo</span>
 
     <span class="c"># type defs</span>
-    <span class="k">type</span> <span class="n">MyType</span>
+    <span class="k">type</span><span class="nc"> MyType</span>
         <span class="n">x</span>
     <span class="k">end</span>
 
     <span class="c"># methods</span>
     <span class="n">bar</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">=</span> <span class="mi">2</span><span class="n">x</span>
-    <span class="n">foo</span><span class="p">(</span><span class="n">a</span><span class="o">::</span><span class="n">MyType</span><span class="p">)</span> <span class="o">=</span> <span class="n">bar</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="n">foo</span><span class="p">(</span><span class="n">a</span><span class="p">::</span><span class="n">MyType</span><span class="p">)</span> <span class="o">=</span> <span class="n">bar</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
 
-    <span class="n">show</span><span class="p">(</span><span class="n">io</span><span class="o">::</span><span class="kt">IO</span><span class="p">,</span> <span class="n">a</span><span class="o">::</span><span class="n">MyType</span><span class="p">)</span> <span class="o">=</span> <span class="n">print</span><span class="p">(</span><span class="n">io</span><span class="p">,</span> <span class="s">&quot;MyType </span><span class="si">$</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">x</span><span class="p">)</span><span class="s">&quot;</span><span class="p">)</span>
+    <span class="n">show</span><span class="p">(</span><span class="n">io</span><span class="p">::</span><span class="n">IO</span><span class="p">,</span> <span class="n">a</span><span class="p">::</span><span class="n">MyType</span><span class="p">)</span> <span class="o">=</span> <span class="n">print</span><span class="p">(</span><span class="n">io</span><span class="p">,</span> <span class="s">&quot;MyType </span><span class="si">$(a.x)</span><span class="s">&quot;</span><span class="p">)</span>
 <span class="k">end</span>
 </pre></div>
 
@@ -12582,7 +12578,7 @@ cannot define function t1; it already has a value
 <li>Julia reads the file <code>~/.juliarc.jl</code> on each startup. Modify the <code>LOAD_PATH</code> variable:</li>
 </ul>
 <div class="highlight"><pre><span></span><span class="c"># add this to ~/.juliarc.jl</span>
-<span class="n">push!</span><span class="p">(</span><span class="nb">LOAD_PATH</span><span class="p">,</span> <span class="s">&quot;/Path/To/My/Module/&quot;</span><span class="p">)</span>
+<span class="n">push!</span><span class="p">(</span><span class="n">LOAD_PATH</span><span class="p">,</span> <span class="s">&quot;/Path/To/My/Module/&quot;</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -12816,7 +12812,7 @@ Inside the control system unit (VCSU) is a countdown timer that ticks off time i
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="k">using</span> <span class="n">Logging</span>
 
-<span class="k">function</span> <span class="n">log_test</span><span class="p">()</span>
+<span class="k">function</span><span class="nf"> log_test</span><span class="p">()</span>
     <span class="n">debug</span><span class="p">(</span><span class="s">&quot;debug message&quot;</span><span class="p">)</span>
     <span class="n">info</span><span class="p">(</span><span class="s">&quot;info message&quot;</span><span class="p">)</span>
     <span class="n">warn</span><span class="p">(</span><span class="s">&quot;warning message&quot;</span><span class="p">)</span>
@@ -12870,21 +12866,21 @@ WARNING: Method definition info(Any...) in module Base at util.jl:320 overwritte
 <div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-julia"><pre><span></span><span class="nd">@Logging</span><span class="o">.</span><span class="n">configure</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="n">DEBUG</span><span class="p">)</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="p">@</span><span class="n">Logging</span><span class="o">.</span><span class="n">configure</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="n">DEBUG</span><span class="p">)</span>
 
-<span class="k">function</span> <span class="n">macro_log_test</span><span class="p">()</span>
-    <span class="nd">@debug</span><span class="p">(</span><span class="s">&quot;debug message&quot;</span><span class="p">)</span>
-    <span class="nd">@info</span><span class="p">(</span><span class="s">&quot;info message&quot;</span><span class="p">)</span>
-    <span class="nd">@warn</span><span class="p">(</span><span class="s">&quot;warning message&quot;</span><span class="p">)</span>
-    <span class="nd">@err</span><span class="p">(</span><span class="s">&quot;error message&quot;</span><span class="p">)</span>
-    <span class="nd">@critical</span><span class="p">(</span><span class="s">&quot;critical message&quot;</span><span class="p">)</span>
+<span class="k">function</span><span class="nf"> macro_log_test</span><span class="p">()</span>
+    <span class="p">@</span><span class="n">debug</span><span class="p">(</span><span class="s">&quot;debug message&quot;</span><span class="p">)</span>
+    <span class="p">@</span><span class="n">info</span><span class="p">(</span><span class="s">&quot;info message&quot;</span><span class="p">)</span>
+    <span class="p">@</span><span class="n">warn</span><span class="p">(</span><span class="s">&quot;warning message&quot;</span><span class="p">)</span>
+    <span class="p">@</span><span class="n">err</span><span class="p">(</span><span class="s">&quot;error message&quot;</span><span class="p">)</span>
+    <span class="p">@</span><span class="n">critical</span><span class="p">(</span><span class="s">&quot;critical message&quot;</span><span class="p">)</span>
 <span class="k">end</span>
 
 <span class="n">macro_log_test</span><span class="p">()</span>
 
 <span class="c"># now we are done debugging</span>
 <span class="n">println</span><span class="p">(</span><span class="s">&quot;turning logging off completely&quot;</span><span class="p">)</span>
-<span class="nd">@Logging</span><span class="o">.</span><span class="n">configure</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="n">OFF</span><span class="p">)</span>
+<span class="p">@</span><span class="n">Logging</span><span class="o">.</span><span class="n">configure</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="n">OFF</span><span class="p">)</span>
 
 <span class="n">macro_log_test</span><span class="p">()</span>
 </pre></div>
@@ -13015,9 +13011,9 @@ git checkout dbg
 <div class="prompt input_prompt">In&nbsp;[10]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-julia"><pre><span></span><span class="n">println</span><span class="p">(</span><span class="n">iris</span><span class="p">[</span><span class="o">:</span><span class="n">SepalLength</span><span class="p">][</span><span class="mi">1</span><span class="o">:</span><span class="mi">6</span><span class="p">])</span>  <span class="c"># get a column</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="n">println</span><span class="p">(</span><span class="n">iris</span><span class="p">[:</span><span class="n">SepalLength</span><span class="p">][</span><span class="mi">1</span><span class="p">:</span><span class="mi">6</span><span class="p">])</span>  <span class="c"># get a column</span>
 
-<span class="n">show</span><span class="p">(</span><span class="n">iris</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="o">:</span><span class="p">])</span>   <span class="c"># get a row</span>
+<span class="n">show</span><span class="p">(</span><span class="n">iris</span><span class="p">[</span><span class="mi">2</span><span class="p">,:])</span>   <span class="c"># get a row</span>
 
 <span class="n">describe</span><span class="p">(</span><span class="n">iris</span><span class="p">);</span>   <span class="c"># get a description</span>
 </pre></div>
@@ -13103,7 +13099,7 @@ Unique  3
 <li>We can sort, join (i.e. merge), split-apply-combine and reshape dataframes. We can do most things one can do in base R with a <code>data.frame</code>.</li>
 <li>Mention <code>pooled</code> data:</li>
 </ul>
-<div class="highlight"><pre><span></span><span class="n">pdv</span> <span class="o">=</span> <span class="nd">@pdata</span><span class="p">([</span><span class="s">&quot;Group A&quot;</span><span class="p">,</span> <span class="s">&quot;Group A&quot;</span><span class="p">,</span> <span class="s">&quot;Group A&quot;</span><span class="p">,</span>
+<div class="highlight"><pre><span></span><span class="n">pdv</span> <span class="o">=</span> <span class="p">@</span><span class="n">pdata</span><span class="p">([</span><span class="s">&quot;Group A&quot;</span><span class="p">,</span> <span class="s">&quot;Group A&quot;</span><span class="p">,</span> <span class="s">&quot;Group A&quot;</span><span class="p">,</span>
               <span class="s">&quot;Group B&quot;</span><span class="p">,</span> <span class="s">&quot;Group B&quot;</span><span class="p">,</span> <span class="s">&quot;Group B&quot;</span><span class="p">])</span>
 </pre></div>
 
@@ -13116,8 +13112,8 @@ Unique  3
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="c"># subsetting a dataframe can become cumbersome</span>
-<span class="n">d</span> <span class="o">=</span> <span class="n">DataFrame</span><span class="p">(</span><span class="n">A</span> <span class="o">=</span> <span class="n">rand</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span><span class="n">B</span><span class="o">=</span><span class="n">rand</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span><span class="mi">10</span><span class="p">),</span><span class="n">C</span><span class="o">=</span><span class="p">[</span><span class="s">&quot;word </span><span class="si">$i</span><span class="s">&quot;</span> <span class="k">for</span> <span class="n">i</span> <span class="kp">in</span> <span class="mi">1</span><span class="o">:</span><span class="mi">10</span><span class="p">])</span>
-<span class="n">d</span><span class="p">[(</span><span class="n">d</span><span class="p">[</span><span class="o">:</span><span class="n">A</span><span class="p">]</span><span class="o">.&gt;</span><span class="mf">0.1</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="o">:</span><span class="n">B</span><span class="p">]</span><span class="o">.==</span><span class="mi">2</span><span class="p">),</span><span class="o">:</span><span class="p">]</span>
+<span class="n">d</span> <span class="o">=</span> <span class="n">DataFrame</span><span class="p">(</span><span class="n">A</span> <span class="o">=</span> <span class="n">rand</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span><span class="n">B</span><span class="o">=</span><span class="n">rand</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span><span class="mi">10</span><span class="p">),</span><span class="n">C</span><span class="o">=</span><span class="p">[</span><span class="s">&quot;word </span><span class="si">$i</span><span class="s">&quot;</span> <span class="k">for</span> <span class="n">i</span> <span class="k">in</span> <span class="mi">1</span><span class="p">:</span><span class="mi">10</span><span class="p">])</span>
+<span class="n">d</span><span class="p">[(</span><span class="n">d</span><span class="p">[:</span><span class="n">A</span><span class="p">]</span><span class="o">.&gt;</span><span class="mf">0.1</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">d</span><span class="p">[:</span><span class="n">B</span><span class="p">]</span><span class="o">.==</span><span class="mi">2</span><span class="p">),:]</span>
 </pre></div>
 
 </div>
@@ -13154,7 +13150,7 @@ Unique  3
 <li>The same thing from before is now</li>
 </ul>
 <div class="highlight"><pre><span></span><span class="k">using</span> <span class="n">DataFramesMeta</span>
-<span class="nd">@where</span><span class="p">(</span><span class="n">d</span><span class="p">,(</span><span class="o">:</span><span class="n">A</span> <span class="o">.&gt;</span><span class="mf">0.1</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="o">:</span><span class="n">B</span><span class="o">.==</span><span class="mi">2</span><span class="p">))</span>
+<span class="p">@</span><span class="n">where</span><span class="p">(</span><span class="n">d</span><span class="p">,(:</span><span class="n">A</span> <span class="o">.&gt;</span><span class="mf">0.1</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(:</span><span class="n">B</span><span class="o">.==</span><span class="mi">2</span><span class="p">))</span>
 </pre></div>
 <ul>
 <li>We can access column names as <em>symbols</em> inside an expression.</li>
@@ -13184,13 +13180,13 @@ Unique  3
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="k">using</span> <span class="n">DataFramesMeta</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">DataFrame</span><span class="p">(</span><span class="n">a</span> <span class="o">=</span> <span class="mi">1</span><span class="o">:</span><span class="mi">20</span><span class="p">,</span><span class="n">b</span> <span class="o">=</span> <span class="n">rand</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">10</span><span class="p">],</span><span class="mi">20</span><span class="p">),</span> <span class="n">x</span> <span class="o">=</span> <span class="n">rand</span><span class="p">(</span><span class="mi">20</span><span class="p">))</span>
-<span class="n">x_thread</span> <span class="o">=</span> <span class="nd">@linq</span> <span class="n">df</span> <span class="o">|&gt;</span>
-    <span class="n">transform</span><span class="p">(</span><span class="n">y</span> <span class="o">=</span> <span class="mi">10</span> <span class="o">*</span> <span class="o">:</span><span class="n">x</span><span class="p">)</span> <span class="o">|&gt;</span>
-    <span class="n">where</span><span class="p">(</span><span class="o">:</span><span class="n">a</span> <span class="o">.&gt;</span> <span class="mi">2</span><span class="p">)</span> <span class="o">|&gt;</span>
-    <span class="n">by</span><span class="p">(</span><span class="o">:</span><span class="n">b</span><span class="p">,</span> <span class="n">meanX</span> <span class="o">=</span> <span class="n">mean</span><span class="p">(</span><span class="o">:</span><span class="n">x</span><span class="p">),</span> <span class="n">meanY</span> <span class="o">=</span> <span class="n">mean</span><span class="p">(</span><span class="o">:</span><span class="n">y</span><span class="p">))</span> <span class="o">|&gt;</span>
-    <span class="n">orderby</span><span class="p">(</span><span class="o">:</span><span class="n">meanX</span><span class="p">)</span> <span class="o">|&gt;</span>
-    <span class="n">select</span><span class="p">(</span><span class="o">:</span><span class="n">meanX</span><span class="p">,</span> <span class="o">:</span><span class="n">meanY</span><span class="p">,</span> <span class="n">var</span> <span class="o">=</span> <span class="o">:</span><span class="n">b</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">DataFrame</span><span class="p">(</span><span class="n">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">:</span><span class="mi">20</span><span class="p">,</span><span class="n">b</span> <span class="o">=</span> <span class="n">rand</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">10</span><span class="p">],</span><span class="mi">20</span><span class="p">),</span> <span class="n">x</span> <span class="o">=</span> <span class="n">rand</span><span class="p">(</span><span class="mi">20</span><span class="p">))</span>
+<span class="n">x_thread</span> <span class="o">=</span> <span class="p">@</span><span class="n">linq</span> <span class="n">df</span> <span class="o">|&gt;</span>
+    <span class="n">transform</span><span class="p">(</span><span class="n">y</span> <span class="o">=</span> <span class="mi">10</span> <span class="o">*</span> <span class="p">:</span><span class="n">x</span><span class="p">)</span> <span class="o">|&gt;</span>
+    <span class="n">where</span><span class="p">(:</span><span class="n">a</span> <span class="o">.&gt;</span> <span class="mi">2</span><span class="p">)</span> <span class="o">|&gt;</span>
+    <span class="n">by</span><span class="p">(:</span><span class="n">b</span><span class="p">,</span> <span class="n">meanX</span> <span class="o">=</span> <span class="n">mean</span><span class="p">(:</span><span class="n">x</span><span class="p">),</span> <span class="n">meanY</span> <span class="o">=</span> <span class="n">mean</span><span class="p">(:</span><span class="n">y</span><span class="p">))</span> <span class="o">|&gt;</span>
+    <span class="n">orderby</span><span class="p">(:</span><span class="n">meanX</span><span class="p">)</span> <span class="o">|&gt;</span>
+    <span class="n">select</span><span class="p">(:</span><span class="n">meanX</span><span class="p">,</span> <span class="p">:</span><span class="n">meanY</span><span class="p">,</span> <span class="n">var</span> <span class="o">=</span> <span class="p">:</span><span class="n">b</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -13253,10 +13249,10 @@ Unique  3
 
 <span class="n">df</span> <span class="o">=</span> <span class="n">DataFrame</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="p">[</span><span class="s">&quot;John&quot;</span><span class="p">,</span> <span class="s">&quot;Sally&quot;</span><span class="p">,</span> <span class="s">&quot;Kirk&quot;</span><span class="p">],</span> <span class="n">age</span><span class="o">=</span><span class="p">[</span><span class="mf">23.</span><span class="p">,</span> <span class="mf">42.</span><span class="p">,</span> <span class="mf">59.</span><span class="p">],</span> <span class="n">children</span><span class="o">=</span><span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">2</span><span class="p">])</span>
 
-<span class="n">x</span> <span class="o">=</span> <span class="nd">@from</span> <span class="n">i</span> <span class="kp">in</span> <span class="n">df</span> <span class="k">begin</span>
-    <span class="nd">@where</span> <span class="n">i</span><span class="o">.</span><span class="n">age</span><span class="o">&gt;</span><span class="mi">50</span>
-    <span class="nd">@select</span> <span class="p">{</span><span class="n">i</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">i</span><span class="o">.</span><span class="n">children</span><span class="p">}</span>
-    <span class="nd">@collect</span> <span class="n">DataFrame</span>
+<span class="n">x</span> <span class="o">=</span> <span class="p">@</span><span class="n">from</span> <span class="n">i</span> <span class="k">in</span> <span class="n">df</span> <span class="k">begin</span>
+    <span class="p">@</span><span class="n">where</span> <span class="n">i</span><span class="o">.</span><span class="n">age</span><span class="o">&gt;</span><span class="mi">50</span>
+    <span class="p">@</span><span class="n">select</span> <span class="p">{</span><span class="n">i</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">i</span><span class="o">.</span><span class="n">children</span><span class="p">}</span>
+    <span class="p">@</span><span class="n">collect</span> <span class="n">DataFrame</span>
 <span class="k">end</span>
 </pre></div>
 
