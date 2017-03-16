@@ -11963,7 +11963,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="c"># from ForwardDiff&#39;s readme:</span>
@@ -11984,21 +11984,43 @@ div#notebook {
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[1]:</div>
+<div class="prompt"></div>
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>WARNING: Method definition f(Array{T&lt;:Any, 1}) in module Main at In[2]:3 overwritten at In[3]:3.
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[3]:</div>
 
 
 
 <div class="output_text output_subarea output_execute_result">
 <pre>5×5 Array{Float64,2}:
- -0.324433   0.382642   0.394007  4.01658   0.661422  
-  0.382642  -0.323699   0.397432  4.04971   0.667225  
-  0.394007   0.397432  -0.288224  4.16933   0.68702   
-  4.01658    4.04971    4.16933   1.8859    7.00117   
-  0.661422   0.667225   0.68702   7.00117  -0.00985418</pre>
+ -0.0976779   0.582799   0.539911  2.13939    0.602214
+  0.582799   -0.271656   0.397163  1.57396    0.44295 
+  0.539911    0.397163  -0.347212  1.45755    0.410393
+  2.13939     1.57396    1.45755   0.426115   1.62638 
+  0.602214    0.44295    0.410393  1.62638   -0.249782</pre>
 </div>
 
 </div>
 
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-julia"><pre><span></span>
+</pre></div>
+
+</div>
 </div>
 </div>
 
@@ -12120,7 +12142,7 @@ $$ E[G(\epsilon)] = \int_{\mathbb{R}^N} G(\epsilon) w(\epsilon) d\epsilon \appro
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="c">#Pkg.add(&quot;FastGaussQuadrature&quot;)</span>
@@ -12149,7 +12171,7 @@ $$ E[G(\epsilon)] = \int_{\mathbb{R}^N} G(\epsilon) w(\epsilon) d\epsilon \appro
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[3]:</div>
+<div class="prompt output_prompt">Out[5]:</div>
 
 
 <div class="output_html rendered_html output_subarea output_execute_result">
@@ -12194,13 +12216,71 @@ $$ E[G(\epsilon)] = \int_{\mathbb{R}^N} G(\epsilon) w(\epsilon) d\epsilon \appro
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-julia"><pre><span></span><span class="n">rules</span><span class="p">[</span><span class="s">&quot;hermite&quot;</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">repeat</span><span class="p">(</span><span class="n">rules</span><span class="p">[</span><span class="s">&quot;hermite&quot;</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span><span class="n">inner</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">outer</span><span class="o">=</span><span class="p">[</span><span class="mi">9</span><span class="p">])</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[9]:</div>
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>27-element Array{Float64,1}:
+ -1.22474    
+ -8.88178e-16
+  1.22474    
+ -1.22474    
+ -8.88178e-16
+  1.22474    
+ -1.22474    
+ -8.88178e-16
+  1.22474    
+ -1.22474    
+ -8.88178e-16
+  1.22474    
+ -1.22474    
+  ⋮          
+ -1.22474    
+ -8.88178e-16
+  1.22474    
+ -1.22474    
+ -8.88178e-16
+  1.22474    
+ -1.22474    
+ -8.88178e-16
+  1.22474    
+ -1.22474    
+ -8.88178e-16
+  1.22474    </pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="n">nodes</span> <span class="o">=</span> <span class="kt">Any</span><span class="p">[]</span>
-<span class="n">push!</span><span class="p">(</span><span class="n">nodes</span><span class="p">,</span><span class="n">repeat</span><span class="p">(</span><span class="n">rules</span><span class="p">[</span><span class="s">&quot;hermite&quot;</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span><span class="n">inner</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">outer</span><span class="o">=</span><span class="p">[</span><span class="mi">9</span><span class="p">]))</span>
-<span class="n">push!</span><span class="p">(</span><span class="n">nodes</span><span class="p">,</span><span class="n">repeat</span><span class="p">(</span><span class="n">rules</span><span class="p">[</span><span class="s">&quot;hermite&quot;</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span><span class="n">inner</span><span class="o">=</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span><span class="n">outer</span><span class="o">=</span><span class="p">[</span><span class="mi">3</span><span class="p">]))</span>
-<span class="n">push!</span><span class="p">(</span><span class="n">nodes</span><span class="p">,</span><span class="n">repeat</span><span class="p">(</span><span class="n">rules</span><span class="p">[</span><span class="s">&quot;hermite&quot;</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span><span class="n">inner</span><span class="o">=</span><span class="p">[</span><span class="mi">9</span><span class="p">],</span><span class="n">outer</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+<span class="n">push!</span><span class="p">(</span><span class="n">nodes</span><span class="p">,</span><span class="n">repeat</span><span class="p">(</span><span class="n">rules</span><span class="p">[</span><span class="s">&quot;hermite&quot;</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span><span class="n">inner</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">outer</span><span class="o">=</span><span class="p">[</span><span class="mi">9</span><span class="p">]))</span>  <span class="c"># dim1</span>
+<span class="n">push!</span><span class="p">(</span><span class="n">nodes</span><span class="p">,</span><span class="n">repeat</span><span class="p">(</span><span class="n">rules</span><span class="p">[</span><span class="s">&quot;hermite&quot;</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span><span class="n">inner</span><span class="o">=</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span><span class="n">outer</span><span class="o">=</span><span class="p">[</span><span class="mi">3</span><span class="p">]))</span>  <span class="c"># dim2</span>
+<span class="n">push!</span><span class="p">(</span><span class="n">nodes</span><span class="p">,</span><span class="n">repeat</span><span class="p">(</span><span class="n">rules</span><span class="p">[</span><span class="s">&quot;hermite&quot;</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span><span class="n">inner</span><span class="o">=</span><span class="p">[</span><span class="mi">9</span><span class="p">],</span><span class="n">outer</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>  <span class="c"># dim3</span>
 <span class="n">weights</span> <span class="o">=</span> <span class="n">kron</span><span class="p">(</span><span class="n">rules</span><span class="p">[</span><span class="s">&quot;hermite&quot;</span><span class="p">][</span><span class="mi">2</span><span class="p">],</span><span class="n">kron</span><span class="p">(</span><span class="n">rules</span><span class="p">[</span><span class="s">&quot;hermite&quot;</span><span class="p">][</span><span class="mi">2</span><span class="p">],</span><span class="n">rules</span><span class="p">[</span><span class="s">&quot;hermite&quot;</span><span class="p">][</span><span class="mi">2</span><span class="p">]))</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">hcat</span><span class="p">(</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">weights</span><span class="o">=</span><span class="n">weights</span><span class="p">),</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">nodes</span><span class="p">,[:</span><span class="n">dim1</span><span class="p">,:</span><span class="n">dim2</span><span class="p">,:</span><span class="n">dim3</span><span class="p">]))</span>
 </pre></div>
@@ -12214,7 +12294,7 @@ $$ E[G(\epsilon)] = \int_{\mathbb{R}^N} G(\epsilon) w(\epsilon) d\epsilon \appro
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[4]:</div>
+<div class="prompt output_prompt">Out[6]:</div>
 
 
 <div class="output_html rendered_html output_subarea output_execute_result">

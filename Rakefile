@@ -5,7 +5,7 @@ SOURCE_FILES = Rake::FileList.new("*.ipynb")
 # puts SOURCE_FILES
 
 task :default => :all 
-task :all => [:html, :offline, :pdf, :md]
+task :all => [:html, :pdf]
 task :clean => [:clean_md,:clean_slides,:clean_html,:clean_pdf]
 task :html => SOURCE_FILES.ext("html")
 task :slides => SOURCE_FILES.ext("slides.html")
