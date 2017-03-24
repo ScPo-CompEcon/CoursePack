@@ -11859,9 +11859,7 @@ div#notebook {
 </ul>
 $$  
     \hat{f}(x;c) = \sum_{j=1}^J c_j \phi_j(x) 
-$$
-<pre><code>where 
-</code></pre>
+$$<p>where</p>
 <ul>
 <li>$\phi_j : \mathbb{R}^d \mapsto \mathbb{R}$ is called a <strong>basis function</strong>,</li>
 <li>$c={c_1,c_2,\dots,c_J}$ is a coefficient vector</li>
@@ -11902,13 +11900,11 @@ $$
 <li>We basically need to solve the system</li>
 </ul>
 $$ 
-    \begin{aligned} 
-    \sum_{j=1}^n c_j \phi_j(x_i) &= f(x_i),\forall i=1,2,\dots,n \\
-                      \mathbf{\Phi c}&= \mathbf{y}
-    \end{aligned}
-$$
-<pre><code>where the second line uses vector notation, and $\mathbf{y}$ has all values of $f$.
-</code></pre>
+\begin{aligned} 
+\sum_{j=1}^n c_j \phi_j(x_i) &= f(x_i),\forall i=1,2,\dots,n \\
+                  \mathbf{\Phi c}&= \mathbf{y}
+\end{aligned}
+$$<p>where the second line uses vector notation, and $\mathbf{y}$ has all values of $f$.</p>
 <ul>
 <li>Solution: $\mathbf{c}= \mathbf{\Phi}^{-1}y$.</li>
 </ul>
@@ -13162,12 +13158,12 @@ while loading In[8], in expression starting on line 5
 <li>A 2D tensor product $x\otimes x$ gives 25 grid points
   $$ x\otimes x=\left\{(-1,-1),(-1,\frac{-1}{\sqrt{2}}),\dots,(1,1)\right\} $$</li>
 <li>The Smolyak method proceeds differently.</li>
-<li>We construct three nested sets:
-  $$ \begin{array}{l}
-<pre><code>  i=1 : S_1 = \{0\} \\
-  i=2 : S_2 = \{0,-1,1\} \\
-  i=3 : S_3 = \left\{-1,\frac{-1}{\sqrt{2}},0,\frac{1}{\sqrt{2}},1\right\}  \end{array} $$</code></pre>
-</li>
+<li>We construct three nested sets:</li>
+</ul>
+$$ \begin{array}{l}
+        i=1 : S_1 = \{0\} \\
+        i=2 : S_2 = \{0,-1,1\} \\
+        i=3 : S_3 = \left\{-1,\frac{-1}{\sqrt{2}},0,\frac{1}{\sqrt{2}},1\right\}  \end{array} $$<ul>
 <li>Then, we construct all possible 2D tensor products using elements from these nested sets in a table (next slide).</li>
 <li>Finally, we select only those elements of the table, that satisfy the Smolyak rule:
   $$ i_1 + i_2 \leq d + \mu $$

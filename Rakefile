@@ -5,7 +5,7 @@ SOURCE_FILES = Rake::FileList.new("*.ipynb")
 # puts SOURCE_FILES
 
 task :default => :all 
-task :all => [:html, :pdf]
+task :all => [:html, :pdf, :slides]
 task :clean => [:clean_md,:clean_slides,:clean_html,:clean_pdf]
 task :html => SOURCE_FILES.ext("html")
 task :slides => SOURCE_FILES.ext("slides.html")
@@ -64,10 +64,10 @@ rule( /\.slides\.html$/ => [
 	sh "jupyter-nbconvert --to slides #{t.source} --reveal-prefix=reveal.js"
 	# sh "jupyter-nbconvert --to slides #{t.source} "
 	FileUtils.cp("#{t.name}", File.join("..","Slides",File.basename("#{t.name}",".slides.html")+".html"))
-	FileUtils.cp("#{t.name}", File.join("..","OfflineSlides",File.basename("#{t.name}",".slides.html")+".html"))
-	Dir.chdir "../Slides"
+	# FileUtils.cp("#{t.name}", File.join("..","OfflineSlides",File.basename("#{t.name}",".slides.html")+".html"))
+	# Dir.chdir "../Slides"
 	# sh "find ./ -type f -exec sed -i '' s,reveal.js/css/theme/simple.css,reveal.js/css/theme/solarized.css, {} +;"
-	Dir.chdir "../Notebooks"
+	# Dir.chdir "../Notebooks"
 	sh "rm -rf #{t.name}"
 end
 
