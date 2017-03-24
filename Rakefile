@@ -72,8 +72,16 @@ rule( /\.slides\.html$/ => [
 end
 
 rule ".pdf" => ".ipynb" do |t|
+	bn = File.basename("#{t.name}")
 	sh "jupyter-nbconvert --to pdf #{t.source}"
+	# sh "ipython nbconvert #{t.source} --to latex --template assets/templates/citations.tplx"
+	# sh "latex #{bn.ext('tex')}"
+	# sh "bibtex #{bn.ext('aux')}"
+	# sh "pdflatex #{bn.ext('tex')}"
+	# sh "pdflatex #{bn.ext('tex')}"
+	# sh "pdflatex #{bn.ext('tex')}"
 	FileUtils.mv("#{t.name}", "../Pdfs/#{t.name}")
+	# sh "rm -rf *.tex *.aux *.synctex.gz *.nav"
 end
 
 rule ".md" => ".ipynb" do |t|

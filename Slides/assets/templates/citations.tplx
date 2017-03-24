@@ -1,0 +1,14 @@
+((*- extends 'article.tplx' -*))
+
+((* block author *))
+\author{Florian Oswald}
+((* endblock author *))
+
+((* block title *))
+\title{ScPo Computational Economics}
+((* endblock title *))
+
+((* block bibliography *))
+\bibliographystyle{plain}
+\bibliography{assets/references}
+((* endblock bibliography *))
