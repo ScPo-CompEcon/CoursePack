@@ -1,8 +1,64 @@
+
 <!DOCTYPE html>
 <html>
-<head><meta charset="utf-8" />
-<title>optimization</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="chrome=1" />
+
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+<title>constrained-optimization slides</title>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+<!-- General and theme style sheets -->
+<link rel="stylesheet" href="reveal.js/css/reveal.css">
+<link rel="stylesheet" href="reveal.js/css/theme/simple.css" id="theme">
+
+<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+<script>
+if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'reveal.js/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+}
+
+</script>
+
+<!--[if lt IE 9]>
+<script src="reveal.js/lib/js/html5shiv.js"></script>
+<![endif]-->
+
+<!-- Loading the mathjax macro -->
+<!-- Load mathjax -->
+    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+    <!-- MathJax configuration -->
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+            displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+            processEscapes: true,
+            processEnvironments: true
+        },
+        // Center justify equations in code and markdown cells. Elsewhere
+        // we use CSS to left justify single line equations in code cells.
+        displayAlign: 'center',
+        "HTML-CSS": {
+            styles: {'.MathJax_Display': {"margin": 0}},
+            linebreaks: { automatic: true }
+        }
+    });
+    </script>
+    <!-- End of mathjax configuration -->
+
+<!-- Get Font-awesome from cdn -->
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.css">
 
 <style type="text/css">
     /*!
@@ -11714,385 +11770,256 @@ ul.typeahead-list > li > a {
 
 <style type="text/css">
 /* Overrides of notebook CSS for static HTML export */
-body {
-  overflow: visible;
-  padding: 8px;
+.reveal {
+  font-size: 160%;
+  overflow-y: scroll;
 }
-
-div#notebook {
-  overflow: visible;
-  border-top: none;
+.reveal pre {
+  width: inherit;
+  padding: 0.4em;
+  margin: 0px;
+  font-family: monospace, sans-serif;
+  font-size: 80%;
+  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
 }
-
-@media print {
-  div.cell {
-    display: block;
-    page-break-inside: avoid;
-  } 
-  div.output_wrapper { 
-    display: block;
-    page-break-inside: avoid; 
-  }
-  div.output { 
-    display: block;
-    page-break-inside: avoid; 
-  }
+.reveal pre code {
+  padding: 0px;
+}
+.reveal section img {
+  border: 0px solid black;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0);
+}
+.reveal i {
+  font-style: normal;
+  font-family: FontAwesome;
+  font-size: 2em;
+}
+.reveal .slides {
+  text-align: left;
+}
+.reveal.fade {
+  opacity: 1;
+}
+.reveal .progress {
+  position: static;
+}
+div.input_area {
+  padding: 0.06em;
+}
+div.code_cell {
+  background-color: transparent;
+}
+div.prompt {
+  width: 11ex;
+  padding: 0.4em;
+  margin: 0px;
+  font-family: monospace, sans-serif;
+  font-size: 80%;
+  text-align: right;
+}
+div.output_area pre {
+  font-family: monospace, sans-serif;
+  font-size: 80%;
+}
+div.output_prompt {
+  /* 5px right shift to account for margin in parent container */
+  margin: 5px 5px 0 0;
+}
+div.text_cell.rendered .rendered_html {
+  /* The H1 height seems miscalculated, we are just hidding the scrollbar */
+  overflow-y: hidden;
+}
+a.anchor-link {
+  /* There is still an anchor, we are only hidding it */
+  display: none;
+}
+.rendered_html p {
+  text-align: inherit;
 }
 </style>
 
 <!-- Custom stylesheet, it must be in the same directory as the html file -->
 <link rel="stylesheet" href="custom.css">
 
-<!-- Loading mathjax macro -->
-<!-- Load mathjax -->
-    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
-    <!-- MathJax configuration -->
-    <script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-            displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
-            processEscapes: true,
-            processEnvironments: true
-        },
-        // Center justify equations in code and markdown cells. Elsewhere
-        // we use CSS to left justify single line equations in code cells.
-        displayAlign: 'center',
-        "HTML-CSS": {
-            styles: {'.MathJax_Display': {"margin": 0}},
-            linebreaks: { automatic: true }
-        }
-    });
-    </script>
-    <!-- End of mathjax configuration --></head>
-<body>
-  <div tabindex="-1" id="notebook" class="border-box-sizing">
-    <div class="container" id="notebook-container">
+</head>
 
+
+<body>
+
+
+<div class="reveal">
+<div class="slides">
+<section><section>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Computational-Economics:-Unconstrained-Optimization">Computational Economics: Unconstrained Optimization<a class="anchor-link" href="#Computational-Economics:-Unconstrained-Optimization">&#182;</a></h1><p>Florian Oswald
+<h1 id="Computational-Economics:-Constrained-Optimization">Computational Economics: Constrained Optimization<a class="anchor-link" href="#Computational-Economics:-Constrained-Optimization">&#182;</a></h1><p>Florian Oswald
 Sciences Po, 2017</p>
 
 </div>
 </div>
-</div>
+</div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Some-Taxonomy-and-Initial-Examples">Some Taxonomy and Initial Examples<a class="anchor-link" href="#Some-Taxonomy-and-Initial-Examples">&#182;</a></h2><ul>
-<li>In most of the examples to follow, we talk about <em>minimization</em> of a function $f$. Everything we do also applies to maximization, since $\min_x f(x) = \max_x -f(x)$.</li>
-<li>Here is a generic optimization problem:</li>
+<h2 id="Constrained-Optimisation">Constrained Optimisation<a class="anchor-link" href="#Constrained-Optimisation">&#182;</a></h2><ul>
+<li>Recall our generic definition of an optimization problem:</li>
 </ul>
 $$ 
-    \min_{x\in\mathbb{R}^n} f(x) \text{ s.t. } 
-    \begin{array}{cc} c_i(x) = 0, & i \in E \\
-    c_i(x) \geq 0, & i\in I 
-    \end{array}
+\min_{x\in\mathbb{R}^n} f(x)  \text{ s.t. }\begin{array}{cc} c_i(x) = 0, & i\in E \\
+                                                              c_i(x) \geq 0, & i\in I \end{array}
 $$<ul>
-<li>This is a general way of writing an optimization problem. E are all indices as equality constraints, I are all inequality constraints.</li>
-<li>An example of such a problem might be</li>
+<li>E is the set of <em>equality constraints</em> and I is the set of <em>inequality constraints</em>.</li>
+<li><strong>Defintion: The Feasible Set</strong>: Let $\Omega$ be the set of points $x$ that satisfy the constraints, i.e.
+  $$ \Omega = {x|c_i(x)=0,i\in E; c_i(x)\geq 0, i\in I} $$</li>
+<li>Then, a different way of writign our problem is
+  $$ \min_{x\in \Omega} f(x)  $$</li>
+<li>A vector $x^*$ is a <em>local solution</em> to this problem if $x^* \in \Omega$ and there is a neighborhood $\mathcal{N}$ s.t. </li>
+</ul>
+$$f(x)\geq f(x^*),\forall x\in \mathcal{N} \cap \Omega$$<ul>
+<li><strong>Definition: The Active Set</strong>: Active set $\mathcal{A}(x)$ at any feasible $x$ consists of the equality constraint indices from E together with the indices of the inequality constraints for $i$ for which $c_i(x) = 0$; that is,</li>
+</ul>
+$$ \mathcal{A}(x) = E \cup {i\in I|c_i(x) = 0} $$<ul>
+<li>At a feasible point $x$, the inequality constraint $i \in I$ is said to be <em>active</em> if $c_i(x)=0$, and <em>inactive</em> if $c_i(x)>0$</li>
+</ul>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Nonlinear-Constraints">Nonlinear Constraints<a class="anchor-link" href="#Nonlinear-Constraints">&#182;</a></h2><ul>
+<li>Consider the following problem</li>
 </ul>
 $$ 
-    \min (x_1 -2)^2 + (x_2 -1)^2 \text{ s.t. } 
-    \begin{array}{cc}
-     x_{1}^2 -x_2 \leq 0 \\
-     x_1 +x_2 \leq 2 
-     \end{array}
+\min_{x \in \mathbb{R}^2} \sqrt{x_2} \text{ subject to }\begin{array}{c} \\
+ x_2 \geq 0 \\
+ x_2 \geq (a_1 x_1 + b_1)^3 \\
+x_2 \geq (a_2 x_1 + b_2)^3 
+\end{array}
 $$<ul>
-<li>Here is a picture of that problem taken from the textbook [@nocedal-wright] &lt;cite data-cite=nocedalwright&gt;&lt;/cite&gt; </li>
+<li>This configuration of constraints leads to the following feasible region for parameters $a_1=2,b_1=0,a_2=-1,b_2=1$.
+<img src="../assets/figs/NLopt-example-constraints.png" alt=""></li>
 </ul>
 
 </div>
 </div>
-</div>
+</div></section><section>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><img src="../assets/figs-restricted/feasible-region.png" alt="Figure 1.1 in [@nocedal-wright]"></p>
+<h2 id="Example:-1-equality-constraint">Example: 1 equality constraint<a class="anchor-link" href="#Example:-1-equality-constraint">&#182;</a></h2><ul>
+<li>consider 
+  $$ \min x_1 + x_2  \quad s.t. \quad x_1^2 + x_2^2 - 2 = 0 $$</li>
+<li>constraint is a circle with radius $\sqrt{2}$ centered at 0. The solution must lie <em>on</em> that circle.</li>
+<li>Solution: $(-1,-1)$. Consider any other point on circle, like $(\sqrt{2},0)$.</li>
+</ul>
+<p><img src="../assets/figs-restricted/constrained-example.png" alt="Figure 12.3 in [@nocedal-wright]&lt;cite data-cite=nocedalwright&gt;&lt;/cite&gt;"></p>
 
 </div>
 </div>
-</div>
+</div></section><section>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Kinds-of-problems-considered">Kinds of problems considered<a class="anchor-link" href="#Kinds-of-problems-considered">&#182;</a></h2><ul>
-<li>Don't talk about stochastic optimization methods:<ul>
-<li>Simluated Annealing</li>
-<li>MCMC </li>
-<li>other Stochastic Search Methods</li>
-<li>A gentle introduction is     [@casella-R] &lt;cite data-cite=casellaR&gt;&lt;/cite&gt; </li>
-</ul>
+<h2 id="Example:-1-inequality-constraint">Example: 1 inequality constraint<a class="anchor-link" href="#Example:-1-inequality-constraint">&#182;</a></h2><ul>
+<li>Let's modify this example to
+  $$ \min x_1 + x_2  \text{   such that   } 2- x_1^2 - x_2^2 \geq 0 $$</li>
+<li>constraint is the region inside a circle with radius $\sqrt{2}$ centered at 0. The solution must lie <em>on or inside</em> that circle.</li>
+<li>Solution: $(-1,-1)$. Consider any other point on circle, like $(\sqrt{2},0)$.</li>
+<li>Two cases: <ol>
+<li>$x$ lies strictly inside the circle, and $c_1(x) > 0$</li>
+<li>$x$ lies strictly on the circle, and $c_1(x) = 0$</li>
+</ol>
 </li>
+<li>Complementarity condition.</li>
 </ul>
 
 </div>
 </div>
-</div>
+</div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Transportation-Problem">Transportation Problem<a class="anchor-link" href="#Transportation-Problem">&#182;</a></h2><blockquote><p>A chemical company has two factories $F_1,F_2$ and a dozen retail outlets $R_1,\dots,R_{12}$. Each factory $i$ can produce at most $a_i$ tons of output each week. Each retail outlet $j$ has a weekly demand of $b_j$ tons per week. The cost of shipping from $F_i$ to $R_j$ is given by $c_{ij}$.
-How much of the product to ship from each factory to each outlet, minimize cost, and satisfy all constraints? let's call $x_{ij}$ the number of tons shipped from $i$ to $j$.</p>
-</blockquote>
+<h2 id="Some-Methods">Some Methods<a class="anchor-link" href="#Some-Methods">&#182;</a></h2><ul>
+<li>Penalty Function and Augmented Lagrangian Methods</li>
+<li>Sequential Quadratic Method</li>
+<li>Interior Point Method</li>
+</ul>
 
 </div>
 </div>
-</div>
+</div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><img src="../assets/figs-restricted/transportation.png" alt="Figure 1.2 in &lt;cite data-cite=nocedalwright&gt;&lt;/cite&gt;"></p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li>A mathematical formulation of this problem is</li>
-</ul>
-$$ 
-    \begin{aligned}
-    \min \sum_{ij} c_{ij} x_{ij} \\
-    \text{subject to} \sum_{j=1}^{12} x_{ij} \leq a_i,\quad i=1,2 \\
-    \sum_{i=1}^2  x_{ij} \geq b_j,\quad j=1,\dots,12  \\
-    x_{ij} \geq 0, \quad i=1,2,j=1,\dots,12
-    \end{aligned}
-$$<ul>
-<li>This is called a <em>linear programming</em> problem, because both objective function and all constrains are linear.</li>
-<li>With any of those being nonlinear, we would call this a non-linear problem.</li>
+<h2 id="Constrained-Optimisation-with-NLopt.jl">Constrained Optimisation with <a href="https://github.com/JuliaOpt/NLopt.jl"><code>NLopt.jl</code></a><a class="anchor-link" href="#Constrained-Optimisation-with-NLopt.jl">&#182;</a></h2><ul>
+<li>We need to specify one function for each objective and constraint.</li>
+<li>Both of those functions need to compute the function value (i.e. objective or constraint) <em>and</em> it's respective gradient. </li>
+<li>Notice that we can disregard $x_2\geq0$ here.</li>
+<li><code>NLopt</code> expects contraints <strong>always</strong> to be formulated in the format 
+  $$ g(x) \leq 0 $$
+   where $g$ is your constraint function</li>
+<li>The constraint function is formulated for each constraint at $x$. it returns a number (the value of the constraint at $x$), and it fills out the gradient vector, which is the partial derivative of the current constraint wrt $x$.</li>
+<li>There is also the option to have vector valued constraints, see the documentation.</li>
+<li>We set this up as follows:</li>
 </ul>
 
 </div>
 </div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Constrained-vs-Unconstrained">Constrained vs Unconstrained<a class="anchor-link" href="#Constrained-vs-Unconstrained">&#182;</a></h2><ul>
-<li>There are many applications of both in economics.</li>
-<li>Unconstrained: maximimum likelihood</li>
-<li>Constrained: MPEC</li>
-<li>It is sometimes possible to transform a constrained problem into an unconstrained one.</li>
-</ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Convexity">Convexity<a class="anchor-link" href="#Convexity">&#182;</a></h2><ul>
-<li>Convex problems are easier to solve.</li>
-<li>What is convex?</li>
-</ul>
-<blockquote><p>A set $S\in\mathbb{R}^n$ is convex if the straight line segment connecting any two points in $S$ lies entirely inside $S$.
-A function $f$ is a convex function, if its domain $S$ is a convex set, and for any two points $x,y \in S$, we have that
-    $$ f(\alpha x + (1-\alpha)y) \leq \alpha f(x) + (1-\alpha) f(y) $$
-    for all $\alpha \in [0,1]$</p>
-</blockquote>
-<ul>
-<li>Simple instances of convex sets are the unit ball $\{y \in \mathbb{R}^n, \Vert y\Vert_2 \leq 1\}$, and any set defined by linear equalities and inequalities.</li>
-<li><em>convex Programming</em> describes a special case of the introductory minimizatin problem where <ul>
-<li>the objective function is convex, </li>
-<li>the equality constrains are linear, and </li>
-<li>the inequality constraints are concave.</li>
-</ul>
-</li>
-</ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Optimization-Algorithms">Optimization Algorithms<a class="anchor-link" href="#Optimization-Algorithms">&#182;</a></h2><ul>
-<li>All of the algorithms we are going to see employ some kind of <em>iterative</em> proceedure. </li>
-<li>They try to improve the value of the objective function over successive steps.</li>
-<li>The way the algorithm goes about generating the next step is what distinguishes algorithms from one another.<ul>
-<li>Some algos only use the objective function</li>
-<li>Some use both objective and gradients</li>
-<li>Some add the Hessian</li>
-<li>and many variants more</li>
-</ul>
-</li>
-</ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Desirable-Features-of-any-Algorithm">Desirable Features of any Algorithm<a class="anchor-link" href="#Desirable-Features-of-any-Algorithm">&#182;</a></h2><ul>
-<li>Robustness: We want good performance on a wide variety of problems in their class, and starting from <em>all</em> reasonable starting points.</li>
-<li>Efficiency: They should be fast and not use an excessive amount of memory.</li>
-<li>Accuracy: They should identify the solution with high precision.</li>
-</ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="A-Word-of-Caution">A Word of Caution<a class="anchor-link" href="#A-Word-of-Caution">&#182;</a></h2><ul>
-<li>You should <strong>not</strong> normally attempt to write a numerical optimizer for yourself.</li>
-<li>Entire generations of Applied Mathematicians and other numerical pro's have worked on those topics before you, so you should use their work.<ul>
-<li>Any optimizer you could come up with is probably going to perform below par, and be highly likely to contain mistakes.</li>
-<li>Don't reinvent the wheel.</li>
-</ul>
-</li>
-<li>That said, it's very important that we understand some basics about the main algorithms, because your task is <strong>to choose from the wide array of available ones</strong>.</li>
-</ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Unconstrained-Optimization:-What-is-a-solution?">Unconstrained Optimization: What is a solution?<a class="anchor-link" href="#Unconstrained-Optimization:-What-is-a-solution?">&#182;</a></h1><ul>
-<li>A typical unconstrained optimization problem will look something like this:
-  $$ \min_x f(x),\quad x\in \mathbb{R}^n $$
-  and where $f : \mathbb{R}^n \mapsto \mathbb{R}$ is a smooth function.</li>
-<li>In general, we would always like to find a <em>global</em> minimizer, i.e. a point $$x^* \text{ where } f(x^*) \leq f(x)\quad \forall x$$</li>
-<li>Since our algorithm is not going to visit many points in $\mathbb{R}^n$ (or so we hope), we can never be totally sure that we find a global optimizer.</li>
-<li>Most optimizers can only find a <em>local</em> minimizer. That is a point
-$$x^* \text{ where } f(x^*) \leq f(x)\quad \forall x \in \mathcal{N}$$ where $\mathcal{N}$ is a neighborhood around $x^*$.</li>
-</ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Global-minization-can-be-very-hard-sometimes.">Global minization can be very hard sometimes.<a class="anchor-link" href="#Global-minization-can-be-very-hard-sometimes.">&#182;</a></h2><p><img src="../assets/figs/optimization/Eggholder-function.jpg" alt="Global min at $f(512, 404.2319)$. By Gaortizg [GFDL](http://www.gnu.org/copyleft/fdl.html) or [CC BY-SA 3.0](http://creativecommons.org/licenses/by-sa/3.0), via Wikimedia Commons"></p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="(Unconstrained)-Optimization-in-Julia">(Unconstrained) Optimization in <code>Julia</code><a class="anchor-link" href="#(Unconstrained)-Optimization-in-Julia">&#182;</a></h2><ul>
-<li>Umbrella Organisation: <a href="http://www.juliaopt.org"><code>http://www.juliaopt.org</code></a><ul>
-<li>We will make ample use of this when we talk about constrained optimsation.</li>
-<li>The Julia Interface to the very well established <a href="http://ab-initio.mit.edu/wiki/index.php/NLopt">C-Library NLopt</a> is called <a href="https://github.com/JuliaOpt/NLopt.jl"><code>NLopt.jl</code></a>. One could use <code>NLopt</code> without constraints in an unconstrained problem.</li>
-</ul>
-</li>
-<li><a href="https://github.com/JuliaLang/Roots.jl"><code>Roots.jl</code></a>: Simple algorithms that find the zeros of a univariate function.</li>
-<li>Baseline Collection of unconstrained optimization algorithms: <a href="https://github.com/JuliaOpt/Optim.jl"><code>Optim.jl</code></a></li>
-</ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Introducing-Optim.jl">Introducing <a href="https://github.com/JuliaOpt/Optim.jl"><code>Optim.jl</code></a><a class="anchor-link" href="#Introducing-Optim.jl">&#182;</a></h2><ul>
-<li>Multipurpose unconstrained optimization package <ul>
-<li>provides 8 different algorithms with/without derivatives</li>
-<li>univariate optimization without derivatives</li>
-</ul>
-</li>
-</ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="The-Golden-Ratio-or-Bracketing-Search-for-1D-problems">The Golden Ratio or Bracketing Search for 1D problems<a class="anchor-link" href="#The-Golden-Ratio-or-Bracketing-Search-for-1D-problems">&#182;</a></h2><ul>
-<li>A derivative-free method</li>
-<li>a Bracketing method<ul>
-<li>find the local minimum of $f$ on $[a,b]$</li>
-<li>select 2 interior points $c,d$ such that $a<c<d<b$<ul>
-<li>$f(c) \leq f(d) \implies$ min must lie in $[a,d]$. replace $b$ with $d$, start again with $[a,d]$</li>
-<li>$f(c) > f(d) \implies$ min must lie in $[c,b]$. replace $a$ with $c$, start again with $[c,b]$</li>
-</ul>
-</li>
-<li>how to choose $b,d$ though?</li>
-<li>we want the length of the interval to be independent of whether we replace upper or lower bound</li>
-<li>we want to reuse the non-replaced point from the previous iteration. </li>
-<li>these imply the golden rule:</li>
-<li>new point $x_i = a + \alpha_i (b-a)$, where $\alpha_1 = \frac{3-\sqrt{5}}{2},\alpha_2=\frac{\sqrt{5}-1}{2}$</li>
-<li>$\alpha_2$ is known as the <em>golden ratio</em>, well known for it's role in renaissance art.</li>
-</ul>
-</li>
-</ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Bracketing-Search-in-Julia">Bracketing Search in Julia<a class="anchor-link" href="#Bracketing-Search-in-Julia">&#182;</a></h3><ul>
-<li>The package <a href="https://github.com/JuliaNLSolvers/Optim.jl"><code>Optim.jl</code></a> provides an implementation of "Brent's Method" as well as the golden section search:</li>
-</ul>
-
-</div>
-</div>
-</div>
+</div></section></section><section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-julia"><pre><span></span><span class="k">using</span> <span class="n">Plots</span>
-<span class="k">using</span> <span class="n">Optim</span>
-<span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">=</span> <span class="n">exp</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">-</span> <span class="n">x</span><span class="o">^</span><span class="mi">4</span>
-<span class="n">minf</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">=</span> <span class="o">-</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="n">brent</span> <span class="o">=</span> <span class="n">optimize</span><span class="p">(</span><span class="n">minf</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="n">Brent</span><span class="p">())</span>
-<span class="n">golden</span> <span class="o">=</span> <span class="n">optimize</span><span class="p">(</span><span class="n">minf</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="n">GoldenSection</span><span class="p">())</span>
-<span class="n">println</span><span class="p">(</span><span class="s">&quot;brent = </span><span class="si">$brent</span><span class="s">&quot;</span><span class="p">)</span>
-<span class="n">println</span><span class="p">(</span><span class="s">&quot;golden = </span><span class="si">$golden</span><span class="s">&quot;</span><span class="p">)</span>
-<span class="n">plot</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="k">function</span><span class="nf"> myfunc</span><span class="p">(</span><span class="n">x</span><span class="p">::</span><span class="n">Vector</span><span class="p">,</span> <span class="n">grad</span><span class="p">::</span><span class="n">Vector</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">length</span><span class="p">(</span><span class="n">grad</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span>
+        <span class="n">grad</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">grad</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.5</span><span class="o">/</span><span class="n">sqrt</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+    <span class="k">end</span>
+    <span class="k">return</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+<span class="k">end</span>
+
+<span class="k">function</span><span class="nf"> constraint</span><span class="p">(</span><span class="n">x</span><span class="p">::</span><span class="n">Vector</span><span class="p">,</span> <span class="n">grad</span><span class="p">::</span><span class="n">Vector</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">length</span><span class="p">(</span><span class="n">grad</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span>
+    	<span class="c"># modifies grad in place</span>
+        <span class="n">grad</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">3</span><span class="n">a</span> <span class="o">*</span> <span class="p">(</span><span class="n">a</span><span class="o">*</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span><span class="o">^</span><span class="mi">2</span>
+        <span class="n">grad</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+    <span class="k">end</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">a</span><span class="o">*</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span><span class="o">^</span><span class="mi">3</span> <span class="o">-</span> <span class="n">x</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+<span class="k">end</span>
+<span class="k">using</span> <span class="n">NLopt</span>
+<span class="c"># define an Opt object: which algorithm, how many dims of choice</span>
+<span class="n">opt</span> <span class="o">=</span> <span class="n">Opt</span><span class="p">(:</span><span class="n">LD_MMA</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="c"># set bounds and tolerance</span>
+<span class="n">lower_bounds!</span><span class="p">(</span><span class="n">opt</span><span class="p">,</span> <span class="p">[</span><span class="o">-</span><span class="nb">Inf</span><span class="p">,</span> <span class="mf">0.</span><span class="p">])</span>
+<span class="n">xtol_rel!</span><span class="p">(</span><span class="n">opt</span><span class="p">,</span><span class="mf">1e-4</span><span class="p">)</span>
+
+<span class="c"># define objective function</span>
+<span class="n">min_objective!</span><span class="p">(</span><span class="n">opt</span><span class="p">,</span> <span class="n">myfunc</span><span class="p">)</span>
+<span class="c"># define constraints</span>
+<span class="c"># notice the anonymous function</span>
+<span class="n">inequality_constraint!</span><span class="p">(</span><span class="n">opt</span><span class="p">,</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">g</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">constraint</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">g</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span> <span class="mf">1e-8</span><span class="p">)</span>
+<span class="n">inequality_constraint!</span><span class="p">(</span><span class="n">opt</span><span class="p">,</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">g</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">constraint</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">g</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="mf">1e-8</span><span class="p">)</span>
+
+<span class="c"># call optimize</span>
+<span class="p">(</span><span class="n">minf</span><span class="p">,</span><span class="n">minx</span><span class="p">,</span><span class="n">ret</span><span class="p">)</span> <span class="o">=</span> <span class="n">optimize</span><span class="p">(</span><span class="n">opt</span><span class="p">,</span> <span class="p">[</span><span class="mf">1.234</span><span class="p">,</span> <span class="mf">5.678</span><span class="p">])</span>
 </pre></div>
 
 </div>
@@ -12102,37 +12029,14 @@ $$x^* \text{ where } f(x^*) \leq f(x)\quad \forall x \in \mathcal{N}$$ where $\m
 <div class="output_wrapper">
 <div class="output">
 
-
-<div class="output_area">
-<div class="prompt"></div>
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>brent = Results of Optimization Algorithm
- * Algorithm: Brent&#39;s Method
- * Search Interval: [0.000000, 2.000000]
- * Minimizer: 8.310315e-01
- * Minimum: -1.818739e+00
- * Iterations: 12
- * Convergence: max(|x - x_upper|, |x - x_lower|) &lt;= 2*(1.5e-08*|x|+2.2e-16): true
- * Objective Function Calls: 13
-golden = Results of Optimization Algorithm
- * Algorithm: Golden Section Search
- * Search Interval: [0.000000, 2.000000]
- * Minimizer: 8.310315e-01
- * Minimum: -1.818739e+00
- * Iterations: 37
- * Convergence: max(|x - x_upper|, |x - x_lower|) &lt;= 2*(1.5e-08*|x|+2.2e-16): true
- * Objective Function Calls: 38
-</pre>
-</div>
-</div>
 
 <div class="output_area">
 <div class="prompt output_prompt">Out[1]:</div>
 
 
-<div class="output_html rendered_html output_subarea output_execute_result">
-<img src="data:image/png;base64,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" />
+
+<div class="output_text output_subarea output_execute_result">
+<pre>(0.5443310477213124,[0.333333,0.296296],:XTOL_REACHED)</pre>
 </div>
 
 </div>
@@ -12140,26 +12044,47 @@ golden = Results of Optimization Algorithm
 </div>
 </div>
 
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="NLopt:-Rosenbrock">NLopt: Rosenbrock<a class="anchor-link" href="#NLopt:-Rosenbrock">&#182;</a></h2><ul>
+<li>Let's tackle the rosenbrock example again.</li>
+<li>To make it more interesting, let's add an inequality constraint.
+  $$ \min_{x\in \mathbb{R}^2} (1-x_1)^2  + 100(x_2-x_1^2)^2  \text{  subject to  } 0.8 - x_1^2 -x_2^2 \geq 0 $$</li>
+<li>in <code>NLopt</code> format, the constraint is $x_1 + x_2 - 0.8 \leq 0$</li>
+</ul>
+
+</div>
+</div>
+</div></section></section><section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-julia"><pre><span></span><span class="c"># how well does this do with many local minima?</span>
-<span class="n">fun</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">=</span> <span class="n">exp</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">-</span> <span class="n">x</span><span class="o">^</span><span class="mi">4</span> <span class="o">+</span><span class="n">sin</span><span class="p">(</span><span class="mi">40</span><span class="o">*</span><span class="n">x</span><span class="p">)</span>
-<span class="n">minf</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">=</span> <span class="o">-</span><span class="n">fun</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="n">grid</span> <span class="o">=</span> <span class="n">collect</span><span class="p">(</span><span class="mi">0</span><span class="p">:</span><span class="mf">0.000001</span><span class="p">:</span><span class="mi">2</span><span class="p">);</span>
-<span class="c"># fun.(grid)</span>
-<span class="c"># v,idx  = findmax(fun.(grid))</span>
-<span class="n">v</span><span class="p">,</span><span class="n">idx</span>  <span class="o">=</span> <span class="n">findmax</span><span class="p">(</span><span class="kt">Float64</span><span class="p">[</span><span class="n">fun</span><span class="o">.</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="k">in</span> <span class="n">grid</span><span class="p">])</span>
-<span class="n">println</span><span class="p">(</span><span class="s">&quot;grid maximizer is </span><span class="si">$(grid[idx])</span><span class="s">&quot;</span><span class="p">)</span>
-<span class="n">golden</span> <span class="o">=</span> <span class="n">optimize</span><span class="p">(</span><span class="n">minf</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="n">GoldenSection</span><span class="p">())</span>
-<span class="n">brent</span> <span class="o">=</span> <span class="n">optimize</span><span class="p">(</span><span class="n">minf</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="n">Brent</span><span class="p">())</span>
-<span class="k">using</span> <span class="n">Base</span><span class="o">.</span><span class="n">Test</span>
-<span class="n">println</span><span class="p">(</span><span class="s">&quot;brent minimizer = </span><span class="si">$(brent.minimizer)</span><span class="s">&quot;</span><span class="p">)</span>
-<span class="n">println</span><span class="p">(</span><span class="s">&quot;golden minimizer = </span><span class="si">$(golden.minimizer)</span><span class="s">&quot;</span><span class="p">)</span>
-<span class="n">plot</span><span class="p">(</span><span class="n">fun</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="k">function</span><span class="nf"> rosenbrock</span><span class="p">(</span><span class="n">x</span><span class="p">::</span><span class="n">Vector</span><span class="p">,</span><span class="n">grad</span><span class="p">::</span><span class="n">Vector</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">length</span><span class="p">(</span><span class="n">grad</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span>
+	    <span class="n">grad</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mf">2.0</span> <span class="o">*</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">-</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">-</span> <span class="mf">400.0</span> <span class="o">*</span> <span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">-</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">^</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+	    <span class="n">grad</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="mf">200.0</span> <span class="o">*</span> <span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">-</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">^</span><span class="mi">2</span><span class="p">)</span>
+    <span class="k">end</span>
+    <span class="k">return</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">-</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span><span class="o">^</span><span class="mi">2</span> <span class="o">+</span> <span class="mf">100.0</span> <span class="o">*</span> <span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">-</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">^</span><span class="mi">2</span><span class="p">)</span><span class="o">^</span><span class="mi">2</span>
+<span class="k">end</span>
+<span class="k">function</span><span class="nf"> r_constraint</span><span class="p">(</span><span class="n">x</span><span class="p">::</span><span class="n">Vector</span><span class="p">,</span> <span class="n">grad</span><span class="p">::</span><span class="n">Vector</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">length</span><span class="p">(</span><span class="n">grad</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span>
+	<span class="n">grad</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+	<span class="n">grad</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">x</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+	<span class="k">end</span>
+	<span class="k">return</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">^</span><span class="mi">2</span> <span class="o">+</span> <span class="n">x</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">^</span><span class="mi">2</span> <span class="o">-</span> <span class="mf">0.8</span>
+<span class="k">end</span>
+<span class="n">opt</span> <span class="o">=</span> <span class="n">Opt</span><span class="p">(:</span><span class="n">LD_MMA</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">lower_bounds!</span><span class="p">(</span><span class="n">opt</span><span class="p">,</span> <span class="p">[</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="o">-</span><span class="mf">5.0</span><span class="p">])</span>
+<span class="n">min_objective!</span><span class="p">(</span><span class="n">opt</span><span class="p">,(</span><span class="n">x</span><span class="p">,</span><span class="n">g</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">rosenbrock</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">g</span><span class="p">))</span>
+<span class="n">inequality_constraint!</span><span class="p">(</span><span class="n">opt</span><span class="p">,</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">g</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">r_constraint</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">g</span><span class="p">))</span>
+<span class="n">ftol_rel!</span><span class="p">(</span><span class="n">opt</span><span class="p">,</span><span class="mf">1e-9</span><span class="p">)</span>
+<span class="p">(</span><span class="n">minf</span><span class="p">,</span><span class="n">minx</span><span class="p">,</span><span class="n">ret</span><span class="p">)</span> <span class="o">=</span> <span class="n">optimize</span><span class="p">(</span><span class="n">opt</span><span class="p">,</span> <span class="p">[</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span><span class="mf">0.0</span><span class="p">])</span>
 </pre></div>
 
 </div>
@@ -12169,33 +12094,14 @@ golden = Results of Optimization Algorithm
 <div class="output_wrapper">
 <div class="output">
 
-
-<div class="output_area">
-<div class="prompt"></div>
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>grid maximizer is 0.824692
-brent minimizer = 0.8310314519658002
-golden minimizer = 0.8310314579502819
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-<div class="prompt"></div>
-
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>WARNING: Method definition minf(Any) in module Main at In[1]:4 overwritten at In[2]:3.
-</pre>
-</div>
-</div>
 
 <div class="output_area">
 <div class="prompt output_prompt">Out[2]:</div>
 
 
-<div class="output_html rendered_html output_subarea output_execute_result">
-<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAlgAAAGQCAYAAAByNR6YAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAPYQAAD2EBqD+naQAAIABJREFUeJzs3XmYVNWZ+PHvuVW9LzS90Du7rLIIItCygyBxV3CLk5DRaGImJjGZZDKZGf1lMpNMEnXGLCYxidG4JO5LjIBssqPggiwia9ML3UADvW9V9/z+uFQLTS+13FsLvJ/nyZMnnabqVPWpe9865z3vq7TWGiGEEEIIYRsj0gMQQgghhDjfSIAlhBBCCGEzt90PaJomlZWVpKWloZSy++GFEEIIIaKK1pr6+noKCgowDGvtyvYAq7KykuLiYrsfVgghhBAiqpWVlVFUVAQ4EGClpaV1PEl6errdDy/OY3V1dRQXF8fs3Pn0lObZfSYFKTAn32BoRvSu4LabmqmveYgz4OlZbgalw/98aPKTj0zevNLFtLzozh4ordecaoPCZMhO+ux9jvU5JCJL5o8Ilm/u+GIgcCDA8m0LpqenywQVQYnFubPuiMm1q70ANLRD0m7YeK2bizOjM8h6dIeX/e0m225wMz7LGuOPpms21Hn56jbN9pvc9ImPzrE/tsvL1zaYaCDJBa8vcDGv8OyAMBbnkIgeMn9EsM5MjYrur6niguJyuZg/fz4ulyvSQwnIJ6c0V7zlZXyW4uCtbk58wc2gNLhmmYejzdFXBaWmRfPg+yZ3DTc6gisAl6F4apaL6mb4zS4zgiPs3i93erl3g8k/jTZ473oXswsUVy/zsrLCGm+sziERHWT+CDspu+tg1dXV0adPH2pra+UbgLggLFrh4b1jmk8Wu0lyWwHL4QbNpFc9zClQPDfH9oXikDywzcvDH5vsv8VNv6RzV6mWrPGw5ohm/y1uXEb0rGI1tGv6P+dh0SDFb6e5UErR6tVc+ZaXikbNzsVu4qJovEIIS1tbG6WlpXi93kgPJSSGYZCfn3/WNqBPV7FPdF35hYgx7x0zeemg5k8zXR3BFUD/VMUDEwy+vtHkR5dqhqRHx43f1JonPzW5bYjqMrgC+Npogyf3evl7meaaAdExboAn9pjUtcG/XeLqWIZPcCn+d6qLS1728Mc9JveMlJUHIaJJeXk5t99+O01NTZEeim1uuOEGvv/973ecFuyOBFgiang8Ht577z2KRl/K/+0yeHa/yZR+ih9PcjE8ShPGf/CeyagMuGPoueP70jCDB7eZ/Hy7yWPTouPGv6ZSU9oAS4Z1f2GYlGMwKcfkV7tMrhkQHVkEXlPzyA6Tmwcr+qee/V6Py1LcPlTx/943uX2QyY4PtjJp0iTcbrm8icD4rkEyf+xhmiY//OEPycjI4NFHHyUxMTHSQwpJe3s7H3zwAb/4xS8A+MEPftDj78sMElGjqamJkllzGfHUSapa4NYhBn8vMxn3sod3r3MzNiu6gqx9tZq3KzTPzHZ1uZWW5FZ882KDH35g8uAEg9zkyI//T5+aXJQOU/v1PJavjTJY8o6XQ/WagWmRH/crhzQH6+GFuV0Hqv9+iYtn9nl4ZX8rXywpkRQFEZSmpiZKZP7Y5vjx47z//vv813/9F+PHj4/0cGwxZswYAB599FHuu+++LrcLfaLj66kQPot+yqFGxYZr3Tw2zcUni91clA5ffMdDuxldCeNP7zNJi4MbBnYfgNw7ysDACmwira5N8+JBzZJhRq9FgG8cqIg34LXSyI9ba83PtpvMzldMzOl63MMzFGMz4Y3y6FgpFELAqVOnADrqQp0vLrnkEgCOHDnS4+9JgCWixqbjLph1Dz+5xMOovtaNNMmteHKWm49PwE8+jPzN3kdrzdP7TBYNUmflXnWWkaC4ur/i+YORH/tbZZpmL9xxUe8f+7R4xbxCxauHIh/UbqjWvHtM852xPY/7pkEGyypdjBgzrtfcCCG6YhgGo0aNkvljE9P87HTv+SQuLg747PV1R2aRiBrPHk7gonS4b3zSWT+fkK34p9EG/7fDpM0b+Rs+wOajmv11cMfQ3j9CNw82eP+4taUYSW9XWPlinXOYunP9QIO1VZqalsiO+6Ht1rivLO553DcNNKj3KH72xvukpqaGaXT+azc1rVEyf0XXUlNT2blzZ1TOH+GsQ4cOMWvWLPr06WPbdqYEWBcAU2tORPgm2ZuGds1LBzVfuKjr7au7hhvUtMKbh6PjdTy9T1OUArMKeg9WPtdfkeKG5w9EbhVLaytf7Ioi/z/y1/RXaA1/i+B7Xt+mebNM85WRBkYv25qj+sLwPvDSocivFnb2wXHNgOc8JP7RQ/9n21lVEX1jFOJClp6ezo9+9COeffZZ2x5TAqzz3OOfmAx73kP2nz18YbWH8oboCFA6e+WQptEDc1Oru1x2vThTMSEbntob+RuT1prXSk1uGtT7TR8g2a24ZoDirxEMsPbXweEGmOdHQOiTl6yYmqt4NYIBy8pKTbsJV/Xv/VKllOLGgYpXDnpp9URPvZ31VSYz/+ahKEXxhxkuBqcrblzhZdfJ6PwsXshM06S8vLzXrR8Ru37+859z9913d/zvU6dOkZ2dDcC0adNISUmx7bnkFOF57Jl9Jnev83LzYMU9IxQPfWyy5ZiHD250k9xD3lAkPLXXZFqOl5Lhhd2e4PniRQbf2WJyvEWTnRi58e84CRWN8LletqzOdPMggxv3e9lXqxnaJ/xjf7vCxK1gZn5gz33dAMWD20xavZoEV/jH/VaZZlgfGOxnHbEF/Zr58UeJvHWgmeuHRX6bp82r+eIaL2MzFW9d6SItXrFokGLaGx6uWuph5+Lo+yxeyBoaGiguLpZThA46UGf1EbVbRrx/14m77rqLYcOG8dOf/pSMjAyeeOIJrrvuOjIzM20fkwRY56kDdZqvrvfyD0MVT822/szXDDC45GUPP3jP5JGp0ZN0WNGoWVmh+cUkL+t7+L3bhhh8e7PJX/ab/NPoyI3/rTKTZDfMyPP/xji3UOFSsLLSZGif8I99RYVmSj9FWoD9BecXGXzvXZNN1dqv7VA7aa15q8zkhoH+L7SP76vh+EHeKC/m+mEODs5Pv/vE5GA9vDbf1fHep8crXp7nZsQLVnHUSM5lIcLpeIvmouc9OHEg3KWg6g53r1++MzIyWLRoEX/84x/51re+xWOPPcZf//pX+weEBFjnra9v9JKdCL+8/LOL94gMxX9daq0C3TJYMSU3OnaIn9lnkuCC64q9fL+HmiI5SYrP9Vc8+anmn0aHcYCdvFWmmZ2vSAxg5SE9XnFZjmJlheaekQ4OrgteU7OqUvPNiwP/e4/NhOxEa6tuVoEDg+vBrpNQ1ggLA1gpVAridvydvxXdi9fUEW3109Cu+c8PTL5wkTqn6ffQPoqbByse2m7ylZEGbmnxEzV6qmskQpOdqNh7s9uxFSx/dzbuu+8+rr32WkaOHElOTk5H2QW7SYB1Htp9UvP3Ms2TM12kd1qx+MbFBr/fY/Lzj01ejIIAS59u3XL9QEVRVjp1dXU9/v4XLzK46XT+iq+UQzjVtWnWV2n+ryTw925OgeK3n5iYWvuVu2WXbcetJfkrigJ/TkMpZudbgeF/XurA4HrwVrlJoiuwbc309HTWPHwfl7/uZWO1ZnqAW6J2evwTk5Ot8P8mdr1C9d1xVouf5w9obu+iE4AIv/T03q9BIjT+bvc7acSIEQwePJi7776bn/70p449T+TvsDFEa02TR2Pa2x/bdv+3wyQvCW4Zcu5EdhmK+0YbvHJIczgKEt4/qIFdp+ALftRmAriqvyIzIXLJ7isrNB4NCwM4jeczt1BxvAV2nHBgYD14u0KTFgeTuinS2Zt5hQbvHtPUtYV3viwt08wu6LnOWFem9FMUJMPLEa7h9eSnJtcOUAzophL++CzFgiLFIx9LQrUQ4fblL38Zj8fDokWLAKuKf1FREYsXL2bXrl0UFRXx/e9/P6TnkADLT3VtmvlveUl5wkP8Hzz8z4fRc0rpTDUtmqf2mtw7yug2KfmOiwzS4uBXOyN/YX9qr0luElxR6N9NNMGluHWIwZ/3mngjUNl9RaVmaDoMCuJb2NR+ikSXlYcVTisqrEAlLshtqLmFCq+Gd46E7/1uaNesq9IsDHLV7coiFfb3+Uwf1Wg+OmGtuPbkH4cZbD2uOVAX+S87QlxIVq9ezb333ttRNDQ5OZny8nKOHTtGW1sb5eXl/PjHPw7pOSTA8kNtm2b2mx7eO6Z57HKDr440+Jf3TB7bFX1B1nP7TTwavjKy+z9tapzizuEGj+8xI1r4UGvN8wdMbhti5aDU1dWhlOp1if7WwYrKJvigJvxjX1dlBnwSzyfRrbg8V7GqMnzjbmzXbKjWAZVn6GxwGgxItfKwwmVVpabNhIXFgV2ifHNoUkYrO04QsfpvT35qkpPYe3HUq/orklzwYhRU+hf4fQ0SsauyspIRI0bw/vvv881vftPR55IAyw8/+sBkzylYe7Wbr4xy8WiJwTcuNvjaBpMVUVYw8MWDmnmFipykni/sXxpmcLLV2vKKlE9r4UhTYEnMAJP7WYU7wz32k62aHSdgel7wH5s5BYp3jmg8YVp9W1dl1ZGaVxj8mJVSzC1QrArjitBbZZoh6QRd0mJqjonGarMTbh5T88x+k88PNXpdNUyJsw5uvHBAVrCECIeCggI++eQTNm7c6PiBBgmwelFar/nFTpN/HmswNsu6WCqleHiKweR+Vo2gaFHdpFl7RHOTH8faR5+ueh3Jb85rjli1mUpyA7uJxrsUM/JVWFdUADZUaTQwPYDyDJ3NLVTUt8PWY+EZ+4oKTWEKjMgI7XFm5BvsOGEFmU7zlWcIJs/NZ2CK9brXVYU/cFlfpTnaDJ/3M3F90SBrm/BQvQRZQpxPJMDqxX9s85IRD9/u1GjWUIp/HW+woVqz7kh0BFmvlpoYCq4b2PuFXSnFTYMMXivVtEcglwlgdaVmUo4iNc4ab1paGrW1tX59q5hboFhXpWnxhG/sa6s0BckwKIQvPROzFWlxhG2b8O0Kk3kFqsv2Q4GYlqfQwMYwrAjtq4PSht6317rim0Pp6WlMz1OsjUCAtbRck5tk9dD0x1XFVm6ebBNGXiDXINE7X9Ps9vb2CI/EXi0tLQC43T0XYohImYbjLZpHPjY5WK8Zm6n47jj/Wo6EW3WT5pl9mp9PNjqCgDNd1V9xcV/4yUcm0/MjH6u+eFAzK1/5XQtk0SCD//7QZE2lDuoIfyi01qw5ovnH4Z+9b0opv6snzy206nltOmolcIfDuirN9LzQghW3oZh5evXtX50pvdKhukmz/QR8d1zoc3NwGuQnW+/BVf1tGFwP1h7RGMoK6gJ15hyakad48YBJY7smpYvPr1OWlpksKFJ+X9PS4hVzChRLyzTfGevw4ESPArkGid4VFBQQHx/P448/zpe//OWOhPJY5fV6KS8v55e//CXJycn079/zxTDsAVZtm2bBWx721cKYTMVf9ptsOap5Zo4r6lpGPLvfxKXgH7o5CWQoxffGufiHNV621+iOLcRIqGvTrK7UPBpAfabxWdaN88WDmiuKHBxcF/bUQnUzzAoyYbyjAGaFZnYYCmA2eTRbj+lu50Ig5hYo/uU9kxaPDqhYaaB8q2RzbQhAlVJMz1Nh2XJbW2UyPgv6BFh1vrPpeQYebV1f5vh5SjVUR5qs04OBBrVXFFpzotmjAy5LIUS0Sk1N5eGHH+b+++9n48aNkR6ObSZOnMhvfvMb4uPje/y9sAZYWmtuWO7lQB2su8bN2CzFG6Umt6z08u9bTR6aEj0tI7TWPHG6jk1WDytCtw5R3L8Z/rzP5GdZkRv/uiqNV8MVASQzK6W4qr/BG6UmEN6xr6k8N/+qvr6ekSNHsnv37l6X6A1lfetfWan5kdODBbYctepfhZLg7jOnwKDVa7Kx2tkb/9oqzYgMq2mzHablKr69xfkgYO0RzfUBtMc505lzaFTfVDITrPdhTqHNg+zG8nKNwv+yIz7zCg1aN5usrwr/arL4TCDXIOGfKVOmsHz5ciorK2O+ibZhGPTt25esrKyO7c+ehDXAer1Us/qIZumVro7VnmsGGPzgEs2D20zuGWEwLCM6Li4f1sDHJ+DHk3p+E92Glcv0wgGTn15mhJzrEqxVlZqiFBga4Or2vELFL3ZavQvDWWF3zZGz86/ACmorKirQfhZynVtgcO8GL7VtOuTVjt6sq9L0TbAOB4Tq4kzISbT+Zk7e+NdVmUwL8ABBT6bnG7SbJu8d08xwqEL64QbNoYbA+jye6cw5ZCjFtDCtuvksLTe5NKf3U7ydje4LeUlWUdhwryaLzwR6DRL+SU1NZdiwKGgOGmZhSxwyteaBbV5m5SsWdKptc/8Yg8IU+M6W6Kkr9dx+k35JsMCPb5OLBylKG2Dr8ch9KFdXmszODzw/aGa+wlDWabNw8eVfhdo8OJwFMNce0Vye639eTU8MpZhd4Gw9rBMtmp0n7Vlx8xnTF9LjnD2Zt/b039KuFjcz8hSbqjVtYaj35jU1b5drv64ZnSmlmFeooq7sixAieGELsF45ZOUm/HDiuU+Z5Fb81yQXbxzW7DoZHd8clpabLCxSfjVhnZGvyEkkYrVsalo0H9bAnCBqHfXxNSEOY42j7vKvUlJS2LFjBykpKX49TkcBTIeDw3ZTs+moDqk8Q2dzC5xtP+Or/2TnmF2GoiRXsd7JAKvKZHRf/5u2dtZ5Dk3PUzR74f0wfPnZdlxT0wpXBrnFd0WhwQc11iEgERmBXoOE6EnYAqzHdplMz1PdnrZbNEiRnQh/2BP5b3BHmjQfn4D5ftbhcRuKGwda24SRWFp+54hVn2l2kN/65xVaqynh6rHYVf4VgMvlYvTo0bhc/uWD+QpgOh0cfnBc0+SxN1iZU2Ctvjm1GrSuyqoDNdDmNJLpeYqN1dqxNkVrj2hmhLDq1nkOXZKtSHYTlnINS8s1feKtQrjBmHs6b2t1mOu7dUdrzRN7TP7zfS8rK8yIlXMJp0CvQUL0JCwBVnmDZlWlZsmw7p8uwaX4wkUGT+2NbPsWCC5RdfFgxaEG61tsuK2u1NZqTjdNZXszt8BqQrw9TE2Iu8q/CtbcQoOdJ6Gqybn3fV2VJsll1bCyy5B0KExxbntzXZVmWm7o9a86m56nqGt3Zq5UN2n21GJrflfc6VW3cORhLSu3uij4s+rdlcIUxaC08NQa643X1Hx9o8k/rvXy8+0m8/7uZfEKr+QmCRGAsARYz+03SXDBTYN6vvDcNdzgeIuVDB9Jy8tNJmQHlqg6M1+RHgdLy8I/9lWVJnNCyGeammv1Q1sZhvyPnvKvGhsbmTp1Ko2NjX4/nq8EgZP5TOuqNFP6KeK7aZ4dDKUUM/OUIwFWk0ez7bi9W5o+k3IU8Qasr7J/rviCoFDG3dUcmp5nbWs6uUJ7slWz+ajmyhCqz4O1qhsNAdbXN5o8ttvkt9NcnPyim7/OcfFaqebRKGgQ76RgrkFCdCcsAdbT+6xyB72d9BrZVzG1n+KpvZH7EJtas7xCMz/APAq3oZhbqFge5v541U2aXadgdkHwf8oEl1XjKByJ7j3Vv/J6vWzevBmv1//DDrnJipEZzq0EmVpbBUYdODU3M99g23FNvc15WO8etfoP2png7pPoVkzKcWZFaG2VPr2yF/x73dUcmpGnONUGOxxcoV1RoTG1f4diejK1n+L945rmMHYo6GzHCc1vdps8MsXg7pFWEeibhxh862KDf95i8mEEmqyHSzDXICG643iAteukVU3680P9e6qbBlk3+sb2yHyIP6yB4y3BXSjnF1onlpxKXO7K6tOBRajVzOcVWm1FnD5t1V3+VShm5husdWBFBWD3STjRam/+lc/MfCsPy+4Vi3VVVi6QHSUluuIrOGr3dtHaI2bQ5Rl6clk/hVvBhmrnvrgtK7eS84tTQxt/Sa6BR0cm1cDnP7Z5GZgGXxl59jX7J5cZDEyFn3wowYcQ/nA8wHqj1CTZbQUf/rhugEGL18qDioRl5SapcdY3yUDNL7IujmvCUDbAZ1WlycgMyA+xmOTcQoMmD2w+6uzY11VpJmR3nX+VnJzM0qVLSU5ODugxZ+QpPjllrebZbV2VVc1/SpCJyz0Z1gdyk+Adm1eD1lVZJSVcQeYC9WZanqKqGQ7U2/eYJ1utL2IzQmw51dUcSnYrJmSrjpOVTlhVqZkbwiqyz5hMSHFHLg9r6zGTVw5pHpzgOmdLPN6l+Npog5cOao44mPMYScFeg4ToiuMB1ptlVuKnvy1BhvZRjO5rNS6OhGXlmtn5weXbDE5XDEkPb3C4ulKHtD3oMz4LMhNgpcMnmDZUWzf/rrjdbhYsWNBrA83OfEnRTmxbravSTOwmIAyVUlZfwjU2vuceB0pKdFaSq1DY+36vr7JOwoa6gtXdHLo8V7HBoUT30nrNwfrQV5HBSjW4LMdaCY+E//7QZEQGfH5o16/lixcZxLvg8U/Oz1ysYK9BQnTF0QDrRItmQ7XmquLAnua6AQZ/O6zxhPlYcH2bZmN14PlXZ5pfaLC8PDwXn7IGzb46Qkpw9/G1nnEyD6u8QVPaEFwT354UpliBrd15WFpr1lY5G6zMzFe8d8y+LfGPaqCh3ZktTZ++CYpxWdZ2r11WV2r6p8Igh7qTXJ5nnfKtaLR/fq85Yp06tmt7syRXsfGo/Vuwvalp0fztsObekUa3q58ZCYrPD1X8dveFUbZBiFA4GmAtK7cSPz9XHNiF57oBihOt4V8mX3PESg5eEMJJoPlFir11cLDO+bH7AoqZNiVgzy1QbDmqaXAo/823RdPdClZTUxOLFy+mqakp4Meekadsz8MqbYDyRmeDlZl51rbyJpu2ZtdVWSd2L81xtnXQnAKDVZX2BQGrguxE0Fl3c8g355xYxVpdaTIuCzKDLI7a2dRcxVGbt2D98cIBE1PDLUN6vv7dO8pFZVPk0jicFMo1SIjOHA2wlpabjM2EogATPy/NUfRNcPbofVeWl2sGpQXez+9Ms/Kt7ZPVYcjD2lBtNfMNtup1ZzPzDUeSrn02VFunxHK7yRfzeDy8+OKLeDyegB97Zr7BxyesVVO7+LbA7F5xO9OovpCdaN/q2/pqzWU5igQbS0p0ZU6BoqwR9teF/ljHW6wuD3Ns2Orubg7lJSsGp+FIHtaaI5rZIeaOncmX7xfubcKn91ltfvr1Up5mXKZ1jYx0OR0nhHINEqIzxwIsrTUrKzVXBNG+xVCK2fnO9mrryqpKk3mFoX2LzkhQjM+Cd444v024odrsdjUoGCMyoF+ScyUP7B7vmWbkKTRWgGGXdVUmozIgy6YAtitKKWbYVA9L+0pKOBgQ+kzPU7iUPV+C3rHpJGxvpuUp1tt8kvBgnbXtHWpfzTNlJSpGZIR3Bf9AnZXOcYcfp72VUlzT3+BvhyPTuUKIWOFYgLW/Fioag88PmlOg2Hw0fOUaalqselJ21A6amW843oC4tk2z4wRcnmvfn9B3s1/rwNgb2jUf1fQ83sTERB5//HESExMDfvyBaVCcgq1jt4IV50vFzcq3tmZDrX20txaONju7pemTHm/Vw1plQx7WqkrN0PTQSxxAz3Po8lzjdI6afXNktc35Vz5T+yk2HQ1fIvkz+6zT09cN9O91XDNAUdkE7x93eGBhFso1SIjOHLt7vHP6eHuwF/s5BQbtpjNL+l3xfVucZsMKy8x8RWmDdbrIKZurrVNXdtaTAmvs7x6zv9DhlqMar+4+/wogPj6eu+66i/j4+IAfXynFjHz7KqMfbdZ8csreti3dmZlv0GZa71Eo1lVZN/upDq0SdjanQNmSh7W60rRlexB6nkOX51p1x0J9n8+0ptLkkmxr5dpOJbkG209gexHa7rxeqrmqWJHs52nvaXmKPvHw+uHz6zRhKNcgITpzLMBae8TKBUnrpXp7d0ZkQF5S+PKwNlRr8pPtaY7rCyqdXMXaUK3JTrRqKdnJd7O3ux7WhmpNRjyMdKj4JVhjf7/Gnsro621o2+KvizOtEhmhzpfVR0zGZ9FrxwS7zClQHGuBnSeDf4wjTZrdp5zfHgRr7mXE2/elTWvNapvzr3xKchWmhveOOX/9O9ZstVa6MoDT3nGGYmGx4o0IldMRIhY4F2BV647u8MFQp8sGhC3AsrE5blaiYkwmjlUXB+smUeJAM9/Rfe252Xe2/nTxS6OH8ba0tHD//ffT0tIS1HPMyLNuSnbcQNdVaQak2rNt1RtDWa2KQilQq7VmRUVwOY/BKsm1+hKGsk24+vTne7ZNK4U9zSFDKS7PVR3Bc6gO1FunTLtq+xSqERlWMBiOPKy3K6zV8EC7V1zT3+CDGqh0oPRFpIR6DRLiTI5djU+0hF4+YE6B1avtVKuzH+BWr+a945rLbVytmJHnXB6Wx9RsOdp9wc5Q+G72do7da1qNcHt7f9va2njkkUdoa2sL6nl8ldHX2nADDVeyuM/MfCvnsDXIVkU7Tlo9Hq8IsRdeIJLcipLc0L4Era60Wsx0d7I0UL3NocvzrPfZa0MNp9WVGkPhSJ9KQymm9LPqYTlt2enT3oF2g/A1Wnc63zScQr0GCXEmxwIslwqu3cyZZhdYKxJ23DB7su24ptUL02xMGJ+Zr9hX58y3u+0noNFjf/6VT6g3+84+Pgn17T3nX9nBVxl9ZYjFUuvbNB/UhCfB3WdmvtUi6t0gb6grKqz6V06/x53NKbBW3oINWFZVOrPF1p3LcxX17dacDNWaIyYTsnpvYh+sqbnW59B08KSeqTXLyjVXBlH7LzfZOu14PgVYQtjJsSvb+CxFSojtRQalwYBU5/Ow1ldpUtwwLsu+x5zhYB7WhiqTeAMuzXYqwLJu9nblf2yoMokzYFIvxS8TEhJ44IEHSEhICPq5riwyeO+Y5lhz8GPfWG0VyA1HgrvPuEzom2Bt1wTj7QprxS3JzyRlu8wpUNS2wQc1gY+7tF5zoN6eTgQ+vc2hSTmKOMOak6HQWp9uU+VsS6KTrbDnlGNPwfYT1spnMM3twSqU+46DqRDhZsc1SAgfxwIsO04yfZaH5ewHeEOVr3j9AAAgAElEQVS1Zko/hdvG5rhOfrvbeNTqj+dvf8dAjcuE9Dj7xr6h2mrw3NvNPyEhgQcffDC0AKvYqoe1PIRVrHVVmpxEGG7zAYKeuAzFwiLF34I4ldXq1bxzRHNFCDmPwZqUo0h2B/clyFfiwK5OBND7HEpyKyZmq5BXxffWQmWTM/lXPpflKAxlX5X/riwrM0l2E3R6xMx85xqtR4Id1yAhfBwLsEpC3B70mVNgVeg+GsKKRE+01myosjf/ysepb3cbqrRj24Ng3eyn2ZiH1VODZ7vlJ1uFXpeWBf++r6zUzLShbUugrj6dNBxov7zNRzVNHpgXxgR3n3iXlbMXTID1VpnJhGxlW4sZf80rtHpuhpKH9XaFiTuEMjT+SI9XXNwXNtpcHPVMS8s1cwqCr/zvW+V1Oo1DiFgU1StY8Nnx7TUObRPuqYWaVnvqX3XmxLe7sgZNWaPzuTYz8xUbq3XIDV1L6zWHG/x7f1tbW3n44YdpbW0N6TkXFhun+2AGPvaTrZp3j+mQ+lEGa0GRVR39zcOBjXt5uSYrAcbbuMUdiDkFinVVmrYAcvZavZq3yjTXDbB3HvszhxYWW71O3w1hC3x5hfWlLNgyNP4qyTUcO0nY0G5Vbw92exCca7QeKXZdg4QABwMsu76VFqYohvVxrrff+irrJNAUm1bczjTTgW93voutkytYYI290QPbQszDWl5hvb/+tBJpbW3l29/+dsgXtyuLrPpM244HPvaVFVb+1fwwnsbzyUy0yggEsk2oteblQyZX9e+5BIaTFhQZNHkC2yZcU6mpb4frBth7CfJnDk0+3ev0rbLg5na7qVlVqZkfhi3ZklzF7lNW4G+31ZVWc/tgEtzPNDNPhaU1WDjYdQ0SAhxu9myXmfmKtQ59gDdUm4zLxJFvogUpiqE2f7vrrWGyXSZmK9LirO2yUCwvN0/f0MJ385+aq0iPC+4GuqzcZEQG9A9D/auuXN3f2r7yt5L+zpPwySm4eXDkPspjTzf/feGA/5/R1w9bdcbGZDo4sG64DMX8QhV0gLW5WtPQHp4g3HcS2+7Cv2BtDw5Og6F9QnsdM/INdpzE8XI6QsSaGAmwDHadIqSTYd2xCmA69zbMyFO2Fhxde8S0ve9ZV9yGYnaBdbMPlse0il/6eyOKi4vjzjvvJC4uLujnBKvK9BVFgd9AtdYsr4jM9qDP1f0Nmr3+rwY9f8CkTzwRSXD3UUqxeLDBq6X+bSlrrXm91OS6AYbteW7+zqGFxQZbj+ugcjuXnd6SvSTL+fd8SDrkJMImB7YJl5Wbtsz1yaeDwK1BrBhHG7uuQUJArARYec4kUlY3afbVBX+Cxh8z860k/ZqW0Md+slWz/YT1jTEc5hUoNlQH33B76zHNqTb/j4AnJSXx+9//nqSkpKCe70wLiwy2HNUBve+f1sLhBsKy9dOdERnW6cVn9vUelGuteeGgyXUDFPFBJinb5ebBBidaYZUfAfmmo5ryRrjBz8bCgfB3Dl15ek4uKw98bi+v0FxRpHDZeOq4O0pZxVztzsPaV6vZX2edug3VsD7QJ97eHo+RYuc1SIiYCLCKUhWD06z+hnZadzpgc3JFyFfjJ9Til2CdHtQ4O94zXVFkNdwONrBdVq7pE997/SsndJRrCOAG+uZhq1innWUDAqWU4s7hBi8d7D04jIbtQZ9xvm3Cg70Hhn/4xGRganjrjHWWm6yYkG2dZAxEVZNma5gPQUztp9hyzJ7q8z7Lyq1TkHa0KDKUYlKOCunQgBDno8hfmf00I9/+RMq1VVY+U0GKcxf6olTFqAzrghaqtVWawhSrAGs4DO8DRSkEvU24vEIzr9D/+mLt7e288MILtLe3B/V8ZypMUYzNDOwG+tcDmoVFoRfIDdUXhxlo4M97ex57NGwP+iiluHmwFRj2tOJZ36b56wHNl4YbjiTlBzKHFhZZp00DCVxePWRiKLimf/je85JcRUO71Q7JLsvKNdNsPAU5OUex5ahGO1h1PhzsvAYJETMB1sx8g+0n7D1NE658pgVFBssqQr/4vHNEMyMvfPWZlFLMK1S8XRF4cHiq1eqXOD+A2kzNzc3cfPPNNDc3B/x8XVlYbLDUzxvowTqrPMMtQyL/keiXpLh+gOLxT8xu50xju+ax3Sa3DzEivj3o8+URBvXt8Ic93c+X5w9YNbuWDHPmfQ5kDvnKNQTSseDlQ5pZ+YqsMNbuujRH4Vb21cNq81qnIEMpz9DZZf0U1c3WFnsss/saJC5skb+b+GlmnrXls86mPKxTYcxnWlCkqGiEXSF8A21o12w7rsO+fXVFoZVDFmhPxVWVGm+Eyh343DjQKtfgzwrc8wdMklzWKb5o8OUR1sGO7qp4/2a3yalW+N646PkID0xT3DpE8dDHZpfJ7l5T8+hOLwuKVMROaZ5pcj9FRrx1ms4fJ1qs9jg3Dgrv2JPcikuylW2J7huqNY0ebN3mvOx0GoBsEwrxmei5OvdiYBoUp9iXh7Wh2spncrISs8+MfEWiK7Rtwk3VVsAyI4wNiMFKBnYpeK00sLEvK9cM62PddP3lcrmYP38+Lpcr0GF2aVKOYnTfnldUfP56wKollRrh7UGfuYWKi9Lh+++a5xRMbfJofrbdZMkwxYAA3t9w+N44F4cb4C/7z/2cPrXX+lLz4ETn5nAgc8htKOYHcNr0b4c1Hg3X21y7yx8luYqNNiWRLy3T5CbZ23s1L1nRPzX2E93tvgaJC1vMBFhKqdN5WPZ8gNce0RQkw+Aw5DMluRUz8lRQJ5Z83jmiyU60TpmFU2aiYla+4tVD/o9dax3UEfCUlBSWLVtGSkpKoMPski9h/NVSzfEeEsZ3ntB8UAO3REGyuI+hFL+d7mJtleYXO88OEH+9y+R4C/zr+Oi7CYzJVFxVrPi3rd6zOhg0tmt+sNXLrUMUk/s59z4HOocWFlvNwf0p1/D8AZMp/ZSjOZvdmdpPsb/OnpZhy8pN5hfaX5jWl4cVy+y+BokLW/TcUfwwM9/g/RpNXVvoH+J1VZoZYew3t6DIajDrbwHJzt6usHqGhbs/HljH6VdVar8LCe6thdIIlzvw+YeLrCn+dA8J4//zkZeiFLjW5rYtoZpdYPD10Qbff9fk/dM1hn6zy8v33jX56kiDQenRNV6fx6a5aDfhmuVemjya2jbN1cu8nGqFH0+KrqDw6v6KOAOe/LTnVc7Ses1b5ZovOZQ71htf54ZQyzUcadJ8dAKuLLb/dUzup9h2XOOx8bRjoFq9mh+85+WLazy8VWZGdCxCxFaAlacwdegXmSaP5r1jOmzlDsDKd2jxBrfFebzFGu9CBy6K/rh+oIFHw5t+bqUsrzCJM/xrj3Mmj8fDpk2b8Hg8wQyzS9mJikWDrLygpi6C24N1mmf3a74zNnqSxc/040kGA9Jg4isehvylna9uMPnaKIP/nRq9H93iVMXfFrjZdVLT90kP/Z/18GGNZtlCV0BbxsEIdA5lJypuGax4bLfZ42GI335ikuqG24dGZo4UpyoGpIbeFWJ5uUbhzMnTy3IUzV57TzsGorReM+11Lz/fbrLlqOZzS70sWuEN6HCRE9cgceGK3qt0Fy7qA3lJoV9kNldbuRTTw5jPNKovFKYEV9jw7XIrXyxSK0KFKYrLchSvHPIvD+uNUs3luYHnMzU1NVFSUkJTU1Mww+zWDye6qG6Gh7afO/6fbTfpm2AllUejlDjF1uvdvDzPxZwCxa8vN/i/qUZYilyGYkK2YvN1bh6aYvCtMQYbr3UzPQwHSoKZQ/eOMjhY332ye6tX8/tPTJYMMyKaozenQLGqMrSThMvKTSZkK3KS7H8dE3OsfM13I7BNaGrN4pVejrZoNlzrYvdiN8/NcfFaqebpff6Px6lrkLgwReddpRu+PKw1IQZYa6s0mQlW0BMuSikWFKqgEt2XlpuMzXS2XldvbhqkePOw5kQvxS8PN2jertDcMTR6ptbQPor7Rhv85COT0vrPxr+0zOR3n5h8e4xBsjt6A5aUOMUNgwwen+Hmq6NcEdkmDsbFmYp/Gu3iwYkuRvaN3jFP7mcVHf3lzq4/m8/u0xxrsQKxSJpTYJWqCbZlmNfULC/XHVXs7ZbsVozJhC1Hw9/4+Zl91ir/n2e5uDTHasF06xCDzw9V3LfRy5Em2SoU4Rc9d0E/zSs0ePeY//lAXVlXpZmeZ3+SZ28WFFlH78sa/B+7qTXLynXIHe9DtWSYgVfDn3rJVXlij0lKHNwyJPD31jAMRo0ahWHY/1r/7RKD7EQoed3D6kqTVw+ZLFrh5XPFiu+MjbmPgehGMHNIKcV3xrhYWm71SDzTsWbN9971sniQYnhGZIPE2ae33INdwX+/RlPT6n/rqmBclmOwJcylGhrbNf/yrpdFg9Q5ZXf+b6qLeBc8sM3r12M5eQ0SF56Ym0VXFFp5WKv9bIbbWZtXs6k6vPlXPvMKFYYKrH3L9hNQ3WxPz7BQ9EtSLB6k+PXuc8sG+HhNzR8/Nbl1cHDlDlJTU9m5cyepqamhDvccGQnWllVBsmLOm15ueNvLuCzFX+a6/K40L6JfsHPo1iGKq/sr7l7nPevE6Tc2efFq+EVJ5JPzC1MUw/r43wi8s2VlmvQ4mJLr3Hyf3E+x66RVsT9c/neHSU0r/PSyc/9GWYmKe0caPLffv56qTl6DxIUn5gKsgWmKoelWG5ZgbD2uafbC9Aj0QctMtHp2BbJN+FaZSYobLnfwouivr4022F9n5YR15e0KzeGG6M1nyk9WrL3GxeqrXOxa5Oadq11RvTUowkcpxe+mW6cf57zp4U+fmtz4tofn9mv+d6qL3OTomCdzCoyg87CWlmvmFiriHPxCMTnHKgi99Xh4AiyvqfndJyZ3DFXdnqpdMsygsR1eOCjbhCK8ovNO2Iv5RUZQ7VvAKhaYlQCXZEXmgrmgSLGi0v/+Z3/Zb/K5YhUVJ9ym9lOMz4L//vDcVSyPqfnX97xcmq2Cbu5smibl5eWYpnM5HEluxawCg5F9/e+RKGJHKHMoP1mxdKGLfomKL73jZdtxzTOzXdwRoZODXZlToNhTCxUBdlY41arZfNTe9jhdGZEBqXHhKzi64vSXuruGd38rG5CmmFuo+KMfBYfDcQ0SF46YDLCuKLSK7h2oC/xD/Oohk2sHRO7mek1/xclWa7WnN9trrMrXvlpOkaaU4meTreKXv9l99gXoV7tMPqyBX11uBJ2E3dDQQHFxMQ0NMd7QTERMqHNoUo7BiqvcHLzVzZ7Fbm4fGvx8dsKsfIUisDQDgJWnW1fZ2R6nKy5DMSlbha1lzu/3mIzua21N9uQfhxmsq9J8eqrncck1SNgpOu7cAZpdYB0HDvRE3p5Tmt2nrLpOkTIxWzE2Ex7/pPexP7PPJCvB2aTUQM0rNPjqSIN/3mKyvca6WG09ZvJvW02+OsrgMgerdAsRLgPTFIlRuH2ck6QoyVW8GmDrqpcOmozJDKx1VbAm9wtPRfdjzZrXSjV3De89CL5+oKJPPDyzX1amRPjE5N2wT7zVeua10sA+xK8eMkl2O1Nkz19KKe4abvB6qT6rlUhnptY8s9/kliHRVwDzp5MNilNg/Msepr3u4bJXvQxJg/+6NPTplJYWht5F4rx2vs+hGwZabbca/EjaBuuU3WulmlvD1ArqshxFZVPg25iBevZ0sHSHHyv8SW7FAj/7Tp7v80eET0wGWPBZ+5baAE6rvFJq1YBJivA3088PNXAZ8FQP7VveOaKpaCSq8j98UuMUH9zo5rFpBnEG/O9Ug603uMlICG2s6enp1NXVkZ6ebtNIxYXmQphDNww0aPVaTZv98eZhTZMHbhkSnsu9b7vO6VWsVw9p5hUqshP9u+5cWWSw9VjPfUkvhPkjwidmA6zrBxq0m9bFwx8VjZotRzU3RHB70CczUXHTQMXv93Rf8uBn202G94EpveQWREqSW3HPSBerr3Zz38VS6kCIcBmcbh02ednPzgp/OWAyKUcxJEy9KwtSFEUpzgZYJ1s166o01/b3/zXNL7JOOHZ3CloIu0U+2ghScapiYrbiVT8vMq+XmrgVXBXAB9JJXx9t8Gkt/G73ueN/u9zkrTLNf0+KnardQojwuWGgwZuHNa3enoOF2jbN38s0tw4O73XkshxnE93fKrOS9q/u7/8trDDFqjQfTDcNIYIRswEWWNuEfy/TXTbx7eyVQ5pZBYq+IW5j2WVKrsGdwxXfe9c8K1fBa2q+vcXL9DzFDQOjY6zhUldXh1KKurq6SA9FxKgLZQ7dONCgrr33FfwXDmhavbA4TPlXPpP7KbYe978cTaBeLzWZkA1FqYFdIxcUGSwr1902gL5Q5o8Ij5gOsG4bYtDogecP9PwhPtWqWV2puX5AdAUsP5vsIskN96zzUtdmfRv91maTj0/AQ1Oi63i4ECJ6XJypmJareOjj7ldjvKbmZ9u9XDdAURxgIBKqy3IUDe2w+5T9j93m1Swt11wbwOqVz4IiRVWz1SFDCKfFdIA1OF0xv1Dx2y622c70ZpnGo+G6AdH1cvsmKH47zcXyCk3/5zyMedHDb3abPDLFYFJOdI1VCBFd/nmcwcZqzcbqrq9/rxzSfFoL3x8f/mvJpTlWWzAn8rDWVWlq2+DaIK7n0/MUSS5YEWShaiECEfN38XtGGmw+qvmopvsP8m93m5TkqoCXk8PhuoEGB291c9dwg+EZiq3Xu/nmmMj3PYuEtLQ0amtr5Zi0CNqFNIeu7q8YkQE/++jcYEFrzY8/8jKnQDE5ArXpUuMUo/vClmP2BzKvl2qKUmB8VuD/NsGluKyfYkN11/eLC2n+COfFfIB1zQBFXhL8cmfX3dLXHjFZV6X53rjofamFKYqfT3HxxgI3YyPUwicaKKVIT0+XrVERtAtpDhlK8e0xLl4r1WzutIr17H7N+8cjs3rlc1mO4l2bV7C01rxx2OSa/sGnUFyeq9hY3XUe1oU0f4Tzojfq8FOcofjnsQZ//FTzYRerWP/5gcm4TKtFjRBCnE/+4SLF1FzFNcu97DndBmZNpck/vuPljqGKuQWRu+5N7mfw8Umr0Klddp6Eg/VwbQj5tCW5iupmOFBv27CE6FLMB1gAX7/YYEQf+NoG71l1pZ7fb7KiQvNvl0i5g1hQX19PUVER9fVy5RPBudDmUIJL8cZ8FzmJMOtvHq74u4drl3uZka/4w4zIXvcm5yhMDduO2xdgvXHYJMVt9WQM1tTTtQU3drFNeKHNH+Gs8yLAijMUv7rcxcZqzZfe8VLfpllebvKFd7zcPkRx0yAJrmKB1pqKiopuj1AL0ZsLcQ5lJiqWLXRzRaEiMwGWDDN4aZ4r4i22RvWFZDe21sN6vVSzoCi0PpGZiYqRGbCh6txxXYjzRzjHHekB2GVWgcGfZ8E96708vc+DqWFmvuKPM2X1SghxfitOVTw1O7ou525DcWm2fY2fq5usbhxPzAz9ENDluYoN1SZwYR4oEuHR7QrW3r17KSkpYdiwYUyaNImdO3eGc1xBueMig203uHl4isGKz7lYttBFQpQ1ShbdS0lJYceOHaSkpER6KCJGyRyKLpP72VfR/c3TvRc/Vxz6Nf3yPIOdJ60aiWeS+SPs1G2Adc8993D33Xfz6aef8r3vfY8lS5aEcVjBG5Gh+MbFLuYWGhJcxRiXy8Xo0aNxueRbpQiOzKHoclmO4nADVDWFHmS9XmqV28lJCv26XtLP6ku4udPqmswfYacuA6yjR4+ydetW7rjjDgBuuukmysrK2LdvX1gHJ4QQInZNPp1QHuo2YbNH83aFDun04Jku6gN9E+A9B/slCtHlpn1ZWRn5+fm43db/rZSif//+HD58mKFDh571u62trbS2tnb8b18PJ99/x8fHk5iYCEBbWxstLS3WE7vdJCcnA+DxeGhqagKsbxC+5Vmv10tjY2PHGHzF37TWZ53ySE9PP+f5AVJTUzEMK4ZsaGjANK1aMcnJyR2vrbGxEa/XqqGVlJREXFwcAM3NzbS3twOQkJBAQkLCOa9XXpu9r62xsZFrr72WVatWdfyb8+W1nc9/t2h6bbW1tcybN4/XX3+d9PT08+q1xeLfLV1DUXIia6s01w0M/rUtqzRo8iRwzen2OHa8tglZim3H9VmvzTRNFi5cyIoVKzAM44L9u8lrC+61nUN3YevWrXrYsGFn/WzSpEl65cqV5/zuAw88oIFu//Otb32r43cff/zxjp8vWrSo4+dLly7t+PmUKVM6fr5jx46OnxcWFnb8vLa29qznOFNaWlrHz8vKyjp+PmrUqI6fb9y4sePn8+fP7/j5888/3/HzO++8s+PnDz30UJevV16bM69t165d5+1rO5//btHw2l566aXz9rXF6t9t5E836Qkvt4X22u74lXb9eI82TdO21/bdzR5d9EzbWa/tT3/6kwZ0bW3tBf93k9cW2GsrKyvrmDs+Sutzw66jR48ydOhQTpw4gdvtRmtNfn4+69ev92sFq7i4mLKyMtLT0yUKltfm92vzzZ2TJ0+SkZFxXr228/nvFk2v7cSJE2RlZVFWVkbfvn3Pq9cWq3+3vxxO4CubDGq+4CZFtQf82uobGhn1RiI39ffyixlJtr22Vw4b3LzSy4Eb28iKs15be3s72dnZ1NbWEhcXd0H/3eS1BfbaamtrycjIoLa2tuN1dRlgAcyaNYslS5awZMkSXnzxRX7yk5+wdevWrn71LHV1dfTp0+esJxHCHx6Ph5UrVzJ37tyOD5EQgZA5FH0O1mkG/9XDa/NdQTVo3nrMZNKrXlZf5WJWgX2lGw/UaYb81cPfr3SxsNh6XJk/IlhdxT7dBlh79uxhyZIl1NTUkJ6ezhNPPMGYMWOCehIhhBAXroHPtXPDQINHpgZ+Ou8/tnr55S6T6jvcxBn2nQzXWpP1Zw/futjg3yfIqUERmq5in25D9OHDh7Np06awDU4IIcT5aVa+YnVlcIU93zhs8rliZWtwBdb2ji/RXQgnnBetcsT5oampicWLF3fsewsRKJlD0Wl2gcH2E3CiJbBg5nCD5sMaOk4P2m1i9tkBlswfYScJsETU8Hg8vPjii3g8nkgPRcQomUPRaU6BVdhzeUVgAdbfDpu4FVxpQ/X2rkzMVpQ3wtFma1wyf4SdJMASQgjhqOJUxSVZ8FqpGdC/e71UM6tA0SfemQDr0hzrcWWbUDhBAiwRNRITE3n88cc7js8KESiZQ9Hr+oEGbx7WtHr9C2bq2zSrKzXX9Heu5dmgNKui+7bTFd1l/gg7dXuKMFhyilAIIURn22s04172sPRKFwuKe/9u/8QekzvXejl0m5v+qc4FWfPe9JAaB6/Ol7IMInhdxT6ygiWEEMJxYzJhcBq8Wurfd/o/7jGZV6gcDa7g3ER3IewiAZaIGi0tLdx///0dVXWFCJTMoeillOL6gQavlZqYvWyc7DmlWV+tuXO487eoMxPdZf4IO0mAJaJGW1sbjzzyCG1tbZEeiohRMoei2+JBiiNNsKy85wDrj3tMMhPg+oHOrl4BTDwj0V3mj7CTBFhCCCHCYnI/xaXZioc/7v40YYtH8+Rek88PNUhwOR9gDU6DjPjPEt2FsIsEWCJqJCQk8MADD3Q05xQiUDKHoptSim+NMVhRofn4RNcBza92mRxvga+NCs/tSSnFxGzF1uNa5o+wlZwiFEIIETbtpmbQXzwsKFT8YebZJ/dOtFgNmG8bYvDraeHrD/i9LV6e3W9Sdntc2J5TnF/kFKEQQoiIijMU3xht8ORezZrKs7cKf/SBiUfDAxPCe2vqXNFdCDtIgCWiRmtrKw8//DCtra2RHoqIUTKHYsO3xhjMylcsWuHlYJ1Ga82PP/TyyA6TH4w3yE12PvfqTL5E981H2mT+CNvIFqGIGjJ3RKhkDsWOmhbN5Nc8lDdCYTIcqIcHJxj8xwQDpcIbYGmtyXzKwz8Na+dHJSkyf0TAurr2SOlaIYQQYZeVqHjnajcvHTTZWwvT8hS3DInMpoov0f3Dk5F5/javprYNcpLCG1gKZ0mAJaJGXFwcd955J3FxkmgqgiNzKLYUpijuuzh8yew9mZiteGafEdb50+zRPPyxya93mVQ1w/fHGTww0SDOkEDrfCBbhEIIIS54z+83uWWVl+o73PQL00rSNzZ6+c1uky8OU+QlKX78ocnkforVV7skyIoxcopQCCGE6MKZFd3DYddJza92mfznpQa/m+7mh5e6WHmViw3Vmj99KqcZzwcSYImo0d7ezgsvvEB7e3ukhyJilMwhESxfRfcn13zs+PzRWvPNTV4GpcE3Lv7sNjwj3+C2IYoHt3lp9kiQFeskwBJRo7m5mZtvvpnm5uZID0XEKJlDIlhKKcZmePnrpr2Oz5/XSzVvV2genuI6px3QDye6ONoMv9zZfTshERskwBJCCCGASzJNGDDB0edo9Wru3+xlfqHi6v7n5lkN7aO4a4TBTz4yafXKKlYskwBLRA2Xy8X8+fNxuaLjVJGIPTKHRCgmZCnILKam3bn584udJocb4H+nurqt93XvKIMTrbCyQgKsWCYBlogaKSkpLFu2jJSUlEgPRcQomUMiFJcXJQLwSVOSI4+vteY3u00+P1Qxsm/3pwQv7gvD+8ALB2WbMJZJgCWEEELwWaL7tmPOrBxtOarZXwdfuKjnW69SisWDDV49pGmTbcKYJQGWiBoej4dNmzbh8XgiPRQRo2QOiVB4vV6GxNWx9ZgzK0dP79MUJMPM/N5rXC0aZHCqDVZWSoAVqyTAElGjqamJkpISmpqaIj0UEaNkDolQNDU1se3lx9l23P4Aq93U/PWAye1DDVx+FBEdmwkXpcOLB2SbMFZJgCWEEEL4HNpGeZPB0WZ7V46Wl2uOt8AdQ/277fq2CV8r1Zj2NlwRYSIBlogahmEwatQoDEOmpQiOzCERCsMwGBpfB9hf0f2ZfSYX97VWpvw1p8xhEtYAACAASURBVEBR0wp7Ttk6FBEmchUSUSM1NZWdO3eSmpoa6aGIGCVzSIQiNTWVTzcstT3Rvb5N8+ohzeeHGt2WZujKZTkKQ8HGalnBikUSYAkhhBCnKaWYkK1sXcF65ZCm2Qu3+7k96JMWrxibCRurJQ8rFkmAJaKGaZqUl5djmnIxEcGROSRC4Zs/E7Ls3SJ8Zp/JzHxF/1T/V698SnINNh6VFaxYJAGWiBoNDQ0UFxfT0NAQ6aGIGCVzSITCN39Gp7ZS1ghVTaEHNjUtmpWVmtuGBB5cAZTkKj45ZT2OiC0SYAkhhBBnmJztBWCDDblP1ilAuH5AcLfbkn5WYLZZVrFijgRYIqqkpaVFeggixskcEqFIS0ujMBkGpsK6qtCDmhcPmszIV+QmB7eCNTANcpNgkyS6xxx3pAcghE96ejp1dXWRHoaIYTKHRCjOnD/T8zysDzHAOtWqWVGheWhy8GsZSilKcpWcJIxBsoIlhBBCdDItz+CDGk19W/CBzd8Oa9pNuHFQaLfaklzFlmMajylBViyRAEsIIYToZFqewtSwJYR6WC8dNJnST1GYEtz2oE9JrqLJA9tPhPQwIswkwBJRo66uDqWUbPGIoMkcEqE4c/6MyIDMBILeJmxo1ywt1ywaFFpwBTAhSxFvSD2sWCMBlhBCCNGJoRTT8xSrK4MLsP5+WNPihRsHhn6bTXQrJmZLHlaskQBLCCGE6ML8IiuoqQsiD+ulQyYTsmFQeugrWIAkuscgCbBE1EhLS6O2tlaO2YugyRwSoeg8f64sMvBoWBXgKlazR/PmYc1NNqxe+UzNVZQ2QEWjBFmxQgIsETWUUqSnpwfUDFWIM8kcEqHoPH8GpysuSodl5YEFNS8e1DR64JYhNgZYpwuOSj2s2CEBlhBCCNGNBUUGS8tMtPY/sPndbpO5BYohNm0PAhSkKAamwiap6B4zJMASUaO+vp6ioiLq6+sjPRQRo2QOiVB0NX+uLFYcaoBPa/17jN0nNeurNV8eYf/ttSRX2dK+R4SHBFgiamitqaioCOibohBnkjkkQtHV/JmVr0h2w8uH/CuR8Ps9JlkJcP1A+7epJ/dTfFgjBUdjhQRYQgghRDdS4hQ3DFT8eW/v24StXs2Tn5osGWaQ4LI/wBqfpWj1wp5Ttj+0cIAEWCJqpKSksGPHDlJSUiI9FBGjZA6JUHQ3f+4YarD7FHxQ0/O/f+WQpqYV7nJgexBgbKYVtH14QlawYoEEWCJquFwuRo8ejcvlivRQRIySOSRC0d38mVeoyE2Cp/f2vE34+Ccm0/MUIzKcOcWakaAYkAof1UiAFQskwBJCCCF64DYUtw0xeHqfSWN718HN3lrNqkrN3Q6tXvmMz7LysET0kwBLRI3GxkamTp1KY2NjpIciYpTMIRGKnubPfaMNTrXBozu7XsX6wXtecpPgJht6D/Zk3OkASw5yRD8JsETU8Hq9bN68Ga/XG+mhiBglc0iEoqf5Myhd8ZWRBv/zkcmJlrODm2VlJi8c1Dw8xUWS29kAa3ym4lgLVDU7+jTCBhJgCSGEEH74wXgDjwlfWe+l/XSphMMNmq9u8DI7X3HbEOc7CIzLsp5D8rCinwRYImokJyezdOlSkpOTIz0UEaNkDolQ9DZ/cpMVT81y8Wqp5pplXn7yoZfJr3oA+P0MV1haNA1Mg7Q4CbBigdI2b+TW1dXRp08famtrSU9Pt/OhhRBCiIh7q8zkK+u91LdbW3bPzXGRmxy+/pfTX/dQlArPzXGH7TlFz7qKfeSvI4QQQgRgYbFB6W2R2wAal6VYVelfZXkRObJFKKJGU1MTixcvpqmpKdJDETFK5pAIRazMn/FZij210OyRbcJoJgGWiBoej4cXX3wRj8cT6aGIGCVzSIQiVubPuCwwNew4KQFWNJMASwghhIghF/dVGAo+6qV1j4gsCbBE1EhMTOTxxx8nMTEx0kMRMUrmkAhFrMyfJLdieB+konuUk1OEQgghRIy5bZWH8gZYd62cVYsGXcU+soIlhBBCxJjxmYqPTmhMaZkTtSTAElGjpaWF+++/n5aWlkgPRcQomUMiFLE0f8ZlKerb4VB9pEciuiMBlogabW1tPPLII7S1tUV6KCJGyRwSoYil+TNeWuZEPQmwhBBCiBiTl6zolwQfnpAAK1pJgCWiRkJCAg888AAJCQmRHoqIUTKHRChibf6My1SyghXF5BShEEIIEYO+u8XL8wdMDt0WF+mhXPDkFKEQQghxnhiXpShtgFOtsooVjSTAElGjtbWVhx9+mNbW1kgPRcQomUMiFLE2f8ZnWonu2yUPKypJgCWiRmtrK9/+9rdj5uImoo/MIRGKWJs/wzMgwSUV3aOVBFhCCCFEDHIbitF9pVRDtJIAS0SNuLg47rzzTuLiJGFTBEfmkAhFLM6f8ZlKSjVEKTlFKIQQQsSoR3d4+e67JvVL3MQZKtLDuWDJKUIhhBDiPDI+S9HqhT2nIj0S0ZkEWCJqtLe388ILL9De3h7poYgYJXNIhCIW58/Y0ycJP5JtwqgjAZaIGs3Nzdx88800NzdHeigiRskcEqGIxfmTkaAYmCqJ7tFIAiwhhBAiho3LUlKqIQpJgCWihsvlYv78+bhcrkgPRcQomUMiFLE6f3wBls1n1kSI5BShEEIIEcNeOWhy4wovlZ93k58sJwkjQU4RCiGEEOeZcVmnE91lmzCqSIAloobH42HTpk14PJ5ID0XEKJlDIhSxOn8GpkF6nARY0UYCLBE1mpqaKCkpoampKdJDETFK5pAIRazOH0Mpxoa5ovuhes2pVgnoeiIBlhBCCBHjxmWpsKxg/f2wyaWveBj0Fw/DnvfwykHT8eeMVRJgiahhGAajRo3CMGRaiuDIHBKhiOX5Mz5LsacWmj3OBVkfHNfctMJLahw8N8dFSa7ixhVefrnT69hzxjI5RSiEEELEuPeOmVz2qpd3r3cxKcf+APF4i+bSVzzkJCrWXeMi0a3QWnPPei/PH9Dsv8VNVuKFe4JRThEKIYQQ56GL+yoMBR/VOPP4393ipaEdXrrCCq4AlFL86FIXpoYfvi9bhZ1JgCWihmmalJeXY5ryQRXBkTkkQhHL8yfJrRjeB0cquu+t1Ty1V/MfEwz6p569StUvSfGv4w1+vctkX60kvZ9JAiwRNRoaGiguLqahoSHSQxExSuaQCEWsz5/xDrXM+c/3veQmwd0jug4ZvnGxQXo8/GFP7AWmTpIASwghhDgPTMxWvH9c027aF2TtOaV5Zr/mB5cYHVuDnSW5FYsGGfxlvyntes4gAZaIKmlpaZEegohxModEKGJ5/pTkKpq9sN3GPKxf7jTJSYQ7h/ccLtw6RHGoAd49JgGWjwRYImqkp6dTV1cnp09F0GQOiVDE+vyZkK2IN2BjtT1bdc0ezdP7TJYMM0hw9XxCcEaeIj8ZntsvAZaPBFhCCCHEeSDBpZiYrdh01J4g5+VDmlNtva9eAbgMxc2DDZ4/YOK1cYsylkmAJYQQQpwn/n97dx8cR33nefzzmx49WNKMJMs2yEjG8YNkJLAtOTzY2fB0uzY5SI4N2OESpzbBu1BLXYXC7IWtY8FsUsdSV4vZ29tNwZocHJs6itiw3AY2ym4CARNsjicDko1tuNiWZGMbP2ikGc1oHvr+EFJsrIfR9EjdPXq/qlwuj8ejb1ufUn3q1/3rXnme0Y6j+Sk4Wz7M6Opao8WV2d3fat0CoyMxaWeeCp7fUbDgGZFIRMYYRSIRt0eBT5EhOFEI+Vk5Z/BaqCMxZyVn32lbrxyx9cej7BwcyWWzjSqLpZcPU7AkChYAAAVj1XmDq01OV7H+576Mqkukm+Znf3f2YMDoyvONXqJgSaJgAQBQMOaWG82rkKPrsJIZW0/uy2j9otFvzTCaa+YavX7MVnwSn4noFxQseEYoFFJPT4+vt0nDXWQIThRKfladZ/SbT3IvOC8ctHW0X/rjLC5u/7xr5waUSHMdlkTBgocYYxQOh2XM9H1gKJwhQ3CiUPJzTW1A//e4rdOJ3ErO43szumy20dKaif8/XDJTqimRXj5CwaJgAQBQQNbUGaVt6Vc5XAvV2WerrWtiF7efKWCMrqo1eqmbgkXBgmf09vaqrq5Ovb29bo8CnyJDcKJQ8nNhyOiiKqmtc+I3HH1iX0YzLOmWBbmv4l0z1+iN47b6p/l1WBQseIZt2+ru7uZZVsgZGYIThZSfNXUBtXXZEzqWdMbWj/dmdMtCo1Bx7gVr5ZyAkhnp/ZP+/390goIFAECBua7OqCsq7T6V/b/5ZbetQ325Xdx+potnSkEjvfMpBQvwhPLycrW3t6u8vNztUeBTZAhOFFJ+rqw1KrWkX3Rlf5rw8b0ZNVdLl89xdpF/iWXUXC29e4KCBXiCZVlqbm6WZVlujwKfIkNwopDyMyNodHWt0Yud2ZWcj3psPX/A1m1LAnnZRdk6y+idTx1/jK9RsAAAKEBrFwT08mFbB3rHL1kPvJPWnBnSn+S4e/DzWmcZfXDS1kB6+q5iUbDgGdFoVCtXrlQ0GnV7FPgUGYIThZafbywwqiiSfrx37NOE7Sdt/e+PbN3XEtCMCd65fTQtNUYDGWn36bx8nC9RsOAZ6XRaO3fuVDqddnsU+BQZghOFlp/yIqP1iwL68d6MUpnRV5Lueyut+SHpVocXt59pWY2RkfTuNL7QnYIFAECBuu2igI7EpBcPjVx03jye0fMHbf3lCkvFVv7uYF9RZNRYNb13ElKw4BllZWVqa2tTWVmZ26PAp8gQnCjE/CyvMbp0ttEj7RllRrgn1r1vZtRUJX1zYf4fD9RSY/TONN5JSMGCZwSDQa1Zs0bBYNDtUeBTZAhOFGp+frgioFeO2PqbD86+FuvXhzP6t25bP/yiJSuQ/4LVOsvovRO20mOcnixkFCwAAArYmvqA7r4koD9/M6M3jw+WrNePZvTNl9P64iyjP5w/OQ+3bq0xiqak/ZFJ+XjPo2DBM2KxmNauXatYLOb2KPApMgQnCjk/D14a0NKZRpc9n1bz1qSu+llaC0NG/7zGyst9r0ayvGbwc6frdVgULHhGKpXStm3blEql3B4FPkWG4EQh56fYMnrpekv/eLWllecZ/UVLQC/dYKm2bHLKlSTNLDWaXzF97+heWCeaAQDAiMLFRusXG61fPHVrK4N3dJ+eBYsVLHhGaWmptmzZotLSUrdHgU+RIThBfvKvpWawYNkj7GAsdMbO81FHIhFVVlaqp6dH4XA4nx8NAAB85F8OZXT9L9L67S1BzQ9N3ulIt43UfVjBAgAAk6J11vS90J2CBc+Ix+PauHGj4vG426PAp8gQnCA/+Xd+mdH5M6ZnweIUITyD7MApMgQnyM/kuL4tJVvSv1xXuPvqOEUIAACm1NKZRh+cnH4rWBQseEZJSYk2bdqkkpISt0eBT5EhOEF+JkdztVFXVOoZmF4li1OEAABg0rz7qa3Wf0rp9a9ZWnleYa7rcIoQAABMqSVVUsBIHafcnmRqUbDgGYlEQps3b1YikXB7FPgUGYIT5GdyzAgaLQhJu09xitARThEiV2QHTpEhOEF+Js+N/5pSf0r6xb8vzJ2EnCIEAABTrrnaqOP09FrBomDBM4qKirRhwwYVFRW5PQp8igzBCfIzeZqrjbqj0unE9ClZnCIEAACTatcJWy3PpfSbr1laVYA7CTlFCAAAptySyum3k5CCBc9IJpPaunWrksmk26PAp8gQnCA/k6c0aLQwJHVMo52EFCx4Rn9/v9atW6f+/n63R4FPkSE4QX4mV3O1oWABAADkU3O1mVb3wqJgwTMsy9Lq1atlWZbbo8CnyBCcID+Tq7na6HBs+uwkZBchAACYdO+fsLXsuZRe+6qlL51fWOs77CIEAACuaJxmzySkYMEzUqmUduzYoVQq5fYo8CkyBCfIz+QqsYwWhafPTkIKFjwjFotp1apVisVibo8CnyJDcIL8TL7ptJOQggUAAKYEBQtwQSAQUFNTkwIBYonckCE4QX4mX3O10Sf90sl44ZesoNsDAEMqKirU0dHh9hjwMTIEJ8jP5GuuNpKk3adt/d75xuVpJhc1HQAATImGSsky0+NCdwoWPCOTyairq0uZTMbtUeBTZAhOkJ/JV2IZLa6cHrdqoGDBM/r6+lRfX6++vj63R4FPkSE4QX6mxnS50J2CBQAApkxTFQULmHKhUMjtEeBzZAhOkJ/J11xtdLRfOlHgOwnZRQjPCIfDikQibo8BHyNDcIL8TI2hnYQdp2xdWVu4OwlHXMGaP3++GhsbtXz5ci1fvlzPPPPMVM8FAAAKUEOlFJwGOwlHXcF65plntHz58qmcBQAAFLjiz3YS7i7wnYRcgwXPiEQiMsawRI+ckSE4QX6mznTYSTjqCta3v/1tSdJll12mhx56SLNnzx7xfYlEQolEYvjPQ8Ec+r24uFilpaWSpIGBAcXj8cEvHAyqrKxM0uATzIcermlZlsrLyyVJ6XRa0WhUkmSMGb740LZt9fb2Dn/NcDh8zteXBu/KO/TIg76+vuF7m5SVlSkYHDz0aDSqdDotSZoxY4aKiookSf39/Uomk5KkkpISlZSUnHO8HFt+j23o+M68B02hHNuQQvy+ee3YhuYqxGMr5O+bF45t6FgK8di89n1bVBbUq58UFdSxncMewcGDB23btu2BgQH7+9//vv2Vr3xlpLfZtm3bmzZtsiWN+uuuu+4afu+WLVuGX7/55puHX29raxt+/Yorrhh+vb29ffj1Cy64YPj1np6es77GmUKh0PDrnZ2dw683NTUNv/76668Pv7569erh13/6058Ov75hw4bh1x9++OERj5djm5xj2717d8EeWyF/37xwbM8++2zBHlshf9+8cmxPPvmkLcnu6ekpuGPz3Pdtxc22/mHAPt6fKYhj6+zsHM7OEGPbtv3UU09p8+bNkqQ777xT3/3udzXkyJEjamhoOKtRn2mkFaz6+np1dnYqHA7T8Dm2rI9t6O9ra2tlWVZBHVshf9+8dGzJZFJHjx5VKBRSMBgsqGMr5O+bV46ttLRU8XhcoVBI8Xi8oI7Na9+3PT1GV7SV6tc3WLqqNuD7Y+vp6VFVVZV6enqGv2fGts9e14pGo0omk6qqqpIkbd68Wc8//7xeffVVZSMSiaiysvKsLwIAADBkIG2r/ImU/vuqgO5ostwex7GRus8512AdPXpUN910k9LptGzb1oIFC/TUU09N+bAAAKAwFVtGDQX+TMJzCtaCBQv07rvvujELprne3l5ddNFF2rNnD3dTRk7IEJwgP1Or0HcScpsGeIZt2+ru7h55NwaQBTIEJ8jP1GquNtpNwQIAAMif5mqj43HpeH9hliwKFjyjvLxc7e3tw7s1gIkiQ3CC/EytM59JWIgoWPAMy7LU3Nw8fIsGYKLIEJwgP1NrUaVUFKBgAQAA5E1RwOiiKmnXCQoWMKmi0ahWrlw5fBM3YKLIEJwgP1NvxSyjdyhYwORKp9PauXPn8N15gYkiQ3CC/Ey91llGH5yUEunCK1kULAAA4IoVs4ySGan9pNuT5B8FC55RVlamtra24WdBARNFhuAE+Zl6y2qMAkYFeZrwnGcROsWzCAEAQLYu3pbU750X0KNf9u/uzZG6DytYAADANStmGb39aeGtYFGw4BmxWExr165VLBZzexT4FBmCE+THHStmGb1/0lYyU1gli4IFz0ilUtq2bZtSqZTbo8CnyBCcID/uaJ1lNJCROk65PUl+UbAAAIBrltcYGUlvH2cFC5gUpaWl2rJli0pLS90eBT5FhuAE+XFHRZFRY1Xh7SRkFyEAAHDV+pdT+igi7fwPQbdHyQm7CAEAgOesmGX03glbqUm40L3jpK2NO9Ja8tOkHnw3rUx+15VGRcGCZ8TjcW3cuFHxeNztUeBTZAhOkB/3tM4yiqelPafz95nRpK1rX0jp4mdT+sePMmquNrr3rYzWv5xWnk/ejYiCBc8YGBjQI488ooGBAbdHgU+RIThBftzTUmMkKa/3w7r/7Yx2HLP1zLWWur8Z1LN/ENRPrrH09Me2njtAwQIAAAUuXGx0UZW042h+is8bxzL6m/aMfrAioHULAyq2BgvctxYF9NV5RnfuSKt3YHJLFgULnlFSUqJNmzappKTE7VHgU2QITpAfd115fkCvHMk4/pxE2tatr6TVUmN01yXn1py/XWXpWL/0+F7nX2ss7CIEAACue/qjjL75clqffCuo88pMzp/zwNtp/dd3M3r7D4NaWjPy53zjVyl9cNJWx81BGZP71xrCLkIAAOBJV9UOFp1XP8l93edQn60Hd2X058sDo5YrSfqTJQHtOS29nqdTkiOhYMEzEomENm/erEQi4fYo8CkyBCfIj7vmlhstCkuvHMm99Py39zIKF0n3LBu73lw71+gLIWnLh5N3mpCCBc9IJBK6++67+eGGnJEhOEF+3HdVrcn5OqwjMVuP783orksCqiga+7RfwBj90eKA/unA5D1kmoIFAAA84dq5AbWfkg5HJ156/vr9jEot6T81Z1dtbpgXUCQp/cbBKcmxULDgGUVFRdqwYYOKiorcHgU+RYbgBPlx33V1RpaRXjg0sdJzvN/Wo3sy+l5zQJXF2V203jJLOm+G9GLn5BQsdhECAADPuPqFlCqC0gvXZf9cwv/yZlp/257Rwf8YVE1p9rsCb30lpZ3HbO1e66xUs4sQAAB42tfmGf3qsK1oMrv1nxNxW3/XkdEdTYEJlStJun7e4G7C30byv4pFwYJnJJNJbd26Vclk0u1R4FNkCE6QH2/46oUBxdPSv3VnV3oe3DV4Ufx/XjrxSvMHFxgZSS8dpmChgPX392vdunXq7+93exT4FBmCE+THGxZXGi2dKT21f/zdhIf6Blev/mxpQLNnTPyGoeFio+Zq6Y3j+b9dAwULAAB4yu0XBfTPB211j7Ob8IG306osljaO8EicbF0+x+iNY6xgoYBZlqXVq1fLsiy3R4FPkSE4QX68Y/2igEot6fExbgS6+5St/7Xf1n0t49/3aiyXzxm8NURfltd8ZYtdhAAAwHNu257SC4ds7V8XVPkIBerGf03p/ZO2PlwbVLGVe8H64KStpc+m9OsbLF1Vm9u6E7sIAQCAL9yzzNKphPSX75y7ivXkvoz+z0Fbf3Wp5ahcSVJTlVRRpLyfJqRgwTNSqZR27NihVCrl9ijwKTIEJ8iPtywMG93XEtDmDzLaefR3JeuNYxn96Wtp3dpg9I2FzmuMFTD64iyjnRQsFKpYLKZVq1YpFou5PQp8igzBCfLjPX+2NKBLZxtd/WJa97+V1j1vpPXln6W1vMbo776Uv2vlJuNCdwoWAADwpGLL6OXrLW1oDOiv38/osQ8zuvPigF65wdKMoLNTg2e6fLbR4ZjU1Ze/kpX9feiBSRYIBNTU1KRAgN6P3JAhOEF+vKk0aPT3X7L093lcsfq8y+cMlrU3jtuqq8hPcSNF8IyKigp1dHSooqLC7VHgU2QITpCf6WtuuVF9eX4vdKdgAQCAaS/f12FRsOAZmUxGXV1dymTy/8gCTA9kCE6Qn+nt8jlGb31qK5XJT8miYMEz+vr6VF9fr76+PrdHgU+RIThBfqa3y2cbxVJSx6n8fB4FCwAATHutswYvbn/3BCtYKEChUMjtEeBzZAhOkJ/pq7zI6AshqeNUfgoWt2mAZ4TDYUUiEbfHgI+RIThBftBcbfJWsFjBAgAAkHRxtVH7SQoWAABA3jRXG3VGpciA85JFwYJnRCIRGWNYokfOyBCcID9orh680H13Hk4TUrAAAAAkLamSAiY/t2qgYAEAAEiaETRaEJLaWcFCIQmFQurp6WGbNHJGhuAE+YE0eKF7PnYSUrDgGcYYhcNhGZOfJ5lj+iFDcIL8QMrfrRooWAAAAJ9prjY6HJNOJZyVLAoWPKO3t1d1dXXq7e11exT4FBmCE+QH0u92EjpdxaJgwTNs21Z3d7dsOz83ecP0Q4bgBPmBJDVWSZahYAEAAORNiWW0uNL5rRooWPCM8vJytbe3q7y83O1R4FNkCE6QHwzJx4XuFCx4hmVZam5ulmVZbo8CnyJDcIL8YAgFCwAAIM+aq4yO9kufxnMvWRQseEY0GtXKlSsVjUbdHgU+RYbgBPnBkItnOt9JSMGCZ6TTae3cuVPpdNrtUeBTZAhOkB8MWRQe3Em493Tun0HBAgAAOEOxZfSFkLS3hxUsFICysjK1tbWprKzM7VHgU2QITpAfnKmh0mjv6dwLlrHzfEe1SCSiyspK9fT0KBwO5/OjAQAApsTGHWn97FBG+79RNO57R+o+rGABAAB8TmOV9NteaSCd2zoUBQueEYvFtHbtWsViMbdHgU+RIThBfnCmxkqjtC39vxwfTUnBgmekUilt27ZNqVTK7VHgU2QITpAfnKmhcvBWDbleh0XBAgAA+JzaMqmiSNqX405CChY8o7S0VFu2bFFpaanbo8CnyBCcID84kzFGjZUm51s1sIsQAABgBN96KaVDfdL2rwXHfB+7CAEAALLUUGm0L8IpQvhcPB7Xxo0bFY/H3R4FPkWG4AT5wec1Vhkd65dOJyZesihY8IyBgQE98sgjGhgYcHsU+BQZghPkB5/XOLSTMIfrsChYAAAAI1hcOfh7Lg99pmDBM0pKSrRp0yaVlJS4PQp8igzBCfKDz6soMrqgPLdbNbCLEAAAYBT/7sWUZpZIW39/9J2E7CIEAACYgFzvhUXBgmckEglt3rxZiUTC7VHgU2QITpAfjKShUtrfI2UmeMKPggXPSCQSuvvuu/nhhpyRIThBfjCSxiqjeFrq7JvYv6NgAQAAjCLXWzVQsOAZRUVF2rBhg4qKitweBT5FhuAE+cFILqyQigPS3tMTK1jsIgQAABhD89akrp0b0P/4kjXi37OLEAAAYIIaqya+k5CCBc9IJpPaunWrksmk26PAp8gQQypVfQAAB69JREFUnCA/GE0ut2qgYMEz+vv7tW7dOvX397s9CnyKDMEJ8oPRNFQaHeqT+lPZlywKFgAAwBgaqwZ/39+T/b+hYMEzLMvS6tWrZVkjX0QIjIcMwQnyg9HkcqsGdhECAACMo+appO66OKC/aD23gLOLEAAAIAeNlUb7JrCCRcGCZ6RSKe3YsUOpVMrtUeBTZAhOkB+MpbFK2ss1WPCjWCymVatWKRaLuT0KfIoMwQnyg7EM3aoh2yurKFgAAADjaKg06hmQjsezez8FC54RCATU1NSkQIBYIjdkCE6QH4xleCdhls8kDE7mMMBEVFRUqKOjw+0x4GNkCE6QH4xlUaUUMIPXYX25dvz3U9MBAADGUWIZza/I/l5YFCx4RiaTUVdXlzKZjNujwKfIEJwgPxhPwwRu1UDBgmf09fWpvr5efX19bo8CnyJDcIL8YDyNVSbra7AoWAAAAFlorJQ+jkjJzPgli4IFTwmFQm6PAJ8jQ3CC/GAsDZVGKVs60Dv+e9lFCM8Ih8OKRCJujwEfI0NwgvxgPEuqBm/VsOe0rcWf3bZhNKxgAQAAZGFumRQukvac4hQhAABAXhhj1FRttDuLC90pWPCMSCQiYwxL9MgZGYIT5AfZaKqSdp8a/30ULAAAgCw1VRvtOW0rM85DnylYAAAAWWqqNoqmpM5xbpdGwYJnhEIh9fT0sE0aOSNDcIL8IBtNn+0kHO86LAoWPMMYo3A4LGPG3voKjIYMwQnyg2zUV0jlQWn3ODsJKVgAAABZChiji6oMBQv+0dvbq7q6OvX2ZnGLXGAEZAhOkB9kq6la2n167PdQsOAZtm2ru7tb9jg7M4DRkCE4QX6QrabPVrDGygoFCwAAYAKaqo0iSakrOvp7KFjwjPLycrW3t6u8vNztUeBTZAhOkB9ka+nMwY0Q759kBQs+YFmWmpubZVmW26PAp8gQnCA/yNa8CqmqWHrvBAULAAAgL4wxWjrT6D1WsOAH0WhUK1euVDQ6xkltYAxkCE6QH0zEshrDChb8IZ1Oa+fOnUqn026PAp8iQ3CC/GAils002h+RYqmRSxYFCwAAYIKW1UgZW2of5TQhBQueUVZWpra2NpWVlbk9CnyKDMEJ8oOJaK42ChjpvZMj/72x83xHtUgkosrKSvX09CgcDufzowEAADyjeWtS18wN6MFLoud0H1awAAAAcjDWhe4ULHhGLBbT2rVrFYvF3B4FPkWG4AT5wUQtrzHaddJWOnNuyaJgwTNSqZS2bdumVCrl9ijwKTIEJ8gPJuqy2UZ9SWnvCA9+pmABAADk4IuzBy90f/NTVrDgYaWlpdqyZYtKS0vdHgU+RYbgBPnBRFUUGV1SLb15PHPO37GLEAAAIEe3b09r+29Pa88fzWIXIQAAQD5cMcdoD9dgwcvi8bg2btyoeDzu9ijwKTIEJ8gPcnHFHDPi65wihGeQHThFhuAE+UEuMrat6sdOKvKnZ58iDOb7Cw31tUgkku+PRoEbygzZQa7IEJwgP8jVsrJebdfvOpA0CStYXV1dqq+vz+dHAgAAeF5nZ6fq6uokTULBymQyOnz4sEKhkIwZ+bwkMJJIJKL6+np1dnayPI+ckCE4QX6QK9u21dvbq7lz5yoQGLy8Pe+nCAOBwHB7A3IRDof54QZHyBCcID/IRWVl5Vl/ZhchAABAnlGwAAAA8sx64IEHHnB7CGCIZVm6+uqrFQzm/ew1pgkyBCfID/Il7xe5AwAATHecIgQAAMgzChYAAECeUbAAAADyjIKFKbd//36tWrVKDQ0NuvTSS9XR0XHOew4cOCDLsrR8+fLhXx9//LEL08Jrvve972n+/PkyxmjXrl2jvu+FF17QkiVLtHjxYn3961/n8ScYlk2G+BkEpyhYmHK33367brvtNu3bt0/33HOPvvOd74z4vlAopF27dg3/Wrhw4dQOCk+6+eab9dprr+nCCy8c9T19fX3asGGDnn/+ee3fv19z587VD3/4wymcEl6WTYYkfgbBGQoWptSxY8f01ltvaf369ZKkm266SZ2dnfroo49cngx+ceWVV477tIif//znamlp0ZIlSyRJd9xxh55++umpGA8+kE2GAKcoWJhSnZ2dqq2tHb7HjDFG8+bN06FDh855bzQa1YoVK9Ta2qof/OAHSqfTUz0ufOrQoUNnrU7Mnz9fR44cUSqVcnEq+A0/g+AEBQueVFtbq+7ubr399tv65S9/qe3bt+vhhx92eywA0wQ/g+AUBQtTqr6+/qyVBNu2dejQIc2bN++s95WUlGjOnDmSpJkzZ+rWW2/V9u3bp3xe+NO8efN08ODB4T8fOHDgrJVTYDz8DIJTFCxMqTlz5qi1tVU/+clPJEnPPvus6urqtGjRorPed+zYMSWTSUlSIpHQc889p5aWlimfF/503XXX6Z133tGHH34oSfrRj36kW265xeWp4Cf8DIJTFCxMuccee0yPPfaYGhoa9NBDD+mJJ56QJN1///169NFHJUmvvfaaWlpatGzZMrW2tur888/Xvffe6+bY8Ijbb79ddXV16urq0po1a4bL+Zn5CYVCevzxx3XjjTdq0aJF6urq0n333efm2PCQbDLEzyA4xbMIAQAA8owVLAAAgDz7/w92z/6Ewd/rAAAAAElFTkSuQmCC" />
+
+<div class="output_text output_subarea output_execute_result">
+<pre>(0.07588358473630112,[0.724702,0.524221],:FTOL_REACHED)</pre>
 </div>
 
 </div>
@@ -12203,71 +12109,142 @@ golden minimizer = 0.8310314579502819
 </div>
 </div>
 
-</div>
+</div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Beyond-One-Dimension">Beyond One Dimension<a class="anchor-link" href="#Beyond-One-Dimension">&#182;</a></h2><h3 id="Introducing-Rosenbrock's-Banana-function">Introducing <a href="https://en.wikipedia.org/wiki/Rosenbrock_function">Rosenbrock's Banana</a> function<a class="anchor-link" href="#Introducing-Rosenbrock's-Banana-function">&#182;</a></h3><p>The Banana function is defined by 
-    $$ f(x,y) = (a-x)^2  + b(y-x^2)^2  $$</p>
-<p><img src="../assets/figs/optimization/rosenbrock.png" alt="Banana for $a = 0$. By Gaortizg [GFDL](http://www.gnu.org/copyleft/fdl.html) or [CC BY-SA 3.0](http://creativecommons.org/licenses/by-sa/3.0), via Wikimedia Commons"></p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="What-is-the-minimum-of-that-function?">What is the minimum of that function?<a class="anchor-link" href="#What-is-the-minimum-of-that-function?">&#182;</a></h3><ul>
-<li>For $a=1,b=100$, what is the global minimum of that function?</li>
-<li>What are the inputs one needs to supply to an algorithm in a more general example?</li>
+<h2 id="JuMP.jl">JuMP.jl<a class="anchor-link" href="#JuMP.jl">&#182;</a></h2><ul>
+<li>Introduce <a href="https://github.com/JuliaOpt/JuMP.jl"><code>JuMP.jl</code></a></li>
+<li>JuMP is a mathematical programming interface for Julia. It is like AMPL, but for free and with a decent programming language.</li>
+<li>The main highlights are:<ul>
+<li>It uses automatic differentiation to compute derivatives from your expression.</li>
+<li>It supplies this information, as well as the sparsity structure of the Hessian to your preferred solver.</li>
+<li>It decouples your problem completely from the type of solver you are using. This is great, since you don't have to worry about different solvers having different interfaces.</li>
+<li>In order to achieve this, <code>JuMP</code> uses <a href="https://github.com/JuliaOpt/MathProgBase.jl"><code>MathProgBase.jl</code></a>, which converts your problem formulation into a standard representation of an optimization problem.</li>
+</ul>
+</li>
+<li>Let's look at the readme</li>
+<li>The technical citation is Lubin et al &lt;cite data-cite=JuMP&gt;&lt;/cite&gt;</li>
 </ul>
 
 </div>
 </div>
-</div>
+</div></section><section>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Rosenbrock-Banana-and-Optim.jl">Rosenbrock Banana and Optim.jl<a class="anchor-link" href="#Rosenbrock-Banana-and-Optim.jl">&#182;</a></h2><ul>
-<li>We will use <code>Optim</code> for the rest of this lecture.</li>
-<li>We need to supply the objective function and - depending on the solution algorithm - the gradient and hessian as well.</li>
+<h2 id="JuMP:-Quick-start-guide">JuMP: Quick start guide<a class="anchor-link" href="#JuMP:-Quick-start-guide">&#182;</a></h2><ul>
+<li>this is form the <a href="http://www.juliaopt.org/JuMP.jl/0.16/quickstart.html">quick start guide</a></li>
+<li>please check the docs, they are excellent.</li>
+</ul>
+<h3 id="Step-1:-create-a-model">Step 1: create a model<a class="anchor-link" href="#Step-1:-create-a-model">&#182;</a></h3><ul>
+<li>A model collects variables, objective function and constraints.</li>
+<li>it defines a solver to be used.</li>
 </ul>
 
 </div>
 </div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div class="highlight"><pre><span></span><span class="k">using</span> <span class="n">Clp</span>
+<span class="n">m</span> <span class="o">=</span> <span class="n">Model</span><span class="p">(</span><span class="n">solver</span><span class="o">=</span><span class="n">ClpSolver</span><span class="p">())</span>  <span class="c"># provide a solver</span>
+
+<span class="c"># Define variables</span>
+<span class="p">@</span><span class="n">variable</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">x</span> <span class="p">)</span>              <span class="c"># No bounds</span>
+<span class="p">@</span><span class="n">variable</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">x</span> <span class="o">&gt;=</span> <span class="n">lb</span> <span class="p">)</span>        <span class="c"># Lower bound only (note: &#39;lb &lt;= x&#39; is not valid)</span>
+<span class="p">@</span><span class="n">variable</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">x</span> <span class="o">&lt;=</span> <span class="n">ub</span> <span class="p">)</span>        <span class="c"># Upper bound only</span>
+<span class="p">@</span><span class="n">variable</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">lb</span> <span class="o">&lt;=</span> <span class="n">x</span> <span class="o">&lt;=</span> <span class="n">ub</span> <span class="p">)</span>  <span class="c"># Lower and upper bounds</span>
+</pre></div>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div class="highlight"><pre><span></span><span class="c"># we can create arrays of a variable</span>
+<span class="n">N</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="p">@</span><span class="n">variable</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="n">M</span><span class="p">,</span><span class="mi">1</span><span class="p">:</span><span class="n">N</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="p">)</span>
+
+<span class="c"># or put them in a block</span>
+<span class="p">@</span><span class="n">variables</span> <span class="n">m</span> <span class="k">begin</span>
+    <span class="n">x</span>
+    <span class="n">y</span> <span class="o">&gt;=</span> <span class="mi">0</span>
+    <span class="n">Z</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">10</span><span class="p">],</span> <span class="n">Bin</span>
+    <span class="n">X</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">],</span> <span class="n">SDP</span>
+    <span class="n">q</span><span class="p">[</span><span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="p">],</span> <span class="p">(</span><span class="n">lowerbound</span> <span class="o">=</span> <span class="n">i</span><span class="p">,</span> <span class="n">start</span> <span class="o">=</span> <span class="mi">2</span><span class="n">i</span><span class="p">,</span> <span class="n">upperbound</span> <span class="o">=</span> <span class="mi">3</span><span class="n">i</span><span class="p">)</span>
+    <span class="n">t</span><span class="p">[</span><span class="n">j</span><span class="o">=</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">],</span> <span class="p">(</span><span class="kt">Int</span><span class="p">,</span> <span class="n">start</span> <span class="o">=</span> <span class="n">j</span><span class="p">)</span>
+<span class="k">end</span>
+
+<span class="c"># Equivalent to:</span>
+<span class="p">@</span><span class="n">variable</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+<span class="p">@</span><span class="n">variable</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">y</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">)</span>
+<span class="p">@</span><span class="n">variable</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">Z</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">10</span><span class="p">],</span> <span class="n">Bin</span><span class="p">)</span>
+<span class="p">@</span><span class="n">variable</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">X</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">],</span> <span class="n">SDP</span><span class="p">)</span>
+<span class="p">@</span><span class="n">variable</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">q</span><span class="p">[</span><span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="p">],</span> <span class="n">lowerbound</span> <span class="o">=</span> <span class="n">i</span><span class="p">,</span> <span class="n">start</span> <span class="o">=</span> <span class="mi">2</span><span class="n">i</span><span class="p">,</span> <span class="n">upperbound</span> <span class="o">=</span> <span class="mi">3</span><span class="n">i</span><span class="p">)</span>
+<span class="p">@</span><span class="n">variable</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">t</span><span class="p">[</span><span class="n">j</span><span class="o">=</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">],</span> <span class="kt">Int</span><span class="p">,</span> <span class="n">start</span> <span class="o">=</span> <span class="n">j</span><span class="p">)</span>
+
+<span class="c"># bounds can depend on indices</span>
+<span class="p">@</span><span class="n">variable</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">:</span><span class="mi">10</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">i</span> <span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Objective-and-Constraints">Objective and Constraints<a class="anchor-link" href="#Objective-and-Constraints">&#182;</a></h2><ul>
+<li>We can easily add objective and constraint functions:</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="p">@</span><span class="n">constraint</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">)</span>  <span class="c"># Other options: == and &gt;=</span>
+<span class="p">@</span><span class="n">constraint</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">sum</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">:</span><span class="n">numLocation</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span>
+<span class="p">@</span><span class="n">objective</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">Max</span><span class="p">,</span> <span class="mi">5</span><span class="n">x</span> <span class="o">+</span> <span class="mi">22</span><span class="n">y</span> <span class="o">+</span> <span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="n">y</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span> <span class="c"># or Min</span>
+</pre></div>
+<ul>
+<li>This is fully integrated with Julia. you can use the <code>generator</code> syntax for sums:</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="p">@</span><span class="n">objective</span><span class="p">(</span><span class="n">sum</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">/</span><span class="nb">pi</span> <span class="k">for</span> <span class="n">i</span> <span class="o">=</span> <span class="n">I1</span><span class="p">,</span> <span class="n">j</span> <span class="o">=</span> <span class="n">I2</span> <span class="k">if</span> <span class="n">i</span><span class="o">+</span><span class="n">j</span> <span class="o">&lt;</span> <span class="n">some_val</span><span class="p">))</span>
+</pre></div>
+
+</div>
+</div>
+</div></section></section><section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-julia"><pre><span></span><span class="k">using</span> <span class="n">Optim</span>
-<span class="n">rosenbrock</span> <span class="o">=</span> <span class="n">Optim</span><span class="o">.</span><span class="n">UnconstrainedProblems</span><span class="o">.</span><span class="n">examples</span><span class="p">[</span><span class="s">&quot;Rosenbrock&quot;</span><span class="p">]</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="c">## Simple example</span>
+<span class="k">using</span> <span class="n">JuMP</span>
+<span class="k">using</span> <span class="n">Clp</span>
 
-<span class="c"># contains:</span>
-<span class="c"># function rosenbrock(x::Vector)</span>
-<span class="c">#     return (1.0 - x[1])^2 + 100.0 * (x[2] - x[1]^2)^2</span>
-<span class="c"># end</span>
+<span class="n">m</span> <span class="o">=</span> <span class="n">Model</span><span class="p">(</span><span class="n">solver</span> <span class="o">=</span> <span class="n">ClpSolver</span><span class="p">())</span>
+<span class="p">@</span><span class="n">variable</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">x</span> <span class="o">&lt;=</span> <span class="mi">2</span> <span class="p">)</span>
+<span class="p">@</span><span class="n">variable</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">y</span> <span class="o">&lt;=</span> <span class="mi">30</span> <span class="p">)</span>
 
-<span class="c"># function rosenbrock_gradient!(x::Vector, storage::Vector)</span>
-<span class="c">#     storage[1] = -2.0 * (1.0 - x[1]) - 400.0 * (x[2] - x[1]^2) * x[1]</span>
-<span class="c">#     storage[2] = 200.0 * (x[2] - x[1]^2)</span>
-<span class="c"># end</span>
+<span class="p">@</span><span class="n">objective</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">Max</span><span class="p">,</span> <span class="mi">5</span><span class="n">x</span> <span class="o">+</span> <span class="mi">3</span><span class="o">*</span><span class="n">y</span> <span class="p">)</span>
+<span class="p">@</span><span class="n">constraint</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="mi">1</span><span class="n">x</span> <span class="o">+</span> <span class="mi">5</span><span class="n">y</span> <span class="o">&lt;=</span> <span class="mf">3.0</span> <span class="p">)</span>
 
-<span class="c"># function rosenbrock_hessian!(x::Vector, storage::Matrix)</span>
-<span class="c">#     storage[1, 1] = 2.0 - 400.0 * x[2] + 1200.0 * x[1]^2</span>
-<span class="c">#     storage[1, 2] = -400.0 * x[1]</span>
-<span class="c">#     storage[2, 1] = -400.0 * x[1]</span>
-<span class="c">#     storage[2, 2] = 200.0</span>
-<span class="c"># end</span>
+<span class="n">print</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
 
-<span class="c"># there are many other examples on Optim.UnconstrainedProblems</span>
+<span class="n">status</span> <span class="o">=</span> <span class="n">solve</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+
+<span class="n">println</span><span class="p">(</span><span class="s">&quot;Objective value: &quot;</span><span class="p">,</span> <span class="n">getobjectivevalue</span><span class="p">(</span><span class="n">m</span><span class="p">))</span>
+<span class="n">println</span><span class="p">(</span><span class="s">&quot;x = &quot;</span><span class="p">,</span> <span class="n">getvalue</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="n">println</span><span class="p">(</span><span class="s">&quot;y = &quot;</span><span class="p">,</span> <span class="n">getvalue</span><span class="p">(</span><span class="n">y</span><span class="p">))</span>
 </pre></div>
 
 </div>
@@ -12279,50 +12256,52 @@ golden minimizer = 0.8310314579502819
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[3]:</div>
+<div class="prompt"></div>
 
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>Optim.UnconstrainedProblems.OptimizationProblem(&#34;Rosenbrock&#34;,Optim.UnconstrainedProblems.rosenbrock,Optim.UnconstrainedProblems.rosenbrock_gradient!,Optim.UnconstrainedProblems.rosenbrock_hessian!,[0.0,0.0],[1.0,1.0],true,true)</pre>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Max 5 x + 3 y
+Subject to
+ x + 5 y ≤ 3
+ 0 ≤ x ≤ 2
+ 0 ≤ y ≤ 30
+Objective value: 10.6
+x = 2.0
+y = 0.2
+</pre>
 </div>
-
 </div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Comparison-Methods">Comparison Methods<a class="anchor-link" href="#Comparison-Methods">&#182;</a></h2><ul>
-<li>We will now look at a first class of algorithms, which are very simple, but sometimes a good starting point.</li>
-<li>They just <em>compare</em> function values.</li>
-<li><em>Grid Search</em> : Compute the objective function at $G=\{x_1,\dots,x_N\}$ and pick the highest value of $f$. <ul>
-<li>This is very slow.</li>
-<li>It requires large $N$.</li>
-<li>But it's robust (will find global optimizer for large enough $N$)</li>
-</ul>
-</li>
-</ul>
 
 </div>
 </div>
-</div>
+
+</div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-julia"><pre><span></span><span class="c"># grid search on rosenbrock</span>
-<span class="n">grid</span> <span class="o">=</span> <span class="n">collect</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">:</span><span class="mf">0.1</span><span class="p">:</span><span class="mi">3</span><span class="p">);</span>
-<span class="n">grid2D</span> <span class="o">=</span> <span class="p">[[</span><span class="n">i</span><span class="p">;</span><span class="n">j</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="k">in</span> <span class="n">grid</span><span class="p">,</span><span class="n">j</span> <span class="k">in</span> <span class="n">grid</span><span class="p">];</span>
-<span class="n">val2D</span> <span class="o">=</span> <span class="n">map</span><span class="p">(</span><span class="n">rosenbrock</span><span class="o">.</span><span class="n">f</span><span class="p">,</span><span class="n">grid2D</span><span class="p">);</span>
-<span class="n">r</span> <span class="o">=</span> <span class="n">findmin</span><span class="p">(</span><span class="n">val2D</span><span class="p">);</span>
-<span class="n">println</span><span class="p">(</span><span class="s">&quot;grid search results in minimizer = </span><span class="si">$(grid2D[r[2]])</span><span class="s">&quot;</span><span class="p">)</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="c"># JuMP: Rosenbrock Example</span>
+<span class="c"># Instead of hand-coding first and second derivatives, you only have to give `JuMP` expressions for objective and constraints.</span>
+<span class="c"># Here is an example.</span>
+
+
+<span class="k">using</span> <span class="n">JuMP</span>
+<span class="k">using</span> <span class="n">Ipopt</span>
+
+<span class="k">let</span>
+
+    <span class="n">m</span> <span class="o">=</span> <span class="n">Model</span><span class="p">(</span><span class="n">solver</span><span class="o">=</span><span class="n">IpoptSolver</span><span class="p">())</span>
+
+    <span class="p">@</span><span class="n">variable</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+    <span class="p">@</span><span class="n">variable</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+
+    <span class="p">@</span><span class="n">NLobjective</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">Min</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">x</span><span class="p">)</span><span class="o">^</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">100</span><span class="p">(</span><span class="n">y</span><span class="o">-</span><span class="n">x</span><span class="o">^</span><span class="mi">2</span><span class="p">)</span><span class="o">^</span><span class="mi">2</span><span class="p">)</span>
+
+    <span class="n">solve</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+
+    <span class="n">println</span><span class="p">(</span><span class="s">&quot;x = &quot;</span><span class="p">,</span> <span class="n">getvalue</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="s">&quot; y = &quot;</span><span class="p">,</span> <span class="n">getvalue</span><span class="p">(</span><span class="n">y</span><span class="p">))</span>
+
+<span class="k">end</span>
 </pre></div>
 
 </div>
@@ -12337,7 +12316,70 @@ golden minimizer = 0.8310314579502819
 <div class="prompt"></div>
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>grid search results in minimizer = [1.0,1.0]
+<pre>
+******************************************************************************
+This program contains Ipopt, a library for large-scale nonlinear optimization.
+ Ipopt is released as open source code under the Eclipse Public License (EPL).
+         For more information visit http://projects.coin-or.org/Ipopt
+******************************************************************************
+
+This is Ipopt version 3.12.4, running with linear solver mumps.
+NOTE: Other linear solvers might be more efficient (see Ipopt documentation).
+
+Number of nonzeros in equality constraint Jacobian...:        0
+Number of nonzeros in inequality constraint Jacobian.:        0
+Number of nonzeros in Lagrangian Hessian.............:        3
+
+Total number of variables............................:        2
+                     variables with only lower bounds:        0
+                variables with lower and upper bounds:        0
+                     variables with only upper bounds:        0
+Total number of equality constraints.................:        0
+Total number of inequality constraints...............:        0
+        inequality constraints with only lower bounds:        0
+   inequality constraints with lower and upper bounds:        0
+        inequality constraints with only upper bounds:        0
+
+iter    objective    inf_pr   inf_du lg(mu)  ||d||  lg(rg) alpha_du alpha_pr  ls
+   0  1.0000000e+00 0.00e+00 2.00e+00  -1.0 0.00e+00    -  0.00e+00 0.00e+00   0
+   1  9.5312500e-01 0.00e+00 1.25e+01  -1.0 1.00e+00    -  1.00e+00 2.50e-01f  3
+   2  4.8320569e-01 0.00e+00 1.01e+00  -1.0 9.03e-02    -  1.00e+00 1.00e+00f  1
+   3  4.5708829e-01 0.00e+00 9.53e+00  -1.0 4.29e-01    -  1.00e+00 5.00e-01f  2
+   4  1.8894205e-01 0.00e+00 4.15e-01  -1.0 9.51e-02    -  1.00e+00 1.00e+00f  1
+   5  1.3918726e-01 0.00e+00 6.51e+00  -1.7 3.49e-01    -  1.00e+00 5.00e-01f  2
+   6  5.4940990e-02 0.00e+00 4.51e-01  -1.7 9.29e-02    -  1.00e+00 1.00e+00f  1
+   7  2.9144630e-02 0.00e+00 2.27e+00  -1.7 2.49e-01    -  1.00e+00 5.00e-01f  2
+   8  9.8586451e-03 0.00e+00 1.15e+00  -1.7 1.10e-01    -  1.00e+00 1.00e+00f  1
+   9  2.3237475e-03 0.00e+00 1.00e+00  -1.7 1.00e-01    -  1.00e+00 1.00e+00f  1
+iter    objective    inf_pr   inf_du lg(mu)  ||d||  lg(rg) alpha_du alpha_pr  ls
+  10  2.3797236e-04 0.00e+00 2.19e-01  -1.7 5.09e-02    -  1.00e+00 1.00e+00f  1
+  11  4.9267371e-06 0.00e+00 5.95e-02  -1.7 2.53e-02    -  1.00e+00 1.00e+00f  1
+  12  2.8189505e-09 0.00e+00 8.31e-04  -2.5 3.20e-03    -  1.00e+00 1.00e+00f  1
+  13  1.0095040e-15 0.00e+00 8.68e-07  -5.7 9.78e-05    -  1.00e+00 1.00e+00f  1
+  14  1.3288608e-28 0.00e+00 2.02e-13  -8.6 4.65e-08    -  1.00e+00 1.00e+00f  1
+
+Number of Iterations....: 14
+
+                                   (scaled)                 (unscaled)
+Objective...............:   1.3288608467480825e-28    1.3288608467480825e-28
+Dual infeasibility......:   2.0183854587685121e-13    2.0183854587685121e-13
+Constraint violation....:   0.0000000000000000e+00    0.0000000000000000e+00
+Complementarity.........:   0.0000000000000000e+00    0.0000000000000000e+00
+Overall NLP error.......:   2.0183854587685121e-13    2.0183854587685121e-13
+
+
+Number of objective function evaluations             = 36
+Number of objective gradient evaluations             = 15
+Number of equality constraint evaluations            = 0
+Number of inequality constraint evaluations          = 0
+Number of equality constraint Jacobian evaluations   = 0
+Number of inequality constraint Jacobian evaluations = 0
+Number of Lagrangian Hessian evaluations             = 14
+Total CPU secs in IPOPT (w/o function evaluations)   =      0.118
+Total CPU secs in NLP function evaluations           =      0.029
+
+EXIT: Optimal Solution Found.
+x = 0.9999999999999899 y = 0.9999999999999792
 </pre>
 </div>
 </div>
@@ -12345,41 +12387,30 @@ golden minimizer = 0.8310314579502819
 </div>
 </div>
 
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Bracketing-for-Multidimensional-Problems:-Nelder-Mead">Bracketing for Multidimensional Problems: Nelder-Mead<a class="anchor-link" href="#Bracketing-for-Multidimensional-Problems:-Nelder-Mead">&#182;</a></h2><ul>
-<li>The Goal here is to find the simplex containing the local minimizer $x^*$</li>
-<li>In the case where $f$ is n-D, this simplex has $n+1$ vertices</li>
-<li>In the case where $f$ is 2-D, this simplex has $2+1$ vertices, i.e. it's a triangle.</li>
-<li>The method proceeds by evaluating the function at all $n+1$ vertices, and by replacing the worst function value with a new guess.</li>
-<li>this can be achieved by a sequence of moves:<ul>
-<li>reflect</li>
-<li>expand</li>
-<li>contract</li>
-<li>shrink
-movements.</li>
-</ul>
-</li>
-</ul>
-<div class="center" style="width: auto; margin-left: auto; margin-right: auto;"> ![](../assets/figs/optimization/neldermeadsteps.jpg) </div><ul>
-<li>this is a very popular method. The matlab functions <code>fmincon</code> and <code>fminsearch</code> implements it.</li>
-<li>When it works, it works quite fast.</li>
-<li>No derivatives required.</li>
-</ul>
-
-</div>
-</div>
-</div>
+</div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-julia"><pre><span></span><span class="n">optimize</span><span class="p">(</span><span class="n">rosenbrock</span><span class="p">,</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span> <span class="n">NelderMead</span><span class="p">())</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="c"># not bad, right?</span>
+<span class="c"># adding the constraint from before:</span>
+
+<span class="k">let</span>
+    
+    <span class="n">m</span> <span class="o">=</span> <span class="n">Model</span><span class="p">(</span><span class="n">solver</span><span class="o">=</span><span class="n">IpoptSolver</span><span class="p">())</span>
+
+    <span class="p">@</span><span class="n">variable</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+    <span class="p">@</span><span class="n">variable</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+
+    <span class="p">@</span><span class="n">NLobjective</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">Min</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">x</span><span class="p">)</span><span class="o">^</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">100</span><span class="p">(</span><span class="n">y</span><span class="o">-</span><span class="n">x</span><span class="o">^</span><span class="mi">2</span><span class="p">)</span><span class="o">^</span><span class="mi">2</span><span class="p">)</span>
+    <span class="p">@</span><span class="n">NLconstraint</span><span class="p">(</span><span class="n">m</span><span class="p">,</span><span class="n">x</span><span class="o">^</span><span class="mi">2</span> <span class="o">+</span> <span class="n">y</span><span class="o">^</span><span class="mi">2</span> <span class="o">&lt;=</span> <span class="mf">0.8</span><span class="p">)</span>
+
+    <span class="n">solve</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+
+    <span class="n">println</span><span class="p">(</span><span class="s">&quot;x = &quot;</span><span class="p">,</span> <span class="n">getvalue</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="s">&quot; y = &quot;</span><span class="p">,</span> <span class="n">getvalue</span><span class="p">(</span><span class="n">y</span><span class="p">))</span>
+
+<span class="k">end</span>
 </pre></div>
 
 </div>
@@ -12391,247 +12422,128 @@ movements.</li>
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[5]:</div>
+<div class="prompt"></div>
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>This is Ipopt version 3.12.4, running with linear solver mumps.
+NOTE: Other linear solvers might be more efficient (see Ipopt documentation).
+
+Number of nonzeros in equality constraint Jacobian...:        0
+Number of nonzeros in inequality constraint Jacobian.:        2
+Number of nonzeros in Lagrangian Hessian.............:        5
+
+Total number of variables............................:        2
+                     variables with only lower bounds:        0
+                variables with lower and upper bounds:        0
+                     variables with only upper bounds:        0
+Total number of equality constraints.................:        0
+Total number of inequality constraints...............:        1
+        inequality constraints with only lower bounds:        0
+   inequality constraints with lower and upper bounds:        0
+        inequality constraints with only upper bounds:        1
+
+iter    objective    inf_pr   inf_du lg(mu)  ||d||  lg(rg) alpha_du alpha_pr  ls
+   0  1.0000000e+00 0.00e+00 2.00e+00  -1.0 0.00e+00    -  0.00e+00 0.00e+00   0
+   1  9.5312500e-01 0.00e+00 1.25e+01  -1.0 5.00e-01    -  1.00e+00 5.00e-01f  2
+   2  4.9204994e-01 0.00e+00 9.72e-01  -1.0 8.71e-02    -  1.00e+00 1.00e+00f  1
+   3  2.0451702e+00 0.00e+00 3.69e+01  -1.7 3.80e-01    -  1.00e+00 1.00e+00H  1
+   4  1.0409466e-01 0.00e+00 3.10e-01  -1.7 1.46e-01    -  1.00e+00 1.00e+00f  1
+   5  8.5804626e-02 0.00e+00 2.71e-01  -1.7 9.98e-02    -  1.00e+00 1.00e+00h  1
+   6  9.4244879e-02 0.00e+00 6.24e-02  -1.7 3.74e-02    -  1.00e+00 1.00e+00h  1
+   7  8.0582034e-02 0.00e+00 1.51e-01  -2.5 6.41e-02    -  1.00e+00 1.00e+00h  1
+   8  7.8681242e-02 0.00e+00 2.12e-03  -2.5 1.12e-02    -  1.00e+00 1.00e+00h  1
+   9  7.6095770e-02 0.00e+00 6.16e-03  -3.8 1.37e-02    -  1.00e+00 1.00e+00h  1
+iter    objective    inf_pr   inf_du lg(mu)  ||d||  lg(rg) alpha_du alpha_pr  ls
+  10  7.6033892e-02 0.00e+00 2.23e-06  -3.8 3.99e-04    -  1.00e+00 1.00e+00h  1
+  11  7.5885642e-02 0.00e+00 2.07e-05  -5.7 7.99e-04    -  1.00e+00 1.00e+00h  1
+  12  7.5885428e-02 0.00e+00 2.74e-11  -5.7 1.38e-06    -  1.00e+00 1.00e+00h  1
+  13  7.5883585e-02 0.00e+00 3.19e-09  -8.6 9.93e-06    -  1.00e+00 1.00e+00f  1
+
+Number of Iterations....: 13
+
+                                   (scaled)                 (unscaled)
+Objective...............:   7.5883585442440671e-02    7.5883585442440671e-02
+Dual infeasibility......:   3.1949178858070582e-09    3.1949178858070582e-09
+Constraint violation....:   0.0000000000000000e+00    0.0000000000000000e+00
+Complementarity.........:   2.5454985882932001e-09    2.5454985882932001e-09
+Overall NLP error.......:   3.1949178858070582e-09    3.1949178858070582e-09
 
 
+Number of objective function evaluations             = 20
+Number of objective gradient evaluations             = 14
+Number of equality constraint evaluations            = 0
+Number of inequality constraint evaluations          = 20
+Number of equality constraint Jacobian evaluations   = 0
+Number of inequality constraint Jacobian evaluations = 14
+Number of Lagrangian Hessian evaluations             = 13
+Total CPU secs in IPOPT (w/o function evaluations)   =      0.004
+Total CPU secs in NLP function evaluations           =      0.002
 
-<div class="output_text output_subarea output_execute_result">
-<pre>Results of Optimization Algorithm
- * Algorithm: Nelder-Mead
- * Starting Point: [0.0,0.0]
- * Minimizer: [0.9999710322210338,0.9999438685860869]
- * Minimum: 1.164323e-09
- * Iterations: 74
- * Convergence: true
-   *  √(Σ(yᵢ-ȳ)²)/n &lt; 1.0e-08: true
-   * Reached Maximum Number of Iterations: false
- * Objective Function Calls: 108</pre>
+EXIT: Optimal Solution Found.
+x = 0.7247018392092258 y = 0.5242206029480763
+</pre>
+</div>
 </div>
 
 </div>
-
-</div>
 </div>
 
-</div>
+</div></section><section>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li>But.</li>
+<h2 id="JuMP:-Maximium-Likelihood">JuMP: Maximium Likelihood<a class="anchor-link" href="#JuMP:-Maximium-Likelihood">&#182;</a></h2><ul>
+<li>Let's redo the maximum likelihood example in JuMP.</li>
+<li>Let $\mu,\sigma^2$ be the unknown mean and variance of a random sample generated from the normal distribution.</li>
+<li>Find the maximum likelihood estimator for those parameters!</li>
+<li>density:</li>
 </ul>
-<h2 id="Bracketing-for-Multidimensional-Problems:-Comment-on-Nelder-Mead">Bracketing for Multidimensional Problems: Comment on Nelder-Mead<a class="anchor-link" href="#Bracketing-for-Multidimensional-Problems:-Comment-on-Nelder-Mead">&#182;</a></h2><blockquote><p>Lagarias et al. (SIOPT, 1999):
-At present there is no function in any dimension greater than one, for which the original Nelder-Mead algorithm has been proved to converge to a minimizer.</p>
-<p>Given all the known inefficiencies and failures of the Nelder-Mead algorithm [...], one might wonder why it is used at all, let alone why it is so extraordinarily popular.</p>
-</blockquote>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Reminder:-Optimality-Conditions">Reminder: Optimality Conditions<a class="anchor-link" href="#Reminder:-Optimality-Conditions">&#182;</a></h2><h3 id="Notation">Notation<a class="anchor-link" href="#Notation">&#182;</a></h3><ul>
-<li>Unless otherwise noted, we have $x \in \mathbb{R}^n$ as an $n$ element vector.</li>
-<li>The <strong>gradient</strong> of a function $f : \mathbb{R}^n \mapsto \mathbb{R}$ is denoted $\nabla f:\mathbb{R}^n \mapsto \mathbb{R}^n$ a it returns a vector</li>
+$$ f(x_i|\mu,\sigma^2) = \frac{1}{\sigma \sqrt{2\pi}} \exp\left(-\frac{(x_i - \mu)^2}{2\sigma^2}\right) 
+$$<ul>
+<li>Likelihood Function</li>
 </ul>
-$$ \nabla f(x) = \left(\frac{\partial f}{\partial x_1}(x),\frac{\partial f}{\partial x_2}(x),\dots,\frac{\partial f}{\partial x_n}(x) \right) $$<ul>
-<li>It's <strong>hessian</strong> is a function denoted $\nabla^2 f(x)$ or $H_f :\mathbb{R}^n \mapsto \mathbb{R}^{n\times n}$ and returns an $(n,n)$ matrix given by</li>
+$$ \begin{aligned} 
+L(\mu,\sigma^2) = \Pi_{i=1}^N f(x_i|\mu,\sigma^2) =& \frac{1}{(\sigma \sqrt{2\pi})^n} \exp\left(-\frac{1}{2\sigma^2} \sum_{i=1}^N (x_i-\mu)^2 \right) \\
+     =& \left(\sigma^2 2\pi\right)^{-\frac{n}{2}} \exp\left(-\frac{1}{2\sigma^2} \sum_{i=1}^N (x_i-\mu)^2 \right) 
+\end{aligned} 
+$$<ul>
+<li>Constraints: $\mu\in \mathbb{R},\sigma>0$</li>
+<li>log-likelihood: </li>
 </ul>
-$$  
-H_f(x) = \left( \begin{array}{cccc} 
-\frac{\partial^2 f}{\partial x_1 \partial x_1}(x)  &  \frac{\partial^2 f}{\partial x_2 \partial x_1}(x) & \dots & \frac{\partial^2 f}{\partial x_n \partial x_1}(x) \\
-\frac{\partial^2 f}{\partial x_1 \partial x_2}(x)  &  \frac{\partial^2 f}{\partial x_2 \partial x_2}(x) & \dots & \frac{\partial^2 f}{\partial x_n \partial x_2}(x) \\
-\vdots & \vdots & \dots & \vdots \\
-\frac{\partial^2 f}{\partial x_1 \partial x_n}(x)  &  \frac{\partial^2 f}{\partial x_2 \partial x_n}(x) & \dots & \frac{\partial^2 f}{\partial x_n \partial x_n}(x) 
-\end{array}\right)
-$$
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Optimality-Conditions">Optimality Conditions<a class="anchor-link" href="#Optimality-Conditions">&#182;</a></h3><ul>
-<li><strong>First Order Necessary Conditions</strong>:
-  If $f$ is continously differentiable and $x^*$ is a local minimizer of $f$, then $\nabla f(x^*) = 0$.</li>
-<li><strong>Second Order Necessary Conditions</strong>:
-  If $f$ is twice continuously differentiable and $x^*$ is a local minimizer of $f$, then $\nabla f(x^*) = 0$ <em>and</em> $H_f (x^*)$ is positive semi-definite, i.e. we have $s^T H_f (x^*) s \geq 0$ for all $s \in \mathbb{R}^n$.</li>
-<li><strong>Second Order Sufficient Conditions</strong>:
-  If $f$ is twice continuously differentiable and at $x^*$ we have that $\nabla f(x^*) = 0$ <em>and</em> $H_f (x^*)$ is positive definite, i.e. $s^T H_f (x^*) s > 0,s\neq 0$ then $x^*$ is a local minimizer of $f$.</li>
-<li>More sophisticated solvers make ample use of those.</li>
+$$ \log L = l = -\frac{n}{2} \log \left( 2\pi \sigma^2 \right) - \frac{1}{2\sigma^2} \sum_{i=1}^N (x_i-\mu)^2 $$<ul>
+<li>Let's do this in <code>JuMP</code>.</li>
 </ul>
 
 </div>
 </div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Reminder:-Sufficient-Conditions-for-Global-Optimality">Reminder: Sufficient Conditions for Global Optimality<a class="anchor-link" href="#Reminder:-Sufficient-Conditions-for-Global-Optimality">&#182;</a></h2><ul>
-<li>If $f$ is convex, then any local minimizer $x^*$ is a global minimizer.</li>
-<li>If $f$ is convex and differentiable on $\mathbb{R}^n$ , then any point $x^*$ is a global minimizer if and only if it is a stationary point, i.e. if f$\nabla f(x^*) = 0$.</li>
-</ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Reminder:-Taylor's-Theorem">Reminder: Taylor's Theorem<a class="anchor-link" href="#Reminder:-Taylor's-Theorem">&#182;</a></h2><ul>
-<li>Many of the ensuing methods are based on Taylor's theorem, so let's remind ourselves of it:</li>
-</ul>
-<!--     f(x) & = & f(x^0) + \sum_{i=1}^n \frac{\partial f}{\partial x_i} (x^0) (x_i - x^0) \\
-         & + & \frac{1}{2} + \sum_{i=1}^n \frac{\partial f}{\partial x_i} (x^0) (x_i - x^0) \\
- -->
-
-<ul>
-<li>Suppose that $f \in C^{n+1}[a,b]$, and $x,x^0 \in [a,b]$. Then</li>
-</ul>
-$$ 
-\begin{aligned}
-f(x)  = & f(x^0) + f'(x^0)(x - x^0) + f''(x^0)\frac{(x- x^0)^2}{2}\\
-      + & \dots + f^{(n)}(x^0)\frac{(x - x^0)^n}{n!} + R_{n+1}(x) 
-\end{aligned}
-$$<p>where $R_{n+1}(x) = \mathcal{o}\left(\Vert (x-x^0) \Vert^{n+1}\right)$ is reminder term that converges at a rate $n+1$ to zero, i.e.</p>
-<ul>
-<li>we say a function $f$ is $\mathcal{o}(\Vert x \Vert^n)$ if $\lim_{x\to 0}\Vert f(x) \Vert / \Vert x \Vert^n =0$.</li>
-<li>we say a function $f$ is $\mathcal{O}(\Vert x \Vert^n)$ if $\lim_{x\to 0}\Vert f(x) \Vert / \Vert x \Vert^n < \infty$</li>
-</ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="A-quick-Note-on-Computing-Derivatives">A quick Note on Computing Derivatives<a class="anchor-link" href="#A-quick-Note-on-Computing-Derivatives">&#182;</a></h2><ul>
-<li>Finite Differences</li>
-<li>Automatic Differentiation</li>
-<li>We have talked about this in a separate session.</li>
-<li>For now just remember that if we don't supply analytic gradients, and the algorithm requires them, this often triggers a numerical approximation of the gradient known as finite differences. This is most of the times a slow proceedure.</li>
-</ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Two-Strategies:-Line-Search-and-Trust-Region">Two Strategies: Line Search and Trust Region<a class="anchor-link" href="#Two-Strategies:-Line-Search-and-Trust-Region">&#182;</a></h2><ul>
-<li>We only provide an overview of methods here. If you want to <em>really</em> know the details about those algorithms, I invite you to consult [@nocedal-wright].</li>
-</ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="The-Line-Search-Strategy">The Line Search Strategy<a class="anchor-link" href="#The-Line-Search-Strategy">&#182;</a></h3><ul>
-<li>An algorithm from the line search class  chooses a direction $p_k \in \mathbb{R}^n$ and searches along that direction starting from the current iterate $x_k \in \mathbb{R}^n$ for a new iterate $x_{k+1} \in \mathbb{R}^n$ with a lower function value.</li>
-<li>After deciding on a direction $p_k$, one needs to decide the <em>step length</em> $\alpha$ to travel by solving
-  $$ \min_{\alpha>0} f(x_k + \alpha p_k) $$</li>
-<li>In practice, solving this exactly is too costly, so algos usually generate a sequence of trial values $\alpha$ and pick the one with the lowest $f$.</li>
-</ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="The-Trust-Region-Strategy">The Trust Region Strategy<a class="anchor-link" href="#The-Trust-Region-Strategy">&#182;</a></h3><ul>
-<li>Here we construct a <em>model function</em> $m_k$ that is similar to $f$ around $x_k$.</li>
-<li>We acknowledge that $m_k$ is decent approximation of $f$ only in some <em>region</em>.</li>
-<li>The problem is then to find a candidate step length $p$ by solving
-  $$ \min_p m_k (x_k + p) $$ where $x_k + p$ lies inside the trust region.</li>
-<li>If candidate $p$ does not produce a value lower than $f(x_k)$, we must have had a too large trust region, shrink it, and do it again.</li>
-<li>Usually the trust region is a ball $\Vert p \Vert_2 \leq \Delta$, where $\Delta$ is called the <em>trust region radius</em>, but elliptical and box regions are possible.</li>
-<li>A common definition of the model function is a quadratic of the form
-  $$ m_k(x_k + p) = f(x_k) + p^T \nabla f(x_k) + \frac{1}{2} p^T B(x_k) p $$
-  where gradient and matrix $B(x_k)$ are evaluated at the current iterate, so the model function is in agreement to first order with $f$ at the current guess.</li>
-<li>The matrix $B(x_k)$ is either the Hessian $H_f$ or some approximation to it.</li>
-</ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Trust-Region-Example">Trust Region Example<a class="anchor-link" href="#Trust-Region-Example">&#182;</a></h2><ul>
-<li>Suppose we have $f(x) = 10(x_2 - x_1^2)^2 + (1-x_1)^2$. At point $x_k= (0,1)$ gradient and hessian are:</li>
-<li>?</li>
-</ul>
-$$ \nabla f(x_k) = \left[ \begin{array}{c} -2 \\ 20 \end{array} \right], \quad \quad \nabla^2 f(x_k) = \left[ \begin{array}{cc} -38 & 0 \\ 0 & 20 \end{array} \right] $$<p><img src="../assets/figs-restricted/trust-region.png" alt="Figure 2.4 of &lt;cite data-cite=nocedalwright&gt;&lt;/cite&gt;"></p>
-<ul>
-<li>In this figure, we use $B(x_k) = \nabla^2 f(x_k)$. </li>
-<li>After each unsuccesful step, the new candidate step will be shorter, and will go in a different direction</li>
-<li>This is the main difference to line search methods.</li>
-<li>Main difference between the two methods: order in which they change <em>direction</em> and <em>step length</em><ul>
-<li>line search fixes direction $p_k$ and finds right distance $\alpha_k$</li>
-<li>trust region fixes an appropriate radius $\Delta_k$</li>
-</ul>
-</li>
-</ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Line-Search-Methods:-Which-Direction-to-go?">Line Search Methods: Which Direction to go?<a class="anchor-link" href="#Line-Search-Methods:-Which-Direction-to-go?">&#182;</a></h2><h3 id="Steepest-Descent">Steepest Descent<a class="anchor-link" href="#Steepest-Descent">&#182;</a></h3><ul>
-<li>The direction $-\nabla f(x_k)$ is an obvious choice: Among all possible directions, along this one $f$ decreases most rapidly.</li>
-<li>This claim can be verified using Taylor's theorem.</li>
-<li>The <strong>steepest descent method</strong> is a line search method that moves along
-  $$ p_k = -\nabla f(x_k) $$</li>
-<li>The step length $\alpha_k$ can be chosen in many different ways.</li>
-<li>There are many other <em>descent</em> directions, steepest descent is but one of them.</li>
-</ul>
-
-</div>
-</div>
-</div>
+</div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-julia"><pre><span></span><span class="c"># there is a dedicated LineSearch package: https://github.com/JuliaNLSolvers/LineSearches.jl</span>
-<span class="n">GD</span> <span class="o">=</span> <span class="n">optimize</span><span class="p">(</span><span class="n">rosenbrock</span><span class="o">.</span><span class="n">f</span><span class="p">,</span> <span class="n">rosenbrock</span><span class="o">.</span><span class="n">g!</span><span class="p">,[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span><span class="n">GradientDescent</span><span class="p">())</span>
-<span class="n">GD1</span> <span class="o">=</span> <span class="n">optimize</span><span class="p">(</span><span class="n">rosenbrock</span><span class="o">.</span><span class="n">f</span><span class="p">,</span> <span class="n">rosenbrock</span><span class="o">.</span><span class="n">g!</span><span class="p">,[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span><span class="n">GradientDescent</span><span class="p">(),</span><span class="n">Optim</span><span class="o">.</span><span class="n">Options</span><span class="p">(</span><span class="n">iterations</span><span class="o">=</span><span class="mi">5000</span><span class="p">))</span>
-<span class="n">GD2</span> <span class="o">=</span> <span class="n">optimize</span><span class="p">(</span><span class="n">rosenbrock</span><span class="o">.</span><span class="n">f</span><span class="p">,</span> <span class="n">rosenbrock</span><span class="o">.</span><span class="n">g!</span><span class="p">,[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span><span class="n">GradientDescent</span><span class="p">(),</span><span class="n">Optim</span><span class="o">.</span><span class="n">Options</span><span class="p">(</span><span class="n">iterations</span><span class="o">=</span><span class="mi">50000</span><span class="p">))</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="c">#  Copyright 2015, Iain Dunning, Joey Huchette, Miles Lubin, and contributors</span>
+<span class="c">#  example modified </span>
+<span class="k">using</span> <span class="n">JuMP</span>
+<span class="k">using</span> <span class="n">Distributions</span>
 
-<span class="n">println</span><span class="p">(</span><span class="s">&quot;gradient descent = </span><span class="si">$GD</span><span class="s">&quot;</span><span class="p">)</span>
-<span class="n">println</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)</span>
-<span class="n">println</span><span class="p">(</span><span class="s">&quot;gradient descent 2 = </span><span class="si">$GD</span><span class="s">1&quot;</span><span class="p">)</span>
-<span class="n">println</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)</span>
-<span class="n">println</span><span class="p">(</span><span class="s">&quot;gradient descent 3 = </span><span class="si">$GD</span><span class="s">2&quot;</span><span class="p">)</span>
+<span class="n">distrib</span> <span class="o">=</span> <span class="n">Normal</span><span class="p">(</span><span class="mf">4.5</span><span class="p">,</span><span class="mf">3.5</span><span class="p">)</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">10000</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="n">rand</span><span class="p">(</span><span class="n">distrib</span><span class="p">,</span><span class="n">n</span><span class="p">);</span>
+
+<span class="n">m</span> <span class="o">=</span> <span class="n">Model</span><span class="p">(</span><span class="n">solver</span><span class="o">=</span><span class="n">IpoptSolver</span><span class="p">())</span>
+
+<span class="p">@</span><span class="n">variable</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">start</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">)</span>
+<span class="p">@</span><span class="n">variable</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">sigma</span> <span class="o">&gt;=</span> <span class="mf">0.0</span><span class="p">,</span> <span class="n">start</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">)</span>
+
+<span class="p">@</span><span class="n">NLobjective</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">Max</span><span class="p">,</span> <span class="o">-</span><span class="p">(</span><span class="n">n</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">log</span><span class="p">(</span><span class="mi">2</span><span class="n">π</span><span class="o">*</span><span class="n">sigma</span><span class="o">^</span><span class="mi">2</span><span class="p">)</span><span class="o">-</span><span class="n">sum</span><span class="p">((</span><span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="n">mu</span><span class="p">)</span> <span class="o">^</span> <span class="mi">2</span> <span class="k">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">:</span><span class="n">n</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">sigma</span><span class="o">^</span><span class="mi">2</span><span class="p">))</span>
+
+<span class="n">solve</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+<span class="n">println</span><span class="p">(</span><span class="s">&quot;μ = &quot;</span><span class="p">,</span> <span class="n">getvalue</span><span class="p">(</span><span class="n">mu</span><span class="p">),</span><span class="s">&quot;, mean(data) = &quot;</span><span class="p">,</span> <span class="n">mean</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+<span class="n">println</span><span class="p">(</span><span class="s">&quot;σ^2 = &quot;</span><span class="p">,</span> <span class="n">getvalue</span><span class="p">(</span><span class="n">sigma</span><span class="p">)</span><span class="o">^</span><span class="mi">2</span><span class="p">,</span> <span class="s">&quot;, var(data) = &quot;</span><span class="p">,</span> <span class="n">var</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
 </pre></div>
 
 </div>
@@ -12646,52 +12558,62 @@ $$ \nabla f(x_k) = \left[ \begin{array}{c} -2 \\ 20 \end{array} \right], \quad \
 <div class="prompt"></div>
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>gradient descent = Results of Optimization Algorithm
- * Algorithm: Gradient Descent
- * Starting Point: [0.0,0.0]
- * Minimizer: [0.9356732500354086,0.875073922357589]
- * Minimum: 4.154782e-03
- * Iterations: 1000
- * Convergence: false
-   * |x - x&#39;| &lt; 1.0e-32: false
-   * |f(x) - f(x&#39;)| / |f(x)| &lt; 1.0e-32: false
-   * |g(x)| &lt; 1.0e-08: false
-   * f(x) &gt; f(x&#39;): false
-   * Reached Maximum Number of Iterations: true
- * Objective Function Calls: 3532
- * Gradient Calls: 3532
+<pre>This is Ipopt version 3.12.4, running with linear solver mumps.
+NOTE: Other linear solvers might be more efficient (see Ipopt documentation).
+
+Number of nonzeros in equality constraint Jacobian...:        0
+Number of nonzeros in inequality constraint Jacobian.:        0
+Number of nonzeros in Lagrangian Hessian.............:        3
+
+Total number of variables............................:        2
+                     variables with only lower bounds:        1
+                variables with lower and upper bounds:        0
+                     variables with only upper bounds:        0
+Total number of equality constraints.................:        0
+Total number of inequality constraints...............:        0
+        inequality constraints with only lower bounds:        0
+   inequality constraints with lower and upper bounds:        0
+        inequality constraints with only upper bounds:        0
+
+iter    objective    inf_pr   inf_du lg(mu)  ||d||  lg(rg) alpha_du alpha_pr  ls
+   0  1.7211927e+05 0.00e+00 1.01e+02  -1.0 0.00e+00    -  0.00e+00 0.00e+00   0
+   1  1.2147584e+05 0.00e+00 9.58e+01  -1.0 9.27e+00    -  1.00e+00 5.00e-01f  2
+   2  7.4758242e+04 0.00e+00 3.97e+01  -1.0 2.37e-01    -  8.94e-01 1.00e+00f  1
+   3  4.9624139e+04 0.00e+00 1.64e+01  -1.0 3.08e-01    -  1.00e+00 1.00e+00f  1
+   4  3.6644573e+04 0.00e+00 6.64e+00  -1.0 3.88e-01    -  1.00e+00 1.00e+00f  1
+   5  3.0384758e+04 0.00e+00 2.60e+00  -1.0 4.69e-01    -  1.00e+00 1.00e+00f  1
+   6  2.7756981e+04 0.00e+00 9.40e-01  -1.0 5.20e-01    -  1.00e+00 1.00e+00f  1
+   7  2.6938155e+04 0.00e+00 2.73e-01  -1.7 4.72e-01    -  1.00e+00 1.00e+00f  1
+   8  2.6791555e+04 0.00e+00 5.45e-02  -1.7 3.06e-01    -  1.00e+00 1.00e+00f  1
+   9  2.6784961e+04 0.00e+00 2.83e-03  -2.5 8.44e-02    -  1.00e+00 1.00e+00f  1
+iter    objective    inf_pr   inf_du lg(mu)  ||d||  lg(rg) alpha_du alpha_pr  ls
+  10  2.6784947e+04 0.00e+00 6.72e-06  -3.8 4.30e-03    -  1.00e+00 1.00e+00f  1
+  11  2.6784947e+04 0.00e+00 1.69e-09  -5.7 6.80e-05    -  1.00e+00 1.00e+00f  1
+  12  2.6784947e+04 0.00e+00 4.02e-13  -8.6 1.02e-06    -  1.00e+00 1.00e+00f  1
+
+Number of Iterations....: 12
+
+                                   (scaled)                 (unscaled)
+Objective...............:   8.4800120957055221e+00    2.6784947040164145e+04
+Dual infeasibility......:   4.0182611534353866e-13    1.2692070597731996e-09
+Constraint violation....:   0.0000000000000000e+00    0.0000000000000000e+00
+Complementarity.........:   2.5064395506978949e-09    7.9168343001320250e-06
+Overall NLP error.......:   2.5064395506978949e-09    7.9168343001320250e-06
 
 
-gradient descent 2 = Results of Optimization Algorithm
- * Algorithm: Gradient Descent
- * Starting Point: [0.0,0.0]
- * Minimizer: [0.9978398797724763,0.9956717950747302]
- * Minimum: 4.682073e-06
- * Iterations: 5000
- * Convergence: false
-   * |x - x&#39;| &lt; 1.0e-32: false
-   * |f(x) - f(x&#39;)| / |f(x)| &lt; 1.0e-32: false
-   * |g(x)| &lt; 1.0e-08: false
-   * f(x) &gt; f(x&#39;): false
-   * Reached Maximum Number of Iterations: true
- * Objective Function Calls: 17532
- * Gradient Calls: 17532
+Number of objective function evaluations             = 18
+Number of objective gradient evaluations             = 13
+Number of equality constraint evaluations            = 0
+Number of inequality constraint evaluations          = 0
+Number of equality constraint Jacobian evaluations   = 0
+Number of inequality constraint Jacobian evaluations = 0
+Number of Lagrangian Hessian evaluations             = 12
+Total CPU secs in IPOPT (w/o function evaluations)   =      0.006
+Total CPU secs in NLP function evaluations           =      0.023
 
-
-gradient descent 3 = Results of Optimization Algorithm
- * Algorithm: Gradient Descent
- * Starting Point: [0.0,0.0]
- * Minimizer: [0.9999999914304203,0.9999999828109042]
- * Minimum: 7.368706e-17
- * Iterations: 20458
- * Convergence: true
-   * |x - x&#39;| &lt; 1.0e-32: false
-   * |f(x) - f(x&#39;)| / |f(x)| &lt; 1.0e-32: false
-   * |g(x)| &lt; 1.0e-08: true
-   * f(x) &gt; f(x&#39;): false
-   * Reached Maximum Number of Iterations: false
- * Objective Function Calls: 71635
- * Gradient Calls: 71635
+EXIT: Optimal Solution Found.
+μ = 4.490925092754868, mean(data) = 4.490925092754868
+σ^2 = 12.417569220495565, var(data) = 12.418811091779508
 </pre>
 </div>
 </div>
@@ -12699,223 +12621,63 @@ gradient descent 3 = Results of Optimization Algorithm
 </div>
 </div>
 
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><img src="../assets/figs-restricted/steepest-descent.png" alt="Figure 2.5 of Nocedal-Wright &lt;cite data-cite=nocedalwright&gt;&lt;/cite&gt;"></p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Line-Search-Methods:-The-Newton-Direction">Line Search Methods: The <strong>Newton</strong> Direction<a class="anchor-link" href="#Line-Search-Methods:-The-Newton-Direction">&#182;</a></h2><ul>
-<li>Probably the most important descent direction.</li>
-<li>In vector notation, the 2nd order taylor series approximation to $f(x_k + p)$ is
-  $$ f(x_k + p) \approx f(x_k) + p^T \nabla f(x_k) + \frac{1}{2} p^T \nabla^2 f(x_k) p \equiv m_k(p) $$</li>
-<li>the Newton direction is obtained by finding the vector $p$ that minimizes $m_k(p)$, i.e. by setting the derivative of $m_k(p)$ to zero.</li>
-<li>We obtain
-  $$ p_k^N = -(\nabla^2 f(x_k))^{-1} \nabla f(x_k)  $$</li>
-<li>The newton direction is reliable if the discrepancy between truth and model $m$ is not too large at $x_k$.</li>
-<li>The biggest drawback is the need to compute the Hessian. This can be difficult analytically at times, and overly expensive numerically.</li>
-</ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-julia"><pre><span></span><span class="n">optimize</span><span class="p">(</span><span class="n">rosenbrock</span><span class="o">.</span><span class="n">f</span><span class="p">,</span> <span class="n">rosenbrock</span><span class="o">.</span><span class="n">g!</span><span class="p">,</span> <span class="n">rosenbrock</span><span class="o">.</span><span class="n">h!</span><span class="p">,</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span> <span class="n">Newton</span><span class="p">(),</span><span class="n">Optim</span><span class="o">.</span><span class="n">Options</span><span class="p">(</span><span class="n">show_trace</span><span class="o">=</span><span class="n">true</span><span class="p">))</span>
-</pre></div>
-
-</div>
+</div></section></section>
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
+<script>
 
+require(
+    {
+      // it makes sense to wait a little bit when you are loading
+      // reveal from a cdn in a slow connection environment
+      waitSeconds: 15
+    },
+    [
+      "reveal.js/lib/js/head.min.js",
+      "reveal.js/js/reveal.js"
+    ],
 
-<div class="output_area">
-<div class="prompt"></div>
+    function(head, Reveal){
 
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Iter     Function value   Gradient norm 
-     0     1.000000e+00     2.000000e+00
-     1     8.431140e-01     1.588830e+00
-     2     6.776980e-01     3.453340e+00
-     3     4.954645e-01     4.862093e+00
-     4     3.041921e-01     2.590086e+00
-     5     1.991512e-01     3.780900e+00
-     6     9.531907e-02     1.299090e+00
-     7     5.657827e-02     2.445401e+00
-     8     2.257807e-02     1.839332e+00
-     9     6.626125e-03     1.314236e+00
-    10     8.689753e-04     5.438279e-01
-    11     4.951399e-06     7.814556e-02
-    12     9.065070e-10     6.017046e-04
-    13     9.337686e-18     1.059738e-07
-    14     3.081488e-31     1.110223e-15
-</pre>
-</div>
-</div>
+        // Full list of configuration options available here: https://github.com/hakimel/reveal.js#configuration
+        Reveal.initialize({
+            controls: true,
+            progress: true,
+            history: true,
 
-<div class="output_area">
-<div class="prompt output_prompt">Out[7]:</div>
+            theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+            transition: Reveal.getQueryHash().transition || 'linear', // default/cube/page/concave/zoom/linear/none
 
+            // Optional libraries used to extend on reveal.js
+            dependencies: [
+                { src: "reveal.js/lib/js/classList.js",
+                  condition: function() { return !document.body.classList; } },
+                { src: "reveal.js/plugin/notes/notes.js",
+                  async: true,
+                  condition: function() { return !!document.body.classList; } }
+            ]
+        });
 
+        var update = function(event){
+          if(MathJax.Hub.getAllJax(Reveal.getCurrentSlide())){
+            MathJax.Hub.Rerender(Reveal.getCurrentSlide());
+          }
+        };
 
-<div class="output_text output_subarea output_execute_result">
-<pre>Results of Optimization Algorithm
- * Algorithm: Newton&#39;s Method
- * Starting Point: [0.0,0.0]
- * Minimizer: [0.9999999999999994,0.9999999999999989]
- * Minimum: 3.081488e-31
- * Iterations: 14
- * Convergence: true
-   * |x - x&#39;| &lt; 1.0e-32: false
-   * |f(x) - f(x&#39;)| / |f(x)| &lt; 1.0e-32: false
-   * |g(x)| &lt; 1.0e-08: true
-   * f(x) &gt; f(x&#39;): false
-   * Reached Maximum Number of Iterations: false
- * Objective Function Calls: 58
- * Gradient Calls: 58</pre>
-</div>
+        Reveal.addEventListener('slidechanged', update);
 
-</div>
+        var update_scroll = function(event){
+          $(".reveal").scrollTop(0);
+        };
 
-</div>
-</div>
+        Reveal.addEventListener('slidechanged', update_scroll);
 
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Quasi-Newton-Methods">Quasi-Newton Methods<a class="anchor-link" href="#Quasi-Newton-Methods">&#182;</a></h2><ul>
-<li>In response to the difficulties of getting the Hessian, quasi-newton methods propose to approximate $B(x_k)$ with something <em>similar</em> to the hessian.</li>
-<li>Taylors Theorem implies that 
-  $$ \nabla^2 f(x_{k+1} - x_{k}) \approx \nabla f(x_{k+1}) - \nabla f(x_k) $$
-  and so we choose a $B$ matrix that mimics this property.</li>
-<li>This leads to the <em>secant condition</em>
-  $$ B_{k+1} (x_{k+1} - x_{k}) = f(x_{k+1}) - \nabla f(x_k) $$</li>
-<li>There are different ways to update the hessian in this way.</li>
-<li>One of the best known is the BFGS method (after Broydon, Fletcher, Goldfarb and Shanno).</li>
-<li>Those methods get the search direction by using $B_k$ instead of the exact Hessian, i.e.
-  $$ p_k = -B_k^{-1} \nabla f(x_k)  $$</li>
-</ul>
+    }
+);
+</script>
 
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[8]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-julia"><pre><span></span><span class="p">@</span><span class="n">show</span> <span class="n">optimize</span><span class="p">(</span><span class="n">rosenbrock</span><span class="o">.</span><span class="n">f</span><span class="p">,</span> <span class="n">rosenbrock</span><span class="o">.</span><span class="n">g!</span><span class="p">,</span> <span class="n">rosenbrock</span><span class="o">.</span><span class="n">h!</span><span class="p">,</span>  <span class="p">[</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">],</span> <span class="n">BFGS</span><span class="p">());</span>
-<span class="c"># low memory BFGS</span>
-<span class="p">@</span><span class="n">show</span> <span class="n">optimize</span><span class="p">(</span><span class="n">rosenbrock</span><span class="o">.</span><span class="n">f</span><span class="p">,</span> <span class="n">rosenbrock</span><span class="o">.</span><span class="n">g!</span><span class="p">,</span> <span class="n">rosenbrock</span><span class="o">.</span><span class="n">h!</span><span class="p">,</span>  <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span> <span class="n">LBFGS</span><span class="p">());</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-<div class="prompt"></div>
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>optimize(rosenbrock.f,rosenbrock.g!,rosenbrock.h!,[-1.0,3.0],BFGS()) = Results of Optimization Algorithm
- * Algorithm: BFGS
- * Starting Point: [-1.0,3.0]
- * Minimizer: [0.9999999999999956,0.999999999999987]
- * Minimum: 1.707144e-27
- * Iterations: 39
- * Convergence: true
-   * |x - x&#39;| &lt; 1.0e-32: false
-   * |f(x) - f(x&#39;)| / |f(x)| &lt; 1.0e-32: false
-   * |g(x)| &lt; 1.0e-08: true
-   * f(x) &gt; f(x&#39;): false
-   * Reached Maximum Number of Iterations: false
- * Objective Function Calls: 176
- * Gradient Calls: 176
-optimize(rosenbrock.f,rosenbrock.g!,rosenbrock.h!,[0.0,0.0],LBFGS()) = Results of Optimization Algorithm
- * Algorithm: L-BFGS
- * Starting Point: [0.0,0.0]
- * Minimizer: [1.0000000000000007,1.000000000000001]
- * Minimum: 5.374115e-30
- * Iterations: 21
- * Convergence: true
-   * |x - x&#39;| &lt; 1.0e-32: false
-   * |f(x) - f(x&#39;)| / |f(x)| &lt; 1.0e-32: false
-   * |g(x)| &lt; 1.0e-08: true
-   * f(x) &gt; f(x&#39;): false
-   * Reached Maximum Number of Iterations: false
- * Objective Function Calls: 90
- * Gradient Calls: 90
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Practical-Considerations">Practical Considerations<a class="anchor-link" href="#Practical-Considerations">&#182;</a></h2><h3 id="Stopping-criteria">Stopping criteria<a class="anchor-link" href="#Stopping-criteria">&#182;</a></h3><ul>
-<li>In all of the above examples, we did not alter the default values for stopping criteria.</li>
-<li>There are different things you could focus on as a stopping criterion with <code>Optim</code>, and similarly in most solver packages.<ul>
-<li><code>xtol</code>: changes in $x$ from one iterate to the next</li>
-<li><code>f_tol</code>: perentage changes in $f$ from one iterate to the next</li>
-<li><code>g_tol</code>: absolute value of the gradient beign smaller than this number.</li>
-</ul>
-</li>
-</ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Some-Applications-in-Economics">Some Applications in Economics<a class="anchor-link" href="#Some-Applications-in-Economics">&#182;</a></h2><ul>
-<li>Maximum Likelihood Estimation</li>
-<li>The Nested Fixed Point Algorithm<ul>
-<li>[@rust-bus] &lt;cite data-cite=rustbus&gt;&lt;/cite&gt; is a maximum likelihood estimation with an inner loop that solves a dynamic programming problem.</li>
-<li>[@BLP] &lt;cite data-cite=blp&gt;&lt;/cite&gt;is a GMM estimation with an inner fixed point problem.</li>
-</ul>
-</li>
-</ul>
-
-</div>
-</div>
-</div>
-    </div>
-  </div>
 </body>
-
- 
 
 
 </html>

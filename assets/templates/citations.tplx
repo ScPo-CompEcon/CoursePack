@@ -1,0 +1,14 @@
+((*- extends 'article.tplx' -*))
+
+((* block author *))
+\author{Florian Oswald}
+((* endblock author *))
+
+((* block title *))
+\title{SciencesPo Computational Economics \\ Spring 2017}
+((* endblock title *))
+
+((* block bibliography *))
+\bibliographystyle{plain}
+\bibliography{../../references/references}
+((* endblock bibliography *))
