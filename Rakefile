@@ -42,7 +42,6 @@ rule ".html" => ".ipynb" do |t|
 		FileUtils.mv("#{t.name}", "index.html")
 	else
 		FileUtils.mv("#{t.name}", "Html/#{File.basename(t.name)}")
-		# puts "mv #{t.name} to Html/#{File.basename(t.name)}"
 	end
 end
 
@@ -53,10 +52,6 @@ rule( /\.slides\.html$/ => [
 	sh "jupyter-nbconvert --to slides #{t.source} --reveal-prefix=reveal.js"
 	# sh "jupyter-nbconvert --to slides #{t.source} "
 	FileUtils.cp("#{t.name}", File.join("Slides",File.basename("#{t.name}",".slides.html")+".html"))
-	# FileUtils.cp("#{t.name}", File.join("..","OfflineSlides",File.basename("#{t.name}",".slides.html")+".html"))
-	# Dir.chdir "../Slides"
-	# sh "find ./ -type f -exec sed -i '' s,reveal.js/css/theme/simple.css,reveal.js/css/theme/solarized.css, {} +;"
-	# Dir.chdir "../Notebooks"
 	sh "rm -rf #{t.name}"
 end
 
@@ -87,19 +82,3 @@ rule ".md" => ".ipynb" do |t|
 	sh "jupyter-nbconvert --to markdown #{t.source}"
 	FileUtils.mv("#{t.name}", "../Markdown/#{t.name}")
 end
-
-
-# task :publish => :build do
-# 	puts "publishing repo to github"
-# end
-
-# task :slides do
-# 	puts "Making Slides from Notebooks"
-# 	Rake::FileList['*.ipynb'].each
-
-# end
-
-# task :build => [:slides, :pdf, :markdown, :html] do
-# 	puts "Build entire CoursePack: Slides, pdf, Markdown and Html"
-# end
-
