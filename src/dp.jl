@@ -1,7 +1,7 @@
 module test
 
 using Roots,Interpolations,PyPlot,Optim
-using CompEcon, NLopt
+using CompEcon, NLsolve
 
 
 alpha     = 0.65
@@ -190,8 +190,19 @@ function policy_iter(grid,c0,u_prime,f_prime)
     return c1
 end
 
-uprime(x) = 1.0 ./ x
-fprime(x) = alpha * x.^(alpha-1)
+uprime(x::Float64) = 1.0 / x
+fprime(x::Float64) = alpha* x ^ (alpha-1) 
+function fprime(x::Vector) 
+    r = similar(x)
+    for ix in eachindex(x)
+        if x[ix] > 0
+            r[ix] = alpha* x[ix]^(alpha-1)
+        else
+            r[ix] = 10000.0
+        end
+    end
+    return r
+end
 
 function PFI()
     c_init = kgrid
@@ -229,47 +240,96 @@ end
 #plotVFI2()
 #plotPFI()
 
-function proj(n=9)
+function proj2(n=25)
 
-    basis = fundefn(:cheb,n,1e-6,grid_max)
+    a = 1e-6
+    aa = 1e-2
+    b = 1.0
+    bb = 0.95
+    basis = fundefn(:cheb,n,a,b)
     k = funnode(basis)[1]   # collocation points
 
     fs = f.(k)
-    srand(12345)
 
-    function obj(x::Vector,g::Vector)
-        if length(g)>0
-            return ones(length(g))
-        end 
-        return 1.0
-    end
-
-    function constr(result::Vector,coef::Vector,grad::Matrix,b,coll_points,fs)
+    # system of equations: for each k, one line
+    function ff(coef::Vector,result::Vector,b,coll_points,fs)
         # get cons function
-        if length(grad)>0
-            return ones(length(coef),length(coef))
-        end 
         cons = funeval(coef,b,coll_points)[1]
+        # println("coef= $coef")
+        # println("cons = $cons")
 
-        println("coef= $coef")
-        println("cons = $cons")
+        # put resulting residuals into result[:]
         # put into euler equation
-        nextk = clamp(fs.-cons,eps(),Inf) 
-        result[:] = uprime(cons) .- beta * uprime(nextk) .* fprime(nextk)
-        println(result)
+        nextk = fs.-cons  
+        for i in eachindex(nextk)
+            if nextk[i] < 0 
+                result[i] = -8000.0
+            else
+                result[i] = uprime(cons[i]) .- beta * uprime(nextk[i]) .* fprime(nextk[i])
+            end
+        end
+        # println(result)
     end
 
-    opt = Opt(:LN_COBYLA, n)
-    min_objective!(opt,obj)
-    equality_constraint!(opt,(r,x,g)->constr(r,x,g,basis,k,fs),ones(length(k))*1e-7)
+    f_closure(x::Vector,r::Vector) = ff(x,r,basis,k,fs)
 
-    (optf,optx,ret) = NLopt.optimize(opt,ones(n)*0.2)
+    res = nlsolve(f_closure,ones(n)*0.4)
+    x = linspace(aa,bb,501)
+    y = funeval(res.zero,basis,x)[1]
+    plot(x,y)
+    return res
+end
+
+function proj(n=25)
+
+    alpha = 1.0
+    eta   = 1.5
+    a     = 0.1
+    b     = 3.0
+    basis = fundefn(:cheb,n,a,b)
+    p     = funnode(basis)[1]   # collocation points
+
+    c0 = ones(n)*0.3
+    function resid(c::Vector,result::Vector,p,basis,alpha,eta)
+        q = funeval(c,basis,p)[1]
+        q2 = zeros(q)
+        for i in eachindex(q2)
+            if q[i] < 0
+                q2[i] = -20.0
+            else
+                q2[i] = sqrt(q[i])
+            end
+        end
+        result[:] = p.+ q .*((-1/eta)*p.^(eta+1)) .- alpha*q2 .- q.^2
+    end
+    f_closure(x::Vector,r::Vector) = resid(x,r,p,basis,alpha,eta)
+    res = nlsolve(f_closure,c0)
+
+    x = collect(linspace(a,b,501))
+    y = similar(x)
+    resid(res.zero,y,x,basis,alpha,eta);
+    figure()
+    subplot(121)
+    plot(x,y)
+    xlabel("price")
+    ylabel("residual")
+    title("residual function")
+
+    subplot(122)
+    y = funeval(res.zero,basis,x)[1]
+    plot(y,x,label="supply 1")
+    plot(10*y,x,label="supply 10")
+    plot(20*y,x,label="supply 20")
+    d = x.^(-eta)
+    plot(d,x,label="demand")
+    legend()
+    ylabel("price")
+    xlabel("quantity")
+    title("Equilibrium")
 
 
-    # solve for coefs that make resid = 0
-    # res = optimize((x)->resid(x,basis,k,fs),rand(n)*0.2, Optim.Options(iterations=10000))
+    return res
 
-    return (optf,optx,ret)
 end
 
 end # module
