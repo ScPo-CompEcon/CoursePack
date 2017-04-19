@@ -1,0 +1,6 @@
+include("src/nfxp.jl")
+nfxp.maxlike()
+p = nfxp.Param()
+nfxp.VFI!(p)
+data = nfxp.simdata(50,120,p)
+include("test/runtests.jl")
