@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head><meta charset="utf-8" />
-<title>Index</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>mpec-starters</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
 <style type="text/css">
@@ -11774,21 +11774,43 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="ScPo-CompEcon-CoursePack"><a href="https://github.com/ScPo-CompEcon/Syllabus">ScPo-CompEcon</a> CoursePack<a class="anchor-link" href="#ScPo-CompEcon-CoursePack">&#182;</a></h1>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Content">Content<a class="anchor-link" href="#Content">&#182;</a></h2><p>This website contains the course material for the <a href="https://github.com/ScPo-CompEcon/Syllabus">computational economics course at Sciences Po</a>.</p>
-<p>For the assosciated homeworks, please go to our <a href="https://github.com/ScPo-CompEcon">github organization</a>, which lists all of them. Instructions contained within.</p>
-<p>I recommend you clone this somewhere on your computer (don't install as a julia package). You can do this easily in Github Desktop as in the first homework. Choose a suitable location on your computer. Alternatively, in your terminal, do this:</p>
-<div class="highlight"><pre><span></span>git clone https://github.com/ScPo-CompEcon/CoursePack /whereto/on/your/computer
-</pre></div>
-<p>This way you have all the materials locally and can use the site even if offline.</p>
+<h1 id="MPEC-for-Starters">MPEC for Starters<a class="anchor-link" href="#MPEC-for-Starters">&#182;</a></h1><p>Think of a consumer who decides how much of a certain good to consume, given prices. The consumer's behaviour is dictated by a preference parameter $\beta$, which is unobserved. We only observe data on choices, i.e. how much was consumed, at which price of the good. We will specify an economic model, and estimate the value of the preference parameter.</p>
+<p>The utility function is given generically as</p>
+$$
+u(c;{\color{red}\beta})
+$$<p>and there is a structural relationship dictated by theory between
+demand for consumption and price of the consumption good: demand will be such that
+the marginal utility of consumption is equal to price, in other words</p>
+\begin{equation}
+u_{c}(c;{\color{red}\beta})=p \quad \text{ (FOC)}
+\end{equation}<p>Our aim here is to show how one can estimate the parameter vector
+$\beta$ quite easily with MPEC. This means that we set up an estimation
+procedure that is a constrainted maximization problem. Our estimate
+of $\beta$ will be a parameter vector that satisfies FOC
+and at the same time minimizes some criterion function.</p>
+<p>In order to faciliate estimation, we assume that consumption is measured
+with error. In that case we don't observe actual consumption, but
+another variable <code>demand</code>, i.e. $q=c+\epsilon$, where $\epsilon$ follows some distribution function.
+Suppose we have $N$ measurements of price-demand pairs $\left\{ q_{i},p_{i}\right\} _{i=1}^{N}$.
+For the sake of this example, we assume a very simple form of the
+utility function; bear in mind, however, that the actual strength
+of MPEC is that one can dispense with the need to find convenient
+closed form solutions, just so that the model can be solved. Our utility
+will be quadratic, as in</p>
+$$
+u(c;{\color{red}\beta})=c-{\color{red}\beta} c^{2}
+$$<p>and marginal utility is 
+$$ u_c = 1 - 2{\color{red}\beta} c $$</p>
+<p>Given our assumption about measurement error, we substitute out $c$</p>
+$$ u_c = 1 - 2{\color{red}\beta} (q - \epsilon) $$<p>The economic model prescribes that</p>
+$$ p = u_c $$<p>or, in other words</p>
+$$ p_i = 1 - 2{\color{red}\beta}(q_i - \epsilon_i) $$<p>Our estimation will be based on minimizing the sum of squared errors, $\epsilon$
+subject to complying with constraint FOC. We solve the
+following problem:</p>
+$$
+\min_{\left\{ \epsilon\right\} _{i=1}^{N},{\color{red}\beta}}  \sum_{i=1}^{N}\epsilon_{i}^{2}  \\
+s.t.  u_{c}(q_{i}-\epsilon_{i};{\color{red}\beta})  =p_{i}
+$$<p>We notice right away that the choice of $\beta$ does not directly influence the value of the objective function, therefore both the objective and it's gradient will be independent of $\beta$. However, every choice of $\beta$ needs to go together with a corresponding choice of $\epsilon$'s which need to be chosen s.t. the constraint is satisfied. This is not a general feature of MPEC, as in many cases the parameters of interest would appear in the objective. Also, in a more elaborate model, we would probably have some data that we would want to model to come close to; In that case our objective function would be augmented by the likelihood function of that data together with our model, or we could have a moment criterion etc.</p>
 
 </div>
 </div>
@@ -11798,66 +11820,18 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Course-Materials">Course Materials<a class="anchor-link" href="#Course-Materials">&#182;</a></h2><p>You can look at the material in a variety of formats. All content is given as <code>IJulia</code> notebooks, which you can edit on your computer, and from those notebooks I create <code>html</code> rendered versions, <code>pdf</code>s and html slides. The links below point to the actual website, so you need to be online to view them.</p>
-<ul>
-<li>Pdf versions do not contain outputs of plotting commands</li>
-<li>But Pdf versions contain proper Bibtex citations</li>
-</ul>
-<p>In case you are offline, and if you cloned this repo as described above, just go to <code>/whereto/on/your/computer</code> and open files from that location. For example, to open the IJulia notebooks, do in julia</p>
-<div class="highlight"><pre><span></span><span class="n">Pkg</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s">&quot;IJulia&quot;</span><span class="p">)</span> <span class="c"># use once to install IJulia</span>
-<span class="k">using</span> <span class="n">IJulia</span>
-<span class="n">notebook</span><span class="p">(</span><span class="n">dir</span><span class="o">=</span><span class="s">&quot;/whereto/on/your/computer/Notebooks&quot;</span><span class="p">)</span>  <span class="c"># that&#39;s the dir from above!</span>
-</pre></div>
-<p>This will open up the Jupyter notebook at the location of your notebooks.</p>
-<h3 id="Html-Rendered-Notebooks">Html Rendered Notebooks<a class="anchor-link" href="#Html-Rendered-Notebooks">&#182;</a></h3><p><a href="https://ScPo-CompEcon.github.io/CoursePack/Html/BasicIntroduction">Basic Introduction to Julia</a><br>
-<a href="https://ScPo-CompEcon.github.io/CoursePack/Html/BasicComputing">Basic Introduction to Computing</a><br>
-<a href="https://ScPo-CompEcon.github.io/CoursePack/Html/integration">Numerical Integration</a><br>
-<a href="https://ScPo-CompEcon.github.io/CoursePack/Html/PlotsJL">Plots.jl</a><br>
-<a href="https://ScPo-CompEcon.github.io/CoursePack/Html/funcapprox">Function Approximation</a><br>
-<a href="https://ScPo-CompEcon.github.io/CoursePack/Html/optimization">Unconstrained Optimization</a><br>
-<a href="https://ScPo-CompEcon.github.io/CoursePack/Html/constrained-optimization">Constrained Optimization</a><br>
-<a href="https://ScPo-CompEcon.github.io/CoursePack/Html/dynamic-programming">Dynamic Programming</a><br>
-<a href="https://ScPo-CompEcon.github.io/CoursePack/Html/mpec-starters">MPEC for Starters</a></p>
-<h3 id="Slides">Slides<a class="anchor-link" href="#Slides">&#182;</a></h3><p><a href="https://ScPo-CompEcon.github.io/CoursePack/Slides/BasicIntroduction">Basic Introduction to Julia</a><br>
-<a href="https://ScPo-CompEcon.github.io/CoursePack/Slides/BasicComputing">Basic Introduction to Computing</a><br>
-<a href="https://ScPo-CompEcon.github.io/CoursePack/Slides/PlotsJL">Plots.jl</a><br>
-<a href="https://ScPo-CompEcon.github.io/CoursePack/Slides/integration">Numerical Integration</a><br>
-<a href="https://ScPo-CompEcon.github.io/CoursePack/Slides/funcapprox">Function Approximation</a><br>
-<a href="https://ScPo-CompEcon.github.io/CoursePack/Slides/optimization">Unconstrained Optimization</a><br>
-<a href="https://ScPo-CompEcon.github.io/CoursePack/Slides/constrained-optimization">Constrained Optimization</a><br>
-<a href="https://ScPo-CompEcon.github.io/CoursePack/Slides/dynamic-programming">Dynamic Programming</a></p>
-<h3 id="Pdf-(does-not-contain-plots---But-proper-citations!)">Pdf (does not contain plots - But proper citations!)<a class="anchor-link" href="#Pdf-(does-not-contain-plots---But-proper-citations!)">&#182;</a></h3><p><a href="https://ScPo-CompEcon.github.io/CoursePack/Pdfs/BasicIntroduction.pdf">Basic Introduction to Julia</a><br>
-<a href="https://ScPo-CompEcon.github.io/CoursePack/Pdfs/BasicComputing.pdf">Basic Introduction to Computing</a><br>
-<a href="https://ScPo-CompEcon.github.io/CoursePack/Pdfs/PlotsJL.pdf">Plots.jl</a><br>
-<a href="https://ScPo-CompEcon.github.io/CoursePack/Pdfs/integration.pdf">Numerical Integration</a><br>
-<a href="https://ScPo-CompEcon.github.io/CoursePack/Pdfs/funcapprox.pdf">Function Approximation</a><br>
-<a href="https://ScPo-CompEcon.github.io/CoursePack/Pdfs/optimization.pdf">Unconstrained Optimization</a><br>
-<a href="https://ScPo-CompEcon.github.io/CoursePack/Pdfs/constrained-optimization.pdf">Constrained Optimization</a><br>
-<a href="https://ScPo-CompEcon.github.io/CoursePack/Pdfs/dynamic-programming.pdf">Dynamic Programming</a><br>
-<a href="https://ScPo-CompEcon.github.io/CoursePack/Pdfs/dp-estimation.pdf">Estimating DP models</a><br>
-<a href="https://ScPo-CompEcon.github.io/CoursePack/Pdfs/CEPM.pdf">MPEC for starters</a></p>
-<h2 id="Required-Packages">Required Packages<a class="anchor-link" href="#Required-Packages">&#182;</a></h2><p>Please have all of those installed. This list will be updated!</p>
-<ul>
-<li><a href="https://github.com/JuliaPlots/Plots.jl">Plots.jl</a></li>
-<li><a href="https://github.com/JuliaPy/PyPlot.jl">PyPlot.jl</a></li>
-<li><a href="http://spencerlyon.com/PlotlyJS.jl/">PlotlyJS.jl</a></li>
-<li><a href="https://github.com/ScPo-CompEcon/ScPoExample.jl">ScPoExample.jl</a></li>
-<li><a href="https://github.com/Keno/Gallium.jl">Gallium.jl</a></li>
-<li><a href="https://github.com/kmsquire/Logging.jl">Logging.jl</a></li>
-<li><a href="https://dataframesjl.readthedocs.io">DataFrames.jl</a></li>
-<li><a href="https://github.com/JuliaStats/DataFramesMeta.jl">DataFramesMeta.jl</a></li>
-<li><a href="https://github.com/davidanthoff/Query.jl">Queries.jl</a></li>
-<li><a href="https://github.com/JuliaDiff/ForwardDiff.jl">ForwardDiff.jl</a></li>
-<li><a href="https://github.com/ajt60gaibb/FastGaussQuadrature.jl">FastGaussQuadrature.jl</a></li>
-<li><a href="https://github.com/stevengj/Sobol.jl">Sobol.jl</a></li>
-<li><a href="https://github.com/JuliaApproximation/ApproxFun.jl">ApproxFun.jl</a></li>
-<li><a href="https://github.com/JuliaMath/Interpolations.jl">Interpolations.jl</a></li>
-<li><a href="https://github.com/floswald/ApproXD.jl">ApproXD.jl</a></li>
-<li><a href="https://github.com/JuliaNLSolvers/Optim.jl">Optim.jl</a></li>
-<li><a href="https://github.com/JuliaOpt/JuMP.jl">JuMP.jl</a>  </li>
-<li><a href="https://github.com/JuliaOpt/NLopt.jl">NLopt.jl</a>  </li>
-<li><a href="https://github.com/JuliaOpt/Ipopt.jl">Ipopt.jl</a>  </li>
-<li><a href="https://github.com/QuantEcon/CompEcon.jl">CompEcon.jl</a>  </li>
+<h3 id="Task-1:-write-down-the-Lagrangian-of-this-problem">Task 1: write down the Lagrangian of this problem<a class="anchor-link" href="#Task-1:-write-down-the-Lagrangian-of-this-problem">&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Task-2:-What-is-the-length-of-the-choice-vector?">Task 2: What is the length of the choice vector?<a class="anchor-link" href="#Task-2:-What-is-the-length-of-the-choice-vector?">&#182;</a></h3><ul>
+<li>What is the length of the choice vector $x$ here? what are it's elements?</li>
+<li>What is the number of constraints?</li>
 </ul>
 
 </div>
@@ -11868,22 +11842,215 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="How-to-build-this">How to build this<a class="anchor-link" href="#How-to-build-this">&#182;</a></h2><p>You should only worry about this section if you want to rebuild the site yourself.</p>
-<h4 id="Requirements">Requirements<a class="anchor-link" href="#Requirements">&#182;</a></h4><div class="highlight"><pre><span></span><span class="c1">#python</span>
-<span class="c1">#latex</span>
-<span class="c1">#ruby</span>
-pip install jupyter
-pip install pandoc
-</pre></div>
-<h4 id="Building">Building<a class="anchor-link" href="#Building">&#182;</a></h4><p>in the root of this repo do</p>
-<div class="highlight"><pre><span></span>rake <span class="c1"># builds all</span>
-rake html <span class="c1"># builds only html</span>
-rake slides <span class="c1"># builds slides</span>
-rake offline <span class="c1"># builds offline slides; mathjax doesn&#39;t work properly offline.</span>
+<h3 id="Task-3:-write-down-the-constraint-function-and-it's-gradient-wrt-to-$x$">Task 3: write down the constraint function and it's gradient wrt to $x$<a class="anchor-link" href="#Task-3:-write-down-the-constraint-function-and-it's-gradient-wrt-to-$x$">&#182;</a></h3><ul>
+<li>Denote the constraint function $g$ as the collection of all constraints (there are $m=N$ constraints and $n=N+1$ choice variables). Write down a typical element $g_i$, i.e. what does the $i$-th constraint look like? </li>
+</ul>
+<ul>
+<li>What does the gradient of $g$ look like? It's a matrix. Different solvers make different assumptions here. NLopt expects an $n$ by $m$ matrix, where <code>g[j,i]</code> should be $\frac{\partial g_i}{\partial x_j}$</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Task-4:-Implement-using-plain-vanilla-NLopt">Task 4: Implement using plain vanilla NLopt<a class="anchor-link" href="#Task-4:-Implement-using-plain-vanilla-NLopt">&#182;</a></h3><p>Take</p>
+<ul>
+<li>N=100 grid points</li>
+<li>$\beta = 0.1$ as true value</li>
+<li>setup this as an MPEC problem in NLopt!</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-julia"><pre><span></span><span class="k">using</span> <span class="n">Distributions</span>
+<span class="n">srand</span><span class="p">(</span><span class="mi">12345</span><span class="p">)</span>
+<span class="n">normal</span> <span class="o">=</span> <span class="n">Normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.01</span><span class="p">)</span>
+<span class="n">N</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">price</span> <span class="o">=</span> <span class="n">collect</span><span class="p">(</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.05</span><span class="p">,</span><span class="mf">0.95</span><span class="p">,</span><span class="n">N</span><span class="p">))</span>
+<span class="n">beta0</span> <span class="o">=</span> <span class="mf">0.1</span>
+<span class="n">demand0</span> <span class="o">=</span> <span class="p">(</span><span class="mf">1.0</span><span class="o">-</span><span class="n">price</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">beta0</span><span class="p">)</span>
+<span class="n">demand</span> <span class="o">=</span> <span class="n">demand0</span> <span class="o">-</span> <span class="n">rand</span><span class="p">(</span><span class="n">normal</span><span class="p">,</span><span class="n">N</span><span class="p">);</span>
 </pre></div>
 
 </div>
 </div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-julia"><pre><span></span><span class="k">module</span> <span class="n">nlopt</span>
+
+    <span class="k">using</span> <span class="n">Distributions</span>
+    <span class="k">using</span> <span class="n">NLopt</span>
+    <span class="n">srand</span><span class="p">(</span><span class="mi">12345</span><span class="p">)</span>
+    <span class="n">normal</span> <span class="o">=</span> <span class="n">Normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.01</span><span class="p">)</span>
+    <span class="n">N</span> <span class="o">=</span> <span class="mi">100</span>
+    <span class="n">price</span> <span class="o">=</span> <span class="n">collect</span><span class="p">(</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.05</span><span class="p">,</span><span class="mf">0.95</span><span class="p">,</span><span class="n">N</span><span class="p">))</span>
+    <span class="n">beta0</span> <span class="o">=</span> <span class="mf">0.1</span>
+    <span class="n">demand0</span> <span class="o">=</span> <span class="p">(</span><span class="mf">1.0</span><span class="o">-</span><span class="n">price</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">beta0</span><span class="p">)</span>
+    <span class="n">demand</span> <span class="o">=</span> <span class="n">demand0</span> <span class="o">-</span> <span class="n">rand</span><span class="p">(</span><span class="n">normal</span><span class="p">,</span><span class="n">N</span><span class="p">)</span>
+
+    <span class="c"># objective function</span>
+    <span class="k">function</span><span class="nf"> obj</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">g</span><span class="p">)</span>
+        <span class="c"># x = [e_1,...,e_N,beta] i.e. (N+1,1)</span>
+        
+        <span class="c"># gradient = [grad w.r.t e_1,</span>
+        <span class="c">#            ...,grad w.r.t e_N,</span>
+        <span class="c">#                grad w.r.t beta] i.e. (N+1,1)</span>
+        <span class="k">if</span> <span class="n">length</span><span class="p">(</span><span class="n">g</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">0</span>
+
+        <span class="k">end</span>
+        <span class="c"># value of objective</span>
+    <span class="k">end</span>
+
+    <span class="c"># </span>
+    <span class="k">function</span><span class="nf"> constr</span><span class="p">(</span><span class="n">r</span><span class="p">::</span><span class="n">Vector</span><span class="p">,</span><span class="n">x</span><span class="p">::</span><span class="n">Vector</span><span class="p">,</span><span class="n">g</span><span class="p">::</span><span class="n">Matrix</span><span class="p">,</span><span class="n">n</span><span class="p">,</span><span class="n">q</span><span class="p">,</span><span class="n">p</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">length</span><span class="p">(</span><span class="n">g</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span>
+            <span class="c"># g has to be n by m for nlopt</span>
+        <span class="k">end</span>
+        <span class="c"># value of contraints</span>
+    <span class="k">end</span>
+    <span class="n">constr_clos</span><span class="p">(</span><span class="n">r</span><span class="p">::</span><span class="n">Vector</span><span class="p">,</span><span class="n">x</span><span class="p">::</span><span class="n">Vector</span><span class="p">,</span><span class="n">g</span><span class="p">::</span><span class="n">Matrix</span><span class="p">)</span> <span class="o">=</span> <span class="n">constr</span><span class="p">(</span><span class="n">r</span><span class="p">::</span><span class="n">Vector</span><span class="p">,</span><span class="n">x</span><span class="p">::</span><span class="n">Vector</span><span class="p">,</span><span class="n">g</span><span class="p">::</span><span class="n">Matrix</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">demand</span><span class="p">,</span><span class="n">price</span><span class="p">)</span>
+
+    <span class="k">function</span><span class="nf"> run</span><span class="p">()</span>
+        <span class="n">opt</span> <span class="o">=</span> <span class="n">Opt</span><span class="p">(:</span><span class="n">LD_SLSQP</span><span class="p">,</span><span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">lower_bounds!</span><span class="p">(</span><span class="n">opt</span><span class="p">,[[</span><span class="o">-</span><span class="nb">Inf</span> <span class="k">for</span> <span class="n">i</span> <span class="k">in</span> <span class="mi">1</span><span class="p">:</span><span class="n">N</span><span class="p">]</span><span class="o">...</span><span class="p">,</span><span class="mf">0.0</span><span class="p">])</span>
+        <span class="n">upper_bounds!</span><span class="p">(</span><span class="n">opt</span><span class="p">,[[</span><span class="nb">Inf</span> <span class="k">for</span> <span class="n">i</span> <span class="k">in</span> <span class="mi">1</span><span class="p">:</span><span class="n">N</span><span class="p">]</span><span class="o">...</span><span class="p">,</span><span class="mf">1.0</span><span class="p">])</span>
+        <span class="n">min_objective!</span><span class="p">(</span><span class="n">opt</span><span class="p">,</span><span class="n">obj</span><span class="p">)</span>
+        <span class="n">equality_constraint!</span><span class="p">(</span><span class="n">opt</span><span class="p">,</span><span class="n">constr_clos</span><span class="p">,[</span><span class="mf">1e-10</span> <span class="k">for</span> <span class="n">i</span> <span class="k">in</span> <span class="mi">1</span><span class="p">:</span><span class="n">N</span><span class="p">])</span>
+        <span class="n">xtol_rel!</span><span class="p">(</span><span class="n">opt</span><span class="p">,</span><span class="mf">1e-4</span><span class="p">)</span>
+        <span class="n">ftol_rel!</span><span class="p">(</span><span class="n">opt</span><span class="p">,</span><span class="mf">1e-6</span><span class="p">)</span>
+
+        <span class="n">res</span> <span class="o">=</span> <span class="n">optimize</span><span class="p">(</span><span class="n">opt</span><span class="p">,</span> <span class="n">vcat</span><span class="p">(</span><span class="n">rand</span><span class="p">(</span><span class="n">normal</span><span class="p">,</span><span class="n">N</span><span class="p">),</span><span class="mf">0.9</span><span class="p">))</span>
+        <span class="n">println</span><span class="p">(</span><span class="s">&quot;beta0 = </span><span class="si">$beta</span><span class="s">0&quot;</span><span class="p">)</span>
+        <span class="n">println</span><span class="p">(</span><span class="s">&quot;beta  = </span><span class="si">$(res[2][end])</span><span class="s">&quot;</span><span class="p">)</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
+        <span class="n">g</span> <span class="o">=</span><span class="n">zeros</span><span class="p">(</span><span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">N</span><span class="p">)</span>
+        <span class="n">constr</span><span class="p">(</span><span class="n">r</span><span class="p">,</span><span class="n">res</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span><span class="n">g</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">demand</span><span class="p">,</span><span class="n">price</span><span class="p">);</span>
+        <span class="n">println</span><span class="p">(</span><span class="s">&quot;maximal error of constraint at solution = </span><span class="si">$(maxabs(r))</span><span class="s">&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">res</span>
+    <span class="k">end</span>
+
+<span class="k">end</span> <span class="c"># module</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[9]:</div>
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>nlopt</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Task-5:-Implement-using-JuMP">Task 5: Implement using JuMP<a class="anchor-link" href="#Task-5:-Implement-using-JuMP">&#182;</a></h3><ul>
+<li>Here is where the fun starts.</li>
+<li>Go back to HW-constrained for some inspiration!</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-julia"><pre><span></span><span class="k">module</span> <span class="n">jump</span>
+
+    <span class="k">using</span> <span class="n">JuMP</span> 
+    <span class="k">using</span> <span class="n">Distributions</span>
+    <span class="n">srand</span><span class="p">(</span><span class="mi">12345</span><span class="p">)</span>
+    <span class="n">normal</span> <span class="o">=</span> <span class="n">Normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.01</span><span class="p">)</span>
+    
+    <span class="k">function</span><span class="nf"> run</span><span class="p">()</span>
+
+        <span class="c"># create a model</span>
+
+        <span class="c"># define constants (N, price, etc)</span>
+        <span class="n">N</span> <span class="o">=</span> <span class="mi">100</span>
+        <span class="n">price</span> <span class="o">=</span> <span class="n">collect</span><span class="p">(</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.05</span><span class="p">,</span><span class="mf">0.95</span><span class="p">,</span><span class="n">N</span><span class="p">))</span>
+        <span class="n">beta0</span> <span class="o">=</span> <span class="mf">0.1</span>
+        <span class="n">demand0</span> <span class="o">=</span> <span class="p">(</span><span class="mf">1.0</span><span class="o">-</span><span class="n">price</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">beta0</span><span class="p">)</span>
+        <span class="n">demand</span> <span class="o">=</span> <span class="n">demand0</span> <span class="o">-</span> <span class="n">rand</span><span class="p">(</span><span class="n">normal</span><span class="p">,</span><span class="n">N</span><span class="p">)</span>
+
+        <span class="c">#define JuMP variables</span>
+
+
+        <span class="c"># define constraints and objective</span>
+
+
+        <span class="c"># solve</span>
+        <span class="n">status</span> <span class="o">=</span> <span class="n">solve</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+        <span class="n">Dict</span><span class="p">(:</span><span class="n">obj</span><span class="o">=&gt;</span><span class="n">getobjectivevalue</span><span class="p">(</span><span class="n">m</span><span class="p">),:</span><span class="n">beta</span><span class="o">=&gt;</span><span class="n">getvalue</span><span class="p">(</span><span class="n">beta</span><span class="p">),:</span><span class="nb">eps</span><span class="o">=&gt;</span><span class="n">getvalue</span><span class="p">(</span><span class="nb">eps</span><span class="p">))</span>
+    <span class="k">end</span>
+<span class="k">end</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>WARNING: replacing module jump
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[10]:</div>
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>jump</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
 </div>
     </div>
   </div>

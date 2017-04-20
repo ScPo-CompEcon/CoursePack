@@ -28,11 +28,6 @@ task :clean_slides do
 	sh "rm -rf Slides/*.html"
 end
 
-task  :clean_pdf do
-	sh "rm -rf Notebooks/*.pdf"
-	sh "rm -rf Pdfs/*.pdf"
-end
-
 
 
 rule ".html" => ".ipynb" do |t|
@@ -60,6 +55,7 @@ end
 rule ".pdf" => ".ipynb" do |t|
 	# exclude those from bibtex citations
 	exclude = ["BasicIntroduction","Index","PlotsJL"]
+	no_bib = ["mpec-starters","CEPM"]
 	bn = File.basename("#{t.source}")
 	b  = File.basename("#{t.source}",".ipynb")
 	dir = File.dirname("#{t.name}")
@@ -69,10 +65,12 @@ rule ".pdf" => ".ipynb" do |t|
 	if !(exclude.include?b)
 		Dir.chdir "Pdfs"
 		sh "xelatex #{bn.ext('tex')}"
-		sh "bibtex #{bn.ext('aux')}"
-		sh "xelatex #{bn.ext('tex')}"
-		sh "xelatex #{bn.ext('tex')}"
-		sh "xelatex #{bn.ext('tex')}"
+		if !(no_bib.include?b)
+			sh "bibtex #{bn.ext('aux')}"
+			sh "xelatex #{bn.ext('tex')}"
+			sh "xelatex #{bn.ext('tex')}"
+			sh "xelatex #{bn.ext('tex')}"
+		end
 		sh "rm -rf *.tex *.aux *.synctex.gz *.nav *.dvi *.bbl *.blg *.out *.log"
 		Dir.chdir ".."
 	end

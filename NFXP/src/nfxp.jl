@@ -9,9 +9,11 @@ module nfxp
     # theta[2] = variable cost parameter
     # theta[3:end] = transition probabilities on mileage grid
 
-    using Logging
+    using Logging, FreqTables
     using Plots, NLopt , Optim
-    using ShowItLikeYouBuildIt
+    using ShowItLikeYouBuildIt, DataFrames, DataFramesMeta
+
+
     pyplot()
     Logging.configure(level=DEBUG)
 
@@ -37,8 +39,6 @@ module nfxp
         rtolnk      :: Float64
         hessian     :: Symbol
         converged   :: Bool
-        n_params  :: Int  # number of params to estimate
-        theta :: Vector{Float64}
 
         # spaces
         n :: Int  # num of grid points
@@ -91,8 +91,6 @@ module nfxp
             this.pr = [0.0937; 0.4475; 0.4459; 0.0127]
             this.RC = 11.7257
             this.c = 2.45569
-            this.theta = vcat(this.RC,this.c,this.pr)
-            this.n_params = length(this.theta)
             this.beta = 0.9999
             this.P = build_trans(this.pr,this.n)
             this.cost = 0.001*this.c*collect(this.grid)
@@ -109,13 +107,12 @@ module nfxp
             p.pr = theta[3:end]
             p.P = build_trans(p.pr,p.n)
         end
-        p.n_params = length(theta)
         p.cost = 0.001*p.c*collect(p.grid)
         p.EV0[:] = 0.0
         p.EV1[:] = 0.0
         p.pk[:] = 0.0
         p.converged = false
-        p.theta = vcat(p.RC,p.c,p.pr)
+        # p.theta = vcat(p.RC,p.c,p.pr)
     end
 
     """
@@ -135,6 +132,33 @@ module nfxp
     end
 
 
+
+    function read_busses(p::Param,num_types=1)
+        # load data
+        d = readtable(joinpath(dirname(@__FILE__),"buses.csv"),header=false)
+        # setup data
+        rename!(d,[:x1,:x2,:x5,:x7,:x9],[:id,:bus_type,:d1,:x,:dx1])
+
+        # subset to bus type 
+        d = @where(d,:bus_type .<= num_types)
+
+        # discretize odometer data
+        d[:x] = ceil(Int,p.n/(p.max*1000) * d[:x])
+        d[:dx1] = d[:x] .- vcat(0,d[:x][1:(end-1)])
+        d[:dx1] = d[:dx1].*(1-d[:d1]) .+d[:d1].*d[:x]  # replace first diff of x by x if replaced
+
+        # get replacement dummy
+        d[:d] = vcat(d[:d1][2:end],0)
+
+        # remove obs with missing lagged mileage
+        # this is the first row for each obs
+        remove = d[:id] .- vcat(0,d[:id][1:(end-1)])
+        d = d[remove.==0,:]
+
+        d = @select(d,:id,:bus_type,:d,:x,:dx1)
+
+        return d
+    end
 
 
 
@@ -181,7 +205,7 @@ module nfxp
             # p.EV0[:] = p.EV1[:]
             if dist_vfi < p.tol_vfi
                 p.converged = true
-                info("after $iter iterations")
+                info("VFI converged after $iter iterations")
                 break
             end
         end
@@ -189,14 +213,12 @@ module nfxp
             info("not converged")
         end
         bellman!(p,true)    # get choice probs
-        # plot(1.0-p.pk,ylimits=[0;1])
+        # plot(p.pk)
     end
 
-    function likelihood!(new_theta::Vector{Float64},grad::Vector{Float64},data::Dict,p::Param)
+    function likelihood!(new_theta::Vector{Float64},grad::Vector{Float64},data::DataFrame,p::Param)
 
-        # if we want the likelihood at a new parameter theta:
         update!(p,new_theta)
-        println("current theta = $(p.theta)")
 
         n_c = length(p.c)
         N = length(data[:x])
@@ -221,8 +243,8 @@ module nfxp
                 # if any(pr[1+data[:dx1]] .< 0)
                 #     # println(sum(pr[1+data[:dx1]] .< 0))
                 # end
-                idx1 = clamp(data[:dx1],1,maximum(data[:dx1]))
-                log_like[:] = log_like[:] .+ log(pr[idx1])
+                # idx1 = clamp(data[:dx1],1,maximum(data[:dx1]))
+                log_like[:] = log_like[:] .+ log(pr[1+data[:dx1]])
             end
             # println("n_p=$n_p")
 
@@ -263,9 +285,9 @@ module nfxp
                 # step 3 get derivative of loglike wrt parameters
                 score = (ccps-1 .+ data[:d] ) .* (hcat(-ones(N), dc[data[:x]], zeros(N,n_p) ) .+ (devdmp[ones(Int,N),:] .- devdmp[data[:x],:])) 
                 if length(new_theta) > 2   # wrt pr
-                    idx1 = clamp(data[:dx1],1,maximum(data[:dx1]))
+                    # idx1 = clamp(data[:dx1],1,maximum(data[:dx1]))
                     for iP in 1:n_p
-                        score[:,1+n_c+iP] = score[:,1+n_c+iP] + invp[idx1,iP]
+                        score[:,1+n_c+iP] = score[:,1+n_c+iP] + invp[1+data[:dx1],iP]
                     end
                 end
                 grad[:] = mean(-score,1)
@@ -278,7 +300,7 @@ module nfxp
         # we don't do the hessian.
         # enough is enough. :-)
 
-        println("fval=$fval")
+        info("fval=$fval")
 
         return fval
 
@@ -305,7 +327,7 @@ module nfxp
         csum_p = cumsum(p.pr)
         dx1 = zeros(Int,N,T)
         for i in 1:length(csum_p)
-            dx1 += (shock_dx.<csum_p[i])   # increases are random
+            dx1 += (shock_dx.>csum_p[i])   # increases are random: notice that you can get dx1 = 0 here. need to add +1 to dx1 to get a valid array index.
         end
 
         for it in 1:T 
@@ -314,23 +336,67 @@ module nfxp
                     println(x[i,:])
                     println(d[i,:])
                 end
-                d[i,it] = shock_dx[i,it] < (1.0-p.pk[x[i,it]]) ? true : false
+                d[i,it] = shock_d[i,it] < (1.0-p.pk[x[i,it]]) 
                 # make odometer progress
-                x1[i,it] = min( d[i,it] * dx1[i,it] + (1-d[i,it])*(x[i,it] + dx1[i,it]) , p.n)
+                x1[i,it] = min((1-d[i,it])*x[i,it] + d[i,it] + dx1[i,it] , p.n)   # this adds +1 for example
                 if it < T
                     x[i,it+1] = x1[i,it]
                 end
             end
 
         end
-        return Dict(:id => id[:],:t => t[:], :d => convert(Array{Int},d[:]), :x => x[:],:x1 => x1[:], :dx1 => dx1[:])
+        return DataFrame(id = id[:],t = t[:], d = convert(Array{Int},d[:]), x = x[:],x1 = x1[:], dx1 = dx1[:])
     end
 
-    function MC(p::Param;N=50,T=150)
+    function run_estim()
+        p = Param()
+        d = read_busses(p,4)  # select all bus types smaller than this number
+        e = estimate(d,p)
+        return e
+    end
+
+
+    function run_MC()
+        p = Param()
+        d = simdata(50,113,p)
+        e = estimate(d,p)
+        return e
+    end
+
+    function estimate(d::DataFrame,p::Param,startv=zeros(2))
+        # step 1: PML for transition probs
+        probs = freqtable(d[:dx1][d[:dx1].>0]) ./ sum(freqtable(d[:dx1][d[:dx1].>0]).array)
+        pr=probs[1:(end-1),:]
+
+        info("starting values for probs = $(p.pr)")
+        info("updated with $pr")
+        update!(p,vcat(startv,pr.array...))
+
+        # step 2: estimate structural params
+        # f_closure(x,g) = likelihood!(x,g,d,p)
+        f_closure(x) = likelihood!(x,Float64[],d,p)
+        # opt = Opt(:LD_MMA,length(startv))
+        opt = Opt(:LN_COBYLA,length(startv))
+        # lower_bounds!(opt,[-Inf,-Inf,[0.0 for i in 1:4]...])
+        # upper_bounds!(opt,[Inf,Inf,[1.0 for i in 1:4]...])
+        min_objective!(opt,f_closure)
+        xtol_rel!(opt,1e-4)
+        ftol_rel!(opt,1e-6)
+        maxeval!(opt,50)
+
+
+        res = Optim.optimize(f_closure,startv)
+
+        # inequality_constraint!(opt,myconstraint)
+
+        # (minf,minx,ret) = NLopt.optimize(opt, startv )
+        return res
+    end
+
+    function MC(p::Param;N=50,T=113)
         d = simdata(N,T,p)
 
         # estimate pr transition probs
-        probs = freqtable(d[:dx1][d[:dx1].>0]) ./ sum(freqtable(d[:dx1][d[:dx1].>0]))
 
         # put those values into the param type
         update!(p,[p.RC;p.c;probs.array])
@@ -350,7 +416,7 @@ module nfxp
     function check_like()
         p = Param()
         d = simdata(10000,50,p)
-        pg = [Float64[x,p.theta[2:end]...] for x in linspace(1.0,20,20)]
+        # pg = [Float64[x,p.theta[2:end]...] for x in linspace(1.0,20,20)]
         y = zeros(20)
         for i in eachindex(pg)
             y[i] = likelihood!(pg[i],zeros(6),d,p)
@@ -361,9 +427,9 @@ module nfxp
 
     function max_nlopt()
         p = Param()
-        d = simdata(10000,50,p)
+        d = simdata(10000,13,p)
+        # d = simdata(50,113,p)
         f_closure(x,g) = likelihood!(x,g,d,p)
-        opt = Opt(:LD_MMA,p.n_params)
         # opt = Opt(:LN_COBYLA,p.n_params)
         lower_bounds!(opt,[-Inf,-Inf,[0.0 for i in 1:4]...])
         upper_bounds!(opt,[Inf,Inf,[1.0 for i in 1:4]...])
@@ -376,11 +442,11 @@ module nfxp
     end
     function max_optim()
         p = Param()
-        d = simdata(10000,50,p)
+        d = simdata(50,113,p)
         f_closure(x) = likelihood!(x,Float64[],d,p)
         lower = [-Inf,-Inf,[0.0 for i in 1:4]...]
         upper = [Inf,Inf,[1.0 for i in 1:4]...]
-        res = Optim.optimize(OnceDifferentiable(f_closure),p.theta,lower,upper,Fminbox())
+        res = Optim.optimize(OnceDifferentiable(f_closure),[10.0,0.0001,0.1,0.1,0.1,0.1],lower,upper,Fminbox())
         return res
     end
 

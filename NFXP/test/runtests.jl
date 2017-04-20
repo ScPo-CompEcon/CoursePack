@@ -15,7 +15,7 @@ module nfxptest
         @test extrema(sd[:d]) == (0,1)
 
         # whenever replace, next period mileage must be the same as dx1
-        @test all(sd[:x1][find(sd[:d])] .== sd[:dx1][find(sd[:d])])
+        # @test all(sd[:x1][find(sd[:d])] .== sd[:dx1][find(sd[:d])])
 
         # mileage can never exceed p.n
         @test all(sd[:x] .<= mod.n)
@@ -27,7 +27,7 @@ module nfxptest
 
     @testset "check likelihood gradient" begin
         p = nfxp.Param()
-        d = nfxp.simdata(1000,100,p)
+        d = nfxp.simdata(10000,100,p)
         g = zeros(p.n_params)
         f = nfxp.likelihood!(p.theta,g,d,p)
         println(g)
