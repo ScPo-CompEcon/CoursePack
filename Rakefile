@@ -54,15 +54,15 @@ end
 
 rule ".pdf" => ".ipynb" do |t|
 	# exclude those from bibtex citations
-	exclude = ["BasicIntroduction","Index","PlotsJL"]
+	exclude = ["BasicIntroduction","Index","PlotsJL","HPC"]
 	no_bib = ["mpec-starters","CEPM"]
 	bn = File.basename("#{t.source}")
 	b  = File.basename("#{t.source}",".ipynb")
 	dir = File.dirname("#{t.name}")
 	# puts "#{dir}"
 	# sh "jupyter-nbconvert --to pdf #{t.source}"
-	sh "jupyter nbconvert #{t.source} --to latex --template assets/templates/citations.tplx --output-dir=Pdfs"
 	if !(exclude.include?b)
+		sh "jupyter nbconvert #{t.source} --to latex --template assets/templates/citations.tplx --output-dir=Pdfs"
 		Dir.chdir "Pdfs"
 		sh "xelatex #{bn.ext('tex')}"
 		if !(no_bib.include?b)

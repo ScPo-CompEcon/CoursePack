@@ -1,8 +1,64 @@
+
 <!DOCTYPE html>
 <html>
-<head><meta charset="utf-8" />
-<title>CEPM</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="chrome=1" />
+
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+<title>mpec-starters slides</title>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+<!-- General and theme style sheets -->
+<link rel="stylesheet" href="reveal.js/css/reveal.css">
+<link rel="stylesheet" href="reveal.js/css/theme/simple.css" id="theme">
+
+<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+<script>
+if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'reveal.js/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+}
+
+</script>
+
+<!--[if lt IE 9]>
+<script src="reveal.js/lib/js/html5shiv.js"></script>
+<![endif]-->
+
+<!-- Loading the mathjax macro -->
+<!-- Load mathjax -->
+    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+    <!-- MathJax configuration -->
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+            displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+            processEscapes: true,
+            processEnvironments: true
+        },
+        // Center justify equations in code and markdown cells. Elsewhere
+        // we use CSS to left justify single line equations in code cells.
+        displayAlign: 'center',
+        "HTML-CSS": {
+            styles: {'.MathJax_Display': {"margin": 0}},
+            linebreaks: { automatic: true }
+        }
+    });
+    </script>
+    <!-- End of mathjax configuration -->
+
+<!-- Get Font-awesome from cdn -->
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.css">
 
 <style type="text/css">
     /*!
@@ -11718,72 +11774,96 @@ ul.typeahead-list > li > a {
 
 <style type="text/css">
 /* Overrides of notebook CSS for static HTML export */
-body {
-  overflow: visible;
-  padding: 8px;
+.reveal {
+  font-size: 160%;
+  overflow-y: scroll;
 }
-
-div#notebook {
-  overflow: visible;
-  border-top: none;
+.reveal pre {
+  width: inherit;
+  padding: 0.4em;
+  margin: 0px;
+  font-family: monospace, sans-serif;
+  font-size: 80%;
+  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
 }
-
-@media print {
-  div.cell {
-    display: block;
-    page-break-inside: avoid;
-  } 
-  div.output_wrapper { 
-    display: block;
-    page-break-inside: avoid; 
-  }
-  div.output { 
-    display: block;
-    page-break-inside: avoid; 
-  }
+.reveal pre code {
+  padding: 0px;
+}
+.reveal section img {
+  border: 0px solid black;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0);
+}
+.reveal i {
+  font-style: normal;
+  font-family: FontAwesome;
+  font-size: 2em;
+}
+.reveal .slides {
+  text-align: left;
+}
+.reveal.fade {
+  opacity: 1;
+}
+.reveal .progress {
+  position: static;
+}
+div.input_area {
+  padding: 0.06em;
+}
+div.code_cell {
+  background-color: transparent;
+}
+div.prompt {
+  width: 11ex;
+  padding: 0.4em;
+  margin: 0px;
+  font-family: monospace, sans-serif;
+  font-size: 80%;
+  text-align: right;
+}
+div.output_area pre {
+  font-family: monospace, sans-serif;
+  font-size: 80%;
+}
+div.output_prompt {
+  /* 5px right shift to account for margin in parent container */
+  margin: 5px 5px 0 0;
+}
+div.text_cell.rendered .rendered_html {
+  /* The H1 height seems miscalculated, we are just hidding the scrollbar */
+  overflow-y: hidden;
+}
+a.anchor-link {
+  /* There is still an anchor, we are only hidding it */
+  display: none;
+}
+.rendered_html p {
+  text-align: inherit;
 }
 </style>
 
 <!-- Custom stylesheet, it must be in the same directory as the html file -->
 <link rel="stylesheet" href="custom.css">
 
-<!-- Loading mathjax macro -->
-<!-- Load mathjax -->
-    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
-    <!-- MathJax configuration -->
-    <script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-            displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
-            processEscapes: true,
-            processEnvironments: true
-        },
-        // Center justify equations in code and markdown cells. Elsewhere
-        // we use CSS to left justify single line equations in code cells.
-        displayAlign: 'center',
-        "HTML-CSS": {
-            styles: {'.MathJax_Display': {"margin": 0}},
-            linebreaks: { automatic: true }
-        }
-    });
-    </script>
-    <!-- End of mathjax configuration --></head>
-<body>
-  <div tabindex="-1" id="notebook" class="border-box-sizing">
-    <div class="container" id="notebook-container">
+</head>
 
+
+<body>
+
+
+<div class="reveal">
+<div class="slides">
+<section><section>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="MPEC-for-Starters">MPEC for Starters<a class="anchor-link" href="#MPEC-for-Starters">&#182;</a></h1><p>Think of a consumer who decides how much of a certain good to consume, given prices. The consumer's behaviour is dictated by a preference parameter $\beta$, which is unobserved. We only observe data on choices, i.e. how much was consumed, at which price of the good. We will specify an economic model, and estimate the value of the preference parameter.</p>
-<p>The utility function is given generically as 
+<p>The utility function is given generically as</p>
 $$
 u(c;{\color{red}\beta})
-$$</p>
-<p>and there is a structural relationship dictated by theory between
+$$<p>and there is a structural relationship dictated by theory between
 demand for consumption and price of the consumption good: demand will be such that
 the marginal utility of consumption is equal to price, in other words</p>
 \begin{equation}
@@ -11812,10 +11892,10 @@ $$ p = u_c $$<p>or, in other words</p>
 $$ p_i = 1 - 2{\color{red}\beta}(q_i - \epsilon_i) $$<p>Our estimation will be based on minimizing the sum of squared errors, $\epsilon$
 subject to complying with constraint FOC. We solve the
 following problem:</p>
-\begin{eqnarray*}
-\min_{\left\{ \epsilon\right\} _{i=1}^{N},{\color{red}\beta}} & \sum_{i=1}^{N}\epsilon_{i}^{2}\\
-s.t. & u_{c}(q_{i}-\epsilon_{i};{\color{red}\beta}) & =p_{i}
-\end{eqnarray*}<p>We notice right away that the choice of $\beta$ does not directly influence the value of the objective function, therefore both the objective and it's gradient will be independent of $\beta$. However, every choice of $\beta$ needs to go together with a corresponding choice of $\epsilon$'s which need to be chosen s.t. the constraint is satisfied. This is not a general feature of MPEC, as in many cases the parameters of interest would appear in the objective. Also, in a more elaborate model, we would probably have some data that we would want to model to come close to; In that case our objective function would be augmented by the likelihood function of that data together with our model, or we could have a moment criterion etc.</p>
+$$
+\min_{\left\{ \epsilon\right\} _{i=1}^{N},{\color{red}\beta}}  \sum_{i=1}^{N}\epsilon_{i}^{2}  \\
+s.t.  u_{c}(q_{i}-\epsilon_{i};{\color{red}\beta})  =p_{i}
+$$<p>We notice right away that the choice of $\beta$ does not directly influence the value of the objective function, therefore both the objective and it's gradient will be independent of $\beta$. However, every choice of $\beta$ needs to go together with a corresponding choice of $\epsilon$'s which need to be chosen s.t. the constraint is satisfied. This is not a general feature of MPEC, as in many cases the parameters of interest would appear in the objective. Also, in a more elaborate model, we would probably have some data that we would want to model to come close to; In that case our objective function would be augmented by the likelihood function of that data together with our model, or we could have a moment criterion etc.</p>
 
 </div>
 </div>
@@ -11825,30 +11905,7 @@ s.t. & u_{c}(q_{i}-\epsilon_{i};{\color{red}\beta}) & =p_{i}
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Task-1:-write-down-the-Lagrangian-of-this-problem">Task 1: write down the Lagrangian of this problem<a class="anchor-link" href="#Task-1:-write-down-the-Lagrangian-of-this-problem">&#182;</a></h3>$$
-L  =  \sum_{i=1}^{N}\epsilon_{i}^{2}-\lambda^{T}\left[g(q,\epsilon,\beta)\right]$$<p>where</p>
-$$ 
-\begin{aligned}
-\lambda & = \left[\begin{array}{c}
-\lambda_{1}\\
-\vdots\\
-\lambda_{N}
-\end{array}\right],\epsilon=\left[\begin{array}{c}
-\epsilon_{1}\\
-\vdots\\
-\epsilon_{N}
-\end{array}\right]\\
-q & = \left[\begin{array}{c}
-q_{1}\\
-\vdots\\
-q_{N}
-\end{array}\right],p=\left[\begin{array}{c}
-p_{1}\\
-\vdots\\
-p_{N}
-\end{array}\right]
-\end{aligned}
-$$
+<h3 id="Task-1:-write-down-the-Lagrangian-of-this-problem">Task 1: write down the Lagrangian of this problem<a class="anchor-link" href="#Task-1:-write-down-the-Lagrangian-of-this-problem">&#182;</a></h3>
 </div>
 </div>
 </div>
@@ -11859,8 +11916,9 @@ $$
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Task-2:-What-is-the-length-of-the-choice-vector?">Task 2: What is the length of the choice vector?<a class="anchor-link" href="#Task-2:-What-is-the-length-of-the-choice-vector?">&#182;</a></h3><ul>
 <li>What is the length of the choice vector $x$ here? what are it's elements?</li>
+<li>What is the number of constraints?</li>
 </ul>
-$$ x = [ \left\{ \epsilon\right\} _{i=1}^{N},\beta] $$
+
 </div>
 </div>
 </div>
@@ -11870,30 +11928,12 @@ $$ x = [ \left\{ \epsilon\right\} _{i=1}^{N},\beta] $$
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Task-3:-write-down-the-constraint-function-and-it's-gradient-wrt-to-$x$">Task 3: write down the constraint function and it's gradient wrt to $x$<a class="anchor-link" href="#Task-3:-write-down-the-constraint-function-and-it's-gradient-wrt-to-$x$">&#182;</a></h3><ul>
-<li><p>Denote the constraint function $g$ as the collection of all constraints (there are $N$ constraints). Write down a typical element $g_i$, i.e. what does the $i$-th constraint look like?
-$$g_{i}\equiv1-2\beta\left(q_{i}-\epsilon_{i}\right)-p_{i}=0$$</p>
-</li>
-<li><p>What does the gradient of $g$ look like? It's a matrix.</p>
-</li>
+<li>Denote the constraint function $g$ as the collection of all constraints (there are $m=N$ constraints and $n=N+1$ choice variables). Write down a typical element $g_i$, i.e. what does the $i$-th constraint look like? </li>
 </ul>
-<p>Here as a $m$ by $n$ i.e. number of constraints by number of choice vars:</p>
-$$
-\triangledown g =\left[\begin{array}{ccccc}
-\frac{\partial g_{1}}{\partial\epsilon_{1}} & \frac{\partial g_{1}}{\partial\epsilon_{2}} & \dots & \frac{\partial g_{1}}{\partial\epsilon_{N}} & \frac{\partial g_{1}}{\partial\beta}\\
-\frac{\partial g_{2}}{\partial\epsilon_{1}} & \frac{\partial g_{2}}{\partial\epsilon_{2}} & \dots &  & \frac{\partial g_{2}}{\partial\beta}\\
-\vdots &  & \ddots &  & \vdots\\
-\frac{\partial g_{m}}{\partial\epsilon_{1}} & \dots &  &  & \frac{\partial g_{m}}{\partial\beta}
-\end{array}\right]
-$$<p>Here as a $n$ by $m$ i.e. number of choice vars by number of constraints:</p>
-$$
-\triangledown g=\left[\begin{array}{cccc}
-\frac{\partial g_{1}}{\partial\epsilon_{1}} & \frac{\partial g_{2}}{\partial\epsilon_{1}} & \dots & \frac{\partial g_{m}}{\partial\epsilon_{1}}\\
-\frac{\partial g_{1}}{\partial\epsilon_{2}} & \frac{\partial g_{2}}{\partial\epsilon_{2}} & \dots & \frac{\partial g_{m}}{\partial\epsilon_{2}}\\
-\vdots &  & \ddots\\
-\frac{\partial g_{1}}{\partial\epsilon_{N}} & \frac{\partial g_{2}}{\partial\epsilon_{N}} & \dots & \frac{\partial g_{m}}{\partial\epsilon_{N}}\\
-\frac{\partial g_{1}}{\partial\beta} & \frac{\partial g_{2}}{\partial\beta} & \dots & \frac{\partial g_{m}}{\partial\beta}
-\end{array}\right]
-$$
+<ul>
+<li>What does the gradient of $g$ look like? It's a matrix. Different solvers make different assumptions here. NLopt expects an $n$ by $m$ matrix, where <code>g[j,i]</code> should be $\frac{\partial g_i}{\partial x_j}$</li>
+</ul>
+
 </div>
 </div>
 </div>
@@ -11902,11 +11942,11 @@ $$
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Task-4:-Implement">Task 4: Implement<a class="anchor-link" href="#Task-4:-Implement">&#182;</a></h3><p>Take</p>
+<h3 id="Task-4:-Implement-using-plain-vanilla-NLopt">Task 4: Implement using plain vanilla NLopt<a class="anchor-link" href="#Task-4:-Implement-using-plain-vanilla-NLopt">&#182;</a></h3><p>Take</p>
 <ul>
-<li>N=100 </li>
+<li>N=100 grid points</li>
 <li>$\beta = 0.1$ as true value</li>
-<li>setup this MPEC problem in NLopt!</li>
+<li>setup this as an MPEC problem in NLopt!</li>
 </ul>
 
 </div>
@@ -11914,7 +11954,7 @@ $$
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="k">using</span> <span class="n">Distributions</span>
@@ -11924,7 +11964,7 @@ $$
 <span class="n">price</span> <span class="o">=</span> <span class="n">collect</span><span class="p">(</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.05</span><span class="p">,</span><span class="mf">0.95</span><span class="p">,</span><span class="n">N</span><span class="p">))</span>
 <span class="n">beta0</span> <span class="o">=</span> <span class="mf">0.1</span>
 <span class="n">demand0</span> <span class="o">=</span> <span class="p">(</span><span class="mf">1.0</span><span class="o">-</span><span class="n">price</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">beta0</span><span class="p">)</span>
-<span class="n">demand</span> <span class="o">=</span> <span class="n">demand0</span> <span class="o">-</span> <span class="n">rand</span><span class="p">(</span><span class="n">normal</span><span class="p">,</span><span class="n">N</span><span class="p">)</span>
+<span class="n">demand</span> <span class="o">=</span> <span class="n">demand0</span> <span class="o">-</span> <span class="n">rand</span><span class="p">(</span><span class="n">normal</span><span class="p">,</span><span class="n">N</span><span class="p">);</span>
 </pre></div>
 
 </div>
@@ -11932,11 +11972,232 @@ $$
 </div>
 
 </div>
-    </div>
-  </div>
-</body>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-julia"><pre><span></span><span class="k">module</span> <span class="n">nlopt</span>
 
- 
+    <span class="k">using</span> <span class="n">Distributions</span>
+    <span class="k">using</span> <span class="n">NLopt</span>
+    <span class="n">srand</span><span class="p">(</span><span class="mi">12345</span><span class="p">)</span>
+    <span class="n">normal</span> <span class="o">=</span> <span class="n">Normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.01</span><span class="p">)</span>
+    <span class="n">N</span> <span class="o">=</span> <span class="mi">100</span>
+    <span class="n">price</span> <span class="o">=</span> <span class="n">collect</span><span class="p">(</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.05</span><span class="p">,</span><span class="mf">0.95</span><span class="p">,</span><span class="n">N</span><span class="p">))</span>
+    <span class="n">beta0</span> <span class="o">=</span> <span class="mf">0.1</span>
+    <span class="n">demand0</span> <span class="o">=</span> <span class="p">(</span><span class="mf">1.0</span><span class="o">-</span><span class="n">price</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">beta0</span><span class="p">)</span>
+    <span class="n">demand</span> <span class="o">=</span> <span class="n">demand0</span> <span class="o">-</span> <span class="n">rand</span><span class="p">(</span><span class="n">normal</span><span class="p">,</span><span class="n">N</span><span class="p">)</span>
+
+    <span class="c"># objective function</span>
+    <span class="k">function</span> <span class="n">obj</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">g</span><span class="p">)</span>
+        <span class="c"># x = [e_1,...,e_N,beta] i.e. (N+1,1)</span>
+        
+        <span class="c"># gradient = [grad w.r.t e_1,</span>
+        <span class="c">#            ...,grad w.r.t e_N,</span>
+        <span class="c">#                grad w.r.t beta] i.e. (N+1,1)</span>
+        <span class="k">if</span> <span class="n">length</span><span class="p">(</span><span class="n">g</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">0</span>
+           <span class="n">g</span><span class="p">[</span><span class="o">:</span><span class="p">]</span> <span class="o">=</span> <span class="n">vcat</span><span class="p">(</span><span class="mf">2.0</span><span class="o">*</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="o">:</span><span class="p">(</span><span class="k">end</span><span class="o">-</span><span class="mi">1</span><span class="p">)],</span><span class="mf">0.0</span><span class="p">)</span>
+
+        <span class="k">end</span>
+        <span class="c"># value of objective</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="n">sum</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="o">:</span><span class="p">(</span><span class="k">end</span><span class="o">-</span><span class="mi">1</span><span class="p">)]</span><span class="o">.^</span><span class="mi">2</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">r</span>
+    <span class="k">end</span>
+
+    <span class="c"># </span>
+    <span class="k">function</span> <span class="n">constr</span><span class="p">(</span><span class="n">r</span><span class="o">::</span><span class="kt">Vector</span><span class="p">,</span><span class="n">x</span><span class="o">::</span><span class="kt">Vector</span><span class="p">,</span><span class="n">g</span><span class="o">::</span><span class="kt">Matrix</span><span class="p">,</span><span class="n">n</span><span class="p">,</span><span class="n">q</span><span class="p">,</span><span class="n">p</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">length</span><span class="p">(</span><span class="n">g</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span>
+            <span class="c"># g has to be n by m for nlopt</span>
+            <span class="n">g</span><span class="p">[</span><span class="o">:</span><span class="p">,</span><span class="o">:</span><span class="p">]</span> <span class="o">=</span> 
+        <span class="k">end</span>
+        <span class="c"># value of contraints</span>
+        <span class="n">r</span><span class="p">[</span><span class="o">:</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span> <span class="n">of</span> <span class="n">constraint</span>
+    <span class="k">end</span>
+    <span class="n">constr_clos</span><span class="p">(</span><span class="n">r</span><span class="o">::</span><span class="kt">Vector</span><span class="p">,</span><span class="n">x</span><span class="o">::</span><span class="kt">Vector</span><span class="p">,</span><span class="n">g</span><span class="o">::</span><span class="kt">Matrix</span><span class="p">)</span> <span class="o">=</span> <span class="n">constr</span><span class="p">(</span><span class="n">r</span><span class="o">::</span><span class="kt">Vector</span><span class="p">,</span><span class="n">x</span><span class="o">::</span><span class="kt">Vector</span><span class="p">,</span><span class="n">g</span><span class="o">::</span><span class="kt">Matrix</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">demand</span><span class="p">,</span><span class="n">price</span><span class="p">)</span>
+
+    <span class="k">function</span> <span class="n">run</span><span class="p">()</span>
+        <span class="n">opt</span> <span class="o">=</span> <span class="n">Opt</span><span class="p">(</span><span class="o">:</span><span class="n">LD_SLSQP</span><span class="p">,</span><span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">lower_bounds!</span><span class="p">(</span><span class="n">opt</span><span class="p">,[[</span><span class="o">-</span><span class="nb">Inf</span> <span class="k">for</span> <span class="n">i</span> <span class="kp">in</span> <span class="mi">1</span><span class="o">:</span><span class="n">N</span><span class="p">]</span><span class="o">...</span><span class="p">,</span><span class="mf">0.0</span><span class="p">])</span>
+        <span class="n">upper_bounds!</span><span class="p">(</span><span class="n">opt</span><span class="p">,[[</span><span class="nb">Inf</span> <span class="k">for</span> <span class="n">i</span> <span class="kp">in</span> <span class="mi">1</span><span class="o">:</span><span class="n">N</span><span class="p">]</span><span class="o">...</span><span class="p">,</span><span class="mf">1.0</span><span class="p">])</span>
+        <span class="n">min_objective!</span><span class="p">(</span><span class="n">opt</span><span class="p">,</span><span class="n">obj</span><span class="p">)</span>
+        <span class="n">equality_constraint!</span><span class="p">(</span><span class="n">opt</span><span class="p">,</span><span class="n">constr_clos</span><span class="p">,[</span><span class="mf">1e-10</span> <span class="k">for</span> <span class="n">i</span> <span class="kp">in</span> <span class="mi">1</span><span class="o">:</span><span class="n">N</span><span class="p">])</span>
+        <span class="n">xtol_rel!</span><span class="p">(</span><span class="n">opt</span><span class="p">,</span><span class="mf">1e-4</span><span class="p">)</span>
+        <span class="n">ftol_rel!</span><span class="p">(</span><span class="n">opt</span><span class="p">,</span><span class="mf">1e-6</span><span class="p">)</span>
+
+        <span class="n">res</span> <span class="o">=</span> <span class="n">optimize</span><span class="p">(</span><span class="n">opt</span><span class="p">,</span> <span class="n">vcat</span><span class="p">(</span><span class="n">rand</span><span class="p">(</span><span class="n">normal</span><span class="p">,</span><span class="n">N</span><span class="p">),</span><span class="mf">0.9</span><span class="p">))</span>
+        <span class="n">println</span><span class="p">(</span><span class="s">&quot;beta0 = </span><span class="si">$beta0</span><span class="s">&quot;</span><span class="p">)</span>
+        <span class="n">println</span><span class="p">(</span><span class="s">&quot;beta  = </span><span class="si">$</span><span class="p">(</span><span class="n">res</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="k">end</span><span class="p">])</span><span class="s">&quot;</span><span class="p">)</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
+        <span class="n">g</span> <span class="o">=</span><span class="n">zeros</span><span class="p">(</span><span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">N</span><span class="p">)</span>
+        <span class="n">constr</span><span class="p">(</span><span class="n">r</span><span class="p">,</span><span class="n">res</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span><span class="n">g</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">demand</span><span class="p">,</span><span class="n">price</span><span class="p">);</span>
+        <span class="n">println</span><span class="p">(</span><span class="s">&quot;maximal error of constraint at solution = </span><span class="si">$</span><span class="p">(</span><span class="n">maxabs</span><span class="p">(</span><span class="n">r</span><span class="p">))</span><span class="s">&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">res</span>
+    <span class="k">end</span>
+
+<span class="k">end</span> <span class="c"># module</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[9]:</div>
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>nlopt</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Task-5:-Implement-using-JuMP">Task 5: Implement using JuMP<a class="anchor-link" href="#Task-5:-Implement-using-JuMP">&#182;</a></h3><ul>
+<li>Here is where the fun starts.</li>
+<li>Go back to HW-constrained for some inspiration!</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-julia"><pre><span></span><span class="k">module</span> <span class="n">jump</span>
+
+    <span class="k">using</span> <span class="n">JuMP</span> 
+    <span class="k">using</span> <span class="n">Distributions</span>
+    <span class="n">srand</span><span class="p">(</span><span class="mi">12345</span><span class="p">)</span>
+    <span class="n">normal</span> <span class="o">=</span> <span class="n">Normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.01</span><span class="p">)</span>
+    
+    <span class="k">function</span> <span class="n">run</span><span class="p">()</span>
+
+        <span class="c"># create a model</span>
+
+        <span class="c"># define constants (N, price, etc)</span>
+        <span class="n">N</span> <span class="o">=</span> <span class="mi">100</span>
+        <span class="n">price</span> <span class="o">=</span> <span class="n">collect</span><span class="p">(</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.05</span><span class="p">,</span><span class="mf">0.95</span><span class="p">,</span><span class="n">N</span><span class="p">))</span>
+        <span class="n">beta0</span> <span class="o">=</span> <span class="mf">0.1</span>
+        <span class="n">demand0</span> <span class="o">=</span> <span class="p">(</span><span class="mf">1.0</span><span class="o">-</span><span class="n">price</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">beta0</span><span class="p">)</span>
+        <span class="n">demand</span> <span class="o">=</span> <span class="n">demand0</span> <span class="o">-</span> <span class="n">rand</span><span class="p">(</span><span class="n">normal</span><span class="p">,</span><span class="n">N</span><span class="p">)</span>
+
+        <span class="c">#define JuMP variables</span>
+
+
+        <span class="c"># define constraints and objective</span>
+
+
+        <span class="c"># solve</span>
+        <span class="n">status</span> <span class="o">=</span> <span class="n">solve</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+        <span class="kt">Dict</span><span class="p">(</span><span class="o">:</span><span class="n">obj</span><span class="o">=&gt;</span><span class="n">getobjectivevalue</span><span class="p">(</span><span class="n">m</span><span class="p">),</span><span class="o">:</span><span class="n">beta</span><span class="o">=&gt;</span><span class="n">getvalue</span><span class="p">(</span><span class="n">beta</span><span class="p">),</span><span class="o">:</span><span class="n">eps</span><span class="o">=&gt;</span><span class="n">getvalue</span><span class="p">(</span><span class="n">eps</span><span class="p">))</span>
+    <span class="k">end</span>
+<span class="k">end</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>WARNING: replacing module jump
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[10]:</div>
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>jump</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div></section></section>
+</div>
+</div>
+
+<script>
+
+require(
+    {
+      // it makes sense to wait a little bit when you are loading
+      // reveal from a cdn in a slow connection environment
+      waitSeconds: 15
+    },
+    [
+      "reveal.js/lib/js/head.min.js",
+      "reveal.js/js/reveal.js"
+    ],
+
+    function(head, Reveal){
+
+        // Full list of configuration options available here: https://github.com/hakimel/reveal.js#configuration
+        Reveal.initialize({
+            controls: true,
+            progress: true,
+            history: true,
+
+            theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+            transition: Reveal.getQueryHash().transition || 'linear', // default/cube/page/concave/zoom/linear/none
+
+            // Optional libraries used to extend on reveal.js
+            dependencies: [
+                { src: "reveal.js/lib/js/classList.js",
+                  condition: function() { return !document.body.classList; } },
+                { src: "reveal.js/plugin/notes/notes.js",
+                  async: true,
+                  condition: function() { return !!document.body.classList; } }
+            ]
+        });
+
+        var update = function(event){
+          if(MathJax.Hub.getAllJax(Reveal.getCurrentSlide())){
+            MathJax.Hub.Rerender(Reveal.getCurrentSlide());
+          }
+        };
+
+        Reveal.addEventListener('slidechanged', update);
+
+        var update_scroll = function(event){
+          $(".reveal").scrollTop(0);
+        };
+
+        Reveal.addEventListener('slidechanged', update_scroll);
+
+    }
+);
+</script>
+
+</body>
 
 
 </html>

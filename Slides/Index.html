@@ -11710,8 +11710,10 @@ ul.typeahead-list > li > a {
 .highlight .mh { color: #666666 } /* Literal.Number.Hex */
 .highlight .mi { color: #666666 } /* Literal.Number.Integer */
 .highlight .mo { color: #666666 } /* Literal.Number.Oct */
+.highlight .sa { color: #BA2121 } /* Literal.String.Affix */
 .highlight .sb { color: #BA2121 } /* Literal.String.Backtick */
 .highlight .sc { color: #BA2121 } /* Literal.String.Char */
+.highlight .dl { color: #BA2121 } /* Literal.String.Delimiter */
 .highlight .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
 .highlight .s2 { color: #BA2121 } /* Literal.String.Double */
 .highlight .se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
@@ -11722,9 +11724,11 @@ ul.typeahead-list > li > a {
 .highlight .s1 { color: #BA2121 } /* Literal.String.Single */
 .highlight .ss { color: #19177C } /* Literal.String.Symbol */
 .highlight .bp { color: #008000 } /* Name.Builtin.Pseudo */
+.highlight .fm { color: #0000FF } /* Name.Function.Magic */
 .highlight .vc { color: #19177C } /* Name.Variable.Class */
 .highlight .vg { color: #19177C } /* Name.Variable.Global */
 .highlight .vi { color: #19177C } /* Name.Variable.Instance */
+.highlight .vm { color: #19177C } /* Name.Variable.Magic */
 .highlight .il { color: #666666 } /* Literal.Number.Integer.Long */
     </style>
 <style type="text/css">
@@ -11879,30 +11883,46 @@ a.anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Course-Materials">Course Materials<a class="anchor-link" href="#Course-Materials">&#182;</a></h2><p>You can look at the material in a variety of formats. All content is given as <code>IJulia</code> notebooks, which you can edit on your computer, and from those notebooks I create <code>html</code> rendered versions, <code>pdf</code>s and html slides. The link below point to the actual website, so in case you are offline, just go to <code>/whereto/on/your/computer</code> and open files from that location. For example, to open the IJulia notebooks, do in julia</p>
+<h2 id="Course-Materials">Course Materials<a class="anchor-link" href="#Course-Materials">&#182;</a></h2><p>You can look at the material in a variety of formats. All content is given as <code>IJulia</code> notebooks, which you can edit on your computer, and from those notebooks I create <code>html</code> rendered versions, <code>pdf</code>s and html slides. The links below point to the actual website, so you need to be online to view them.</p>
+<ul>
+<li>Pdf versions do not contain outputs of plotting commands</li>
+<li>But Pdf versions contain proper Bibtex citations</li>
+</ul>
+<p>In case you are offline, and if you cloned this repo as described above, just go to <code>/whereto/on/your/computer</code> and open files from that location. For example, to open the IJulia notebooks, do in julia</p>
 <div class="highlight"><pre><span></span><span class="n">Pkg</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s">&quot;IJulia&quot;</span><span class="p">)</span> <span class="c"># use once to install IJulia</span>
 <span class="k">using</span> <span class="n">IJulia</span>
 <span class="n">notebook</span><span class="p">(</span><span class="n">dir</span><span class="o">=</span><span class="s">&quot;/whereto/on/your/computer/Notebooks&quot;</span><span class="p">)</span>  <span class="c"># that&#39;s the dir from above!</span>
 </pre></div>
-<p>This will open up the Jupyter notebook at the location of your notebooks</p>
+<p>This will open up the Jupyter notebook at the location of your notebooks.</p>
 <h3 id="Html-Rendered-Notebooks">Html Rendered Notebooks<a class="anchor-link" href="#Html-Rendered-Notebooks">&#182;</a></h3><p><a href="https://ScPo-CompEcon.github.io/CoursePack/Html/BasicIntroduction">Basic Introduction to Julia</a><br>
 <a href="https://ScPo-CompEcon.github.io/CoursePack/Html/BasicComputing">Basic Introduction to Computing</a><br>
 <a href="https://ScPo-CompEcon.github.io/CoursePack/Html/integration">Numerical Integration</a><br>
 <a href="https://ScPo-CompEcon.github.io/CoursePack/Html/PlotsJL">Plots.jl</a><br>
 <a href="https://ScPo-CompEcon.github.io/CoursePack/Html/funcapprox">Function Approximation</a><br>
-<a href="https://ScPo-CompEcon.github.io/CoursePack/Html/optimization">Unconstrained Optimization</a></p>
+<a href="https://ScPo-CompEcon.github.io/CoursePack/Html/optimization">Unconstrained Optimization</a><br>
+<a href="https://ScPo-CompEcon.github.io/CoursePack/Html/constrained-optimization">Constrained Optimization</a><br>
+<a href="https://ScPo-CompEcon.github.io/CoursePack/Html/dynamic-programming">Dynamic Programming</a><br>
+<a href="https://ScPo-CompEcon.github.io/CoursePack/Html/mpec-starters">MPEC for Starters</a><br>
+<a href="https://ScPo-CompEcon.github.io/CoursePack/Html/HPC">Julia HPC</a></p>
 <h3 id="Slides">Slides<a class="anchor-link" href="#Slides">&#182;</a></h3><p><a href="https://ScPo-CompEcon.github.io/CoursePack/Slides/BasicIntroduction">Basic Introduction to Julia</a><br>
 <a href="https://ScPo-CompEcon.github.io/CoursePack/Slides/BasicComputing">Basic Introduction to Computing</a><br>
 <a href="https://ScPo-CompEcon.github.io/CoursePack/Slides/PlotsJL">Plots.jl</a><br>
 <a href="https://ScPo-CompEcon.github.io/CoursePack/Slides/integration">Numerical Integration</a><br>
 <a href="https://ScPo-CompEcon.github.io/CoursePack/Slides/funcapprox">Function Approximation</a><br>
-<a href="https://ScPo-CompEcon.github.io/CoursePack/Slides/optimization">Unconstrained Optimization</a></p>
-<h3 id="Pdf-(does-not-contain-plots!)">Pdf (does not contain plots!)<a class="anchor-link" href="#Pdf-(does-not-contain-plots!)">&#182;</a></h3><p><a href="https://ScPo-CompEcon.github.io/CoursePack/Pdfs/BasicIntroduction.pdf">Basic Introduction to Julia</a><br>
+<a href="https://ScPo-CompEcon.github.io/CoursePack/Slides/optimization">Unconstrained Optimization</a><br>
+<a href="https://ScPo-CompEcon.github.io/CoursePack/Slides/constrained-optimization">Constrained Optimization</a><br>
+<a href="https://ScPo-CompEcon.github.io/CoursePack/Slides/dynamic-programming">Dynamic Programming</a><br>
+<a href="https://ScPo-CompEcon.github.io/CoursePack/Slides/HPC">Julia HPC</a></p>
+<h3 id="Pdf-(does-not-contain-plots---But-proper-citations!)">Pdf (does not contain plots - But proper citations!)<a class="anchor-link" href="#Pdf-(does-not-contain-plots---But-proper-citations!)">&#182;</a></h3><p><a href="https://ScPo-CompEcon.github.io/CoursePack/Pdfs/BasicIntroduction.pdf">Basic Introduction to Julia</a><br>
 <a href="https://ScPo-CompEcon.github.io/CoursePack/Pdfs/BasicComputing.pdf">Basic Introduction to Computing</a><br>
 <a href="https://ScPo-CompEcon.github.io/CoursePack/Pdfs/PlotsJL.pdf">Plots.jl</a><br>
 <a href="https://ScPo-CompEcon.github.io/CoursePack/Pdfs/integration.pdf">Numerical Integration</a><br>
 <a href="https://ScPo-CompEcon.github.io/CoursePack/Pdfs/funcapprox.pdf">Function Approximation</a><br>
-<a href="https://ScPo-CompEcon.github.io/CoursePack/Pdfs/optimization.pdf">Unconstrained Optimization</a></p>
+<a href="https://ScPo-CompEcon.github.io/CoursePack/Pdfs/optimization.pdf">Unconstrained Optimization</a><br>
+<a href="https://ScPo-CompEcon.github.io/CoursePack/Pdfs/constrained-optimization.pdf">Constrained Optimization</a><br>
+<a href="https://ScPo-CompEcon.github.io/CoursePack/Pdfs/dynamic-programming.pdf">Dynamic Programming</a><br>
+<a href="https://ScPo-CompEcon.github.io/CoursePack/Pdfs/dp-estimation.pdf">Estimating DP models</a><br>
+<a href="https://ScPo-CompEcon.github.io/CoursePack/Pdfs/CEPM.pdf">MPEC for starters</a></p>
 <h2 id="Required-Packages">Required Packages<a class="anchor-link" href="#Required-Packages">&#182;</a></h2><p>Please have all of those installed. This list will be updated!</p>
 <ul>
 <li><a href="https://github.com/JuliaPlots/Plots.jl">Plots.jl</a></li>
@@ -11921,6 +11941,11 @@ a.anchor-link {
 <li><a href="https://github.com/JuliaMath/Interpolations.jl">Interpolations.jl</a></li>
 <li><a href="https://github.com/floswald/ApproXD.jl">ApproXD.jl</a></li>
 <li><a href="https://github.com/JuliaNLSolvers/Optim.jl">Optim.jl</a></li>
+<li><a href="https://github.com/JuliaOpt/JuMP.jl">JuMP.jl</a>  </li>
+<li><a href="https://github.com/JuliaOpt/NLopt.jl">NLopt.jl</a>  </li>
+<li><a href="https://github.com/JuliaOpt/Ipopt.jl">Ipopt.jl</a>  </li>
+<li><a href="https://github.com/QuantEcon/CompEcon.jl">CompEcon.jl</a>  </li>
+<li><a href="https://github.com/JuliaCI/Coverage.jl">Coverage.jl</a>  </li>
 </ul>
 
 </div>

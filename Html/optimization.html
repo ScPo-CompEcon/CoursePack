@@ -11654,8 +11654,10 @@ ul.typeahead-list > li > a {
 .highlight .mh { color: #666666 } /* Literal.Number.Hex */
 .highlight .mi { color: #666666 } /* Literal.Number.Integer */
 .highlight .mo { color: #666666 } /* Literal.Number.Oct */
+.highlight .sa { color: #BA2121 } /* Literal.String.Affix */
 .highlight .sb { color: #BA2121 } /* Literal.String.Backtick */
 .highlight .sc { color: #BA2121 } /* Literal.String.Char */
+.highlight .dl { color: #BA2121 } /* Literal.String.Delimiter */
 .highlight .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
 .highlight .s2 { color: #BA2121 } /* Literal.String.Double */
 .highlight .se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
@@ -11666,9 +11668,11 @@ ul.typeahead-list > li > a {
 .highlight .s1 { color: #BA2121 } /* Literal.String.Single */
 .highlight .ss { color: #19177C } /* Literal.String.Symbol */
 .highlight .bp { color: #008000 } /* Name.Builtin.Pseudo */
+.highlight .fm { color: #0000FF } /* Name.Function.Magic */
 .highlight .vc { color: #19177C } /* Name.Variable.Class */
 .highlight .vg { color: #19177C } /* Name.Variable.Global */
 .highlight .vi { color: #19177C } /* Name.Variable.Instance */
+.highlight .vm { color: #19177C } /* Name.Variable.Magic */
 .highlight .il { color: #666666 } /* Literal.Number.Integer.Long */
     </style>
 <style type="text/css">
@@ -12089,7 +12093,7 @@ $$x^* \text{ where } f(x^*) \leq f(x)\quad \forall x \in \mathcal{N}$$ where $\m
 <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">=</span> <span class="n">exp</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">-</span> <span class="n">x</span><span class="o">^</span><span class="mi">4</span>
 <span class="n">minf</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">=</span> <span class="o">-</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 <span class="n">brent</span> <span class="o">=</span> <span class="n">optimize</span><span class="p">(</span><span class="n">minf</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="n">Brent</span><span class="p">())</span>
-<span class="n">golden</span> <span class="o">=</span> <span class="n">optimize</span><span class="p">(</span><span class="n">minf</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="n">GoldenSection</span><span class="p">())</span>
+<span class="nb">golden</span> <span class="o">=</span> <span class="n">optimize</span><span class="p">(</span><span class="n">minf</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="n">GoldenSection</span><span class="p">())</span>
 <span class="n">println</span><span class="p">(</span><span class="s">&quot;brent = </span><span class="si">$brent</span><span class="s">&quot;</span><span class="p">)</span>
 <span class="n">println</span><span class="p">(</span><span class="s">&quot;golden = </span><span class="si">$golden</span><span class="s">&quot;</span><span class="p">)</span>
 <span class="n">plot</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
@@ -12149,16 +12153,16 @@ golden = Results of Optimization Algorithm
 <div class=" highlight hl-julia"><pre><span></span><span class="c"># how well does this do with many local minima?</span>
 <span class="n">fun</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">=</span> <span class="n">exp</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">-</span> <span class="n">x</span><span class="o">^</span><span class="mi">4</span> <span class="o">+</span><span class="n">sin</span><span class="p">(</span><span class="mi">40</span><span class="o">*</span><span class="n">x</span><span class="p">)</span>
 <span class="n">minf</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">=</span> <span class="o">-</span><span class="n">fun</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="n">grid</span> <span class="o">=</span> <span class="n">collect</span><span class="p">(</span><span class="mi">0</span><span class="p">:</span><span class="mf">0.000001</span><span class="p">:</span><span class="mi">2</span><span class="p">);</span>
+<span class="n">grid</span> <span class="o">=</span> <span class="n">collect</span><span class="p">(</span><span class="mi">0</span><span class="o">:</span><span class="mf">0.000001</span><span class="o">:</span><span class="mi">2</span><span class="p">);</span>
 <span class="c"># fun.(grid)</span>
 <span class="c"># v,idx  = findmax(fun.(grid))</span>
-<span class="n">v</span><span class="p">,</span><span class="n">idx</span>  <span class="o">=</span> <span class="n">findmax</span><span class="p">(</span><span class="kt">Float64</span><span class="p">[</span><span class="n">fun</span><span class="o">.</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="k">in</span> <span class="n">grid</span><span class="p">])</span>
-<span class="n">println</span><span class="p">(</span><span class="s">&quot;grid maximizer is </span><span class="si">$(grid[idx])</span><span class="s">&quot;</span><span class="p">)</span>
-<span class="n">golden</span> <span class="o">=</span> <span class="n">optimize</span><span class="p">(</span><span class="n">minf</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="n">GoldenSection</span><span class="p">())</span>
+<span class="n">v</span><span class="p">,</span><span class="n">idx</span>  <span class="o">=</span> <span class="n">findmax</span><span class="p">(</span><span class="kt">Float64</span><span class="p">[</span><span class="n">fun</span><span class="o">.</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="kp">in</span> <span class="n">grid</span><span class="p">])</span>
+<span class="n">println</span><span class="p">(</span><span class="s">&quot;grid maximizer is </span><span class="si">$</span><span class="p">(</span><span class="n">grid</span><span class="p">[</span><span class="n">idx</span><span class="p">])</span><span class="s">&quot;</span><span class="p">)</span>
+<span class="nb">golden</span> <span class="o">=</span> <span class="n">optimize</span><span class="p">(</span><span class="n">minf</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="n">GoldenSection</span><span class="p">())</span>
 <span class="n">brent</span> <span class="o">=</span> <span class="n">optimize</span><span class="p">(</span><span class="n">minf</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="n">Brent</span><span class="p">())</span>
 <span class="k">using</span> <span class="n">Base</span><span class="o">.</span><span class="n">Test</span>
-<span class="n">println</span><span class="p">(</span><span class="s">&quot;brent minimizer = </span><span class="si">$(brent.minimizer)</span><span class="s">&quot;</span><span class="p">)</span>
-<span class="n">println</span><span class="p">(</span><span class="s">&quot;golden minimizer = </span><span class="si">$(golden.minimizer)</span><span class="s">&quot;</span><span class="p">)</span>
+<span class="n">println</span><span class="p">(</span><span class="s">&quot;brent minimizer = </span><span class="si">$</span><span class="p">(</span><span class="n">brent</span><span class="o">.</span><span class="n">minimizer</span><span class="p">)</span><span class="s">&quot;</span><span class="p">)</span>
+<span class="n">println</span><span class="p">(</span><span class="s">&quot;golden minimizer = </span><span class="si">$</span><span class="p">(</span><span class="nb">golden</span><span class="o">.</span><span class="n">minimizer</span><span class="p">)</span><span class="s">&quot;</span><span class="p">)</span>
 <span class="n">plot</span><span class="p">(</span><span class="n">fun</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
 </pre></div>
 
@@ -12318,11 +12322,11 @@ golden minimizer = 0.8310314579502819
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="c"># grid search on rosenbrock</span>
-<span class="n">grid</span> <span class="o">=</span> <span class="n">collect</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">:</span><span class="mf">0.1</span><span class="p">:</span><span class="mi">3</span><span class="p">);</span>
-<span class="n">grid2D</span> <span class="o">=</span> <span class="p">[[</span><span class="n">i</span><span class="p">;</span><span class="n">j</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="k">in</span> <span class="n">grid</span><span class="p">,</span><span class="n">j</span> <span class="k">in</span> <span class="n">grid</span><span class="p">];</span>
+<span class="n">grid</span> <span class="o">=</span> <span class="n">collect</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="o">:</span><span class="mf">0.1</span><span class="o">:</span><span class="mi">3</span><span class="p">);</span>
+<span class="n">grid2D</span> <span class="o">=</span> <span class="p">[[</span><span class="n">i</span><span class="p">;</span><span class="n">j</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="kp">in</span> <span class="n">grid</span><span class="p">,</span><span class="n">j</span> <span class="kp">in</span> <span class="n">grid</span><span class="p">];</span>
 <span class="n">val2D</span> <span class="o">=</span> <span class="n">map</span><span class="p">(</span><span class="n">rosenbrock</span><span class="o">.</span><span class="n">f</span><span class="p">,</span><span class="n">grid2D</span><span class="p">);</span>
 <span class="n">r</span> <span class="o">=</span> <span class="n">findmin</span><span class="p">(</span><span class="n">val2D</span><span class="p">);</span>
-<span class="n">println</span><span class="p">(</span><span class="s">&quot;grid search results in minimizer = </span><span class="si">$(grid2D[r[2]])</span><span class="s">&quot;</span><span class="p">)</span>
+<span class="n">println</span><span class="p">(</span><span class="s">&quot;grid search results in minimizer = </span><span class="si">$</span><span class="p">(</span><span class="n">grid2D</span><span class="p">[</span><span class="n">r</span><span class="p">[</span><span class="mi">2</span><span class="p">]])</span><span class="s">&quot;</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -12629,9 +12633,9 @@ $$ \nabla f(x_k) = \left[ \begin{array}{c} -2 \\ 20 \end{array} \right], \quad \
 
 <span class="n">println</span><span class="p">(</span><span class="s">&quot;gradient descent = </span><span class="si">$GD</span><span class="s">&quot;</span><span class="p">)</span>
 <span class="n">println</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)</span>
-<span class="n">println</span><span class="p">(</span><span class="s">&quot;gradient descent 2 = </span><span class="si">$GD</span><span class="s">1&quot;</span><span class="p">)</span>
+<span class="n">println</span><span class="p">(</span><span class="s">&quot;gradient descent 2 = </span><span class="si">$GD1</span><span class="s">&quot;</span><span class="p">)</span>
 <span class="n">println</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)</span>
-<span class="n">println</span><span class="p">(</span><span class="s">&quot;gradient descent 3 = </span><span class="si">$GD</span><span class="s">2&quot;</span><span class="p">)</span>
+<span class="n">println</span><span class="p">(</span><span class="s">&quot;gradient descent 3 = </span><span class="si">$GD2</span><span class="s">&quot;</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -12734,7 +12738,7 @@ gradient descent 3 = Results of Optimization Algorithm
 <div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-julia"><pre><span></span><span class="n">optimize</span><span class="p">(</span><span class="n">rosenbrock</span><span class="o">.</span><span class="n">f</span><span class="p">,</span> <span class="n">rosenbrock</span><span class="o">.</span><span class="n">g!</span><span class="p">,</span> <span class="n">rosenbrock</span><span class="o">.</span><span class="n">h!</span><span class="p">,</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span> <span class="n">Newton</span><span class="p">(),</span><span class="n">Optim</span><span class="o">.</span><span class="n">Options</span><span class="p">(</span><span class="n">show_trace</span><span class="o">=</span><span class="n">true</span><span class="p">))</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="n">optimize</span><span class="p">(</span><span class="n">rosenbrock</span><span class="o">.</span><span class="n">f</span><span class="p">,</span> <span class="n">rosenbrock</span><span class="o">.</span><span class="n">g!</span><span class="p">,</span> <span class="n">rosenbrock</span><span class="o">.</span><span class="n">h!</span><span class="p">,</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span> <span class="n">Newton</span><span class="p">(),</span><span class="n">Optim</span><span class="o">.</span><span class="n">Options</span><span class="p">(</span><span class="n">show_trace</span><span class="o">=</span><span class="kc">true</span><span class="p">))</span>
 </pre></div>
 
 </div>
@@ -12823,9 +12827,9 @@ gradient descent 3 = Results of Optimization Algorithm
 <div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-julia"><pre><span></span><span class="p">@</span><span class="n">show</span> <span class="n">optimize</span><span class="p">(</span><span class="n">rosenbrock</span><span class="o">.</span><span class="n">f</span><span class="p">,</span> <span class="n">rosenbrock</span><span class="o">.</span><span class="n">g!</span><span class="p">,</span> <span class="n">rosenbrock</span><span class="o">.</span><span class="n">h!</span><span class="p">,</span>  <span class="p">[</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">],</span> <span class="n">BFGS</span><span class="p">());</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="nd">@show</span> <span class="n">optimize</span><span class="p">(</span><span class="n">rosenbrock</span><span class="o">.</span><span class="n">f</span><span class="p">,</span> <span class="n">rosenbrock</span><span class="o">.</span><span class="n">g!</span><span class="p">,</span> <span class="n">rosenbrock</span><span class="o">.</span><span class="n">h!</span><span class="p">,</span>  <span class="p">[</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">],</span> <span class="n">BFGS</span><span class="p">());</span>
 <span class="c"># low memory BFGS</span>
-<span class="p">@</span><span class="n">show</span> <span class="n">optimize</span><span class="p">(</span><span class="n">rosenbrock</span><span class="o">.</span><span class="n">f</span><span class="p">,</span> <span class="n">rosenbrock</span><span class="o">.</span><span class="n">g!</span><span class="p">,</span> <span class="n">rosenbrock</span><span class="o">.</span><span class="n">h!</span><span class="p">,</span>  <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span> <span class="n">LBFGS</span><span class="p">());</span>
+<span class="nd">@show</span> <span class="n">optimize</span><span class="p">(</span><span class="n">rosenbrock</span><span class="o">.</span><span class="n">f</span><span class="p">,</span> <span class="n">rosenbrock</span><span class="o">.</span><span class="n">g!</span><span class="p">,</span> <span class="n">rosenbrock</span><span class="o">.</span><span class="n">h!</span><span class="p">,</span>  <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span> <span class="n">LBFGS</span><span class="p">());</span>
 </pre></div>
 
 </div>

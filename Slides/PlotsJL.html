@@ -11710,8 +11710,10 @@ ul.typeahead-list > li > a {
 .highlight .mh { color: #666666 } /* Literal.Number.Hex */
 .highlight .mi { color: #666666 } /* Literal.Number.Integer */
 .highlight .mo { color: #666666 } /* Literal.Number.Oct */
+.highlight .sa { color: #BA2121 } /* Literal.String.Affix */
 .highlight .sb { color: #BA2121 } /* Literal.String.Backtick */
 .highlight .sc { color: #BA2121 } /* Literal.String.Char */
+.highlight .dl { color: #BA2121 } /* Literal.String.Delimiter */
 .highlight .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
 .highlight .s2 { color: #BA2121 } /* Literal.String.Double */
 .highlight .se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
@@ -11722,9 +11724,11 @@ ul.typeahead-list > li > a {
 .highlight .s1 { color: #BA2121 } /* Literal.String.Single */
 .highlight .ss { color: #19177C } /* Literal.String.Symbol */
 .highlight .bp { color: #008000 } /* Name.Builtin.Pseudo */
+.highlight .fm { color: #0000FF } /* Name.Function.Magic */
 .highlight .vc { color: #19177C } /* Name.Variable.Class */
 .highlight .vg { color: #19177C } /* Name.Variable.Global */
 .highlight .vi { color: #19177C } /* Name.Variable.Instance */
+.highlight .vm { color: #19177C } /* Name.Variable.Magic */
 .highlight .il { color: #666666 } /* Literal.Number.Integer.Long */
     </style>
 <style type="text/css">
@@ -12698,7 +12702,7 @@ a.hasLines(e)||l(t,e,d)),d("hoverinfo",1===f._dataLength?"a+b+c+text":void 0),"t
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="c"># different linetypes</span>
-<span class="n">plot</span><span class="p">(</span><span class="n">rand</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span><span class="n">line</span><span class="o">=</span><span class="p">(:</span><span class="n">dot</span><span class="p">,:</span><span class="n">auto</span><span class="p">),</span><span class="n">marker</span><span class="o">=</span><span class="p">([:</span><span class="n">circle</span> <span class="p">:</span><span class="n">diamond</span><span class="p">]),</span><span class="n">color</span><span class="o">=</span><span class="p">[:</span><span class="n">green</span> <span class="p">:</span><span class="n">orange</span><span class="p">])</span>
+<span class="n">plot</span><span class="p">(</span><span class="n">rand</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span><span class="n">line</span><span class="o">=</span><span class="p">(</span><span class="o">:</span><span class="n">dot</span><span class="p">,</span><span class="o">:</span><span class="n">auto</span><span class="p">),</span><span class="n">marker</span><span class="o">=</span><span class="p">([</span><span class="o">:</span><span class="n">circle</span> <span class="o">:</span><span class="n">diamond</span><span class="p">]),</span><span class="n">color</span><span class="o">=</span><span class="p">[</span><span class="o">:</span><span class="n">green</span> <span class="o">:</span><span class="n">orange</span><span class="p">])</span>
 </pre></div>
 
 </div>
@@ -12740,7 +12744,7 @@ a.hasLines(e)||l(t,e,d)),d("hoverinfo",1===f._dataLength?"a+b+c+text":void 0),"t
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="c"># histogram</span>
-<span class="n">histogram</span><span class="p">(</span><span class="n">randn</span><span class="p">(</span><span class="mi">1000</span><span class="p">),</span><span class="n">nbins</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span><span class="n">legend</span><span class="o">=</span><span class="n">false</span><span class="p">,</span><span class="n">title</span><span class="o">=</span><span class="s">&quot;My Histogram!&quot;</span><span class="p">,</span><span class="n">ylabel</span><span class="o">=</span><span class="s">&quot;counts&quot;</span><span class="p">)</span>
+<span class="n">histogram</span><span class="p">(</span><span class="n">randn</span><span class="p">(</span><span class="mi">1000</span><span class="p">),</span><span class="n">nbins</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span><span class="n">legend</span><span class="o">=</span><span class="kc">false</span><span class="p">,</span><span class="n">title</span><span class="o">=</span><span class="s">&quot;My Histogram!&quot;</span><span class="p">,</span><span class="n">ylabel</span><span class="o">=</span><span class="s">&quot;counts&quot;</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -12782,7 +12786,7 @@ a.hasLines(e)||l(t,e,d)),d("hoverinfo",1===f._dataLength?"a+b+c+text":void 0),"t
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="c"># add to an existing plot later:</span>
-<span class="n">plot</span><span class="p">(</span><span class="n">rand</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span> <span class="o">/</span> <span class="mi">3</span><span class="p">,</span><span class="n">reg</span><span class="o">=</span><span class="n">true</span><span class="p">,</span><span class="n">fill</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,:</span><span class="n">red</span><span class="p">))</span>
+<span class="n">plot</span><span class="p">(</span><span class="n">rand</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span> <span class="o">/</span> <span class="mi">3</span><span class="p">,</span><span class="n">reg</span><span class="o">=</span><span class="kc">true</span><span class="p">,</span><span class="n">fill</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="o">:</span><span class="n">red</span><span class="p">))</span>
 </pre></div>
 
 </div>
@@ -12824,7 +12828,7 @@ a.hasLines(e)||l(t,e,d)),d("hoverinfo",1===f._dataLength?"a+b+c+text":void 0),"t
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="c"># ... with plot! or scatter!</span>
-<span class="n">scatter!</span><span class="p">(</span><span class="n">rand</span><span class="p">(</span><span class="mi">100</span><span class="p">),</span><span class="n">marker</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,:</span><span class="n">circle</span><span class="p">),</span><span class="n">color</span><span class="o">=</span><span class="p">:</span><span class="n">black</span><span class="p">)</span>
+<span class="n">scatter!</span><span class="p">(</span><span class="n">rand</span><span class="p">(</span><span class="mi">100</span><span class="p">),</span><span class="n">marker</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="o">:</span><span class="n">circle</span><span class="p">),</span><span class="n">color</span><span class="o">=:</span><span class="n">black</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -12878,7 +12882,7 @@ a.hasLines(e)||l(t,e,d)),d("hoverinfo",1===f._dataLength?"a+b+c+text":void 0),"t
 <div class="prompt input_prompt">In&nbsp;[13]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-julia"><pre><span></span><span class="n">plot</span><span class="p">(</span><span class="n">rand</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">4</span><span class="p">),</span><span class="n">layout</span> <span class="o">=</span> <span class="mi">4</span><span class="p">,</span><span class="n">legend</span><span class="o">=</span><span class="n">false</span><span class="p">)</span>  <span class="c"># make 4 equal sized subplots</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="n">plot</span><span class="p">(</span><span class="n">rand</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">4</span><span class="p">),</span><span class="n">layout</span> <span class="o">=</span> <span class="mi">4</span><span class="p">,</span><span class="n">legend</span><span class="o">=</span><span class="kc">false</span><span class="p">)</span>  <span class="c"># make 4 equal sized subplots</span>
 </pre></div>
 
 </div>
@@ -12920,9 +12924,9 @@ a.hasLines(e)||l(t,e,d)),d("hoverinfo",1===f._dataLength?"a+b+c+text":void 0),"t
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="c"># specify the size of subplots</span>
-<span class="n">l</span> <span class="o">=</span> <span class="p">@</span><span class="n">layout</span><span class="p">([</span><span class="n">a</span><span class="p">{</span><span class="mf">0.1</span><span class="n">h</span><span class="p">};</span><span class="n">b</span> <span class="p">[</span><span class="n">c</span> <span class="n">d</span><span class="p">;</span> <span class="n">e</span><span class="p">]])</span>
+<span class="n">l</span> <span class="o">=</span> <span class="nd">@layout</span><span class="p">([</span><span class="n">a</span><span class="p">{</span><span class="mf">0.1</span><span class="n">h</span><span class="p">};</span><span class="n">b</span> <span class="p">[</span><span class="n">c</span> <span class="n">d</span><span class="p">;</span> <span class="nb">e</span><span class="p">]])</span>
 <span class="n">pyplot</span><span class="p">()</span>
-<span class="n">plot</span><span class="p">(</span><span class="n">randn</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span><span class="n">layout</span><span class="o">=</span><span class="n">l</span><span class="p">,</span><span class="n">t</span><span class="o">=</span><span class="p">[:</span><span class="n">line</span> <span class="p">:</span><span class="n">histogram</span> <span class="p">:</span><span class="n">scatter</span> <span class="p">:</span><span class="n">steppre</span> <span class="p">:</span><span class="n">bar</span><span class="p">],</span><span class="n">leg</span><span class="o">=</span><span class="n">false</span><span class="p">,</span><span class="n">ticks</span><span class="o">=</span><span class="n">nothing</span><span class="p">,</span><span class="n">border</span><span class="o">=</span><span class="n">false</span><span class="p">)</span>
+<span class="n">plot</span><span class="p">(</span><span class="n">randn</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span><span class="n">layout</span><span class="o">=</span><span class="n">l</span><span class="p">,</span><span class="n">t</span><span class="o">=</span><span class="p">[</span><span class="o">:</span><span class="n">line</span> <span class="o">:</span><span class="n">histogram</span> <span class="o">:</span><span class="n">scatter</span> <span class="o">:</span><span class="n">steppre</span> <span class="o">:</span><span class="n">bar</span><span class="p">],</span><span class="n">leg</span><span class="o">=</span><span class="kc">false</span><span class="p">,</span><span class="n">ticks</span><span class="o">=</span><span class="nb">nothing</span><span class="p">,</span><span class="n">border</span><span class="o">=</span><span class="kc">false</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -12953,9 +12957,9 @@ a.hasLines(e)||l(t,e,d)),d("hoverinfo",1===f._dataLength?"a+b+c+text":void 0),"t
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="c"># we can also sequentially build plots and then stack them together</span>
-<span class="n">ty</span> <span class="o">=</span> <span class="p">[:</span><span class="n">line</span> <span class="p">:</span><span class="n">histogram</span> <span class="p">:</span><span class="n">scatter</span> <span class="p">:</span><span class="n">steppre</span> <span class="p">:</span><span class="n">bar</span><span class="p">]</span>
+<span class="n">ty</span> <span class="o">=</span> <span class="p">[</span><span class="o">:</span><span class="n">line</span> <span class="o">:</span><span class="n">histogram</span> <span class="o">:</span><span class="n">scatter</span> <span class="o">:</span><span class="n">steppre</span> <span class="o">:</span><span class="n">bar</span><span class="p">]</span>
 <span class="n">p</span> <span class="o">=</span> <span class="kt">Any</span><span class="p">[]</span>
-<span class="k">for</span> <span class="n">typ</span> <span class="k">in</span> <span class="n">ty</span>
+<span class="k">for</span> <span class="n">typ</span> <span class="kp">in</span> <span class="n">ty</span>
     <span class="n">push!</span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="n">plot</span><span class="p">(</span><span class="n">rand</span><span class="p">(</span><span class="mi">100</span><span class="p">),</span><span class="n">t</span><span class="o">=</span><span class="n">typ</span><span class="p">,</span><span class="n">title</span><span class="o">=</span><span class="s">&quot;</span><span class="si">$typ</span><span class="s"> plot&quot;</span><span class="p">))</span>
 <span class="k">end</span>
 <span class="n">plot</span><span class="p">(</span><span class="n">p</span><span class="o">...</span><span class="p">)</span>
@@ -12989,7 +12993,7 @@ a.hasLines(e)||l(t,e,d)),d("hoverinfo",1===f._dataLength?"a+b+c+text":void 0),"t
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="c"># ... and we can also add to the subplots in the same way</span>
-<span class="n">plot!</span><span class="p">(</span><span class="n">rand</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span><span class="n">t</span><span class="o">=</span><span class="p">:</span><span class="n">scatter</span><span class="p">)</span>
+<span class="n">plot!</span><span class="p">(</span><span class="n">rand</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span><span class="n">t</span><span class="o">=:</span><span class="n">scatter</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -13022,12 +13026,12 @@ a.hasLines(e)||l(t,e,d)),d("hoverinfo",1===f._dataLength?"a+b+c+text":void 0),"t
 <div class=" highlight hl-julia"><pre><span></span><span class="c"># 3D plots</span>
 <span class="n">plotlyjs</span><span class="p">()</span>
 <span class="n">n</span> <span class="o">=</span> <span class="mi">100</span>
-<span class="n">ts</span> <span class="o">=</span> <span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">8</span><span class="n">π</span><span class="p">,</span><span class="n">n</span><span class="p">)</span>
+<span class="n">ts</span> <span class="o">=</span> <span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">8</span><span class="nb">π</span><span class="p">,</span><span class="n">n</span><span class="p">)</span>
 <span class="n">x</span> <span class="o">=</span> <span class="n">ts</span> <span class="o">.*</span> <span class="n">map</span><span class="p">(</span><span class="n">cos</span><span class="p">,</span><span class="n">ts</span><span class="p">)</span>
 <span class="n">y</span> <span class="o">=</span> <span class="p">(</span><span class="mf">0.1</span><span class="n">ts</span><span class="p">)</span> <span class="o">.*</span> <span class="n">map</span><span class="p">(</span><span class="n">sin</span><span class="p">,</span><span class="n">ts</span><span class="p">)</span>
-<span class="n">z</span> <span class="o">=</span> <span class="mi">1</span><span class="p">:</span><span class="n">n</span>
-<span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span><span class="p">,</span><span class="n">zcolor</span><span class="o">=</span><span class="n">reverse</span><span class="p">(</span><span class="n">z</span><span class="p">),</span><span class="n">m</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mf">0.8</span><span class="p">,:</span><span class="n">blues</span><span class="p">,</span><span class="n">stroke</span><span class="p">(</span><span class="mi">0</span><span class="p">)),</span><span class="n">leg</span><span class="o">=</span><span class="n">false</span><span class="p">,</span><span class="n">cbar</span><span class="o">=</span><span class="n">true</span><span class="p">,</span><span class="n">w</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
-<span class="n">plot!</span><span class="p">(</span><span class="n">zeros</span><span class="p">(</span><span class="n">n</span><span class="p">),</span><span class="n">zeros</span><span class="p">(</span><span class="n">n</span><span class="p">),</span><span class="mi">1</span><span class="p">:</span><span class="n">n</span><span class="p">,</span><span class="n">w</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">z</span> <span class="o">=</span> <span class="mi">1</span><span class="o">:</span><span class="n">n</span>
+<span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span><span class="p">,</span><span class="n">zcolor</span><span class="o">=</span><span class="n">reverse</span><span class="p">(</span><span class="n">z</span><span class="p">),</span><span class="n">m</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mf">0.8</span><span class="p">,</span><span class="o">:</span><span class="n">blues</span><span class="p">,</span><span class="n">stroke</span><span class="p">(</span><span class="mi">0</span><span class="p">)),</span><span class="n">leg</span><span class="o">=</span><span class="kc">false</span><span class="p">,</span><span class="n">cbar</span><span class="o">=</span><span class="kc">true</span><span class="p">,</span><span class="n">w</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">plot!</span><span class="p">(</span><span class="n">zeros</span><span class="p">(</span><span class="n">n</span><span class="p">),</span><span class="n">zeros</span><span class="p">(</span><span class="n">n</span><span class="p">),</span><span class="mi">1</span><span class="o">:</span><span class="n">n</span><span class="p">,</span><span class="n">w</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -13150,7 +13154,7 @@ a.hasLines(e)||l(t,e,d)),d("hoverinfo",1===f._dataLength?"a+b+c+text":void 0),"t
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="k">using</span> <span class="n">DifferentialEquations</span>
 <span class="n">sol</span> <span class="o">=</span> <span class="n">solve</span><span class="p">(</span><span class="n">prob_ode_linear</span><span class="p">)</span>
-<span class="p">@</span><span class="n">show</span> <span class="nb">typeof</span><span class="p">(</span><span class="n">sol</span><span class="p">)</span>
+<span class="nd">@show</span> <span class="n">typeof</span><span class="p">(</span><span class="n">sol</span><span class="p">)</span>
 <span class="n">plot</span><span class="p">(</span><span class="n">sol</span><span class="p">,</span><span class="n">title</span><span class="o">=</span><span class="s">&quot;The Attributes Still Work&quot;</span><span class="p">)</span>
 </pre></div>
 
@@ -13196,7 +13200,7 @@ Run `Pkg.add(&#34;DifferentialEquations&#34;)` to install the DifferentialEquati
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="k">using</span> <span class="n">RDatasets</span><span class="p">,</span> <span class="n">StatPlots</span><span class="p">,</span> <span class="n">Plots</span>
 <span class="n">iris</span> <span class="o">=</span> <span class="n">dataset</span><span class="p">(</span><span class="s">&quot;datasets&quot;</span><span class="p">,</span><span class="s">&quot;iris&quot;</span><span class="p">)</span>
-<span class="n">marginalhist</span><span class="p">(</span><span class="n">iris</span><span class="p">,</span> <span class="p">:</span><span class="n">PetalLength</span><span class="p">,</span> <span class="p">:</span><span class="n">PetalWidth</span><span class="p">)</span>
+<span class="n">marginalhist</span><span class="p">(</span><span class="n">iris</span><span class="p">,</span> <span class="o">:</span><span class="n">PetalLength</span><span class="p">,</span> <span class="o">:</span><span class="n">PetalWidth</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -13227,9 +13231,9 @@ Run `Pkg.add(&#34;DifferentialEquations&#34;)` to install the DifferentialEquati
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="n">M</span> <span class="o">=</span> <span class="n">randn</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
-<span class="n">M</span><span class="p">[:,</span><span class="mi">2</span><span class="p">]</span> <span class="o">+=</span> <span class="mf">0.8</span><span class="n">sqrt</span><span class="p">(</span><span class="n">abs</span><span class="p">(</span><span class="n">M</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]))</span> <span class="o">-</span> <span class="mf">0.5</span><span class="n">M</span><span class="p">[:,</span><span class="mi">3</span><span class="p">]</span> <span class="o">+</span> <span class="mi">5</span>
-<span class="n">M</span><span class="p">[:,</span><span class="mi">3</span><span class="p">]</span> <span class="o">-=</span> <span class="mf">0.7</span><span class="n">M</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span><span class="o">.^</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">2</span>
-<span class="n">corrplot</span><span class="p">(</span><span class="n">M</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="p">[</span><span class="s">&quot;x</span><span class="si">$i</span><span class="s">&quot;</span> <span class="k">for</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">:</span><span class="mi">4</span><span class="p">])</span>
+<span class="n">M</span><span class="p">[</span><span class="o">:</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span> <span class="o">+=</span> <span class="mf">0.8</span><span class="n">sqrt</span><span class="p">(</span><span class="n">abs</span><span class="p">(</span><span class="n">M</span><span class="p">[</span><span class="o">:</span><span class="p">,</span><span class="mi">1</span><span class="p">]))</span> <span class="o">-</span> <span class="mf">0.5</span><span class="n">M</span><span class="p">[</span><span class="o">:</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span> <span class="o">+</span> <span class="mi">5</span>
+<span class="n">M</span><span class="p">[</span><span class="o">:</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span> <span class="o">-=</span> <span class="mf">0.7</span><span class="n">M</span><span class="p">[</span><span class="o">:</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">.^</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">2</span>
+<span class="n">corrplot</span><span class="p">(</span><span class="n">M</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="p">[</span><span class="s">&quot;x</span><span class="si">$i</span><span class="s">&quot;</span> <span class="k">for</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="o">:</span><span class="mi">4</span><span class="p">])</span>
 </pre></div>
 
 </div>
@@ -13262,8 +13266,8 @@ Run `Pkg.add(&#34;DifferentialEquations&#34;)` to install the DifferentialEquati
 <div class=" highlight hl-julia"><pre><span></span><span class="k">import</span> <span class="n">RDatasets</span>
 <span class="n">pyplot</span><span class="p">()</span>
 <span class="n">singers</span> <span class="o">=</span> <span class="n">RDatasets</span><span class="o">.</span><span class="n">dataset</span><span class="p">(</span><span class="s">&quot;lattice&quot;</span><span class="p">,</span><span class="s">&quot;singer&quot;</span><span class="p">)</span>
-<span class="n">violin</span><span class="p">(</span><span class="n">singers</span><span class="p">,:</span><span class="n">VoicePart</span><span class="p">,:</span><span class="n">Height</span><span class="p">,</span><span class="n">marker</span><span class="o">=</span><span class="p">(</span><span class="mf">0.2</span><span class="p">,:</span><span class="n">blue</span><span class="p">,</span><span class="n">stroke</span><span class="p">(</span><span class="mi">0</span><span class="p">)))</span>
-<span class="n">boxplot!</span><span class="p">(</span><span class="n">singers</span><span class="p">,:</span><span class="n">VoicePart</span><span class="p">,:</span><span class="n">Height</span><span class="p">,</span><span class="n">marker</span><span class="o">=</span><span class="p">(</span><span class="mf">0.3</span><span class="p">,:</span><span class="n">orange</span><span class="p">,</span><span class="n">stroke</span><span class="p">(</span><span class="mi">2</span><span class="p">)))</span>
+<span class="n">violin</span><span class="p">(</span><span class="n">singers</span><span class="p">,</span><span class="o">:</span><span class="n">VoicePart</span><span class="p">,</span><span class="o">:</span><span class="n">Height</span><span class="p">,</span><span class="n">marker</span><span class="o">=</span><span class="p">(</span><span class="mf">0.2</span><span class="p">,</span><span class="o">:</span><span class="n">blue</span><span class="p">,</span><span class="n">stroke</span><span class="p">(</span><span class="mi">0</span><span class="p">)))</span>
+<span class="n">boxplot!</span><span class="p">(</span><span class="n">singers</span><span class="p">,</span><span class="o">:</span><span class="n">VoicePart</span><span class="p">,</span><span class="o">:</span><span class="n">Height</span><span class="p">,</span><span class="n">marker</span><span class="o">=</span><span class="p">(</span><span class="mf">0.3</span><span class="p">,</span><span class="o">:</span><span class="n">orange</span><span class="p">,</span><span class="n">stroke</span><span class="p">(</span><span class="mi">2</span><span class="p">)))</span>
 </pre></div>
 
 </div>
@@ -13286,7 +13290,7 @@ Run `Pkg.add(&#34;DifferentialEquations&#34;)` to install the DifferentialEquati
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-julia"><pre><span></span><span class="n">groupedbar</span><span class="p">(</span><span class="n">rand</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span> <span class="n">bar_position</span> <span class="o">=</span> <span class="p">:</span><span class="n">dodge</span><span class="p">,</span> <span class="n">bar_width</span><span class="o">=</span><span class="mf">0.7</span><span class="p">)</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="n">groupedbar</span><span class="p">(</span><span class="n">rand</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span> <span class="n">bar_position</span> <span class="o">=</span> <span class="o">:</span><span class="n">dodge</span><span class="p">,</span> <span class="n">bar_width</span><span class="o">=</span><span class="mf">0.7</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -13300,7 +13304,7 @@ Run `Pkg.add(&#34;DifferentialEquations&#34;)` to install the DifferentialEquati
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="n">gr</span><span class="p">()</span>
-<span class="n">groupedbar</span><span class="p">(</span><span class="n">rand</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span> <span class="n">bar_position</span> <span class="o">=</span> <span class="p">:</span><span class="n">dodge</span><span class="p">,</span> <span class="n">bar_width</span><span class="o">=</span><span class="mf">0.7</span><span class="p">)</span>
+<span class="n">groupedbar</span><span class="p">(</span><span class="n">rand</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span> <span class="n">bar_position</span> <span class="o">=</span> <span class="o">:</span><span class="n">dodge</span><span class="p">,</span> <span class="n">bar_width</span><span class="o">=</span><span class="mf">0.7</span><span class="p">)</span>
 </pre></div>
 
 </div>
