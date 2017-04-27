@@ -12,6 +12,7 @@ module nfxp
     using Logging, FreqTables
     using Plots, NLopt , Optim
     using ShowItLikeYouBuildIt, DataFrames, DataFramesMeta
+    using JuMP,Ipopt
 
 
     pyplot()
@@ -133,7 +134,7 @@ module nfxp
 
 
 
-    function read_busses(p::Param,num_types=1)
+    function read_busses(p::Param,num_types=4)
         # load data
         d = readtable(joinpath(dirname(@__FILE__),"buses.csv"),header=false)
         # setup data
@@ -156,6 +157,9 @@ module nfxp
         d = d[remove.==0,:]
 
         d = @select(d,:id,:bus_type,:d,:x,:dx1)
+
+        # add a time index
+        d = @by(d,:id, t = 1:length(:d),bus_type=:bus_type,d=:d,x=:x,dx1= :dx1 )
 
         return d
     end
@@ -310,7 +314,7 @@ module nfxp
 
     function simdata(N::Int,T::Int,p::Param)
         if !p.converged
-            info("solving model")
+            info("solving model by VFI")
             VFI!(p)
         end
         id = reshape(repeat(1:N,inner=1,outer=T),N,T)
@@ -324,7 +328,7 @@ module nfxp
         d = zeros(Bool,N,T)
 
         # uncontrolled transition on odometer x
-        csum_p = cumsum(p.pr)
+        csum_p = cumsum(p.pr) / maximum(cumsum(p.pr))
         dx1 = zeros(Int,N,T)
         for i in 1:length(csum_p)
             dx1 += (shock_dx.>csum_p[i])   # increases are random: notice that you can get dx1 = 0 here. need to add +1 to dx1 to get a valid array index.
@@ -361,6 +365,20 @@ module nfxp
         d = simdata(50,113,p)
         e = estimate(d,p)
         return e
+    end
+
+    function likelihood_single()
+        p = Param()
+        d = simdata(50,113,p)
+        pr = freqtable(d[:dx1][d[:dx1].>0]) ./ sum(freqtable(d[:dx1][d[:dx1].>0]).array)
+        # pr=probs[1:(end-1),:]
+        update!(p,vcat(0,0,pr.array...))
+        g = zeros(length(vcat(0,0,pr.array...)))
+        f = nfxp.likelihood!(vcat(0,0,pr.array...),g,d,p)
+    end
+    function simulate_single_run()
+        p = Param()
+        d = simdata(50,113,p)
     end
 
     function estimate(d::DataFrame,p::Param,startv=zeros(2))
@@ -425,6 +443,7 @@ module nfxp
 
     end
 
+
     function max_nlopt()
         p = Param()
         d = simdata(10000,13,p)
@@ -448,6 +467,68 @@ module nfxp
         upper = [Inf,Inf,[1.0 for i in 1:4]...]
         res = Optim.optimize(OnceDifferentiable(f_closure),[10.0,0.0001,0.1,0.1,0.1,0.1],lower,upper,Fminbox())
         return res
+    end
+
+    function dict_busses(df::DataFrame)
+        N,T = (maximum(df[:id]),maximum(df[:t]))
+        d = Dict()
+        d[:d] = reshape(df[:d].data,N,T)
+        d[:x] = reshape(df[:x].data,N,T)
+        d[:dx1] = reshape(df[:dx1].data,N,T)
+        return d
+    end
+
+    function mpec()
+        p=Param()
+        d = simdata(50,113,p)
+        # d = read_busses(p)
+        dd = dict_busses(d)
+        m = Model(solver=IpoptSolver())
+        T = maximum(d[:t])
+        M = 4 # number of slots in state transition: can move 0,1,2,3 slots up
+        N = p.n  # number of states
+        @variable(m,theta_cost >= 0)
+        @variable(m,RC >= 0)
+        @variable(m,theta_probs[1:M] >= 0)
+        @variable(m,EV[1:N])
+        cost = 0.001*theta_cost*collect(p.grid)
+
+        # transformations
+
+        @variable(m,CbEV[1:N])
+        @constraint(m,constr_cbev[i=1:N], CbEV[i] == -cost[i] + p.beta*EV[i])
+        @variable(m,PayoffDiff[1:N])
+        @constraint(m,constr_payoff[i=1:N], PayoffDiff[i]== -CbEV[i] - RC + CbEV[1])
+        @NLexpression(m,exp_probkeep[i=1:N],1/(1+exp(PayoffDiff[i])))
+        # @variable(m,aux_probkeep[i]==[1:N])
+        # @constraint(m,constr_aux_probkeep[i=1:N],aux_probkeep[i]==1.0 / (1.0 + exp_payoffdiff[i]))
+        @variable(m,ProbKeep[1:N])
+        @NLconstraint(m,const_keep[i=1:N],ProbKeep[i] == exp_probkeep[i])
+
+        # BellmanViolation = sum()
+
+        @NLobjective(m, Max,sum(log( dd[:d][i,it]*(1.0 - ProbKeep[dd[:x][i,it]]) + (1.0 - dd[:d][i,it])*(ProbKeep[dd[:x][i,it]])) for i=1:N, it=2:T) + 
+            sum( log( theta_probs[dd[:dx1][i,it]+1] ) for i=1:N,it=2:N))
+
+        # bellman equation for states 1:(N-M+1) i.e. where all state progressions are possible
+        @NLconstraint(m, constr_EV[i=1:(N-M+1)],
+            EV[i] == sum(log(exp(CbEV[i+j]) + exp(-RC + CbEV[1])) * theta_probs[j+1] for j in 0:(M-1))
+            )
+        # bellman equation for states (N-M+1):(N-1) i.e. where not all state progressions are possible
+        @NLconstraint(m, constr_EV_M[i=(N-M+2):(N-1)],
+            EV[i] == sum(log(exp(CbEV[i+j]) + exp(-RC + CbEV[1])) * theta_probs[j+1] for j in 0:(N-i-1)) + (1- sum(theta_probs[k+1] for k in 0:(N-i-1))) * log(exp(CbEV[N])   + exp(-RC + CbEV[1])))
+
+        # bellman equation for final state
+        @NLconstraint(m, constr_EV_N,
+            EV[N] == log(exp(CbEV[N]) + exp(-RC + CbEV[1])))
+
+        # probabilities have to sum to 1
+        @constraint(m,sum(theta_probs) == 1)
+        # bound value function
+        @constraint(m,constr_EV[i=1:N],EV[i] <= 50)
+
+        solve(m)
+
     end
 
 end  # module
