@@ -11710,10 +11710,8 @@ ul.typeahead-list > li > a {
 .highlight .mh { color: #666666 } /* Literal.Number.Hex */
 .highlight .mi { color: #666666 } /* Literal.Number.Integer */
 .highlight .mo { color: #666666 } /* Literal.Number.Oct */
-.highlight .sa { color: #BA2121 } /* Literal.String.Affix */
 .highlight .sb { color: #BA2121 } /* Literal.String.Backtick */
 .highlight .sc { color: #BA2121 } /* Literal.String.Char */
-.highlight .dl { color: #BA2121 } /* Literal.String.Delimiter */
 .highlight .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
 .highlight .s2 { color: #BA2121 } /* Literal.String.Double */
 .highlight .se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
@@ -11724,11 +11722,9 @@ ul.typeahead-list > li > a {
 .highlight .s1 { color: #BA2121 } /* Literal.String.Single */
 .highlight .ss { color: #19177C } /* Literal.String.Symbol */
 .highlight .bp { color: #008000 } /* Name.Builtin.Pseudo */
-.highlight .fm { color: #0000FF } /* Name.Function.Magic */
 .highlight .vc { color: #19177C } /* Name.Variable.Class */
 .highlight .vg { color: #19177C } /* Name.Variable.Global */
 .highlight .vi { color: #19177C } /* Name.Variable.Instance */
-.highlight .vm { color: #19177C } /* Name.Variable.Magic */
 .highlight .il { color: #666666 } /* Literal.Number.Integer.Long */
     </style>
 <style type="text/css">
@@ -12053,7 +12049,7 @@ a.anchor-link {
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="c"># from ForwardDiff&#39;s readme:</span>
 <span class="k">using</span> <span class="n">ForwardDiff</span>
-<span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="o">::</span><span class="kt">Vector</span><span class="p">)</span> <span class="o">=</span> <span class="n">sum</span><span class="p">(</span><span class="n">sin</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="n">prod</span><span class="p">(</span><span class="n">tan</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span> <span class="o">*</span> <span class="n">sum</span><span class="p">(</span><span class="n">sqrt</span><span class="p">,</span> <span class="n">x</span><span class="p">);</span>
+<span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">::</span><span class="n">Vector</span><span class="p">)</span> <span class="o">=</span> <span class="n">sum</span><span class="p">(</span><span class="n">sin</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="n">prod</span><span class="p">(</span><span class="n">tan</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span> <span class="o">*</span> <span class="n">sum</span><span class="p">(</span><span class="n">sqrt</span><span class="p">,</span> <span class="n">x</span><span class="p">);</span>
 <span class="n">x</span> <span class="o">=</span> <span class="n">rand</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="c"># small size for example&#39;s sake</span>
 <span class="n">g</span> <span class="o">=</span> <span class="n">x</span> <span class="o">-&gt;</span> <span class="n">ForwardDiff</span><span class="o">.</span><span class="n">gradient</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x</span><span class="p">);</span> <span class="c"># g = ∇f</span>
 <span class="n">g</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
@@ -12223,7 +12219,7 @@ $$ E[G(\epsilon)] = \int_{\mathbb{R}^N} G(\epsilon) w(\epsilon) d\epsilon \appro
 
 <span class="n">np</span> <span class="o">=</span> <span class="mi">3</span>
 
-<span class="n">rules</span> <span class="o">=</span> <span class="kt">Dict</span><span class="p">(</span><span class="s">&quot;hermite&quot;</span> <span class="o">=&gt;</span> <span class="n">gausshermite</span><span class="p">(</span><span class="n">np</span><span class="p">),</span>
+<span class="n">rules</span> <span class="o">=</span> <span class="n">Dict</span><span class="p">(</span><span class="s">&quot;hermite&quot;</span> <span class="o">=&gt;</span> <span class="n">gausshermite</span><span class="p">(</span><span class="n">np</span><span class="p">),</span>
              <span class="s">&quot;chebyshev&quot;</span> <span class="o">=&gt;</span> <span class="n">gausschebyshev</span><span class="p">(</span><span class="n">np</span><span class="p">),</span>
              <span class="s">&quot;legendre&quot;</span> <span class="o">=&gt;</span> <span class="n">gausslegendre</span><span class="p">(</span><span class="n">np</span><span class="p">),</span>
              <span class="s">&quot;lobatto&quot;</span> <span class="o">=&gt;</span> <span class="n">gausslobatto</span><span class="p">(</span><span class="n">np</span><span class="p">))</span>
@@ -12231,7 +12227,7 @@ $$ E[G(\epsilon)] = \int_{\mathbb{R}^N} G(\epsilon) w(\epsilon) d\epsilon \appro
 
 <span class="k">using</span> <span class="n">DataFrames</span>
 
-<span class="n">integ</span> <span class="o">=</span> <span class="n">DataFrame</span><span class="p">(</span><span class="n">Rule</span><span class="o">=</span><span class="kt">Symbol</span><span class="p">[</span><span class="kt">Symbol</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="kp">in</span> <span class="n">keys</span><span class="p">(</span><span class="n">rules</span><span class="p">)],</span><span class="n">nodes</span><span class="o">=</span><span class="p">[</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">x</span> <span class="kp">in</span> <span class="n">values</span><span class="p">(</span><span class="n">rules</span><span class="p">)],</span><span class="n">weights</span><span class="o">=</span><span class="p">[</span><span class="n">x</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="k">for</span> <span class="n">x</span> <span class="kp">in</span> <span class="n">values</span><span class="p">(</span><span class="n">rules</span><span class="p">)])</span>
+<span class="n">integ</span> <span class="o">=</span> <span class="n">DataFrame</span><span class="p">(</span><span class="n">Rule</span><span class="o">=</span><span class="n">Symbol</span><span class="p">[</span><span class="n">Symbol</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="k">in</span> <span class="n">keys</span><span class="p">(</span><span class="n">rules</span><span class="p">)],</span><span class="n">nodes</span><span class="o">=</span><span class="p">[</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">x</span> <span class="k">in</span> <span class="n">values</span><span class="p">(</span><span class="n">rules</span><span class="p">)],</span><span class="n">weights</span><span class="o">=</span><span class="p">[</span><span class="n">x</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="k">for</span> <span class="n">x</span> <span class="k">in</span> <span class="n">values</span><span class="p">(</span><span class="n">rules</span><span class="p">)])</span>
 </pre></div>
 
 </div>
@@ -12354,7 +12350,7 @@ $$ E[G(\epsilon)] = \int_{\mathbb{R}^N} G(\epsilon) w(\epsilon) d\epsilon \appro
 <span class="n">push!</span><span class="p">(</span><span class="n">nodes</span><span class="p">,</span><span class="n">repeat</span><span class="p">(</span><span class="n">rules</span><span class="p">[</span><span class="s">&quot;hermite&quot;</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span><span class="n">inner</span><span class="o">=</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span><span class="n">outer</span><span class="o">=</span><span class="p">[</span><span class="mi">3</span><span class="p">]))</span>  <span class="c"># dim2</span>
 <span class="n">push!</span><span class="p">(</span><span class="n">nodes</span><span class="p">,</span><span class="n">repeat</span><span class="p">(</span><span class="n">rules</span><span class="p">[</span><span class="s">&quot;hermite&quot;</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span><span class="n">inner</span><span class="o">=</span><span class="p">[</span><span class="mi">9</span><span class="p">],</span><span class="n">outer</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>  <span class="c"># dim3</span>
 <span class="n">weights</span> <span class="o">=</span> <span class="n">kron</span><span class="p">(</span><span class="n">rules</span><span class="p">[</span><span class="s">&quot;hermite&quot;</span><span class="p">][</span><span class="mi">2</span><span class="p">],</span><span class="n">kron</span><span class="p">(</span><span class="n">rules</span><span class="p">[</span><span class="s">&quot;hermite&quot;</span><span class="p">][</span><span class="mi">2</span><span class="p">],</span><span class="n">rules</span><span class="p">[</span><span class="s">&quot;hermite&quot;</span><span class="p">][</span><span class="mi">2</span><span class="p">]))</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">hcat</span><span class="p">(</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">weights</span><span class="o">=</span><span class="n">weights</span><span class="p">),</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">nodes</span><span class="p">,[</span><span class="o">:</span><span class="n">dim1</span><span class="p">,</span><span class="o">:</span><span class="n">dim2</span><span class="p">,</span><span class="o">:</span><span class="n">dim3</span><span class="p">]))</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">hcat</span><span class="p">(</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">weights</span><span class="o">=</span><span class="n">weights</span><span class="p">),</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">nodes</span><span class="p">,[:</span><span class="n">dim1</span><span class="p">,:</span><span class="n">dim2</span><span class="p">,:</span><span class="n">dim3</span><span class="p">]))</span>
 </pre></div>
 
 </div>
@@ -12438,9 +12434,9 @@ $$ E[G(\epsilon)] = \int_{\mathbb{R}^N} G(\epsilon) w(\epsilon) d\epsilon \appro
 <span class="k">using</span> <span class="n">Sobol</span>
 <span class="k">using</span> <span class="n">PyPlot</span>
 <span class="n">s</span> <span class="o">=</span> <span class="n">SobolSeq</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">p</span> <span class="o">=</span> <span class="n">hcat</span><span class="p">([</span><span class="n">next</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="o">:</span><span class="mi">1024</span><span class="p">]</span><span class="o">...</span><span class="p">)</span><span class="o">&#39;</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">hcat</span><span class="p">([</span><span class="n">next</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">:</span><span class="mi">1024</span><span class="p">]</span><span class="o">...</span><span class="p">)</span><span class="o">&#39;</span>
 <span class="n">subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=</span><span class="s">&quot;equal&quot;</span><span class="p">)</span>
-<span class="n">plot</span><span class="p">(</span><span class="n">p</span><span class="p">[</span><span class="o">:</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="n">p</span><span class="p">[</span><span class="o">:</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span> <span class="s">&quot;r.&quot;</span><span class="p">)</span>
+<span class="n">plot</span><span class="p">(</span><span class="n">p</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">p</span><span class="p">[:,</span><span class="mi">2</span><span class="p">],</span> <span class="s">&quot;r.&quot;</span><span class="p">)</span>
 </pre></div>
 
 </div>

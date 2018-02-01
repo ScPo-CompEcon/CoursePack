@@ -11710,10 +11710,8 @@ ul.typeahead-list > li > a {
 .highlight .mh { color: #666666 } /* Literal.Number.Hex */
 .highlight .mi { color: #666666 } /* Literal.Number.Integer */
 .highlight .mo { color: #666666 } /* Literal.Number.Oct */
-.highlight .sa { color: #BA2121 } /* Literal.String.Affix */
 .highlight .sb { color: #BA2121 } /* Literal.String.Backtick */
 .highlight .sc { color: #BA2121 } /* Literal.String.Char */
-.highlight .dl { color: #BA2121 } /* Literal.String.Delimiter */
 .highlight .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
 .highlight .s2 { color: #BA2121 } /* Literal.String.Double */
 .highlight .se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
@@ -11724,11 +11722,9 @@ ul.typeahead-list > li > a {
 .highlight .s1 { color: #BA2121 } /* Literal.String.Single */
 .highlight .ss { color: #19177C } /* Literal.String.Symbol */
 .highlight .bp { color: #008000 } /* Name.Builtin.Pseudo */
-.highlight .fm { color: #0000FF } /* Name.Function.Magic */
 .highlight .vc { color: #19177C } /* Name.Variable.Class */
 .highlight .vg { color: #19177C } /* Name.Variable.Global */
 .highlight .vi { color: #19177C } /* Name.Variable.Instance */
-.highlight .vm { color: #19177C } /* Name.Variable.Magic */
 .highlight .il { color: #666666 } /* Literal.Number.Integer.Long */
     </style>
 <style type="text/css">
@@ -11859,19 +11855,10 @@ a.anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Computing-Basics">Computing Basics<a class="anchor-link" href="#Computing-Basics">&#182;</a></h1><ul>
-<li>It is important that we understand some basics about computers.</li>
-<li>Even though software (and computers) always get more and more sophisticated, there is still a considerable margin for "human error". This doesn't mean necessarily that there is something wrong, but certain ways of doing things may have severe performance implications.</li>
-<li>Whatever else happens, <em>you</em> write the code, and one way of writing code is different from another.</li>
-</ul>
-<p><img src="../assets/figs/BasicComputing/picnic.jpeg" alt="test"></p>
-<ul>
-<li>In this session, we will look at some very basic computer structure, and see some common pitfalls in numerical analysis. </li>
-<li>We will take advantage to introduce the julia computing language.<ol>
-<li>Step Number 1: <a href="http://julialang.org/downloads/">install julia</a>!</li>
-<li>Step Number 2: Why Julia?</li>
-</ol>
-</li>
+<h1 id="SciencesPo-Computational-Economics-2018">SciencesPo Computational Economics 2018<a class="anchor-link" href="#SciencesPo-Computational-Economics-2018">&#182;</a></h1><ul>
+<li>Welcome!</li>
+<li>Why do Economists (and Social Scientists in general) have to talk about Computation?</li>
+<li><a href="https://web.stanford.edu/%7Egentzkow/research/CodeAndData.pdf">This</a> by Gentzkow and Shapiro is still relevant, even if in <em>Computing Time</em>, 2014 is a long time ago. I highly recommend you read this.</li>
 </ul>
 
 </div>
@@ -11882,8 +11869,48 @@ a.anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Gentzkow-and-Shapiro">Gentzkow and Shapiro<a class="anchor-link" href="#Gentzkow-and-Shapiro">&#182;</a></h2><blockquote><p>Here is a good rule of thumb: If you are trying to solve a problem, and there are multi-billion dollar firms whose entire business model depends on solving the same problem, and there are whole courses at your university devoted to how to solve that problem, you might want to figure out what the experts do and see if you can’t learn something from it.</p>
+</blockquote>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Gentzkow-and-Shapiro">Gentzkow and Shapiro<a class="anchor-link" href="#Gentzkow-and-Shapiro">&#182;</a></h2><ul>
+<li>This is the spirit of this course. </li>
+<li>We want to learn computation as practised by <em>the experts</em>.</li>
+<li>We don't want to - <strong>ever</strong> - reinvent the wheel. </li>
+</ul>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Computation-Basics">Computation Basics<a class="anchor-link" href="#Computation-Basics">&#182;</a></h1><ul>
+<li>It is important that we understand some basics about computers.</li>
+<li>Even though software (and computers) always get more and more sophisticated, there is still a considerable margin for "human error". This doesn't mean necessarily that there is something wrong, but certain ways of doing things may have severe performance implications.</li>
+<li>Whatever else happens, <em>you</em> write the code, and one way of writing code is different from another.</li>
+</ul>
+<p><img src="../assets/figs/BasicComputing/picnic.jpeg" alt="test"></p>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Julia?-Why-Julia?">Julia? Why Julia?<a class="anchor-link" href="#Julia?-Why-Julia?">&#182;</a></h2><ul>
-<li>The <em>best</em> software doesn't exist. All of the following statements depend on:<ol>
+<li>The <em>best</em> software doesn't exist. All depends on:<ol>
 <li>The problem at hand. <ul>
 <li>You are fine with Stata if you need to run a probit.</li>
 <li>Languages have different comparative advantages with regards to different tasks.</li>
@@ -11951,10 +11978,41 @@ a.anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Why-not-julia?">Why not julia?<a class="anchor-link" href="#Why-not-julia?">&#182;</a></h2><ul>
-<li>Julia is still in version <code>0.5.0</code>. There may be language changes in future releases.</li>
-<li>There are way fewer packages for certain tasks than for, say, R.</li>
-<li>Relatively few people know it. Your supervisor almost surely doesn't know it.</li>
+<h2 id="What-does-Julia-want-to-achieve?">What does Julia want to achieve?<a class="anchor-link" href="#What-does-Julia-want-to-achieve?">&#182;</a></h2><ul>
+<li>There is a <em>wall</em> built into the scientific software stack</li>
+<li>Julia cofounder Stefan Karpinski <a href="https://opendatascience.com/conferences/odsc-east-2016-stefan-karpinski-solving-the-two-language-problem/">talks about <strong>the 2 languages problem</strong></a></li>
+<li><strong>key: the wall creates a social barrier.</strong> Developer and User are different people.</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="The-Wall-in-the-scientific-software-stack">The Wall in the scientific software stack<a class="anchor-link" href="#The-Wall-in-the-scientific-software-stack">&#182;</a></h2><p><img src="../assets/figs/BasicComputing/stack.png" alt="test"></p>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Who-is-using-Julia?">Who is using Julia?<a class="anchor-link" href="#Who-is-using-Julia?">&#182;</a></h2><ul>
+<li><a href="https://juliacomputing.com/case-studies/">Case Studies</a><ul>
+<li><a href="https://youtu.be/uecdcADM3hY">One of the top 10 data sciences problems solved with Celeste.jl</a><ul>
+<li><a href="https://www.nextplatform.com/2017/11/28/julia-language-delivers-petascale-hpc-performance/">next platform article</a></li>
+</ul>
+</li>
+<li><a href="https://juliacomputing.com/case-studies/lincoln-labs.html">US Federal Aviation Administration</a> builds their Airborne Collision Avoidance System with julia</li>
+<li><a href="https://juliacomputing.com/case-studies/ny-fed.html">The NY Fed runs their DGSE model in julia</a></li>
+<li>and more</li>
+</ul>
+</li>
 </ul>
 
 </div>
@@ -11966,7 +12024,7 @@ a.anchor-link {
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Economists-and-Their-Software">Economists and Their Software<a class="anchor-link" href="#Economists-and-Their-Software">&#182;</a></h2><ul>
-<li>[@jesus-computing] &lt;cite data-cite=jesuscomputing&gt;&lt;/cite&gt;, in <a href="http://economics.sas.upenn.edu/~jesusfv/comparison_languages.pdf"><em>A Comparison of Programming Languages in Economics</em></a>, compare some widely used languages on a close to <a href="https://github.com/jesusfv/Comparison-Programming-Languages-Economics">identical piece of code</a>.</li>
+<li>In <a href="http://economics.sas.upenn.edu/~jesusfv/comparison_languages.pdf"><em>A Comparison of Programming Languages in Economics</em></a>&lt;cite data-cite=jesuscomputing&gt;&lt;/cite&gt;, they compare some widely used languages on a close to <a href="https://github.com/jesusfv/Comparison-Programming-Languages-Economics">identical piece of code</a>.</li>
 <li>It can be quite contentious to talk about Software to Economists.<ul>
 <li>Religious War. </li>
 <li>Look at the <a href="http://marginalrevolution.com/marginalrevolution/2014/07/a-comparison-of-programming-languages-in-economics.html">comments on this blog post regarding the paper</a>.</li>
@@ -12018,7 +12076,7 @@ a.anchor-link {
 
 </div>
 </div>
-</div></section></section><section><section>
+</div></section><section>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -12036,23 +12094,14 @@ a.anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Computers">Computers<a class="anchor-link" href="#Computers">&#182;</a></h2><ul>
-<li>At a high level, computers execute instructions.</li>
-<li>Most of the actual <em>computation</em> is performed on the Central Processing Unit (CPU). The CPU does <ul>
-<li>Addition</li>
-<li>substraction</li>
-<li>multiplication</li>
-<li>division</li>
-<li>maybe also (depends on Chipset)<ul>
-<li>exponentiation</li>
-<li>logarithm</li>
-<li>trogonometric operations</li>
-</ul>
-</li>
-<li>Everything else is a combination of those.</li>
-<li>The speed of those operations varies a lot. Exponentiation is about 10 times slower than multiplication.</li>
-</ul>
-</li>
+<h2 id="Julia-Workflow">Julia Workflow<a class="anchor-link" href="#Julia-Workflow">&#182;</a></h2><ul>
+<li>We will use the lastest stable version of julia. today that is <code>v0.6.2</code></li>
+<li>For today, stay within this notebook.</li>
+<li>In general, you will want to install julia on your computer</li>
+<li>the most stable workflow involves a text editor and a julia terminal next to it</li>
+<li>You would develop your code in a text file (say "develop.jl"), and then just do <code>include("develop.jl")</code> in the terminal</li>
+<li>I use sublime text as an editor</li>
+<li>Atom is also very good</li>
 </ul>
 
 </div>
@@ -12063,77 +12112,12 @@ a.anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="An-Example">An Example<a class="anchor-link" href="#An-Example">&#182;</a></h2><ul>
-<li>Suppose we want to compute
-  $$ u(c,l) = \frac{\left(c^\alpha l^{1-\alpha} \right)^{1-\gamma}}{1-\gamma} $$</li>
-<li>Let's take $c=1.1,l=0.8$ and compute this.</li>
-</ul>
-
-</div>
-</div>
-</div></section><section>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-julia"><pre><span></span><span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.7</span>
-<span class="n">gamma</span> <span class="o">=</span> <span class="mf">2.1</span>
-<span class="c"># straighforward approach</span>
-<span class="n">u</span><span class="p">(</span><span class="n">c</span><span class="p">,</span><span class="n">l</span><span class="p">)</span> <span class="o">=</span> <span class="p">((</span><span class="n">c</span><span class="o">^</span><span class="n">alpha</span> <span class="o">*</span> <span class="n">l</span><span class="o">^</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">alpha</span><span class="p">))</span><span class="o">^</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">gamma</span><span class="p">))</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">gamma</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div></section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="more-sophisticated-approach">more sophisticated approach<a class="anchor-link" href="#more-sophisticated-approach">&#182;</a></h2><ul>
-<li>Note that $x^\alpha = \exp(\alpha \log(x))$.</li>
-<li>(particularly non-integer) exponentiation is expensive. let's see if we can do better:</li>
-</ul>
-
-</div>
-</div>
-</div></section><section>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-julia"><pre><span></span><span class="n">u2</span><span class="p">(</span><span class="n">c</span><span class="p">,</span><span class="n">l</span><span class="p">)</span>      <span class="o">=</span> <span class="n">exp</span><span class="p">(</span> <span class="n">alpha</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">gamma</span><span class="p">)</span> <span class="o">*</span> <span class="n">log</span><span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">alpha</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">gamma</span><span class="p">)</span> <span class="o">*</span> <span class="n">log</span><span class="p">(</span><span class="n">l</span><span class="p">)</span> <span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">gamma</span><span class="p">)</span>
-<span class="c"># benchmark</span>
-<span class="c"># 1) same result?</span>
-<span class="k">using</span> <span class="n">Base</span><span class="o">.</span><span class="n">Test</span>
-<span class="nd">@test_approx_eq</span> <span class="n">u</span><span class="p">(</span><span class="mf">1.1</span><span class="p">,</span><span class="mf">0.8</span><span class="p">)</span> <span class="n">u2</span><span class="p">(</span><span class="mf">1.1</span><span class="p">,</span><span class="mf">0.8</span><span class="p">)</span>
-<span class="c"># 2) timing?</span>
-<span class="n">n</span> <span class="o">=</span> <span class="mf">1e7</span> 	<span class="c"># get a reasonable sample size</span>
-<span class="n">t1</span> <span class="o">=</span> <span class="nd">@elapsed</span> <span class="k">for</span> <span class="n">i</span> <span class="kp">in</span> <span class="mi">1</span><span class="o">:</span><span class="n">n</span> <span class="n">u</span><span class="p">(</span><span class="mf">1.1</span><span class="p">,</span><span class="mf">0.8</span><span class="p">)</span> <span class="k">end</span>
-<span class="n">t2</span> <span class="o">=</span> <span class="nd">@elapsed</span> <span class="k">for</span> <span class="n">i</span> <span class="kp">in</span> <span class="mi">1</span><span class="o">:</span><span class="n">n</span> <span class="n">u2</span><span class="p">(</span><span class="mf">1.1</span><span class="p">,</span><span class="mf">0.8</span><span class="p">)</span> <span class="k">end</span>
-<span class="n">println</span><span class="p">(</span><span class="s">&quot;u1 takes </span><span class="si">$</span><span class="p">(</span><span class="n">round</span><span class="p">(</span><span class="n">t1</span><span class="o">/</span><span class="n">t2</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span><span class="s"> times longer than u2&quot;</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Some-Numerical-Concepts-and-Julia">Some Numerical Concepts and <code>Julia</code><a class="anchor-link" href="#Some-Numerical-Concepts-and-Julia">&#182;</a></h1><ul>
+<h2 id="Some-Numerical-Concepts-and-Julia">Some Numerical Concepts and <code>Julia</code><a class="anchor-link" href="#Some-Numerical-Concepts-and-Julia">&#182;</a></h2><ul>
 <li>Machine epsilon: The smallest number that your computer can represent, type <code>eps()</code>.</li>
 <li>Infinity: A number greater than all representable numbers on your computer. <a href="http://docs.julialang.org/en/release-0.4/manual/integers-and-floating-point-numbers/?highlight=infinity#special-floating-point-values">Obeys some arithmethmic rules</a><ul>
 <li>Overflow: If you perform an operation where the result is greater than the largest representable number.</li>
 <li>Underflow: You take two (very small) representable numbers, but the result is smaller than <code>eps()</code>. </li>
-<li>In Julia, you are wrapped around the end of your representable space:<div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">typemax</span><span class="p">(</span><span class="kt">Int64</span><span class="p">)</span>
+<li>In Julia, you are wrapped around the end of your representable space:<div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="nb">typemax</span><span class="p">(</span><span class="kt">Int64</span><span class="p">)</span>
 <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span>
 </pre></div>
 </li>
@@ -12141,7 +12125,7 @@ a.anchor-link {
 </li>
 <li>Integers and Floating Point Numbers.</li>
 <li>Single and Double Precision.</li>
-<li>In Julia, all of these are different <a href="http://docs.julialang.org/en/release-0.4/manual/integers-and-floating-point-numbers/"><em>numeric primitive types (head over to julia manual for a second)</em></a>.</li>
+<li>In Julia, all of these are different <a href="https://docs.julialang.org/en/latest/manual/integers-and-floating-point-numbers/"><em>numeric primitive types (head over to julia manual for a second)</em></a>.</li>
 <li>Julia also supports <em>Arbitrary Precision Arithmetic</em>. Thus, overflow shouldn't become an issue anymore.</li>
 <li>See min and max for different types:</li>
 </ul>
@@ -12151,16 +12135,43 @@ a.anchor-link {
 </div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-julia"><pre><span></span><span class="k">for</span> <span class="n">T</span> <span class="kp">in</span> <span class="p">[</span><span class="kt">Int8</span><span class="p">,</span><span class="kt">Int16</span><span class="p">,</span><span class="kt">Int32</span><span class="p">,</span><span class="kt">Int64</span><span class="p">,</span><span class="kt">Int128</span><span class="p">,</span><span class="kt">UInt8</span><span class="p">,</span><span class="kt">UInt16</span><span class="p">,</span><span class="kt">UInt32</span><span class="p">,</span>
-		  <span class="kt">UInt64</span><span class="p">,</span><span class="kt">UInt128</span><span class="p">,</span><span class="kt">Float32</span><span class="p">,</span><span class="kt">Float64</span><span class="p">]</span>
-         <span class="n">println</span><span class="p">(</span><span class="s">&quot;</span><span class="si">$</span><span class="p">(</span><span class="n">lpad</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="mi">7</span><span class="p">))</span><span class="s">: [</span><span class="si">$</span><span class="p">(</span><span class="n">typemin</span><span class="p">(</span><span class="n">T</span><span class="p">))</span><span class="s">,</span><span class="si">$</span><span class="p">(</span><span class="n">typemax</span><span class="p">(</span><span class="n">T</span><span class="p">))</span><span class="s">]&quot;</span><span class="p">)</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="k">for</span> <span class="n">T</span> <span class="k">in</span> <span class="p">[</span><span class="kt">Int8</span><span class="p">,</span><span class="kt">Int16</span><span class="p">,</span><span class="kt">Int32</span><span class="p">,</span><span class="kt">Int64</span><span class="p">,</span><span class="n">Int128</span><span class="p">,</span><span class="n">UInt8</span><span class="p">,</span><span class="n">UInt16</span><span class="p">,</span><span class="n">UInt32</span><span class="p">,</span>
+		  <span class="n">UInt64</span><span class="p">,</span><span class="n">UInt128</span><span class="p">,</span><span class="kt">Float32</span><span class="p">,</span><span class="kt">Float64</span><span class="p">]</span>
+         <span class="n">println</span><span class="p">(</span><span class="s">&quot;</span><span class="si">$(lpad(T,7))</span><span class="s">: [</span><span class="si">$(typemin(T))</span><span class="s">,</span><span class="si">$(typemax(T))</span><span class="s">]&quot;</span><span class="p">)</span>
 <span class="k">end</span>
 </pre></div>
 
 </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>   Int8: [-128,127]
+  Int16: [-32768,32767]
+  Int32: [-2147483648,2147483647]
+  Int64: [-9223372036854775808,9223372036854775807]
+ Int128: [-170141183460469231731687303715884105728,170141183460469231731687303715884105727]
+  UInt8: [0,255]
+ UInt16: [0,65535]
+ UInt32: [0,4294967295]
+ UInt64: [0,18446744073709551615]
+UInt128: [0,340282366920938463463374607431768211455]
+Float32: [-Inf,Inf]
+Float64: [-Inf,Inf]
+</pre>
+</div>
+</div>
+
 </div>
 </div>
 
@@ -12172,25 +12183,9 @@ a.anchor-link {
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Interacting-with-the-Julia-REPL">Interacting with the <code>Julia REPL</code><a class="anchor-link" href="#Interacting-with-the-Julia-REPL">&#182;</a></h2><ul>
 <li>REPL?</li>
-<li>different modes.</li>
+<li>different modes: command, help, search, shell</li>
 <li>incremental search with <code>CTRL r</code></li>
-<li>documented in the <a href="http://docs.julialang.org/en/release-0.5/manual/interacting-with-julia">manual</a></li>
-</ul>
-
-</div>
-</div>
-</div></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Julia-Primer:-What-is-a-module?"><code>Julia</code> Primer: What is a <code>module</code>?<a class="anchor-link" href="#Julia-Primer:-What-is-a-module?">&#182;</a></h2><ul>
-<li>A separate <code>namespace</code>: variable names inside a module are not visible from outside, unless exported.</li>
-<li>If you use somebody else's code that contains the object <code>model</code>, and you have code that also defines <code>model</code>, you have a name conflict.</li>
-<li>Using modules avoids this conflict.</li>
-<li>Julia packages are provided as <code>module</code>s. </li>
-<li>You should adapt <code>module</code>s as the best workflow practice with julia.</li>
+<li>documented in the <a href="https://docs.julialang.org/en/stable/manual/interacting-with-julia/">manual</a></li>
 </ul>
 
 </div>
@@ -12205,7 +12200,7 @@ a.anchor-link {
 <li>Types are at the core of what makes julia a great language. </li>
 <li><em>Everything</em> in julia is represented as a datatype. </li>
 <li>Remember the different numeric <em>types</em> from before? Those are types.</li>
-<li>The <a href="http://docs.julialang.org/en/release-0.4/manual/types/">manual</a>, as usual, is very informative on this.</li>
+<li>The <a href="https://docs.julialang.org/en/stable/manual/interacting-with-julia/">manual</a>, as usual, is very informative on this.</li>
 <li>From the <a href="https://en.wikibooks.org/wiki/Introducing_Julia/Types">wikibook on julia</a>, here is a representation of the numeric type graph:</li>
 </ul>
 <p><img src="../assets/figs/BasicComputing/Type-hierarchy-for-julia-numbers.png" alt=""></p>
@@ -12220,47 +12215,146 @@ a.anchor-link {
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Julia-Primer:-Custom-Types"><code>Julia</code> Primer: Custom Types<a class="anchor-link" href="#Julia-Primer:-Custom-Types">&#182;</a></h2><ul>
 <li>The great thing is that you can create you own types. </li>
-<li>Going with the example from the wikibook, we could have types <code>Jaguar</code> and <code>Pussycat</code> as being subtypes of <code>feline</code>:</li>
+<li>Going with the example from the wikibook, we could have types <code>Jaguar</code> and <code>Cat</code> as being subtypes of <code>Feline</code>:</li>
 </ul>
-<div class="highlight"><pre><span></span><span class="k">abstract</span> <span class="n">Feline</span>
-<span class="k">type</span> <span class="n">Jaguar</span> <span class="o">&lt;:</span> <span class="n">Feline</span>
-    <span class="n">weight</span><span class="o">::</span><span class="kt">Float64</span>
-    <span class="n">sound</span><span class="o">::</span><span class="kt">AbstractString</span>
+<div class="highlight"><pre><span></span><span class="n">struct</span> <span class="n">Feline</span>
+    <span class="n">weight</span><span class="p">::</span><span class="kt">Float64</span>
+    <span class="n">sound</span><span class="p">::</span><span class="n">String</span>
 <span class="k">end</span>
-<span class="k">type</span> <span class="n">Pussycat</span> <span class="o">&lt;:</span> <span class="n">Feline</span>
-    <span class="n">weight</span><span class="o">::</span><span class="kt">Float64</span>
-    <span class="n">sound</span><span class="o">::</span><span class="kt">AbstractString</span>
+<span class="n">struct</span> <span class="n">Cat</span> <span class="o">&lt;:</span> <span class="n">Feline</span>
+    <span class="n">weight</span><span class="p">::</span><span class="kt">Float64</span>
+    <span class="n">sound</span><span class="p">::</span><span class="n">String</span>
 <span class="k">end</span>
 </pre></div>
 
 </div>
 </div>
 </div></section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li>This means both jaguar and pusscat are subtypes of <code>Feline</code>, </li>
-<li>They have common fields <code>weight</code> and <code>sound</code>.</li>
-<li>but there could be different functions. We call function specific to a type 'methods'</li>
-</ul>
-<div class="highlight"><pre><span></span><span class="k">function</span> <span class="n">do_your_thing</span><span class="p">(</span><span class="n">j</span><span class="o">::</span><span class="n">Jaguar</span><span class="p">)</span>
-    <span class="n">println</span><span class="p">(</span><span class="n">j</span><span class="o">.</span><span class="n">sound</span><span class="p">)</span>
-    <span class="n">println</span><span class="p">(</span><span class="s">&quot;I am going to throw my entire </span><span class="si">$</span><span class="p">(</span><span class="n">j</span><span class="o">.</span><span class="n">weight</span><span class="p">)</span><span class="s"> kg at you, I&#39;ll catch, kill and eat you!&quot;</span><span class="p">)</span>
-    <span class="n">println</span><span class="p">(</span><span class="s">&quot;I am a </span><span class="si">$</span><span class="p">(</span><span class="n">typeof</span><span class="p">(</span><span class="n">j</span><span class="p">))</span><span class="s">!!!!&quot;</span><span class="p">)</span>
+    <div class="input_area">
+<div class=" highlight hl-julia"><pre><span></span><span class="k">abstract</span><span class="nc"> type</span> <span class="n">Feline</span> <span class="k">end</span>
+
+<span class="n">struct</span> <span class="n">Jaguar</span> <span class="o">&lt;:</span> <span class="n">Feline</span>
+	<span class="n">weight</span><span class="p">::</span><span class="kt">Float64</span>
+	<span class="n">sound</span><span class="p">::</span><span class="n">String</span>
 <span class="k">end</span>
-<span class="k">function</span> <span class="n">do_your_thing</span><span class="p">(</span><span class="n">c</span><span class="o">::</span><span class="n">Pussycat</span><span class="p">)</span>
+<span class="n">struct</span> <span class="n">Cat</span> <span class="o">&lt;:</span> <span class="n">Feline</span>
+	<span class="n">weight</span><span class="p">::</span><span class="kt">Float64</span>
+	<span class="n">sound</span><span class="p">::</span><span class="n">String</span>
+<span class="k">end</span>
+
+<span class="c"># is a cat a Feline?</span>
+<span class="n">Cat</span> <span class="o">&lt;:</span> <span class="n">Feline</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[3]:</div>
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>true</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div></section><section>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-julia"><pre><span></span><span class="c"># create a cat and a jaguar</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">Cat</span><span class="p">(</span><span class="mf">15.2</span><span class="p">,</span><span class="s">&quot;miauu&quot;</span><span class="p">)</span>
+<span class="n">j</span> <span class="o">=</span> <span class="n">Jaguar</span><span class="p">(</span><span class="mf">95.1</span><span class="p">,</span><span class="s">&quot;ROARRRRRR!!!!!&quot;</span><span class="p">)</span>
+
+<span class="c"># is c an instance of type Cat?</span>
+<span class="nb">isa</span><span class="p">(</span><span class="n">c</span><span class="p">,</span><span class="n">Cat</span><span class="p">)</span>
+
+<span class="c"># methods</span>
+<span class="k">function</span><span class="nf"> behave</span><span class="p">(</span><span class="n">c</span><span class="p">::</span><span class="n">Cat</span><span class="p">)</span>
     <span class="n">println</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">sound</span><span class="p">)</span>
-    <span class="n">println</span><span class="p">(</span><span class="s">&quot;I should watch my line, </span><span class="si">$</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">weight</span><span class="p">)</span><span class="s"> is enough for a </span><span class="si">$</span><span class="p">(</span><span class="n">typeof</span><span class="p">(</span><span class="n">c</span><span class="p">))</span><span class="s">&quot;</span><span class="p">)</span>
-    <span class="n">println</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">sound</span><span class="p">)</span>
+    <span class="n">println</span><span class="p">(</span><span class="s">&quot;my weight is </span><span class="si">$(c.weight)</span><span class="s"> kg! should go on a diet&quot;</span><span class="p">)</span>
+<span class="k">end</span>
+<span class="k">function</span><span class="nf"> behave</span><span class="p">(</span><span class="n">j</span><span class="p">::</span><span class="n">Jaguar</span><span class="p">)</span>
+    <span class="n">println</span><span class="p">(</span><span class="n">j</span><span class="o">.</span><span class="n">sound</span><span class="p">)</span>
+    <span class="n">println</span><span class="p">(</span><span class="s">&quot;Step back! I&#39;m a </span><span class="si">$(j.weight)</span><span class="s"> kg jaguar.&quot;</span><span class="p">)</span>
 <span class="k">end</span>
 </pre></div>
 
 </div>
 </div>
-</div></section></section><section><section>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[10]:</div>
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>behave (generic function with 2 methods)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div></section><section>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-julia"><pre><span></span><span class="c"># make a cat behave:</span>
+<span class="n">behave</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+
+<span class="c"># and a jaguar</span>
+<span class="n">behave</span><span class="p">(</span><span class="n">j</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>miauu
+my weight is 15.2 kg! should go on a diet
+ROARRRRRR!!!!!
+Step back! I&#39;m a 95.1 kg jaguar.
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div></section><section>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -12268,80 +12362,7 @@ a.anchor-link {
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Julia-Primer:-Multiple-Dispatch">Julia Primer: Multiple Dispatch<a class="anchor-link" href="#Julia-Primer:-Multiple-Dispatch">&#182;</a></h2><ul>
 <li>You have just learned <code>multiple dispatch</code>. The same function name dispatches to different functions, depending on the input argument type.</li>
-<li>Add all of the above code into the module <code>Example</code></li>
-<li>Add Jaguar, Pussycat, and <code>do_your_thing</code> to <code>export</code> and save the file.</li>
 </ul>
-
-</div>
-</div>
-</div></section><section>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-julia"><pre><span></span><span class="c"># types</span>
-<span class="k">abstract</span> <span class="n">Feline</span>
-<span class="k">type</span> <span class="n">Jaguar</span> <span class="o">&lt;:</span> <span class="n">Feline</span>
-	<span class="n">weight</span><span class="o">::</span><span class="kt">Float64</span>
-	<span class="n">sound</span><span class="o">::</span><span class="kt">AbstractString</span>
-<span class="k">end</span>
-<span class="k">type</span> <span class="n">Pussycat</span> <span class="o">&lt;:</span> <span class="n">Feline</span>
-	<span class="n">weight</span><span class="o">::</span><span class="kt">Float64</span>
-	<span class="n">sound</span><span class="o">::</span><span class="kt">AbstractString</span>
-<span class="k">end</span>
-
-<span class="c"># methods</span>
-<span class="n">hello</span><span class="p">(</span><span class="n">who</span><span class="o">::</span><span class="kt">AbstractString</span><span class="p">)</span> <span class="o">=</span> <span class="s">&quot;Hello, </span><span class="si">$who</span><span class="s">&quot;</span>
-<span class="n">domath</span><span class="p">(</span><span class="n">x</span><span class="o">::</span><span class="kt">Number</span><span class="p">)</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="mi">5</span><span class="p">)</span>
-
-<span class="s">&quot;&quot;&quot;</span>
-<span class="s">makes a jaguar do their thing. </span>
-<span class="s">&quot;&quot;&quot;</span>
-<span class="k">function</span> <span class="n">do_your_thing</span><span class="p">(</span><span class="n">j</span><span class="o">::</span><span class="n">Jaguar</span><span class="p">)</span>
-	<span class="n">println</span><span class="p">(</span><span class="n">j</span><span class="o">.</span><span class="n">sound</span><span class="p">)</span>
-	<span class="n">println</span><span class="p">(</span><span class="s">&quot;I am going to throw my entire </span><span class="si">$</span><span class="p">(</span><span class="n">j</span><span class="o">.</span><span class="n">weight</span><span class="p">)</span><span class="s"> kg at you, I&#39;ll catch, kill and eat you!&quot;</span><span class="p">)</span>
-	<span class="n">println</span><span class="p">(</span><span class="s">&quot;I am a </span><span class="si">$</span><span class="p">(</span><span class="n">typeof</span><span class="p">(</span><span class="n">j</span><span class="p">))</span><span class="s">!!!!&quot;</span><span class="p">)</span>
-<span class="k">end</span>
-
-<span class="s">&quot;&quot;&quot;</span>
-<span class="s">makes a pussycat do their thing. </span>
-<span class="s">&quot;&quot;&quot;</span>
-<span class="k">function</span> <span class="n">do_your_thing</span><span class="p">(</span><span class="n">c</span><span class="o">::</span><span class="n">Pussycat</span><span class="p">)</span>
-	<span class="n">println</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">sound</span><span class="p">)</span>
-	<span class="n">println</span><span class="p">(</span><span class="s">&quot;I should watch my weight, </span><span class="si">$</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">weight</span><span class="p">)</span><span class="s"> is enough for a </span><span class="si">$</span><span class="p">(</span><span class="n">typeof</span><span class="p">(</span><span class="n">c</span><span class="p">))</span><span class="s">&quot;</span><span class="p">)</span>
-	<span class="n">println</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">sound</span><span class="p">)</span>
-<span class="k">end</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div></section><section>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-julia"><pre><span></span><span class="n">j</span> <span class="o">=</span> <span class="n">Jaguar</span><span class="p">(</span><span class="mf">130.1</span><span class="p">,</span><span class="s">&quot;roaaarrrrrrr&quot;</span><span class="p">)</span>
-<span class="n">c</span> <span class="o">=</span> <span class="n">Pussycat</span><span class="p">(</span><span class="mf">9.8</span><span class="p">,</span><span class="s">&quot;miauuu&quot;</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div></section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>... and make them <code>do_their_thing</code>:</p>
-<div class="highlight"><pre><span></span><span class="n">do_your_thing</span><span class="p">(</span><span class="n">j</span><span class="p">)</span>
-<span class="n">do_your_thing</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
-</pre></div>
 
 </div>
 </div>
@@ -12369,20 +12390,20 @@ a.anchor-link {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-julia"><pre><span></span><span class="k">function</span> <span class="n">t1</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="k">function</span><span class="nf"> t1</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
     <span class="n">s</span>  <span class="o">=</span> <span class="mi">0</span>  <span class="c"># typeof(s) = Int</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="kp">in</span> <span class="mi">1</span><span class="o">:</span><span class="n">n</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="k">in</span> <span class="mi">1</span><span class="p">:</span><span class="n">n</span>
         <span class="n">s</span> <span class="o">+=</span> <span class="n">s</span><span class="o">/</span><span class="n">i</span>
     <span class="k">end</span>
 <span class="k">end</span>
-<span class="k">function</span> <span class="n">t2</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+<span class="k">function</span><span class="nf"> t2</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
     <span class="n">s</span>  <span class="o">=</span> <span class="mf">0.0</span>   <span class="c"># typeof(s) = Float64</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="kp">in</span> <span class="mi">1</span><span class="o">:</span><span class="n">n</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="k">in</span> <span class="mi">1</span><span class="p">:</span><span class="n">n</span>
         <span class="n">s</span> <span class="o">+=</span> <span class="n">s</span><span class="o">/</span><span class="n">i</span>
     <span class="k">end</span>
 <span class="k">end</span>
-<span class="nd">@time</span> <span class="n">t1</span><span class="p">(</span><span class="mi">10000000</span><span class="p">)</span>
-<span class="nd">@time</span> <span class="n">t2</span><span class="p">(</span><span class="mi">10000000</span><span class="p">)</span>
+<span class="p">@</span><span class="n">time</span> <span class="n">t1</span><span class="p">(</span><span class="mi">10000000</span><span class="p">)</span>
+<span class="p">@</span><span class="n">time</span> <span class="n">t2</span><span class="p">(</span><span class="mi">10000000</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -12412,7 +12433,7 @@ a.anchor-link {
 <h3 id="An-example-Module">An example Module<a class="anchor-link" href="#An-example-Module">&#182;</a></h3><div class="highlight"><pre><span></span><span class="k">module</span> <span class="n">MyModule</span>
     <span class="c"># which other modules to use: imports</span>
     <span class="k">using</span> <span class="n">Lib</span>
-    <span class="k">using</span> <span class="n">BigLib</span><span class="o">:</span> <span class="n">thing1</span><span class="p">,</span> <span class="n">thing2</span>
+    <span class="k">using</span> <span class="n">BigLib</span><span class="p">:</span> <span class="n">thing1</span><span class="p">,</span> <span class="n">thing2</span>
     <span class="k">import</span> <span class="n">Base</span><span class="o">.</span><span class="n">show</span>
     <span class="k">importall</span> <span class="n">OtherLib</span>
 
@@ -12420,15 +12441,15 @@ a.anchor-link {
     <span class="k">export</span> <span class="n">MyType</span><span class="p">,</span> <span class="n">foo</span>
 
     <span class="c"># type defs</span>
-    <span class="k">type</span> <span class="n">MyType</span>
+    <span class="n">struct</span> <span class="n">MyType</span>
         <span class="n">x</span>
     <span class="k">end</span>
 
     <span class="c"># methods</span>
     <span class="n">bar</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">=</span> <span class="mi">2</span><span class="n">x</span>
-    <span class="n">foo</span><span class="p">(</span><span class="n">a</span><span class="o">::</span><span class="n">MyType</span><span class="p">)</span> <span class="o">=</span> <span class="n">bar</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="n">foo</span><span class="p">(</span><span class="n">a</span><span class="p">::</span><span class="n">MyType</span><span class="p">)</span> <span class="o">=</span> <span class="n">bar</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
 
-    <span class="n">show</span><span class="p">(</span><span class="n">io</span><span class="o">::</span><span class="kt">IO</span><span class="p">,</span> <span class="n">a</span><span class="o">::</span><span class="n">MyType</span><span class="p">)</span> <span class="o">=</span> <span class="n">print</span><span class="p">(</span><span class="n">io</span><span class="p">,</span> <span class="s">&quot;MyType </span><span class="si">$</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">x</span><span class="p">)</span><span class="s">&quot;</span><span class="p">)</span>
+    <span class="n">show</span><span class="p">(</span><span class="n">io</span><span class="p">::</span><span class="n">IO</span><span class="p">,</span> <span class="n">a</span><span class="p">::</span><span class="n">MyType</span><span class="p">)</span> <span class="o">=</span> <span class="n">print</span><span class="p">(</span><span class="n">io</span><span class="p">,</span> <span class="s">&quot;MyType </span><span class="si">$(a.x)</span><span class="s">&quot;</span><span class="p">)</span>
 <span class="k">end</span>
 </pre></div>
 
@@ -12461,41 +12482,14 @@ a.anchor-link {
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Working-with-Modules">Working with Modules<a class="anchor-link" href="#Working-with-Modules">&#182;</a></h3><ul>
-<li>Look at the example at <a href="http://docs.julialang.org/en/stable/manual/modules/#summary-of-module-usage">the manual!</a></li>
-<li><strong>Location of Modules</strong>: Julia stores packages in a hidden folder <code>~/.julia</code> (system-dependent)</li>
+<li>Look at the example at <a href="https://docs.julialang.org/en/stable/manual/modules/">the manual!</a></li>
+<li><strong>Location of Modules</strong>: Julia stores packages in a hidden folder <code>~/.julia/v0.6</code> (system-dependent)</li>
 <li>You can develop your own modules in a different location if you want.</li>
 <li>Julia reads the file <code>~/.juliarc.jl</code> on each startup. Modify the <code>LOAD_PATH</code> variable:</li>
 </ul>
 <div class="highlight"><pre><span></span><span class="c"># add this to ~/.juliarc.jl</span>
-<span class="n">push!</span><span class="p">(</span><span class="nb">LOAD_PATH</span><span class="p">,</span> <span class="s">&quot;/Path/To/My/Module/&quot;</span><span class="p">)</span>
+<span class="n">push!</span><span class="p">(</span><span class="n">LOAD_PATH</span><span class="p">,</span> <span class="s">&quot;/Path/To/My/Module/&quot;</span><span class="p">)</span>
 </pre></div>
-
-</div>
-</div>
-</div></section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="ScPoExample.jl">ScPoExample.jl<a class="anchor-link" href="#ScPoExample.jl">&#182;</a></h3><ul>
-<li>I have created a fork of <a href="https://github.com/JuliaLang/Example.jl">Example.jl</a> at <a href="https://github.com/ScPo-CompEcon/ScPoExample.jl">ScPoExample.jl</a> for you.</li>
-<li>Use Github Desktop to clone this to your computer</li>
-<li>When done, open Juno, or your text editor to look at the code.</li>
-</ul>
-
-</div>
-</div>
-</div></section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Extending-ScPoExample.jl">Extending ScPoExample.jl<a class="anchor-link" href="#Extending-ScPoExample.jl">&#182;</a></h3><ol>
-<li>add a function which creates a random vector array of size (2,3,3)</li>
-<li>add a test that checks that the function works correctly</li>
-</ol>
 
 </div>
 </div>
@@ -12639,7 +12633,7 @@ Inside the control system unit (VCSU) is a countdown timer that ticks off time i
 <h2 id="Automated-Testing">Automated Testing<a class="anchor-link" href="#Automated-Testing">&#182;</a></h2><ul>
 <li>You should try to minimize the effort of writing tests.</li>
 <li>Using an automated test suite is very helpful here.</li>
-<li>In Julia, we have got <code>Base.Test</code> in the Base package, and <code>FactCheck</code> as a package.</li>
+<li>In Julia, we have got <code>Base.Test</code> in the Base package</li>
 <li>Julia unit testing is described <a href="http://docs.julialang.org/en/stable/stdlib/test/">here</a></li>
 </ul>
 
@@ -12657,11 +12651,24 @@ Inside the control system unit (VCSU) is a countdown timer that ticks off time i
 <li>Every time you push a commit to github.</li>
 <li>If the repository is public on github, the service is for free.</li>
 <li>Many julia packages are testing on Travis.</li>
-<li>You should look out for the green badge. </li>
+<li>You should look out for this green badge: <a href="http://pkg.julialang.org/?pkg=Example"><img src="../assets/figs/BasicComputing/Example_0.6.png" alt="Example"></a></li>
 </ul>
 
 </div>
 </div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-julia"><pre><span></span><span class="c"># let&#39;s do some simple testing</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
 </div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
@@ -12680,82 +12687,6 @@ Inside the control system unit (VCSU) is a countdown timer that ticks off time i
 
 </div>
 </div>
-</div></section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Logging.jl"><a href="https://github.com/kmsquire/Logging.jl">Logging.jl</a><a class="anchor-link" href="#Logging.jl">&#182;</a></h3><ul>
-<li>A simple logging package inspired by Python's logger class.</li>
-<li>Do this:</li>
-</ul>
-
-</div>
-</div>
-</div></section><section>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-julia"><pre><span></span><span class="k">using</span> <span class="n">Logging</span>
-
-<span class="k">function</span> <span class="n">log_test</span><span class="p">()</span>
-    <span class="n">debug</span><span class="p">(</span><span class="s">&quot;debug message&quot;</span><span class="p">)</span>
-    <span class="n">info</span><span class="p">(</span><span class="s">&quot;info message&quot;</span><span class="p">)</span>
-    <span class="n">warn</span><span class="p">(</span><span class="s">&quot;warning message&quot;</span><span class="p">)</span>
-    <span class="n">err</span><span class="p">(</span><span class="s">&quot;error message&quot;</span><span class="p">)</span>
-    <span class="n">critical</span><span class="p">(</span><span class="s">&quot;critical message&quot;</span><span class="p">)</span>
-<span class="k">end</span>
-
-<span class="n">Logging</span><span class="o">.</span><span class="n">configure</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="n">DEBUG</span><span class="p">)</span>
-<span class="n">log_test</span><span class="p">()</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div></section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>We can also use Macros that can be turned off completely, resulting an almost zero function call overhead:</p>
-
-</div>
-</div>
-</div></section><section>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-julia"><pre><span></span><span class="nd">@Logging</span><span class="o">.</span><span class="n">configure</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="n">DEBUG</span><span class="p">)</span>
-
-<span class="k">function</span> <span class="n">macro_log_test</span><span class="p">()</span>
-    <span class="nd">@debug</span><span class="p">(</span><span class="s">&quot;debug message&quot;</span><span class="p">)</span>
-    <span class="nd">@info</span><span class="p">(</span><span class="s">&quot;info message&quot;</span><span class="p">)</span>
-    <span class="nd">@warn</span><span class="p">(</span><span class="s">&quot;warning message&quot;</span><span class="p">)</span>
-    <span class="nd">@err</span><span class="p">(</span><span class="s">&quot;error message&quot;</span><span class="p">)</span>
-    <span class="nd">@critical</span><span class="p">(</span><span class="s">&quot;critical message&quot;</span><span class="p">)</span>
-<span class="k">end</span>
-
-<span class="n">macro_log_test</span><span class="p">()</span>
-
-<span class="c"># now we are done debugging</span>
-<span class="n">println</span><span class="p">(</span><span class="s">&quot;turning logging off completely&quot;</span><span class="p">)</span>
-<span class="nd">@Logging</span><span class="o">.</span><span class="n">configure</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="n">OFF</span><span class="p">)</span>
-
-<span class="n">macro_log_test</span><span class="p">()</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
@@ -12786,7 +12717,6 @@ git checkout dbg
 <li><a href="https://dataframesjl.readthedocs.io">DataFrames.jl</a></li>
 <li><a href="https://github.com/JuliaStats/DataFramesMeta.jl">DataFramesMeta.jl</a></li>
 <li><a href="https://github.com/davidanthoff/Query.jl">Queries.jl</a></li>
-<li><a href="http://julialang.org/blog/2016/10/StructuredQueries">StructuredQueries.jl - not there yet</a></li>
 </ul>
 
 </div>
@@ -12832,9 +12762,9 @@ git checkout dbg
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-julia"><pre><span></span><span class="n">println</span><span class="p">(</span><span class="n">iris</span><span class="p">[</span><span class="o">:</span><span class="n">SepalLength</span><span class="p">][</span><span class="mi">1</span><span class="o">:</span><span class="mi">6</span><span class="p">])</span>  <span class="c"># get a column</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="n">println</span><span class="p">(</span><span class="n">iris</span><span class="p">[:</span><span class="n">SepalLength</span><span class="p">][</span><span class="mi">1</span><span class="p">:</span><span class="mi">6</span><span class="p">])</span>  <span class="c"># get a column</span>
 
-<span class="n">show</span><span class="p">(</span><span class="n">iris</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="o">:</span><span class="p">])</span>   <span class="c"># get a row</span>
+<span class="n">show</span><span class="p">(</span><span class="n">iris</span><span class="p">[</span><span class="mi">2</span><span class="p">,:])</span>   <span class="c"># get a row</span>
 
 <span class="n">describe</span><span class="p">(</span><span class="n">iris</span><span class="p">);</span>   <span class="c"># get a description</span>
 </pre></div>
@@ -12854,7 +12784,7 @@ git checkout dbg
 <li>We can sort, join (i.e. merge), split-apply-combine and reshape dataframes. We can do most things one can do in base R with a <code>data.frame</code>.</li>
 <li>Mention <code>pooled</code> data:</li>
 </ul>
-<div class="highlight"><pre><span></span><span class="n">pdv</span> <span class="o">=</span> <span class="nd">@pdata</span><span class="p">([</span><span class="s">&quot;Group A&quot;</span><span class="p">,</span> <span class="s">&quot;Group A&quot;</span><span class="p">,</span> <span class="s">&quot;Group A&quot;</span><span class="p">,</span>
+<div class="highlight"><pre><span></span><span class="n">pdv</span> <span class="o">=</span> <span class="p">@</span><span class="n">pdata</span><span class="p">([</span><span class="s">&quot;Group A&quot;</span><span class="p">,</span> <span class="s">&quot;Group A&quot;</span><span class="p">,</span> <span class="s">&quot;Group A&quot;</span><span class="p">,</span>
               <span class="s">&quot;Group B&quot;</span><span class="p">,</span> <span class="s">&quot;Group B&quot;</span><span class="p">,</span> <span class="s">&quot;Group B&quot;</span><span class="p">])</span>
 </pre></div>
 
@@ -12867,10 +12797,10 @@ git checkout dbg
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="c"># subsetting a dataframe can become cumbersome</span>
-<span class="n">d</span> <span class="o">=</span> <span class="n">DataFrame</span><span class="p">(</span><span class="n">A</span> <span class="o">=</span> <span class="n">rand</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span><span class="n">B</span><span class="o">=</span><span class="n">rand</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span><span class="mi">10</span><span class="p">),</span><span class="n">C</span><span class="o">=</span><span class="p">[</span><span class="s">&quot;word </span><span class="si">$i</span><span class="s">&quot;</span> <span class="k">for</span> <span class="n">i</span> <span class="kp">in</span> <span class="mi">1</span><span class="o">:</span><span class="mi">10</span><span class="p">])</span>
- <span class="n">d</span><span class="p">[(</span><span class="n">d</span><span class="p">[</span><span class="o">:</span><span class="n">A</span><span class="p">]</span><span class="o">.&gt;</span><span class="mf">0.1</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="o">:</span><span class="n">B</span><span class="p">]</span><span class="o">.==</span><span class="mi">2</span><span class="p">),</span><span class="o">:</span><span class="p">]</span>  
+<span class="n">d</span> <span class="o">=</span> <span class="n">DataFrame</span><span class="p">(</span><span class="n">A</span> <span class="o">=</span> <span class="n">rand</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span><span class="n">B</span><span class="o">=</span><span class="n">rand</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span><span class="mi">10</span><span class="p">),</span><span class="n">C</span><span class="o">=</span><span class="p">[</span><span class="s">&quot;word </span><span class="si">$i</span><span class="s">&quot;</span> <span class="k">for</span> <span class="n">i</span> <span class="k">in</span> <span class="mi">1</span><span class="p">:</span><span class="mi">10</span><span class="p">])</span>
+ <span class="n">d</span><span class="p">[(</span><span class="n">d</span><span class="p">[:</span><span class="n">A</span><span class="p">]</span><span class="o">.&gt;</span><span class="mf">0.1</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">d</span><span class="p">[:</span><span class="n">B</span><span class="p">]</span><span class="o">.==</span><span class="mi">2</span><span class="p">),:]</span>  
 <span class="k">using</span> <span class="n">DataFramesMeta</span>
-<span class="nd">@where</span><span class="p">(</span><span class="n">d</span><span class="p">,(</span><span class="o">:</span><span class="n">A</span> <span class="o">.&gt;</span><span class="mf">0.1</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="o">:</span><span class="n">B</span><span class="o">.==</span><span class="mi">2</span><span class="p">))</span>
+<span class="p">@</span><span class="n">where</span><span class="p">(</span><span class="n">d</span><span class="p">,(:</span><span class="n">A</span> <span class="o">.&gt;</span><span class="mf">0.1</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(:</span><span class="n">B</span><span class="o">.==</span><span class="mi">2</span><span class="p">))</span>
 </pre></div>
 
 </div>
@@ -12890,7 +12820,7 @@ git checkout dbg
 <li>The same thing from before is now</li>
 </ul>
 <div class="highlight"><pre><span></span><span class="k">using</span> <span class="n">DataFramesMeta</span>
-<span class="nd">@where</span><span class="p">(</span><span class="n">d</span><span class="p">,(</span><span class="o">:</span><span class="n">A</span> <span class="o">.&gt;</span><span class="mf">0.1</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="o">:</span><span class="n">B</span><span class="o">.==</span><span class="mi">2</span><span class="p">))</span>
+<span class="p">@</span><span class="n">where</span><span class="p">(</span><span class="n">d</span><span class="p">,(:</span><span class="n">A</span> <span class="o">.&gt;</span><span class="mf">0.1</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(:</span><span class="n">B</span><span class="o">.==</span><span class="mi">2</span><span class="p">))</span>
 </pre></div>
 <ul>
 <li>We can access column names as <em>symbols</em> inside an expression.</li>
@@ -12920,13 +12850,13 @@ git checkout dbg
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="k">using</span> <span class="n">DataFramesMeta</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">DataFrame</span><span class="p">(</span><span class="n">a</span> <span class="o">=</span> <span class="mi">1</span><span class="o">:</span><span class="mi">20</span><span class="p">,</span><span class="n">b</span> <span class="o">=</span> <span class="n">rand</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">10</span><span class="p">],</span><span class="mi">20</span><span class="p">),</span> <span class="n">x</span> <span class="o">=</span> <span class="n">rand</span><span class="p">(</span><span class="mi">20</span><span class="p">))</span>
-<span class="n">x_thread</span> <span class="o">=</span> <span class="nd">@linq</span> <span class="n">df</span> <span class="o">|&gt;</span>
-    <span class="n">transform</span><span class="p">(</span><span class="n">y</span> <span class="o">=</span> <span class="mi">10</span> <span class="o">*</span> <span class="o">:</span><span class="n">x</span><span class="p">)</span> <span class="o">|&gt;</span>
-    <span class="n">where</span><span class="p">(</span><span class="o">:</span><span class="n">a</span> <span class="o">.&gt;</span> <span class="mi">2</span><span class="p">)</span> <span class="o">|&gt;</span>
-    <span class="n">by</span><span class="p">(</span><span class="o">:</span><span class="n">b</span><span class="p">,</span> <span class="n">meanX</span> <span class="o">=</span> <span class="n">mean</span><span class="p">(</span><span class="o">:</span><span class="n">x</span><span class="p">),</span> <span class="n">meanY</span> <span class="o">=</span> <span class="n">mean</span><span class="p">(</span><span class="o">:</span><span class="n">y</span><span class="p">))</span> <span class="o">|&gt;</span>
-    <span class="n">orderby</span><span class="p">(</span><span class="o">:</span><span class="n">meanX</span><span class="p">)</span> <span class="o">|&gt;</span>
-    <span class="n">select</span><span class="p">(</span><span class="o">:</span><span class="n">meanX</span><span class="p">,</span> <span class="o">:</span><span class="n">meanY</span><span class="p">,</span> <span class="n">var</span> <span class="o">=</span> <span class="o">:</span><span class="n">b</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">DataFrame</span><span class="p">(</span><span class="n">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">:</span><span class="mi">20</span><span class="p">,</span><span class="n">b</span> <span class="o">=</span> <span class="n">rand</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">10</span><span class="p">],</span><span class="mi">20</span><span class="p">),</span> <span class="n">x</span> <span class="o">=</span> <span class="n">rand</span><span class="p">(</span><span class="mi">20</span><span class="p">))</span>
+<span class="n">x_thread</span> <span class="o">=</span> <span class="p">@</span><span class="n">linq</span> <span class="n">df</span> <span class="o">|&gt;</span>
+    <span class="n">transform</span><span class="p">(</span><span class="n">y</span> <span class="o">=</span> <span class="mi">10</span> <span class="o">*</span> <span class="p">:</span><span class="n">x</span><span class="p">)</span> <span class="o">|&gt;</span>
+    <span class="n">where</span><span class="p">(:</span><span class="n">a</span> <span class="o">.&gt;</span> <span class="mi">2</span><span class="p">)</span> <span class="o">|&gt;</span>
+    <span class="n">by</span><span class="p">(:</span><span class="n">b</span><span class="p">,</span> <span class="n">meanX</span> <span class="o">=</span> <span class="n">mean</span><span class="p">(:</span><span class="n">x</span><span class="p">),</span> <span class="n">meanY</span> <span class="o">=</span> <span class="n">mean</span><span class="p">(:</span><span class="n">y</span><span class="p">))</span> <span class="o">|&gt;</span>
+    <span class="n">orderby</span><span class="p">(:</span><span class="n">meanX</span><span class="p">)</span> <span class="o">|&gt;</span>
+    <span class="n">select</span><span class="p">(:</span><span class="n">meanX</span><span class="p">,</span> <span class="p">:</span><span class="n">meanY</span><span class="p">,</span> <span class="n">var</span> <span class="o">=</span> <span class="p">:</span><span class="n">b</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -12964,10 +12894,10 @@ git checkout dbg
 
 <span class="n">df</span> <span class="o">=</span> <span class="n">DataFrame</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="p">[</span><span class="s">&quot;John&quot;</span><span class="p">,</span> <span class="s">&quot;Sally&quot;</span><span class="p">,</span> <span class="s">&quot;Kirk&quot;</span><span class="p">],</span> <span class="n">age</span><span class="o">=</span><span class="p">[</span><span class="mf">23.</span><span class="p">,</span> <span class="mf">42.</span><span class="p">,</span> <span class="mf">59.</span><span class="p">],</span> <span class="n">children</span><span class="o">=</span><span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">2</span><span class="p">])</span>
 
-<span class="n">x</span> <span class="o">=</span> <span class="nd">@from</span> <span class="n">i</span> <span class="kp">in</span> <span class="n">df</span> <span class="k">begin</span>
-    <span class="nd">@where</span> <span class="n">i</span><span class="o">.</span><span class="n">age</span><span class="o">&gt;</span><span class="mi">50</span>
-    <span class="nd">@select</span> <span class="p">{</span><span class="n">i</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">i</span><span class="o">.</span><span class="n">children</span><span class="p">}</span>
-    <span class="nd">@collect</span> <span class="n">DataFrame</span>
+<span class="n">x</span> <span class="o">=</span> <span class="p">@</span><span class="n">from</span> <span class="n">i</span> <span class="k">in</span> <span class="n">df</span> <span class="k">begin</span>
+    <span class="p">@</span><span class="n">where</span> <span class="n">i</span><span class="o">.</span><span class="n">age</span><span class="o">&gt;</span><span class="mi">50</span>
+    <span class="p">@</span><span class="n">select</span> <span class="p">{</span><span class="n">i</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">i</span><span class="o">.</span><span class="n">children</span><span class="p">}</span>
+    <span class="p">@</span><span class="n">collect</span> <span class="n">DataFrame</span>
 <span class="k">end</span>
 <span class="n">println</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
 <span class="n">println</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>

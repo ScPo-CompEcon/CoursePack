@@ -485,6 +485,7 @@ module nfxp
         dd = dict_busses(d)
         m = Model(solver=IpoptSolver())
         T = maximum(d[:t])
+        n = maximum(d[:id])
         M = 4 # number of slots in state transition: can move 0,1,2,3 slots up
         N = p.n  # number of states
         @variable(m,theta_cost >= 0)
@@ -507,8 +508,8 @@ module nfxp
 
         # BellmanViolation = sum()
 
-        @NLobjective(m, Max,sum(log( dd[:d][i,it]*(1.0 - ProbKeep[dd[:x][i,it]]) + (1.0 - dd[:d][i,it])*(ProbKeep[dd[:x][i,it]])) for i=1:N, it=2:T) + 
-            sum( log( theta_probs[dd[:dx1][i,it]+1] ) for i=1:N,it=2:N))
+        @NLobjective(m, Max,sum(log( dd[:d][i,it]*(1.0 - ProbKeep[dd[:x][i,it]]) + (1.0 - dd[:d][i,it])*(ProbKeep[dd[:x][i,it]])) for i=1:n, it=2:T) + 
+            sum( log( theta_probs[dd[:dx1][i,it]+1] ) for i=1:n,it=2:T))
 
         # bellman equation for states 1:(N-M+1) i.e. where all state progressions are possible
         @NLconstraint(m, constr_EV[i=1:(N-M+1)],

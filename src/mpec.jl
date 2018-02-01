@@ -4,6 +4,7 @@
 module jump
 
     using JuMP 
+    using Ipopt
     using Distributions
     srand(12345)
     normal = Normal(0,0.01)
@@ -11,7 +12,7 @@ module jump
     function run()
 
         # create a model
-        m = Model()
+        m = Model(solver=IpoptSolver())
 
         # define constants (N, price, etc)
         N = 100
@@ -25,7 +26,7 @@ module jump
         @variable(m,0 <= beta <= 1)
 
         # define constraints and objective
-        @objective(m,Min,sum(eps)^2)
+        @objective(m,Min,sum(eps[i]^2 for i in 1:N))
         @constraint(m,constr[i=1:N], 1.0 - 2*beta*(demand[i]-eps[i])-price[i] == 0)
 
         # solve
@@ -58,9 +59,17 @@ module nlopt
            g[:] = vcat(2.0*x[1:(end-1)],0.0)
         end
         # value of objective
-        r = sum(x[1:(end-1)])^2
+        r = sum(x[1:(end-1)].^2)
         return r
     end
+
+    # function test_constr()
+    #     x = rand(N+1)
+    #     my_c = zeros(N+1)
+    #     my_g = zeros(N+1,N)
+    #     constr(my_c,x,my_g,N,demand,price);
+    #     @test all(my_g .== Calculus.hessian()
+    # end
 
     # 
     function constr(r::Vector,x::Vector,g::Matrix,n,q,p)

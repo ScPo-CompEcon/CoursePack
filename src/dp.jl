@@ -290,7 +290,7 @@ function proj(n=25)
     p     = funnode(basis)[1]   # collocation points
 
     c0 = ones(n)*0.3
-    function resid(c::Vector,result::Vector,p,basis,alpha,eta)
+    function resid!(c::Vector,result::Vector,p,basis,alpha,eta)
         q = funeval(c,basis,p)[1]
         q2 = zeros(q)
         for i in eachindex(q2)
@@ -302,12 +302,12 @@ function proj(n=25)
         end
         result[:] = p.+ q .*((-1/eta)*p.^(eta+1)) .- alpha*q2 .- q.^2
     end
-    f_closure(x::Vector,r::Vector) = resid(x,r,p,basis,alpha,eta)
+    f_closure(x::Vector,r::Vector) = resid!(x,r,p,basis,alpha,eta)
     res = nlsolve(f_closure,c0)
 
     x = collect(linspace(a,b,501))
     y = similar(x)
-    resid(res.zero,y,x,basis,alpha,eta);
+    resid!(res.zero,y,x,basis,alpha,eta);
     figure()
     subplot(121)
     plot(x,y)

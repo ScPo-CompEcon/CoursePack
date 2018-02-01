@@ -7,27 +7,38 @@ SOURCE_FILES = Rake::FileList.new("Notebooks/*.ipynb")
 task :default => :all 
 task :all => [:html, :pdf, :slides]
 task :clean => [:clean_md,:clean_slides,:clean_html,:clean_pdf]
+
+desc "convert notebook to html"
 task :html => SOURCE_FILES.ext("html")
+
+desc "convert notebook to html slides"
 task :slides => SOURCE_FILES.ext("slides.html")
+
+desc "convert notebook to pdf"
 task :pdf => SOURCE_FILES.ext("pdf")
+
+desc "convert notebook to markdown"
 task :md => SOURCE_FILES.ext("md")
 # task :offline => :slides
 
+desc "clean markdown"
 task :clean_md do
 	sh "rm -rf Notebooks/*.md"
 	sh "rm -rf Markdown/*.md"
 end
+
+desc "clean html"
 task :clean_html do
 	sh "rm -rf Notebooks/*.html"
 	sh "rm -rf Html/*.html"
 	sh "rm -rf index.html"
 end
 
+desc "clean slides"
 task :clean_slides do
 	sh "rm -rf Notebooks/*.slides.html"
 	sh "rm -rf Slides/*.html"
 end
-
 
 
 rule ".html" => ".ipynb" do |t|
@@ -54,7 +65,7 @@ end
 
 rule ".pdf" => ".ipynb" do |t|
 	# exclude those from bibtex citations
-	exclude = ["BasicIntroduction","Index","PlotsJL","HPC"]
+	exclude = ["BasicComputing","BasicIntroduction","Index","PlotsJL","HPC"]
 	no_bib = ["mpec-starters","CEPM"]
 	bn = File.basename("#{t.source}")
 	b  = File.basename("#{t.source}",".ipynb")
