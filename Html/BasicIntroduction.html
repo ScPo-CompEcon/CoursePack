@@ -11799,13 +11799,43 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="o">?</span><span class="n">copy</span>
 </pre></div>
 
 </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>search: <span class="ansi-bold">c</span><span class="ansi-bold">o</span><span class="ansi-bold">p</span><span class="ansi-bold">y</span> <span class="ansi-bold">c</span><span class="ansi-bold">o</span><span class="ansi-bold">p</span><span class="ansi-bold">y</span>! <span class="ansi-bold">c</span><span class="ansi-bold">o</span><span class="ansi-bold">p</span><span class="ansi-bold">y</span>sign deep<span class="ansi-bold">c</span><span class="ansi-bold">o</span><span class="ansi-bold">p</span><span class="ansi-bold">y</span> unsafe_<span class="ansi-bold">c</span><span class="ansi-bold">o</span><span class="ansi-bold">p</span><span class="ansi-bold">y</span>! <span class="ansi-bold">c</span>ircc<span class="ansi-bold">o</span><span class="ansi-bold">p</span><span class="ansi-bold">y</span>! <span class="ansi-bold">c</span><span class="ansi-bold">o</span>s<span class="ansi-bold">p</span>i <span class="ansi-bold">c</span><span class="ansi-bold">o</span>m<span class="ansi-bold">p</span>lex
+
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[1]:</div>
+
+
+<div class="output_markdown rendered_html output_subarea output_execute_result">
+
+<pre><code>copy(x)</code></pre>
+<p>Create a shallow copy of <code>x</code>: the outer structure is copied, but not all internal values. For example, copying an array produces a new array with identically-same elements as the original.</p>
+
+</div>
+
+</div>
+
 </div>
 </div>
 
@@ -11822,7 +11852,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="n">methods</span><span class="p">(</span><span class="o">+</span><span class="p">)</span>
@@ -11832,16 +11862,55 @@ div#notebook {
 </div>
 </div>
 
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[2]:</div>
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+180 methods for generic function <b>+</b>:<ul><li> +(x::<b>Bool</b>, z::<b>Complex{Bool}</b>) at <a href="https://github.com/JuliaLang/julia/tree/903644385b91ed8d95e5e3a5716c089dd1f1b08a/base/complex.jl#L232" target="_blank">complex.jl:232</a></li> <li> +(x::<b>Bool</b>, y::<b>Bool</b>) at <a href="https://github.com/JuliaLang/julia/tree/903644385b91ed8d95e5e3a5716c089dd1f1b08a/base/bool.jl#L89" target="_blank">bool.jl:89</a></li> <li> +(x::<b>Bool</b>) at <a href="https://github.com/JuliaLang/julia/tree/903644385b91ed8d95e5e3a5716c089dd1f1b08a/base/bool.jl#L86" target="_blank">bool.jl:86</a></li> <li> +<i>{T<:AbstractFloat}</i>(x::<b>Bool</b>, y::<b>T</b>) at <a href="https://github.com/JuliaLang/julia/tree/903644385b91ed8d95e5e3a5716c089dd1f1b08a/base/bool.jl#L96" target="_blank">bool.jl:96</a></li> <li> +(x::<b>Bool</b>, z::<b>Complex</b>) at <a href="https://github.com/JuliaLang/julia/tree/903644385b91ed8d95e5e3a5716c089dd1f1b08a/base/complex.jl#L239" target="_blank">complex.jl:239</a></li> <li> +(a::<b>Float16</b>, b::<b>Float16</b>) at <a href="https://github.com/JuliaLang/julia/tree/903644385b91ed8d95e5e3a5716c089dd1f1b08a/base/float.jl#L372" target="_blank">float.jl:372</a></li> <li> +(x::<b>Float32</b>, y::<b>Float32</b>) at <a href="https://github.com/JuliaLang/julia/tree/903644385b91ed8d95e5e3a5716c089dd1f1b08a/base/float.jl#L374" target="_blank">float.jl:374</a></li> <li> +(x::<b>Float64</b>, y::<b>Float64</b>) at <a href="https://github.com/JuliaLang/julia/tree/903644385b91ed8d95e5e3a5716c089dd1f1b08a/base/float.jl#L375" target="_blank">float.jl:375</a></li> <li> +(z::<b>Complex{Bool}</b>, x::<b>Bool</b>) at <a href="https://github.com/JuliaLang/julia/tree/903644385b91ed8d95e5e3a5716c089dd1f1b08a/base/complex.jl#L233" target="_blank">complex.jl:233</a></li> <li> +(z::<b>Complex{Bool}</b>, x::<b>Real</b>) at <a href="https://github.com/JuliaLang/julia/tree/903644385b91ed8d95e5e3a5716c089dd1f1b08a/base/complex.jl#L247" target="_blank">complex.jl:247</a></li> <li> +(x::<b>Char</b>, y::<b>Integer</b>) at <a href="https://github.com/JuliaLang/julia/tree/903644385b91ed8d95e5e3a5716c089dd1f1b08a/base/char.jl#L40" target="_blank">char.jl:40</a></li> <li> +(c::<b>BigInt</b>, x::<b>BigFloat</b>) at <a href="https://github.com/JuliaLang/julia/tree/903644385b91ed8d95e5e3a5716c089dd1f1b08a/base/mpfr.jl#L312" target="_blank">mpfr.jl:312</a></li> <li> +(a::<b>BigInt</b>, b::<b>BigInt</b>, c::<b>BigInt</b>, d::<b>BigInt</b>, e::<b>BigInt</b>) at <a href="https://github.com/JuliaLang/julia/tree/903644385b91ed8d95e5e3a5716c089dd1f1b08a/base/gmp.jl#L334" target="_blank">gmp.jl:334</a></li> <li> +(a::<b>BigInt</b>, b::<b>BigInt</b>, c::<b>BigInt</b>, d::<b>BigInt</b>) at <a href="https://github.com/JuliaLang/julia/tree/903644385b91ed8d95e5e3a5716c089dd1f1b08a/base/gmp.jl#L327" target="_blank">gmp.jl:327</a></li> <li> +(a::<b>BigInt</b>, b::<b>BigInt</b>, c::<b>BigInt</b>) at <a href="https://github.com/JuliaLang/julia/tree/903644385b91ed8d95e5e3a5716c089dd1f1b08a/base/gmp.jl#L321" target="_blank">gmp.jl:321</a></li> <li> +(x::<b>BigInt</b>, y::<b>BigInt</b>) at <a href="https://github.com/JuliaLang/julia/tree/903644385b91ed8d95e5e3a5716c089dd1f1b08a/base/gmp.jl#L289" target="_blank">gmp.jl:289</a></li> <li> +(x::<b>BigInt</b>, c::<b>Union{UInt16, UInt32, UInt64, UInt8}</b>) at <a href="https://github.com/JuliaLang/julia/tree/903644385b91ed8d95e5e3a5716c089dd1f1b08a/base/gmp.jl#L346" target="_blank">gmp.jl:346</a></li> <li> +(x::<b>BigInt</b>, c::<b>Union{Int16, Int32, Int64, Int8}</b>) at <a href="https://github.com/JuliaLang/julia/tree/903644385b91ed8d95e5e3a5716c089dd1f1b08a/base/gmp.jl#L362" target="_blank">gmp.jl:362</a></li> <li> +(a::<b>BigFloat</b>, b::<b>BigFloat</b>, c::<b>BigFloat</b>, d::<b>BigFloat</b>, e::<b>BigFloat</b>) at <a href="https://github.com/JuliaLang/julia/tree/903644385b91ed8d95e5e3a5716c089dd1f1b08a/base/mpfr.jl#L460" target="_blank">mpfr.jl:460</a></li> <li> +(a::<b>BigFloat</b>, b::<b>BigFloat</b>, c::<b>BigFloat</b>, d::<b>BigFloat</b>) at <a href="https://github.com/JuliaLang/julia/tree/903644385b91ed8d95e5e3a5716c089dd1f1b08a/base/mpfr.jl#L453" target="_blank">mpfr.jl:453</a></li> <li> +(a::<b>BigFloat</b>, b::<b>BigFloat</b>, c::<b>BigFloat</b>) at <a href="https://github.com/JuliaLang/julia/tree/903644385b91ed8d95e5e3a5716c089dd1f1b08a/base/mpfr.jl#L447" target="_blank">mpfr.jl:447</a></li> <li> +(x::<b>BigFloat</b>, c::<b>BigInt</b>) at <a href="https://github.com/JuliaLang/julia/tree/903644385b91ed8d95e5e3a5716c089dd1f1b08a/base/mpfr.jl#L308" target="_blank">mpfr.jl:308</a></li> <li> +(x::<b>BigFloat</b>, y::<b>BigFloat</b>) at <a href="https://github.com/JuliaLang/julia/tree/903644385b91ed8d95e5e3a5716c089dd1f1b08a/base/mpfr.jl#L277" target="_blank">mpfr.jl:277</a></li> <li> +(x::<b>BigFloat</b>, c::<b>Union{UInt16, UInt32, UInt64, UInt8}</b>) at <a href="https://github.com/JuliaLang/julia/tree/903644385b91ed8d95e5e3a5716c089dd1f1b08a/base/mpfr.jl#L284" target="_blank">mpfr.jl:284</a></li> <li> +(x::<b>BigFloat</b>, c::<b>Union{Int16, Int32, Int64, Int8}</b>) at <a href="https://github.com/JuliaLang/julia/tree/903644385b91ed8d95e5e3a5716c089dd1f1b08a/base/mpfr.jl#L292" target="_blank">mpfr.jl:292</a></li> <li> +(x::<b>BigFloat</b>, c::<b>Union{Float16, Float32, Float64}</b>) at <a href="https://github.com/JuliaLang/julia/tree/903644385b91ed8d95e5e3a5716c089dd1f1b08a/base/mpfr.jl#L300" target="_blank">mpfr.jl:300</a></li> <li> +(B::<b>BitArray{2}</b>, J::<b>UniformScaling</b>) at <a href="https://github.com/JuliaLang/julia/tree/903644385b91ed8d95e5e3a5716c089dd1f1b08a/base/linalg/uniformscaling.jl#L59" target="_blank">linalg/uniformscaling.jl:59</a></li> <li> +(a::<b>Base.Pkg.Resolve.VersionWeights.VWPreBuildItem</b>, b::<b>Base.Pkg.Resolve.VersionWeights.VWPreBuildItem</b>) at <a href="https://github.com/JuliaLang/julia/tree/903644385b91ed8d95e5e3a5716c089dd1f1b08a/base/pkg/resolve/versionweight.jl#L87" target="_blank">pkg/resolve/versionweight.jl:87</a></li> <li> +(a::<b>Base.Pkg.Resolve.VersionWeights.VWPreBuild</b>, b::<b>Base.Pkg.Resolve.VersionWeights.VWPreBuild</b>) at <a href="https://github.com/JuliaLang/julia/tree/903644385b91ed8d95e5e3a5716c089dd1f1b08a/base/pkg/resolve/versionweight.jl#L135" target="_blank">pkg/resolve/versionweight.jl:135</a></li> <li> +(a::<b>Base.Pkg.Resolve.VersionWeights.VersionWeight</b>, b::<b>Base.Pkg.Resolve.VersionWeights.VersionWeight</b>) at <a href="https://github.com/JuliaLang/julia/tree/903644385b91ed8d95e5e3a5716c089dd1f1b08a/base/pkg/resolve/versionweight.jl#L197" target="_blank">pkg/resolve/versionweight.jl:197</a></li> <li> +(a::<b>Base.Pkg.Resolve.MaxSum.FieldValues.FieldValue</b>, b::<b>Base.Pkg.Resolve.MaxSum.FieldValues.FieldValue</b>) at <a href="https://github.com/JuliaLang/julia/tree/903644385b91ed8d95e5e3a5716c089dd1f1b08a/base/pkg/resolve/fieldvalue.jl#L44" target="_blank">pkg/resolve/fieldvalue.jl:44</a></li> <li> +(x::<b>Base.Dates.CompoundPeriod</b>, y::<b>Base.Dates.CompoundPeriod</b>) at <a href="https://github.com/JuliaLang/julia/tree/903644385b91ed8d95e5e3a5716c089dd1f1b08a/base/dates/periods.jl#L349" target="_blank">dates/periods.jl:349</a></li> <li> +(x::<b>Base.Dates.CompoundPeriod</b>, y::<b>Base.Dates.Period</b>) at <a href="https://github.com/JuliaLang/julia/tree/903644385b91ed8d95e5e3a5716c089dd1f1b08a/base/dates/periods.jl#L347" target="_blank">dates/periods.jl:347</a></li> <li> +(x::<b>Base.Dates.CompoundPeriod</b>, y::<b>Base.Dates.TimeType</b>) at <a href="https://github.com/JuliaLang/julia/tree/903644385b91ed8d95e5e3a5716c089dd1f1b08a/base/dates/periods.jl#L387" target="_blank">dates/periods.jl:387</a></li> <li> +(x::<b>Date</b>, y::<b>Base.Dates.Day</b>) at <a href="https://github.com/JuliaLang/julia/tree/903644385b91ed8d95e5e3a5716c089dd1f1b08a/base/dates/arithmetic.jl#L77" target="_blank">dates/arithmetic.jl:77</a></li> <li> +(x::<b>Date</b>, y::<b>Base.Dates.Week</b>) at <a href="https://github.com/JuliaLang/julia/tree/903644385b91ed8d95e5e3a5716c089dd1f1b08a/base/dates/arithmetic.jl#L75" target="_blank">dates/arithmetic.jl:75</a></li> <li> +(dt::<b>Date</b>, z::<b>Base.Dates.Month</b>) at <a href="https://github.com/JuliaLang/julia/tree/903644385b91ed8d95e5e3a5716c089dd1f1b08a/base/dates/arithmetic.jl#L58" target="_blank">dates/arithmetic.jl:58</a></li> <li> +(dt::<b>Date</b>, y::<b>Base.Dates.Year</b>) at <a href="https://github.com/JuliaLang/julia/tree/903644385b91ed8d95e5e3a5716c089dd1f1b08a/base/dates/arithmetic.jl#L32" target="_blank">dates/arithmetic.jl:32</a></li> <li> +(dt::<b>Date</b>, t::<b>Base.Dates.Time</b>) at <a href="https://github.com/JuliaLang/julia/tree/903644385b91ed8d95e5e3a5716c089dd1f1b08a/base/dates/arithmetic.jl#L20" target="_blank">dates/arithmetic.jl:20</a></li> <li> +(t::<b>Base.Dates.Time</b>, dt::<b>Date</b>) at <a href="https://github.com/JuliaLang/julia/tree/903644385b91ed8d95e5e3a5716c089dd1f1b08a/base/dates/arithmetic.jl#L24" target="_blank">dates/arithmetic.jl:24</a></li> <li> +(x::<b>Base.Dates.Time</b>, y::<b>Base.Dates.TimePeriod</b>) at <a href="https://github.com/JuliaLang/julia/tree/903644385b91ed8d95e5e3a5716c089dd1f1b08a/base/dates/arithmetic.jl#L81" target="_blank">dates/arithmetic.jl:81</a></li> <li> +(dt::<b>DateTime</b>, z::<b>Base.Dates.Month</b>) at <a href="https://github.com/JuliaLang/julia/tree/903644385b91ed8d95e5e3a5716c089dd1f1b08a/base/dates/arithmetic.jl#L52" target="_blank">dates/arithmetic.jl:52</a></li> <li> +(dt::<b>DateTime</b>, y::<b>Base.Dates.Year</b>) at <a href="https://github.com/JuliaLang/julia/tree/903644385b91ed8d95e5e3a5716c089dd1f1b08a/base/dates/arithmetic.jl#L28" target="_blank">dates/arithmetic.jl:28</a></li> <li> +(x::<b>DateTime</b>, y::<b>Base.Dates.Period</b>) at <a href="https://github.com/JuliaLang/julia/tree/903644385b91ed8d95e5e3a5716c089dd1f1b08a/base/dates/arithmetic.jl#L79" target="_blank">dates/arithmetic.jl:79</a></li> <li> +(y::<b>AbstractFloat</b>, x::<b>Bool</b>) at <a href="https://github.com/JuliaLang/julia/tree/903644385b91ed8d95e5e3a5716c089dd1f1b08a/base/bool.jl#L98" target="_blank">bool.jl:98</a></li> <li> +<i>{T<:Union{Int128, Int16, Int32, Int64, Int8, UInt128, UInt16, UInt32, UInt64, UInt8}}</i>(x::<b>T</b>, y::<b>T</b>) at <a href="https://github.com/JuliaLang/julia/tree/903644385b91ed8d95e5e3a5716c089dd1f1b08a/base/int.jl#L32" target="_blank">int.jl:32</a></li> <li> +(x::<b>Integer</b>, y::<b>Ptr</b>) at <a href="https://github.com/JuliaLang/julia/tree/903644385b91ed8d95e5e3a5716c089dd1f1b08a/base/pointer.jl#L128" target="_blank">pointer.jl:128</a></li> <li> +(z::<b>Complex</b>, w::<b>Complex</b>) at <a href="https://github.com/JuliaLang/julia/tree/903644385b91ed8d95e5e3a5716c089dd1f1b08a/base/complex.jl#L221" target="_blank">complex.jl:221</a></li> <li> +(z::<b>Complex</b>, x::<b>Bool</b>) at <a href="https://github.com/JuliaLang/julia/tree/903644385b91ed8d95e5e3a5716c089dd1f1b08a/base/complex.jl#L240" target="_blank">complex.jl:240</a></li> <li> +(x::<b>Real</b>, z::<b>Complex{Bool}</b>) at <a href="https://github.com/JuliaLang/julia/tree/903644385b91ed8d95e5e3a5716c089dd1f1b08a/base/complex.jl#L246" target="_blank">complex.jl:246</a></li> <li> +(x::<b>Real</b>, z::<b>Complex</b>) at <a href="https://github.com/JuliaLang/julia/tree/903644385b91ed8d95e5e3a5716c089dd1f1b08a/base/complex.jl#L258" target="_blank">complex.jl:258</a></li> <li> +(z::<b>Complex</b>, x::<b>Real</b>) at <a href="https://github.com/JuliaLang/julia/tree/903644385b91ed8d95e5e3a5716c089dd1f1b08a/base/complex.jl#L259" target="_blank">complex.jl:259</a></li> <li> +(x::<b>Rational</b>, y::<b>Rational</b>) at <a href="https://github.com/JuliaLang/julia/tree/903644385b91ed8d95e5e3a5716c089dd1f1b08a/base/rational.jl#L245" target="_blank">rational.jl:245</a></li> <li> +(x::<b>Integer</b>, y::<b>Char</b>) at <a href="https://github.com/JuliaLang/julia/tree/903644385b91ed8d95e5e3a5716c089dd1f1b08a/base/char.jl#L41" target="_blank">char.jl:41</a></li> <li> +(i::<b>Integer</b>, index::<b>CartesianIndex</b>) at <a href="https://github.com/JuliaLang/julia/tree/903644385b91ed8d95e5e3a5716c089dd1f1b08a/base/multidimensional.jl#L79" target="_blank">multidimensional.jl:79</a></li> <li> +(c::<b>Union{UInt16, UInt32, UInt64, UInt8}</b>, x::<b>BigInt</b>) at <a href="https://github.com/JuliaLang/julia/tree/903644385b91ed8d95e5e3a5716c089dd1f1b08a/base/gmp.jl#L350" target="_blank">gmp.jl:350</a></li> <li> +(c::<b>Union{Int16, Int32, Int64, Int8}</b>, x::<b>BigInt</b>) at <a href="https://github.com/JuliaLang/julia/tree/903644385b91ed8d95e5e3a5716c089dd1f1b08a/base/gmp.jl#L363" target="_blank">gmp.jl:363</a></li> <li> +(c::<b>Union{UInt16, UInt32, UInt64, UInt8}</b>, x::<b>BigFloat</b>) at <a href="https://github.com/JuliaLang/julia/tree/903644385b91ed8d95e5e3a5716c089dd1f1b08a/base/mpfr.jl#L288" target="_blank">mpfr.jl:288</a></li> <li> +(c::<b>Union{Int16, Int32, Int64, Int8}</b>, x::<b>BigFloat</b>) at <a href="https://github.com/JuliaLang/julia/tree/903644385b91ed8d95e5e3a5716c089dd1f1b08a/base/mpfr.jl#L296" target="_blank">mpfr.jl:296</a></li> <li> +(c::<b>Union{Float16, Float32, Float64}</b>, x::<b>BigFloat</b>) at <a href="https://github.com/JuliaLang/julia/tree/903644385b91ed8d95e5e3a5716c089dd1f1b08a/base/mpfr.jl#L304" target="_blank">mpfr.jl:304</a></li> <li> +(x::<b>Irrational</b>, y::<b>Irrational</b>) at <a href="https://github.com/JuliaLang/julia/tree/903644385b91ed8d95e5e3a5716c089dd1f1b08a/base/irrationals.jl#L109" target="_blank">irrationals.jl:109</a></li> <li> +(x::<b>Real</b>, r::<b>Base.Use_StepRangeLen_Instead</b>) at <a href="https://github.com/JuliaLang/julia/tree/903644385b91ed8d95e5e3a5716c089dd1f1b08a/base/deprecated.jl#L1223" target="_blank">deprecated.jl:1223</a></li> <li> +(x::<b>Number</b>) at <a href="https://github.com/JuliaLang/julia/tree/903644385b91ed8d95e5e3a5716c089dd1f1b08a/base/operators.jl#L399" target="_blank">operators.jl:399</a></li> <li> +<i>{T<:Number}</i>(x::<b>T</b>, y::<b>T</b>) at <a href="https://github.com/JuliaLang/julia/tree/903644385b91ed8d95e5e3a5716c089dd1f1b08a/base/promotion.jl#L335" target="_blank">promotion.jl:335</a></li> <li> +(x::<b>Number</b>, y::<b>Number</b>) at <a href="https://github.com/JuliaLang/julia/tree/903644385b91ed8d95e5e3a5716c089dd1f1b08a/base/promotion.jl#L249" target="_blank">promotion.jl:249</a></li> <li> +(x::<b>Real</b>, r::<b>AbstractUnitRange</b>) at <a href="https://github.com/JuliaLang/julia/tree/903644385b91ed8d95e5e3a5716c089dd1f1b08a/base/range.jl#L721" target="_blank">range.jl:721</a></li> <li> +(x::<b>Number</b>, r::<b>AbstractUnitRange</b>) at <a href="https://github.com/JuliaLang/julia/tree/903644385b91ed8d95e5e3a5716c089dd1f1b08a/base/range.jl#L723" target="_blank">range.jl:723</a></li> <li> +(x::<b>Number</b>, r::<b>StepRangeLen</b>) at <a href="https://github.com/JuliaLang/julia/tree/903644385b91ed8d95e5e3a5716c089dd1f1b08a/base/range.jl#L726" target="_blank">range.jl:726</a></li> <li> +(x::<b>Number</b>, r::<b>LinSpace</b>) at <a href="https://github.com/JuliaLang/julia/tree/903644385b91ed8d95e5e3a5716c089dd1f1b08a/base/range.jl#L730" target="_blank">range.jl:730</a></li> <li> +(x::<b>Number</b>, r::<b>Range</b>) at <a href="https://github.com/JuliaLang/julia/tree/903644385b91ed8d95e5e3a5716c089dd1f1b08a/base/range.jl#L724" target="_blank">range.jl:724</a></li> <li> +(r::<b>Range</b>, x::<b>Number</b>) at <a href="https://github.com/JuliaLang/julia/tree/903644385b91ed8d95e5e3a5716c089dd1f1b08a/base/range.jl#L732" target="_blank">range.jl:732</a></li> <li> +(r1::<b>OrdinalRange</b>, r2::<b>OrdinalRange</b>) at <a href="https://github.com/JuliaLang/julia/tree/903644385b91ed8d95e5e3a5716c089dd1f1b08a/base/range.jl#L882" target="_blank">range.jl:882</a></li> <li> +<i>{T}</i>(r1::<b>LinSpace{T}</b>, r2::<b>LinSpace{T}</b>) at <a href="https://github.com/JuliaLang/julia/tree/903644385b91ed8d95e5e3a5716c089dd1f1b08a/base/range.jl#L889" target="_blank">range.jl:889</a></li> <li> +<i>{R<:Base.TwicePrecision, T}</i>(r1::<b>StepRangeLen{T,R,S} where S</b>, r2::<b>StepRangeLen{T,R,S} where S</b>) at <a href="https://github.com/JuliaLang/julia/tree/903644385b91ed8d95e5e3a5716c089dd1f1b08a/base/twiceprecision.jl#L300" target="_blank">twiceprecision.jl:300</a></li> <li> +<i>{T, S}</i>(r1::<b>StepRangeLen{T,S,S} where S</b>, r2::<b>StepRangeLen{T,S,S} where S</b>) at <a href="https://github.com/JuliaLang/julia/tree/903644385b91ed8d95e5e3a5716c089dd1f1b08a/base/range.jl#L905" target="_blank">range.jl:905</a></li> <li> +(r1::<b>Union{LinSpace, OrdinalRange, StepRangeLen}</b>, r2::<b>Union{LinSpace, OrdinalRange, StepRangeLen}</b>) at <a href="https://github.com/JuliaLang/julia/tree/903644385b91ed8d95e5e3a5716c089dd1f1b08a/base/range.jl#L896" target="_blank">range.jl:896</a></li> <li> +(x::<b>Base.TwicePrecision</b>, y::<b>Number</b>) at <a href="https://github.com/JuliaLang/julia/tree/903644385b91ed8d95e5e3a5716c089dd1f1b08a/base/twiceprecision.jl#L454" target="_blank">twiceprecision.jl:454</a></li> <li> +(x::<b>Number</b>, y::<b>Base.TwicePrecision</b>) at <a href="https://github.com/JuliaLang/julia/tree/903644385b91ed8d95e5e3a5716c089dd1f1b08a/base/twiceprecision.jl#L457" target="_blank">twiceprecision.jl:457</a></li> <li> +<i>{T}</i>(x::<b>Base.TwicePrecision{T}</b>, y::<b>Base.TwicePrecision{T}</b>) at <a href="https://github.com/JuliaLang/julia/tree/903644385b91ed8d95e5e3a5716c089dd1f1b08a/base/twiceprecision.jl#L460" target="_blank">twiceprecision.jl:460</a></li> <li> +(x::<b>Base.TwicePrecision</b>, y::<b>Base.TwicePrecision</b>) at <a href="https://github.com/JuliaLang/julia/tree/903644385b91ed8d95e5e3a5716c089dd1f1b08a/base/twiceprecision.jl#L464" target="_blank">twiceprecision.jl:464</a></li> <li> +(x::<b>Ptr</b>, y::<b>Integer</b>) at <a href="https://github.com/JuliaLang/julia/tree/903644385b91ed8d95e5e3a5716c089dd1f1b08a/base/pointer.jl#L126" target="_blank">pointer.jl:126</a></li> <li> +(A::<b>BitArray</b>, B::<b>BitArray</b>) at <a href="https://github.com/JuliaLang/julia/tree/903644385b91ed8d95e5e3a5716c089dd1f1b08a/base/bitarray.jl#L1176" target="_blank">bitarray.jl:1176</a></li> <li> +(A::<b>SymTridiagonal</b>, B::<b>SymTridiagonal</b>) at <a href="https://github.com/JuliaLang/julia/tree/903644385b91ed8d95e5e3a5716c089dd1f1b08a/base/linalg/tridiag.jl#L128" target="_blank">linalg/tridiag.jl:128</a></li> <li> +(A::<b>Tridiagonal</b>, B::<b>Tridiagonal</b>) at <a href="https://github.com/JuliaLang/julia/tree/903644385b91ed8d95e5e3a5716c089dd1f1b08a/base/linalg/tridiag.jl#L624" target="_blank">linalg/tridiag.jl:624</a></li> <li> +(A::<b>UpperTriangular</b>, B::<b>UpperTriangular</b>) at <a href="https://github.com/JuliaLang/julia/tree/903644385b91ed8d95e5e3a5716c089dd1f1b08a/base/linalg/triangular.jl#L374" target="_blank">linalg/triangular.jl:374</a></li> <li> +(A::<b>LowerTriangular</b>, B::<b>LowerTriangular</b>) at <a href="https://github.com/JuliaLang/julia/tree/903644385b91ed8d95e5e3a5716c089dd1f1b08a/base/linalg/triangular.jl#L375" target="_blank">linalg/triangular.jl:375</a></li> <li> +(A::<b>UpperTriangular</b>, B::<b>Base.LinAlg.UnitUpperTriangular</b>) at <a href="https://github.com/JuliaLang/julia/tree/903644385b91ed8d95e5e3a5716c089dd1f1b08a/base/linalg/triangular.jl#L376" target="_blank">linalg/triangular.jl:376</a></li> <li> +(A::<b>LowerTriangular</b>, B::<b>Base.LinAlg.UnitLowerTriangular</b>) at <a href="https://github.com/JuliaLang/julia/tree/903644385b91ed8d95e5e3a5716c089dd1f1b08a/base/linalg/triangular.jl#L377" target="_blank">linalg/triangular.jl:377</a></li> <li> +(A::<b>Base.LinAlg.UnitUpperTriangular</b>, B::<b>UpperTriangular</b>) at <a href="https://github.com/JuliaLang/julia/tree/903644385b91ed8d95e5e3a5716c089dd1f1b08a/base/linalg/triangular.jl#L378" target="_blank">linalg/triangular.jl:378</a></li> <li> +(A::<b>Base.LinAlg.UnitLowerTriangular</b>, B::<b>LowerTriangular</b>) at <a href="https://github.com/JuliaLang/julia/tree/903644385b91ed8d95e5e3a5716c089dd1f1b08a/base/linalg/triangular.jl#L379" target="_blank">linalg/triangular.jl:379</a></li> <li> +(A::<b>Base.LinAlg.UnitUpperTriangular</b>, B::<b>Base.LinAlg.UnitUpperTriangular</b>) at <a href="https://github.com/JuliaLang/julia/tree/903644385b91ed8d95e5e3a5716c089dd1f1b08a/base/linalg/triangular.jl#L380" target="_blank">linalg/triangular.jl:380</a></li> <li> +(A::<b>Base.LinAlg.UnitLowerTriangular</b>, B::<b>Base.LinAlg.UnitLowerTriangular</b>) at <a href="https://github.com/JuliaLang/julia/tree/903644385b91ed8d95e5e3a5716c089dd1f1b08a/base/linalg/triangular.jl#L381" target="_blank">linalg/triangular.jl:381</a></li> <li> +(A::<b>Base.LinAlg.AbstractTriangular</b>, B::<b>Base.LinAlg.AbstractTriangular</b>) at <a href="https://github.com/JuliaLang/julia/tree/903644385b91ed8d95e5e3a5716c089dd1f1b08a/base/linalg/triangular.jl#L382" target="_blank">linalg/triangular.jl:382</a></li> <li> +(A::<b>Symmetric</b>, x::<b>Bool</b>) at <a href="https://github.com/JuliaLang/julia/tree/903644385b91ed8d95e5e3a5716c089dd1f1b08a/base/linalg/symmetric.jl#L272" target="_blank">linalg/symmetric.jl:272</a></li> <li> +(A::<b>Symmetric</b>, x::<b>Number</b>) at <a href="https://github.com/JuliaLang/julia/tree/903644385b91ed8d95e5e3a5716c089dd1f1b08a/base/linalg/symmetric.jl#L274" target="_blank">linalg/symmetric.jl:274</a></li> <li> +(A::<b>Hermitian</b>, x::<b>Bool</b>) at <a href="https://github.com/JuliaLang/julia/tree/903644385b91ed8d95e5e3a5716c089dd1f1b08a/base/linalg/symmetric.jl#L272" target="_blank">linalg/symmetric.jl:272</a></li> <li> +(A::<b>Hermitian</b>, x::<b>Real</b>) at <a href="https://github.com/JuliaLang/julia/tree/903644385b91ed8d95e5e3a5716c089dd1f1b08a/base/linalg/symmetric.jl#L274" target="_blank">linalg/symmetric.jl:274</a></li> <li> +(Da::<b>Diagonal</b>, Db::<b>Diagonal</b>) at <a href="https://github.com/JuliaLang/julia/tree/903644385b91ed8d95e5e3a5716c089dd1f1b08a/base/linalg/diagonal.jl#L140" target="_blank">linalg/diagonal.jl:140</a></li> <li> +(A::<b>Bidiagonal</b>, B::<b>Bidiagonal</b>) at <a href="https://github.com/JuliaLang/julia/tree/903644385b91ed8d95e5e3a5716c089dd1f1b08a/base/linalg/bidiag.jl#L330" target="_blank">linalg/bidiag.jl:330</a></li> <li> +(UL::<b>UpperTriangular</b>, J::<b>UniformScaling</b>) at <a href="https://github.com/JuliaLang/julia/tree/903644385b91ed8d95e5e3a5716c089dd1f1b08a/base/linalg/uniformscaling.jl#L72" target="_blank">linalg/uniformscaling.jl:72</a></li> <li> +(UL::<b>Base.LinAlg.UnitUpperTriangular</b>, J::<b>UniformScaling</b>) at <a href="https://github.com/JuliaLang/julia/tree/903644385b91ed8d95e5e3a5716c089dd1f1b08a/base/linalg/uniformscaling.jl#L75" target="_blank">linalg/uniformscaling.jl:75</a></li> <li> +(UL::<b>LowerTriangular</b>, J::<b>UniformScaling</b>) at <a href="https://github.com/JuliaLang/julia/tree/903644385b91ed8d95e5e3a5716c089dd1f1b08a/base/linalg/uniformscaling.jl#L72" target="_blank">linalg/uniformscaling.jl:72</a></li> <li> +(UL::<b>Base.LinAlg.UnitLowerTriangular</b>, J::<b>UniformScaling</b>) at <a href="https://github.com/JuliaLang/julia/tree/903644385b91ed8d95e5e3a5716c089dd1f1b08a/base/linalg/uniformscaling.jl#L75" target="_blank">linalg/uniformscaling.jl:75</a></li> <li> +(A::<b>Array</b>, B::<b>SparseMatrixCSC</b>) at <a href="https://github.com/JuliaLang/julia/tree/903644385b91ed8d95e5e3a5716c089dd1f1b08a/base/sparse/sparsematrix.jl#L1462" target="_blank">sparse/sparsematrix.jl:1462</a></li> <li> +(x::<b>Union{Base.ReshapedArray{T,1,A,MI} where MI<:Tuple{Vararg{Base.MultiplicativeInverses.SignedMultiplicativeInverse{Int64},N} where N} where A<:DenseArray, DenseArray{T,1}, SubArray{T,1,A,I,L} where L} where I<:Tuple{Vararg{Union{Base.AbstractCartesianIndex, Int64, Range{Int64}},N} where N} where A<:Union{Base.ReshapedArray{T,N,A,MI} where MI<:Tuple{Vararg{Base.MultiplicativeInverses.SignedMultiplicativeInverse{Int64},N} where N} where A<:DenseArray where N where T, DenseArray} where T</b>, y::<b>AbstractSparseArray{Tv,Ti,1} where Ti where Tv</b>) at <a href="https://github.com/JuliaLang/julia/tree/903644385b91ed8d95e5e3a5716c089dd1f1b08a/base/sparse/sparsevector.jl#L1333" target="_blank">sparse/sparsevector.jl:1333</a></li> <li> +(x::<b>Union{Base.ReshapedArray{#s267,N,A,MI} where MI<:Tuple{Vararg{Base.MultiplicativeInverses.SignedMultiplicativeInverse{Int64},N} where N} where A<:DenseArray, DenseArray{#s267,N}, SubArray{#s267,N,A,I,L} where L} where I<:Tuple{Vararg{Union{Base.AbstractCartesianIndex, Int64, Range{Int64}},N} where N} where A<:Union{Base.ReshapedArray{T,N,A,MI} where MI<:Tuple{Vararg{Base.MultiplicativeInverses.SignedMultiplicativeInverse{Int64},N} where N} where A<:DenseArray where N where T, DenseArray} where N where #s267<:Union{Base.Dates.CompoundPeriod, Base.Dates.Period}</b>) at <a href="https://github.com/JuliaLang/julia/tree/903644385b91ed8d95e5e3a5716c089dd1f1b08a/base/dates/periods.jl#L358" target="_blank">dates/periods.jl:358</a></li> <li> +(A::<b>SparseMatrixCSC</b>, J::<b>UniformScaling</b>) at <a href="https://github.com/JuliaLang/julia/tree/903644385b91ed8d95e5e3a5716c089dd1f1b08a/base/sparse/sparsematrix.jl#L3512" target="_blank">sparse/sparsematrix.jl:3512</a></li> <li> +<i>{TA, TJ}</i>(A::<b>AbstractArray{TA,2}</b>, J::<b>UniformScaling{TJ}</b>) at <a href="https://github.com/JuliaLang/julia/tree/903644385b91ed8d95e5e3a5716c089dd1f1b08a/base/linalg/uniformscaling.jl#L119" target="_blank">linalg/uniformscaling.jl:119</a></li> <li> +(A::<b>Diagonal</b>, B::<b>Bidiagonal</b>) at <a href="https://github.com/JuliaLang/julia/tree/903644385b91ed8d95e5e3a5716c089dd1f1b08a/base/linalg/special.jl#L113" target="_blank">linalg/special.jl:113</a></li> <li> +(A::<b>Bidiagonal</b>, B::<b>Diagonal</b>) at <a href="https://github.com/JuliaLang/julia/tree/903644385b91ed8d95e5e3a5716c089dd1f1b08a/base/linalg/special.jl#L114" target="_blank">linalg/special.jl:114</a></li> <li> +(A::<b>Diagonal</b>, B::<b>Tridiagonal</b>) at <a href="https://github.com/JuliaLang/julia/tree/903644385b91ed8d95e5e3a5716c089dd1f1b08a/base/linalg/special.jl#L113" target="_blank">linalg/special.jl:113</a></li> <li> +(A::<b>Tridiagonal</b>, B::<b>Diagonal</b>) at <a href="https://github.com/JuliaLang/julia/tree/903644385b91ed8d95e5e3a5716c089dd1f1b08a/base/linalg/special.jl#L114" target="_blank">linalg/special.jl:114</a></li> <li> +(A::<b>Diagonal</b>, B::<b>Array{T,2} where T</b>) at <a href="https://github.com/JuliaLang/julia/tree/903644385b91ed8d95e5e3a5716c089dd1f1b08a/base/linalg/special.jl#L113" target="_blank">linalg/special.jl:113</a></li> <li> +(A::<b>Array{T,2} where T</b>, B::<b>Diagonal</b>) at <a href="https://github.com/JuliaLang/julia/tree/903644385b91ed8d95e5e3a5716c089dd1f1b08a/base/linalg/special.jl#L114" target="_blank">linalg/special.jl:114</a></li> <li> +(A::<b>Bidiagonal</b>, B::<b>Tridiagonal</b>) at <a href="https://github.com/JuliaLang/julia/tree/903644385b91ed8d95e5e3a5716c089dd1f1b08a/base/linalg/special.jl#L113" target="_blank">linalg/special.jl:113</a></li> <li> +(A::<b>Tridiagonal</b>, B::<b>Bidiagonal</b>) at <a href="https://github.com/JuliaLang/julia/tree/903644385b91ed8d95e5e3a5716c089dd1f1b08a/base/linalg/special.jl#L114" target="_blank">linalg/special.jl:114</a></li> <li> +(A::<b>Bidiagonal</b>, B::<b>Array{T,2} where T</b>) at <a href="https://github.com/JuliaLang/julia/tree/903644385b91ed8d95e5e3a5716c089dd1f1b08a/base/linalg/special.jl#L113" target="_blank">linalg/special.jl:113</a></li> <li> +(A::<b>Array{T,2} where T</b>, B::<b>Bidiagonal</b>) at <a href="https://github.com/JuliaLang/julia/tree/903644385b91ed8d95e5e3a5716c089dd1f1b08a/base/linalg/special.jl#L114" target="_blank">linalg/special.jl:114</a></li> <li> +(A::<b>Tridiagonal</b>, B::<b>Array{T,2} where T</b>) at <a href="https://github.com/JuliaLang/julia/tree/903644385b91ed8d95e5e3a5716c089dd1f1b08a/base/linalg/special.jl#L113" target="_blank">linalg/special.jl:113</a></li> <li> +(A::<b>Array{T,2} where T</b>, B::<b>Tridiagonal</b>) at <a href="https://github.com/JuliaLang/julia/tree/903644385b91ed8d95e5e3a5716c089dd1f1b08a/base/linalg/special.jl#L114" target="_blank">linalg/special.jl:114</a></li> <li> +(A::<b>SymTridiagonal</b>, B::<b>Tridiagonal</b>) at <a href="https://github.com/JuliaLang/julia/tree/903644385b91ed8d95e5e3a5716c089dd1f1b08a/base/linalg/special.jl#L122" target="_blank">linalg/special.jl:122</a></li> <li> +(A::<b>Tridiagonal</b>, B::<b>SymTridiagonal</b>) at <a href="https://github.com/JuliaLang/julia/tree/903644385b91ed8d95e5e3a5716c089dd1f1b08a/base/linalg/special.jl#L123" target="_blank">linalg/special.jl:123</a></li> <li> +(A::<b>SymTridiagonal</b>, B::<b>Array{T,2} where T</b>) at <a href="https://github.com/JuliaLang/julia/tree/903644385b91ed8d95e5e3a5716c089dd1f1b08a/base/linalg/special.jl#L122" target="_blank">linalg/special.jl:122</a></li> <li> +(A::<b>Array{T,2} where T</b>, B::<b>SymTridiagonal</b>) at <a href="https://github.com/JuliaLang/julia/tree/903644385b91ed8d95e5e3a5716c089dd1f1b08a/base/linalg/special.jl#L123" target="_blank">linalg/special.jl:123</a></li> <li> +(A::<b>Diagonal</b>, B::<b>SymTridiagonal</b>) at <a href="https://github.com/JuliaLang/julia/tree/903644385b91ed8d95e5e3a5716c089dd1f1b08a/base/linalg/special.jl#L131" target="_blank">linalg/special.jl:131</a></li> <li> +(A::<b>SymTridiagonal</b>, B::<b>Diagonal</b>) at <a href="https://github.com/JuliaLang/julia/tree/903644385b91ed8d95e5e3a5716c089dd1f1b08a/base/linalg/special.jl#L132" target="_blank">linalg/special.jl:132</a></li> <li> +(A::<b>Bidiagonal</b>, B::<b>SymTridiagonal</b>) at <a href="https://github.com/JuliaLang/julia/tree/903644385b91ed8d95e5e3a5716c089dd1f1b08a/base/linalg/special.jl#L131" target="_blank">linalg/special.jl:131</a></li> <li> +(A::<b>SymTridiagonal</b>, B::<b>Bidiagonal</b>) at <a href="https://github.com/JuliaLang/julia/tree/903644385b91ed8d95e5e3a5716c089dd1f1b08a/base/linalg/special.jl#L132" target="_blank">linalg/special.jl:132</a></li> <li> +(A::<b>Diagonal</b>, B::<b>UpperTriangular</b>) at <a href="https://github.com/JuliaLang/julia/tree/903644385b91ed8d95e5e3a5716c089dd1f1b08a/base/linalg/special.jl#L143" target="_blank">linalg/special.jl:143</a></li> <li> +(A::<b>UpperTriangular</b>, B::<b>Diagonal</b>) at <a href="https://github.com/JuliaLang/julia/tree/903644385b91ed8d95e5e3a5716c089dd1f1b08a/base/linalg/special.jl#L144" target="_blank">linalg/special.jl:144</a></li> <li> +(A::<b>Diagonal</b>, B::<b>Base.LinAlg.UnitUpperTriangular</b>) at <a href="https://github.com/JuliaLang/julia/tree/903644385b91ed8d95e5e3a5716c089dd1f1b08a/base/linalg/special.jl#L143" target="_blank">linalg/special.jl:143</a></li> <li> +(A::<b>Base.LinAlg.UnitUpperTriangular</b>, B::<b>Diagonal</b>) at <a href="https://github.com/JuliaLang/julia/tree/903644385b91ed8d95e5e3a5716c089dd1f1b08a/base/linalg/special.jl#L144" target="_blank">linalg/special.jl:144</a></li> <li> +(A::<b>Diagonal</b>, B::<b>LowerTriangular</b>) at <a href="https://github.com/JuliaLang/julia/tree/903644385b91ed8d95e5e3a5716c089dd1f1b08a/base/linalg/special.jl#L143" target="_blank">linalg/special.jl:143</a></li> <li> +(A::<b>LowerTriangular</b>, B::<b>Diagonal</b>) at <a href="https://github.com/JuliaLang/julia/tree/903644385b91ed8d95e5e3a5716c089dd1f1b08a/base/linalg/special.jl#L144" target="_blank">linalg/special.jl:144</a></li> <li> +(A::<b>Diagonal</b>, B::<b>Base.LinAlg.UnitLowerTriangular</b>) at <a href="https://github.com/JuliaLang/julia/tree/903644385b91ed8d95e5e3a5716c089dd1f1b08a/base/linalg/special.jl#L143" target="_blank">linalg/special.jl:143</a></li> <li> +(A::<b>Base.LinAlg.UnitLowerTriangular</b>, B::<b>Diagonal</b>) at <a href="https://github.com/JuliaLang/julia/tree/903644385b91ed8d95e5e3a5716c089dd1f1b08a/base/linalg/special.jl#L144" target="_blank">linalg/special.jl:144</a></li> <li> +(A::<b>Base.LinAlg.AbstractTriangular</b>, B::<b>SymTridiagonal</b>) at <a href="https://github.com/JuliaLang/julia/tree/903644385b91ed8d95e5e3a5716c089dd1f1b08a/base/linalg/special.jl#L150" target="_blank">linalg/special.jl:150</a></li> <li> +(A::<b>SymTridiagonal</b>, B::<b>Base.LinAlg.AbstractTriangular</b>) at <a href="https://github.com/JuliaLang/julia/tree/903644385b91ed8d95e5e3a5716c089dd1f1b08a/base/linalg/special.jl#L151" target="_blank">linalg/special.jl:151</a></li> <li> +(A::<b>Base.LinAlg.AbstractTriangular</b>, B::<b>Tridiagonal</b>) at <a href="https://github.com/JuliaLang/julia/tree/903644385b91ed8d95e5e3a5716c089dd1f1b08a/base/linalg/special.jl#L150" target="_blank">linalg/special.jl:150</a></li> <li> +(A::<b>Tridiagonal</b>, B::<b>Base.LinAlg.AbstractTriangular</b>) at <a href="https://github.com/JuliaLang/julia/tree/903644385b91ed8d95e5e3a5716c089dd1f1b08a/base/linalg/special.jl#L151" target="_blank">linalg/special.jl:151</a></li> <li> +(A::<b>Base.LinAlg.AbstractTriangular</b>, B::<b>Bidiagonal</b>) at <a href="https://github.com/JuliaLang/julia/tree/903644385b91ed8d95e5e3a5716c089dd1f1b08a/base/linalg/special.jl#L150" target="_blank">linalg/special.jl:150</a></li> <li> +(A::<b>Bidiagonal</b>, B::<b>Base.LinAlg.AbstractTriangular</b>) at <a href="https://github.com/JuliaLang/julia/tree/903644385b91ed8d95e5e3a5716c089dd1f1b08a/base/linalg/special.jl#L151" target="_blank">linalg/special.jl:151</a></li> <li> +(A::<b>Base.LinAlg.AbstractTriangular</b>, B::<b>Array{T,2} where T</b>) at <a href="https://github.com/JuliaLang/julia/tree/903644385b91ed8d95e5e3a5716c089dd1f1b08a/base/linalg/special.jl#L150" target="_blank">linalg/special.jl:150</a></li> <li> +(A::<b>Array{T,2} where T</b>, B::<b>Base.LinAlg.AbstractTriangular</b>) at <a href="https://github.com/JuliaLang/julia/tree/903644385b91ed8d95e5e3a5716c089dd1f1b08a/base/linalg/special.jl#L151" target="_blank">linalg/special.jl:151</a></li> <li> +(Y::<b>Union{Base.ReshapedArray{#s266,N,A,MI} where MI<:Tuple{Vararg{Base.MultiplicativeInverses.SignedMultiplicativeInverse{Int64},N} where N} where A<:DenseArray, DenseArray{#s266,N}, SubArray{#s266,N,A,I,L} where L} where I<:Tuple{Vararg{Union{Base.AbstractCartesianIndex, Int64, Range{Int64}},N} where N} where A<:Union{Base.ReshapedArray{T,N,A,MI} where MI<:Tuple{Vararg{Base.MultiplicativeInverses.SignedMultiplicativeInverse{Int64},N} where N} where A<:DenseArray where N where T, DenseArray} where N where #s266<:Union{Base.Dates.CompoundPeriod, Base.Dates.Period}</b>, x::<b>Union{Base.Dates.CompoundPeriod, Base.Dates.Period}</b>) at <a href="https://github.com/JuliaLang/julia/tree/903644385b91ed8d95e5e3a5716c089dd1f1b08a/base/dates/periods.jl#L363" target="_blank">dates/periods.jl:363</a></li> <li> +(X::<b>Union{Base.ReshapedArray{#s265,N,A,MI} where MI<:Tuple{Vararg{Base.MultiplicativeInverses.SignedMultiplicativeInverse{Int64},N} where N} where A<:DenseArray, DenseArray{#s265,N}, SubArray{#s265,N,A,I,L} where L} where I<:Tuple{Vararg{Union{Base.AbstractCartesianIndex, Int64, Range{Int64}},N} where N} where A<:Union{Base.ReshapedArray{T,N,A,MI} where MI<:Tuple{Vararg{Base.MultiplicativeInverses.SignedMultiplicativeInverse{Int64},N} where N} where A<:DenseArray where N where T, DenseArray} where N where #s265<:Union{Base.Dates.CompoundPeriod, Base.Dates.Period}</b>, Y::<b>Union{Base.ReshapedArray{#s264,N,A,MI} where MI<:Tuple{Vararg{Base.MultiplicativeInverses.SignedMultiplicativeInverse{Int64},N} where N} where A<:DenseArray, DenseArray{#s264,N}, SubArray{#s264,N,A,I,L} where L} where I<:Tuple{Vararg{Union{Base.AbstractCartesianIndex, Int64, Range{Int64}},N} where N} where A<:Union{Base.ReshapedArray{T,N,A,MI} where MI<:Tuple{Vararg{Base.MultiplicativeInverses.SignedMultiplicativeInverse{Int64},N} where N} where A<:DenseArray where N where T, DenseArray} where N where #s264<:Union{Base.Dates.CompoundPeriod, Base.Dates.Period}</b>) at <a href="https://github.com/JuliaLang/julia/tree/903644385b91ed8d95e5e3a5716c089dd1f1b08a/base/dates/periods.jl#L364" target="_blank">dates/periods.jl:364</a></li> <li> +(x::<b>Union{Base.ReshapedArray{#s267,N,A,MI} where MI<:Tuple{Vararg{Base.MultiplicativeInverses.SignedMultiplicativeInverse{Int64},N} where N} where A<:DenseArray, DenseArray{#s267,N}, SubArray{#s267,N,A,I,L} where L} where I<:Tuple{Vararg{Union{Base.AbstractCartesianIndex, Int64, Range{Int64}},N} where N} where A<:Union{Base.ReshapedArray{T,N,A,MI} where MI<:Tuple{Vararg{Base.MultiplicativeInverses.SignedMultiplicativeInverse{Int64},N} where N} where A<:DenseArray where N where T, DenseArray} where N where #s267<:Union{Base.Dates.CompoundPeriod, Base.Dates.Period}</b>, y::<b>Base.Dates.TimeType</b>) at <a href="https://github.com/JuliaLang/julia/tree/903644385b91ed8d95e5e3a5716c089dd1f1b08a/base/dates/arithmetic.jl#L86" target="_blank">dates/arithmetic.jl:86</a></li> <li> +(r::<b>Range{#s267} where #s267<:Base.Dates.TimeType</b>, x::<b>Base.Dates.Period</b>) at <a href="https://github.com/JuliaLang/julia/tree/903644385b91ed8d95e5e3a5716c089dd1f1b08a/base/dates/ranges.jl#L47" target="_blank">dates/ranges.jl:47</a></li> <li> +(A::<b>SparseMatrixCSC</b>, B::<b>SparseMatrixCSC</b>) at <a href="https://github.com/JuliaLang/julia/tree/903644385b91ed8d95e5e3a5716c089dd1f1b08a/base/sparse/sparsematrix.jl#L1458" target="_blank">sparse/sparsematrix.jl:1458</a></li> <li> +(A::<b>SparseMatrixCSC</b>, B::<b>Array</b>) at <a href="https://github.com/JuliaLang/julia/tree/903644385b91ed8d95e5e3a5716c089dd1f1b08a/base/sparse/sparsematrix.jl#L1461" target="_blank">sparse/sparsematrix.jl:1461</a></li> <li> +(x::<b>AbstractSparseArray{Tv,Ti,1} where Ti where Tv</b>, y::<b>AbstractSparseArray{Tv,Ti,1} where Ti where Tv</b>) at <a href="https://github.com/JuliaLang/julia/tree/903644385b91ed8d95e5e3a5716c089dd1f1b08a/base/sparse/sparsevector.jl#L1332" target="_blank">sparse/sparsevector.jl:1332</a></li> <li> +(x::<b>AbstractSparseArray{Tv,Ti,1} where Ti where Tv</b>, y::<b>Union{Base.ReshapedArray{T,1,A,MI} where MI<:Tuple{Vararg{Base.MultiplicativeInverses.SignedMultiplicativeInverse{Int64},N} where N} where A<:DenseArray, DenseArray{T,1}, SubArray{T,1,A,I,L} where L} where I<:Tuple{Vararg{Union{Base.AbstractCartesianIndex, Int64, Range{Int64}},N} where N} where A<:Union{Base.ReshapedArray{T,N,A,MI} where MI<:Tuple{Vararg{Base.MultiplicativeInverses.SignedMultiplicativeInverse{Int64},N} where N} where A<:DenseArray where N where T, DenseArray} where T</b>) at <a href="https://github.com/JuliaLang/julia/tree/903644385b91ed8d95e5e3a5716c089dd1f1b08a/base/sparse/sparsevector.jl#L1334" target="_blank">sparse/sparsevector.jl:1334</a></li> <li> +(x::<b>AbstractArray{#s45,N} where N where #s45<:Number</b>) at <a href="https://github.com/JuliaLang/julia/tree/903644385b91ed8d95e5e3a5716c089dd1f1b08a/base/abstractarraymath.jl#L93" target="_blank">abstractarraymath.jl:93</a></li> <li> +(A::<b>AbstractArray</b>, B::<b>AbstractArray</b>) at <a href="https://github.com/JuliaLang/julia/tree/903644385b91ed8d95e5e3a5716c089dd1f1b08a/base/arraymath.jl#L37" target="_blank">arraymath.jl:37</a></li> <li> +(A::<b>Number</b>, B::<b>AbstractArray</b>) at <a href="https://github.com/JuliaLang/julia/tree/903644385b91ed8d95e5e3a5716c089dd1f1b08a/base/arraymath.jl#L44" target="_blank">arraymath.jl:44</a></li> <li> +(A::<b>AbstractArray</b>, B::<b>Number</b>) at <a href="https://github.com/JuliaLang/julia/tree/903644385b91ed8d95e5e3a5716c089dd1f1b08a/base/arraymath.jl#L47" target="_blank">arraymath.jl:47</a></li> <li> +<i>{N}</i>(index1::<b>CartesianIndex{N}</b>, index2::<b>CartesianIndex{N}</b>) at <a href="https://github.com/JuliaLang/julia/tree/903644385b91ed8d95e5e3a5716c089dd1f1b08a/base/multidimensional.jl#L70" target="_blank">multidimensional.jl:70</a></li> <li> +<i>{N}</i>(index::<b>CartesianIndex{N}</b>, i::<b>Integer</b>) at <a href="https://github.com/JuliaLang/julia/tree/903644385b91ed8d95e5e3a5716c089dd1f1b08a/base/multidimensional.jl#L80" target="_blank">multidimensional.jl:80</a></li> <li> +(J1::<b>UniformScaling</b>, J2::<b>UniformScaling</b>) at <a href="https://github.com/JuliaLang/julia/tree/903644385b91ed8d95e5e3a5716c089dd1f1b08a/base/linalg/uniformscaling.jl#L58" target="_blank">linalg/uniformscaling.jl:58</a></li> <li> +(J::<b>UniformScaling</b>, B::<b>BitArray{2}</b>) at <a href="https://github.com/JuliaLang/julia/tree/903644385b91ed8d95e5e3a5716c089dd1f1b08a/base/linalg/uniformscaling.jl#L60" target="_blank">linalg/uniformscaling.jl:60</a></li> <li> +(J::<b>UniformScaling</b>, A::<b>AbstractArray{T,2} where T</b>) at <a href="https://github.com/JuliaLang/julia/tree/903644385b91ed8d95e5e3a5716c089dd1f1b08a/base/linalg/uniformscaling.jl#L61" target="_blank">linalg/uniformscaling.jl:61</a></li> <li> +<i>{T}</i>(a::<b>Base.Pkg.Resolve.VersionWeights.HierarchicalValue{T}</b>, b::<b>Base.Pkg.Resolve.VersionWeights.HierarchicalValue{T}</b>) at <a href="https://github.com/JuliaLang/julia/tree/903644385b91ed8d95e5e3a5716c089dd1f1b08a/base/pkg/resolve/versionweight.jl#L23" target="_blank">pkg/resolve/versionweight.jl:23</a></li> <li> +<i>{P<:Base.Dates.Period}</i>(x::<b>P</b>, y::<b>P</b>) at <a href="https://github.com/JuliaLang/julia/tree/903644385b91ed8d95e5e3a5716c089dd1f1b08a/base/dates/periods.jl#L70" target="_blank">dates/periods.jl:70</a></li> <li> +(x::<b>Base.Dates.Period</b>, y::<b>Base.Dates.Period</b>) at <a href="https://github.com/JuliaLang/julia/tree/903644385b91ed8d95e5e3a5716c089dd1f1b08a/base/dates/periods.jl#L346" target="_blank">dates/periods.jl:346</a></li> <li> +(y::<b>Base.Dates.Period</b>, x::<b>Base.Dates.CompoundPeriod</b>) at <a href="https://github.com/JuliaLang/julia/tree/903644385b91ed8d95e5e3a5716c089dd1f1b08a/base/dates/periods.jl#L348" target="_blank">dates/periods.jl:348</a></li> <li> +(x::<b>Union{Base.Dates.CompoundPeriod, Base.Dates.Period}</b>) at <a href="https://github.com/JuliaLang/julia/tree/903644385b91ed8d95e5e3a5716c089dd1f1b08a/base/dates/periods.jl#L357" target="_blank">dates/periods.jl:357</a></li> <li> +(x::<b>Union{Base.Dates.CompoundPeriod, Base.Dates.Period}</b>, Y::<b>Union{Base.ReshapedArray{#s267,N,A,MI} where MI<:Tuple{Vararg{Base.MultiplicativeInverses.SignedMultiplicativeInverse{Int64},N} where N} where A<:DenseArray, DenseArray{#s267,N}, SubArray{#s267,N,A,I,L} where L} where I<:Tuple{Vararg{Union{Base.AbstractCartesianIndex, Int64, Range{Int64}},N} where N} where A<:Union{Base.ReshapedArray{T,N,A,MI} where MI<:Tuple{Vararg{Base.MultiplicativeInverses.SignedMultiplicativeInverse{Int64},N} where N} where A<:DenseArray where N where T, DenseArray} where N where #s267<:Union{Base.Dates.CompoundPeriod, Base.Dates.Period}</b>) at <a href="https://github.com/JuliaLang/julia/tree/903644385b91ed8d95e5e3a5716c089dd1f1b08a/base/dates/periods.jl#L362" target="_blank">dates/periods.jl:362</a></li> <li> +(x::<b>Base.Dates.TimeType</b>) at <a href="https://github.com/JuliaLang/julia/tree/903644385b91ed8d95e5e3a5716c089dd1f1b08a/base/dates/arithmetic.jl#L8" target="_blank">dates/arithmetic.jl:8</a></li> <li> +(a::<b>Base.Dates.TimeType</b>, b::<b>Base.Dates.Period</b>, c::<b>Base.Dates.Period</b>) at <a href="https://github.com/JuliaLang/julia/tree/903644385b91ed8d95e5e3a5716c089dd1f1b08a/base/dates/periods.jl#L378" target="_blank">dates/periods.jl:378</a></li> <li> +(a::<b>Base.Dates.TimeType</b>, b::<b>Base.Dates.Period</b>, c::<b>Base.Dates.Period</b>, d::<b>Base.Dates.Period...</b>) at <a href="https://github.com/JuliaLang/julia/tree/903644385b91ed8d95e5e3a5716c089dd1f1b08a/base/dates/periods.jl#L379" target="_blank">dates/periods.jl:379</a></li> <li> +(x::<b>Base.Dates.TimeType</b>, y::<b>Base.Dates.CompoundPeriod</b>) at <a href="https://github.com/JuliaLang/julia/tree/903644385b91ed8d95e5e3a5716c089dd1f1b08a/base/dates/periods.jl#L382" target="_blank">dates/periods.jl:382</a></li> <li> +(x::<b>Base.Dates.Instant</b>) at <a href="https://github.com/JuliaLang/julia/tree/903644385b91ed8d95e5e3a5716c089dd1f1b08a/base/dates/arithmetic.jl#L4" target="_blank">dates/arithmetic.jl:4</a></li> <li> +(y::<b>Base.Dates.Period</b>, x::<b>Base.Dates.TimeType</b>) at <a href="https://github.com/JuliaLang/julia/tree/903644385b91ed8d95e5e3a5716c089dd1f1b08a/base/dates/arithmetic.jl#L83" target="_blank">dates/arithmetic.jl:83</a></li> <li> +(x::<b>AbstractArray{#s267,N} where N where #s267<:Base.Dates.TimeType</b>, y::<b>Union{Base.Dates.CompoundPeriod, Base.Dates.Period}</b>) at <a href="https://github.com/JuliaLang/julia/tree/903644385b91ed8d95e5e3a5716c089dd1f1b08a/base/dates/arithmetic.jl#L85" target="_blank">dates/arithmetic.jl:85</a></li> <li> +(x::<b>Base.Dates.Period</b>, r::<b>Range{#s267} where #s267<:Base.Dates.TimeType</b>) at <a href="https://github.com/JuliaLang/julia/tree/903644385b91ed8d95e5e3a5716c089dd1f1b08a/base/dates/ranges.jl#L46" target="_blank">dates/ranges.jl:46</a></li> <li> +(y::<b>Union{Base.Dates.CompoundPeriod, Base.Dates.Period}</b>, x::<b>AbstractArray{#s267,N} where N where #s267<:Base.Dates.TimeType</b>) at <a href="https://github.com/JuliaLang/julia/tree/903644385b91ed8d95e5e3a5716c089dd1f1b08a/base/dates/arithmetic.jl#L87" target="_blank">dates/arithmetic.jl:87</a></li> <li> +(y::<b>Base.Dates.TimeType</b>, x::<b>Union{Base.ReshapedArray{#s267,N,A,MI} where MI<:Tuple{Vararg{Base.MultiplicativeInverses.SignedMultiplicativeInverse{Int64},N} where N} where A<:DenseArray, DenseArray{#s267,N}, SubArray{#s267,N,A,I,L} where L} where I<:Tuple{Vararg{Union{Base.AbstractCartesianIndex, Int64, Range{Int64}},N} where N} where A<:Union{Base.ReshapedArray{T,N,A,MI} where MI<:Tuple{Vararg{Base.MultiplicativeInverses.SignedMultiplicativeInverse{Int64},N} where N} where A<:DenseArray where N where T, DenseArray} where N where #s267<:Union{Base.Dates.CompoundPeriod, Base.Dates.Period}</b>) at <a href="https://github.com/JuliaLang/julia/tree/903644385b91ed8d95e5e3a5716c089dd1f1b08a/base/dates/arithmetic.jl#L88" target="_blank">dates/arithmetic.jl:88</a></li> <li> +(J::<b>UniformScaling</b>, x::<b>Number</b>) at <a href="https://github.com/JuliaLang/julia/tree/903644385b91ed8d95e5e3a5716c089dd1f1b08a/base/deprecated.jl#L56" target="_blank">deprecated.jl:56</a></li> <li> +(x::<b>Number</b>, J::<b>UniformScaling</b>) at <a href="https://github.com/JuliaLang/julia/tree/903644385b91ed8d95e5e3a5716c089dd1f1b08a/base/deprecated.jl#L56" target="_blank">deprecated.jl:56</a></li> <li> +(a, b, c, xs...) at <a href="https://github.com/JuliaLang/julia/tree/903644385b91ed8d95e5e3a5716c089dd1f1b08a/base/operators.jl#L424" target="_blank">operators.jl:424</a></li> </ul>
+</div>
+
+</div>
+
+</div>
+</div>
+
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="n">fieldnames</span><span class="p">(</span><span class="kt">LinSpace</span><span class="p">)</span>
 </pre></div>
 
 </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[3]:</div>
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>4-element Array{Symbol,1}:
+ :start 
+ :stop  
+ :len   
+ :lendiv</pre>
+</div>
+
+</div>
+
 </div>
 </div>
 
@@ -11858,13 +11927,30 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="nd">@which</span> <span class="n">copy</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
 </pre></div>
 
 </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[4]:</div>
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+copy<i>{T<:Array}</i>(a::<b>T</b>) at <a href="https://github.com/JuliaLang/julia/tree/903644385b91ed8d95e5e3a5716c089dd1f1b08a/base/array.jl#L139" target="_blank">array.jl:139</a>
+</div>
+
+</div>
+
 </div>
 </div>
 
@@ -11883,7 +11969,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1.0</span><span class="p">;</span><span class="mi">2</span><span class="p">;</span><span class="mi">3</span><span class="p">]</span>
@@ -11891,6 +11977,24 @@ div#notebook {
 </pre></div>
 
 </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[5]:</div>
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>Array{Float64,1}</pre>
+</div>
+
+</div>
+
 </div>
 </div>
 
@@ -11907,13 +12011,30 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="nd">@edit</span> <span class="n">copy</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
 </pre></div>
 
 </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Unknown editor: no line number information passed.
+The method is defined at line 139.
+</pre>
+</div>
+</div>
+
 </div>
 </div>
 
@@ -11930,7 +12051,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="kt">Vector</span><span class="p">{</span><span class="kt">Float64</span><span class="p">}(</span><span class="mi">5</span><span class="p">)</span> <span class="c"># Create a length 5 Vector (dimension 1 array) of Float64&#39;s</span>
@@ -11965,6 +12086,28 @@ div#notebook {
 </div>
 </div>
 
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[7]:</div>
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>4×4 Array{Int64,2}:
+ 1  4  3  4
+ 3  4  5  6
+ 4  4  4  6
+ 3  3  3  3</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
 </div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
@@ -11978,7 +12121,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">;</span><span class="mi">3</span><span class="p">;</span><span class="mi">4</span><span class="p">]</span>
@@ -11988,6 +12131,27 @@ div#notebook {
 </pre></div>
 
 </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[8]:</div>
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>3-element Array{Int64,1}:
+ 10
+  3
+  4</pre>
+</div>
+
+</div>
+
 </div>
 </div>
 
@@ -12004,7 +12168,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">;</span><span class="mi">4</span><span class="p">;</span><span class="mi">5</span><span class="p">]</span>
@@ -12014,6 +12178,27 @@ div#notebook {
 </pre></div>
 
 </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[9]:</div>
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>3-element Array{Int64,1}:
+ 1
+ 4
+ 5</pre>
+</div>
+
+</div>
+
 </div>
 </div>
 
@@ -12030,7 +12215,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="n">c</span> <span class="o">=</span> <span class="n">similar</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
@@ -12044,10 +12229,29 @@ div#notebook {
 </div>
 </div>
 
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[4651175440, 4594536784, 4594044416]
+[0, 0, 0]
+[1, 1, 1]
+Bool[true, true, true]
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="n">rand</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
@@ -12058,10 +12262,30 @@ div#notebook {
 </div>
 </div>
 
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[11]:</div>
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>2×2 Array{Float64,2}:
+ -2.37325   0.660793
+  1.14852  -0.860583</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="n">fill!</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
@@ -12071,10 +12295,31 @@ div#notebook {
 </div>
 </div>
 
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[12]:</div>
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>3-element Array{Int64,1}:
+ 10
+ 10
+ 10</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[13]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="c"># concatenation: how to combine arrays?</span>
@@ -12087,10 +12332,33 @@ div#notebook {
 </div>
 </div>
 
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[13]:</div>
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>5-element Array{Float64,1}:
+ 1.0     
+ 1.0     
+ 0.284912
+ 0.801532
+ 0.229225</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">reshape</span><span class="p">(</span><span class="n">ones</span><span class="p">(</span><span class="mi">8</span><span class="p">),</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
@@ -12101,6 +12369,26 @@ div#notebook {
 </pre></div>
 
 </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[14]:</div>
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>2×4 Array{Float64,2}:
+ 1.0  1.0  0.0  0.0
+ 1.0  1.0  0.0  0.0</pre>
+</div>
+
+</div>
+
 </div>
 </div>
 
@@ -12130,7 +12418,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[35]:</div>
+<div class="prompt input_prompt">In&nbsp;[15]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="n">z</span> <span class="o">=</span> <span class="n">rand</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
@@ -12149,7 +12437,7 @@ div#notebook {
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[35]:</div>
+<div class="prompt output_prompt">Out[15]:</div>
 
 
 
@@ -12176,7 +12464,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[16]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="kt">Vector</span><span class="p">{</span><span class="kt">Vector</span><span class="p">{</span><span class="kt">Float64</span><span class="p">}}(</span><span class="mi">3</span><span class="p">)</span>
@@ -12187,6 +12475,27 @@ div#notebook {
 </pre></div>
 
 </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[16]:</div>
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>3-element Array{Array{Float64,1},1}:
+ [1.0, 2.0, 3.0]
+ [1.0, 2.0]     
+ [3.0, 4.0, 5.0]</pre>
+</div>
+
+</div>
+
 </div>
 </div>
 
@@ -12203,7 +12512,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[17]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="kt">Int</span><span class="p">[]</span>
@@ -12225,6 +12534,33 @@ div#notebook {
 </div>
 </div>
 
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>x is now equal to Int64[]
+x is now equal to [10]
+x is now equal to [10, 8]
+x is now equal to [10, 8, 6]
+x is now equal to [10, 8, 6, 4]
+x is now equal to [10, 8, 6, 4, 2]
+y is = [10, 0, 0, 0, 0, 0]
+y is = [10, 8, 0, 0, 0, 0]
+y is = [10, 8, 6, 0, 0, 0]
+y is = [10, 8, 6, 4, 0, 0]
+y is = [10, 8, 6, 4, 2, 0]
+y is = [10, 8, 6, 4, 2, 0]
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
 </div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
@@ -12238,7 +12574,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[18]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="n">foo</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span><span class="p">)</span> <span class="o">=</span> <span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">*</span><span class="mf">0.5</span><span class="n">y</span><span class="o">^</span><span class="mf">0.5</span> <span class="o">+</span> <span class="n">z</span><span class="o">^</span><span class="mi">2</span>
@@ -12252,7 +12588,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[19]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="c"># generator expressions work in a similar way</span>
@@ -12264,10 +12600,28 @@ div#notebook {
 </div>
 </div>
 
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[19]:</div>
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>1.6439345666815615</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[20]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="c"># can have indices depend on each other</span>
@@ -12278,10 +12632,34 @@ div#notebook {
 </div>
 </div>
 
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[20]:</div>
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>6-element Array{Tuple{Int64,Int64},1}:
+ (1, 1)
+ (2, 1)
+ (2, 2)
+ (3, 1)
+ (3, 2)
+ (3, 3)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[21]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="c"># you can even condition on the indices</span>
@@ -12289,6 +12667,26 @@ div#notebook {
 </pre></div>
 
 </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[21]:</div>
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>2-element Array{Tuple{Int64,Int64},1}:
+ (2, 2)
+ (3, 1)</pre>
+</div>
+
+</div>
+
 </div>
 </div>
 
@@ -12318,7 +12716,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[22]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="c">### views and subarrays</span>
@@ -12342,7 +12740,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[23]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="n">fff</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">=</span> <span class="n">x</span><span class="o">^</span><span class="p">(</span><span class="mi">2</span><span class="o">/</span><span class="mi">3</span><span class="p">)</span>
@@ -12350,6 +12748,25 @@ div#notebook {
 </pre></div>
 
 </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[23]:</div>
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre><span class="ansi-green-intense-fg ansi-bold">Test Passed
+</span></pre>
+</div>
+
+</div>
+
 </div>
 </div>
 
@@ -12367,7 +12784,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[24]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="n">a</span>
@@ -12377,10 +12794,31 @@ div#notebook {
 </div>
 </div>
 
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[24]:</div>
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>3-element Array{Array{Float64,1},1}:
+ [1.0, 2.0, 3.0]
+ [1.0, 2.0]     
+ [3.0, 4.0, 5.0]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[25]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="n">b</span> <span class="o">=</span> <span class="n">a</span>
@@ -12390,6 +12828,36 @@ div#notebook {
 </pre></div>
 
 </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>a=Array{Float64,1}[[1.0, 2.0, 3.0], [1.0, 2.0], [3.0, 4.0, 5.0]]
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[25]:</div>
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>3-element Array{Array{Float64,1},1}:
+ [1.0, 4.0, 5.0]
+ [1.0, 2.0]     
+ [3.0, 4.0, 5.0]</pre>
+</div>
+
+</div>
+
 </div>
 </div>
 
@@ -12407,7 +12875,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[26]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="n">b</span> <span class="o">=</span> <span class="n">deepcopy</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
@@ -12416,6 +12884,27 @@ div#notebook {
 </pre></div>
 
 </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[26]:</div>
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>3-element Array{Array{Float64,1},1}:
+ [1.0, 4.0, 5.0]
+ [1.0, 2.0]     
+ [3.0, 4.0, 5.0]</pre>
+</div>
+
+</div>
+
 </div>
 </div>
 
@@ -12432,7 +12921,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[27]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">;</span><span class="mi">6</span><span class="p">;</span><span class="mi">8</span><span class="p">]</span>
@@ -12440,6 +12929,27 @@ div#notebook {
 </pre></div>
 
 </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[27]:</div>
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>3-element Array{Int64,1}:
+  2
+ 12
+ 16</pre>
+</div>
+
+</div>
+
 </div>
 </div>
 
@@ -12457,7 +12967,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[28]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="k">for</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="o">:</span><span class="mi">5</span> <span class="c">#for i goes from 1 to 5</span>
@@ -12472,7 +12982,7 @@ div#notebook {
 
 <span class="n">school</span> <span class="o">=</span> <span class="o">:</span><span class="n">ScPo</span>
 
-<span class="k">if</span> <span class="n">school</span><span class="o">==:</span><span class="n">ScPo</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">x</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">school</span><span class="o">==:</span><span class="n">ScPo</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">x</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
     <span class="n">println</span><span class="p">(</span><span class="s">&quot;your mascott is The Lion and the Fox&quot;</span><span class="p">)</span>
 <span class="k">else</span>
     <span class="n">println</span><span class="p">(</span><span class="s">&quot;you are not from ScPo, I don&#39;t know what your mascott is&quot;</span><span class="p">)</span>
@@ -12480,6 +12990,32 @@ div#notebook {
 </pre></div>
 
 </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>1
+2
+3
+4
+5
+0
+1
+2
+3
+4
+you are not from ScPo, I don&#39;t know what your mascott is
+</pre>
+</div>
+</div>
+
 </div>
 </div>
 
@@ -12496,7 +13032,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[29]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="k">for</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="o">:</span><span class="mi">2</span><span class="p">,</span><span class="n">j</span><span class="o">=</span><span class="mi">2</span><span class="o">:</span><span class="mi">4</span>
@@ -12505,6 +13041,27 @@ div#notebook {
 </pre></div>
 
 </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>2
+3
+4
+4
+6
+8
+</pre>
+</div>
+</div>
+
 </div>
 </div>
 
@@ -12539,7 +13096,7 @@ $$ b_{n+1}=r*b_{n}(1-b_{n}) $$<p>where $b_{n}$ is the number of bunnies at time 
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[30]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span> <span class="o">=</span> <span class="mi">2</span><span class="n">x</span><span class="o">+</span><span class="n">y</span> <span class="c"># Create an inline function</span>
@@ -12549,10 +13106,29 @@ $$ b_{n+1}=r*b_{n}(1-b_{n}) $$<p>where $b_{n}$ is the number of bunnies at time 
 </div>
 </div>
 
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+
+<div class="output_subarea output_text output_error">
+<pre>
+<span class="ansi-red-intense-fg">cannot define function f; it already has a value</span>
+
+Stacktrace:
+ [1] <span class="ansi-bold">include_string</span><span class="ansi-bold">(</span>::String, ::String<span class="ansi-bold">)</span> at <span class="ansi-bold">./loading.jl:515</span></pre>
+</div>
+</div>
+
+</div>
+</div>
+
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="prompt input_prompt">In&nbsp;[31]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="n">f</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span> <span class="c"># Call the function</span>
@@ -12567,14 +13143,16 @@ $$ b_{n+1}=r*b_{n}(1-b_{n}) $$<p>where $b_{n}$ is the number of bunnies at time 
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[2]:</div>
+<div class="prompt"></div>
 
+<div class="output_subarea output_text output_error">
+<pre>
+<span class="ansi-red-intense-fg">MethodError: objects of type BitArray{1} are not callable
+Use square brackets [] for indexing an Array.</span>
 
-
-<div class="output_text output_subarea output_execute_result">
-<pre>4</pre>
+Stacktrace:
+ [1] <span class="ansi-bold">include_string</span><span class="ansi-bold">(</span>::String, ::String<span class="ansi-bold">)</span> at <span class="ansi-bold">./loading.jl:515</span></pre>
 </div>
-
 </div>
 
 </div>
@@ -12583,7 +13161,7 @@ $$ b_{n+1}=r*b_{n}(1-b_{n}) $$<p>where $b_{n}$ is the number of bunnies at time 
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="prompt input_prompt">In&nbsp;[32]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="k">function</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
@@ -12600,14 +13178,15 @@ $$ b_{n+1}=r*b_{n}(1-b_{n}) $$<p>where $b_{n}$ is the number of bunnies at time 
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[3]:</div>
+<div class="prompt"></div>
 
+<div class="output_subarea output_text output_error">
+<pre>
+<span class="ansi-red-intense-fg">cannot define function f; it already has a value</span>
 
-
-<div class="output_text output_subarea output_execute_result">
-<pre>f (generic function with 2 methods)</pre>
+Stacktrace:
+ [1] <span class="ansi-bold">include_string</span><span class="ansi-bold">(</span>::String, ::String<span class="ansi-bold">)</span> at <span class="ansi-bold">./loading.jl:515</span></pre>
 </div>
-
 </div>
 
 </div>
@@ -12626,7 +13205,7 @@ $$ b_{n+1}=r*b_{n}(1-b_{n}) $$<p>where $b_{n}$ is the number of bunnies at time 
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="prompt input_prompt">In&nbsp;[33]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="n">f</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
@@ -12641,14 +13220,16 @@ $$ b_{n+1}=r*b_{n}(1-b_{n}) $$<p>where $b_{n}$ is the number of bunnies at time 
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[4]:</div>
+<div class="prompt"></div>
 
+<div class="output_subarea output_text output_error">
+<pre>
+<span class="ansi-red-intense-fg">MethodError: objects of type BitArray{1} are not callable
+Use square brackets [] for indexing an Array.</span>
 
-
-<div class="output_text output_subarea output_execute_result">
-<pre>4</pre>
+Stacktrace:
+ [1] <span class="ansi-bold">include_string</span><span class="ansi-bold">(</span>::String, ::String<span class="ansi-bold">)</span> at <span class="ansi-bold">./loading.jl:515</span></pre>
 </div>
-
 </div>
 
 </div>
@@ -12671,7 +13252,7 @@ $$ b_{n+1}=r*b_{n}(1-b_{n}) $$<p>where $b_{n}$ is the number of bunnies at time 
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[32]:</div>
+<div class="prompt input_prompt">In&nbsp;[34]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="n">f_change</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">=</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">5</span>
@@ -12689,7 +13270,7 @@ $$ b_{n+1}=r*b_{n}(1-b_{n}) $$<p>where $b_{n}$ is the number of bunnies at time 
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[32]:</div>
+<div class="prompt output_prompt">Out[34]:</div>
 
 
 
@@ -12705,7 +13286,7 @@ $$ b_{n+1}=r*b_{n}(1-b_{n}) $$<p>where $b_{n}$ is the number of bunnies at time 
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[33]:</div>
+<div class="prompt input_prompt">In&nbsp;[35]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="c"># we have already seen this is different with arrays.</span>
@@ -12724,14 +13305,14 @@ $$ b_{n+1}=r*b_{n}(1-b_{n}) $$<p>where $b_{n}$ is the number of bunnies at time 
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[33]:</div>
+<div class="prompt output_prompt">Out[35]:</div>
 
 
 
 <div class="output_text output_subarea output_execute_result">
 <pre>2-element Array{Float64,1}:
  0.0     
- 0.228279</pre>
+ 0.768854</pre>
 </div>
 
 </div>
@@ -12823,7 +13404,7 @@ $$ b_{n+1}=r*b_{n}(1-b_{n}) $$<p>where $b_{n}$ is the number of bunnies at time 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>(::#1) (generic function with 1 method)</pre>
+<pre>(::#15) (generic function with 1 method)</pre>
 </div>
 
 </div>
@@ -12834,7 +13415,7 @@ $$ b_{n+1}=r*b_{n}(1-b_{n}) $$<p>where $b_{n}$ is the number of bunnies at time 
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[40]:</div>
+<div class="prompt input_prompt">In&nbsp;[38]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="c"># can have multiple args</span>
@@ -12852,7 +13433,7 @@ $$ b_{n+1}=r*b_{n}(1-b_{n}) $$<p>where $b_{n}$ is the number of bunnies at time 
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[40]:</div>
+<div class="prompt output_prompt">Out[38]:</div>
 
 
 
@@ -12885,7 +13466,7 @@ $$ b_{n+1}=r*b_{n}(1-b_{n}) $$<p>where $b_{n}$ is the number of bunnies at time 
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[43]:</div>
+<div class="prompt input_prompt">In&nbsp;[39]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="n">tup</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="nb">pi</span><span class="p">,</span><span class="o">:</span><span class="n">hi</span><span class="p">)</span>
@@ -12901,7 +13482,7 @@ $$ b_{n+1}=r*b_{n}(1-b_{n}) $$<p>where $b_{n}$ is the number of bunnies at time 
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[43]:</div>
+<div class="prompt output_prompt">Out[39]:</div>
 
 
 
@@ -12917,16 +13498,16 @@ $$ b_{n+1}=r*b_{n}(1-b_{n}) $$<p>where $b_{n}$ is the number of bunnies at time 
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[49]:</div>
+<div class="prompt input_prompt">In&nbsp;[72]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="c"># named tuples: arriving in version 0.7 (and 1.0!)</span>
-<span class="k">if</span> <span class="nb">VERSION</span> <span class="o">&gt;</span> <span class="n">v</span><span class="s">&quot;0.7.0&quot;</span>
+<span class="c"># if VERSION &gt; v&quot;0.7.0&quot;</span>
 <span class="c">#     ntup = (one=1,pi=pi,say_hi=:hi)</span>
     <span class="c">#ntup</span>
-<span class="k">else</span>
-    <span class="n">println</span><span class="p">(</span><span class="s">&quot;named tuples haven&#39;t arrived yet, you are on version </span><span class="si">$VERSION</span><span class="s">&quot;</span><span class="p">)</span>
-<span class="k">end</span>
+<span class="c"># end</span>
+<span class="k">using</span> <span class="n">NamedTuples</span>
+<span class="n">ntup</span> <span class="o">=</span> <span class="nd">@NT</span><span class="p">(</span><span class="n">one</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="nb">pi</span><span class="o">=</span><span class="nb">pi</span><span class="p">,</span><span class="n">say_hi</span><span class="o">=:</span><span class="n">hi</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -12938,12 +13519,14 @@ $$ b_{n+1}=r*b_{n}(1-b_{n}) $$<p>where $b_{n}$ is the number of bunnies at time 
 
 
 <div class="output_area">
-<div class="prompt"></div>
+<div class="prompt output_prompt">Out[72]:</div>
 
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>named tuples haven&#39;t arrived yet, you are on version 0.6.0
-</pre>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>(one = 1, pi = π = 3.1415926535897..., say_hi = :hi)</pre>
 </div>
+
 </div>
 
 </div>
@@ -12975,7 +13558,7 @@ $$ b_{n+1}=r*b_{n}(1-b_{n}) $$<p>where $b_{n}$ is the number of bunnies at time 
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="prompt input_prompt">In&nbsp;[41]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="o">::</span><span class="kt">Int</span><span class="p">,</span><span class="n">y</span><span class="o">::</span><span class="kt">Int</span><span class="p">)</span> <span class="o">=</span> <span class="mi">3</span><span class="n">x</span><span class="o">+</span><span class="mi">2</span><span class="n">y</span>
@@ -12990,14 +13573,15 @@ $$ b_{n+1}=r*b_{n}(1-b_{n}) $$<p>where $b_{n}$ is the number of bunnies at time 
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[5]:</div>
+<div class="prompt"></div>
 
+<div class="output_subarea output_text output_error">
+<pre>
+<span class="ansi-red-intense-fg">cannot define function f; it already has a value</span>
 
-
-<div class="output_text output_subarea output_execute_result">
-<pre>f (generic function with 3 methods)</pre>
+Stacktrace:
+ [1] <span class="ansi-bold">include_string</span><span class="ansi-bold">(</span>::String, ::String<span class="ansi-bold">)</span> at <span class="ansi-bold">./loading.jl:515</span></pre>
 </div>
-
 </div>
 
 </div>
@@ -13016,7 +13600,7 @@ $$ b_{n+1}=r*b_{n}(1-b_{n}) $$<p>where $b_{n}$ is the number of bunnies at time 
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="prompt input_prompt">In&nbsp;[42]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="n">f</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span> <span class="c"># 3x+2y</span>
@@ -13031,14 +13615,16 @@ $$ b_{n+1}=r*b_{n}(1-b_{n}) $$<p>where $b_{n}$ is the number of bunnies at time 
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[6]:</div>
+<div class="prompt"></div>
 
+<div class="output_subarea output_text output_error">
+<pre>
+<span class="ansi-red-intense-fg">MethodError: objects of type BitArray{1} are not callable
+Use square brackets [] for indexing an Array.</span>
 
-
-<div class="output_text output_subarea output_execute_result">
-<pre>12</pre>
+Stacktrace:
+ [1] <span class="ansi-bold">include_string</span><span class="ansi-bold">(</span>::String, ::String<span class="ansi-bold">)</span> at <span class="ansi-bold">./loading.jl:515</span></pre>
 </div>
-
 </div>
 
 </div>
@@ -13047,7 +13633,7 @@ $$ b_{n+1}=r*b_{n}(1-b_{n}) $$<p>where $b_{n}$ is the number of bunnies at time 
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="prompt input_prompt">In&nbsp;[43]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="n">f</span><span class="p">(</span><span class="mf">2.0</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span> <span class="c"># 2x+y since 2.0 is not an Int</span>
@@ -13062,14 +13648,16 @@ $$ b_{n+1}=r*b_{n}(1-b_{n}) $$<p>where $b_{n}$ is the number of bunnies at time 
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[7]:</div>
+<div class="prompt"></div>
 
+<div class="output_subarea output_text output_error">
+<pre>
+<span class="ansi-red-intense-fg">MethodError: objects of type BitArray{1} are not callable
+Use square brackets [] for indexing an Array.</span>
 
-
-<div class="output_text output_subarea output_execute_result">
-<pre>7.0</pre>
+Stacktrace:
+ [1] <span class="ansi-bold">include_string</span><span class="ansi-bold">(</span>::String, ::String<span class="ansi-bold">)</span> at <span class="ansi-bold">./loading.jl:515</span></pre>
 </div>
-
 </div>
 
 </div>
@@ -13088,7 +13676,7 @@ $$ b_{n+1}=r*b_{n}(1-b_{n}) $$<p>where $b_{n}$ is the number of bunnies at time 
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="prompt input_prompt">In&nbsp;[44]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="o">::</span><span class="n">T</span><span class="p">,</span><span class="n">y</span><span class="o">::</span><span class="n">T</span><span class="p">)</span> <span class="n">where</span> <span class="n">T</span> <span class="o">=</span> <span class="mi">4</span><span class="n">x</span><span class="o">+</span><span class="mi">10</span><span class="n">y</span>
@@ -13103,14 +13691,15 @@ $$ b_{n+1}=r*b_{n}(1-b_{n}) $$<p>where $b_{n}$ is the number of bunnies at time 
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[8]:</div>
+<div class="prompt"></div>
 
+<div class="output_subarea output_text output_error">
+<pre>
+<span class="ansi-red-intense-fg">cannot define function f; it already has a value</span>
 
-
-<div class="output_text output_subarea output_execute_result">
-<pre>f (generic function with 4 methods)</pre>
+Stacktrace:
+ [1] <span class="ansi-bold">include_string</span><span class="ansi-bold">(</span>::String, ::String<span class="ansi-bold">)</span> at <span class="ansi-bold">./loading.jl:515</span></pre>
 </div>
-
 </div>
 
 </div>
@@ -13119,7 +13708,7 @@ $$ b_{n+1}=r*b_{n}(1-b_{n}) $$<p>where $b_{n}$ is the number of bunnies at time 
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="prompt input_prompt">In&nbsp;[45]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="n">f</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span> <span class="c"># 3x+2y since (::Int,::Int) is stricter</span>
@@ -13134,14 +13723,16 @@ $$ b_{n+1}=r*b_{n}(1-b_{n}) $$<p>where $b_{n}$ is the number of bunnies at time 
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[9]:</div>
+<div class="prompt"></div>
 
+<div class="output_subarea output_text output_error">
+<pre>
+<span class="ansi-red-intense-fg">MethodError: objects of type BitArray{1} are not callable
+Use square brackets [] for indexing an Array.</span>
 
-
-<div class="output_text output_subarea output_execute_result">
-<pre>12</pre>
+Stacktrace:
+ [1] <span class="ansi-bold">include_string</span><span class="ansi-bold">(</span>::String, ::String<span class="ansi-bold">)</span> at <span class="ansi-bold">./loading.jl:515</span></pre>
 </div>
-
 </div>
 
 </div>
@@ -13150,7 +13741,7 @@ $$ b_{n+1}=r*b_{n}(1-b_{n}) $$<p>where $b_{n}$ is the number of bunnies at time 
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="prompt input_prompt">In&nbsp;[46]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="n">f</span><span class="p">(</span><span class="mf">2.0</span><span class="p">,</span><span class="mf">3.0</span><span class="p">)</span> <span class="c"># 4x+10y</span>
@@ -13165,14 +13756,16 @@ $$ b_{n+1}=r*b_{n}(1-b_{n}) $$<p>where $b_{n}$ is the number of bunnies at time 
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[10]:</div>
+<div class="prompt"></div>
 
+<div class="output_subarea output_text output_error">
+<pre>
+<span class="ansi-red-intense-fg">MethodError: objects of type BitArray{1} are not callable
+Use square brackets [] for indexing an Array.</span>
 
-
-<div class="output_text output_subarea output_execute_result">
-<pre>38.0</pre>
+Stacktrace:
+ [1] <span class="ansi-bold">include_string</span><span class="ansi-bold">(</span>::String, ::String<span class="ansi-bold">)</span> at <span class="ansi-bold">./loading.jl:515</span></pre>
 </div>
-
 </div>
 
 </div>
@@ -13191,7 +13784,7 @@ $$ b_{n+1}=r*b_{n}(1-b_{n}) $$<p>where $b_{n}$ is the number of bunnies at time 
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[15]:</div>
+<div class="prompt input_prompt">In&nbsp;[47]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="o">::</span><span class="n">T</span><span class="p">,</span><span class="n">y</span><span class="o">::</span><span class="n">T2</span><span class="p">,</span><span class="n">z</span><span class="o">::</span><span class="n">T2</span><span class="p">)</span> <span class="n">where</span> <span class="p">{</span><span class="n">T</span><span class="o">&lt;:</span><span class="kt">Number</span><span class="p">,</span><span class="n">T2</span><span class="p">}</span> <span class="o">=</span> <span class="mi">5</span><span class="n">x</span> <span class="o">+</span> <span class="mi">5</span><span class="n">y</span> <span class="o">+</span> <span class="mi">5</span><span class="n">z</span>
@@ -13206,14 +13799,15 @@ $$ b_{n+1}=r*b_{n}(1-b_{n}) $$<p>where $b_{n}$ is the number of bunnies at time 
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[15]:</div>
+<div class="prompt"></div>
 
+<div class="output_subarea output_text output_error">
+<pre>
+<span class="ansi-red-intense-fg">cannot define function f; it already has a value</span>
 
-
-<div class="output_text output_subarea output_execute_result">
-<pre>f (generic function with 6 methods)</pre>
+Stacktrace:
+ [1] <span class="ansi-bold">include_string</span><span class="ansi-bold">(</span>::String, ::String<span class="ansi-bold">)</span> at <span class="ansi-bold">./loading.jl:515</span></pre>
 </div>
-
 </div>
 
 </div>
@@ -13234,7 +13828,7 @@ $$ b_{n+1}=r*b_{n}(1-b_{n}) $$<p>where $b_{n}$ is the number of bunnies at time 
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[48]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span><span class="p">,</span><span class="n">w</span><span class="p">)</span> <span class="o">=</span> <span class="n">x</span><span class="o">+</span><span class="n">y</span><span class="o">+</span><span class="n">z</span><span class="o">+</span><span class="n">w</span>
@@ -13246,6 +13840,25 @@ $$ b_{n+1}=r*b_{n}(1-b_{n}) $$<p>where $b_{n}$ is the number of bunnies at time 
 </pre></div>
 
 </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+
+<div class="output_subarea output_text output_error">
+<pre>
+<span class="ansi-red-intense-fg">cannot define function f; it already has a value</span>
+
+Stacktrace:
+ [1] <span class="ansi-bold">include_string</span><span class="ansi-bold">(</span>::String, ::String<span class="ansi-bold">)</span> at <span class="ansi-bold">./loading.jl:515</span></pre>
+</div>
+</div>
+
 </div>
 </div>
 
@@ -13264,7 +13877,7 @@ $$ b_{n+1}=r*b_{n}(1-b_{n}) $$<p>where $b_{n}$ is the number of bunnies at time 
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[49]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="k">function</span> <span class="n">test_function</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">;</span><span class="n">z</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="c">#z is a keyword argument</span>
@@ -13281,6 +13894,24 @@ $$ b_{n+1}=r*b_{n}(1-b_{n}) $$<p>where $b_{n}$ is the number of bunnies at time 
 </div>
 </div>
 
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[49]:</div>
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>test_function (generic function with 1 method)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
 </div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
@@ -13294,7 +13925,7 @@ $$ b_{n+1}=r*b_{n}(1-b_{n}) $$<p>where $b_{n}$ is the number of bunnies at time 
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[50]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="n">x</span><span class="p">,</span><span class="n">y</span> <span class="o">=</span> <span class="n">test_function</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
@@ -13304,16 +13935,52 @@ $$ b_{n+1}=r*b_{n}(1-b_{n}) $$<p>where $b_{n}$ is the number of bunnies at time 
 </div>
 </div>
 
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[50]:</div>
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>(3, 2)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[51]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="n">x</span><span class="p">,</span><span class="n">y</span> <span class="o">=</span> <span class="n">test_function</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">;</span><span class="n">z</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
 </pre></div>
 
 </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[51]:</div>
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>(6, 6)</pre>
+</div>
+
+</div>
+
 </div>
 </div>
 
@@ -13330,13 +13997,30 @@ $$ b_{n+1}=r*b_{n}(1-b_{n}) $$<p>where $b_{n}$ is the number of bunnies at time 
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[52]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="n">println</span><span class="p">(</span><span class="n">x</span><span class="p">);</span> <span class="n">println</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
 </pre></div>
 
 </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>6
+6
+</pre>
+</div>
+</div>
+
 </div>
 </div>
 
@@ -13354,7 +14038,7 @@ $$ b_{n+1}=r*b_{n}(1-b_{n}) $$<p>where $b_{n}$ is the number of bunnies at time 
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[53]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="k">function</span> <span class="n">function_playtime</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="c">#z is an optional argument</span>
@@ -13372,10 +14056,28 @@ $$ b_{n+1}=r*b_{n}(1-b_{n}) $$<p>where $b_{n}$ is the number of bunnies at time 
 </div>
 </div>
 
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[53]:</div>
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>(64, test)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[54]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="n">test</span><span class="p">()</span>
@@ -13385,16 +14087,52 @@ $$ b_{n+1}=r*b_{n}(1-b_{n}) $$<p>where $b_{n}$ is the number of bunnies at time 
 </div>
 </div>
 
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[54]:</div>
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>8</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[55]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="mi">8</span>
 </pre></div>
 
 </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[55]:</div>
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>8</pre>
+</div>
+
+</div>
+
 </div>
 </div>
 
@@ -13411,13 +14149,31 @@ $$ b_{n+1}=r*b_{n}(1-b_{n}) $$<p>where $b_{n}$ is the number of bunnies at time 
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[56]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">2</span>
 </pre></div>
 
 </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[56]:</div>
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>2</pre>
+</div>
+
+</div>
+
 </div>
 </div>
 
@@ -13435,13 +14191,31 @@ $$ b_{n+1}=r*b_{n}(1-b_{n}) $$<p>where $b_{n}$ is the number of bunnies at time 
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[57]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="n">g</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="mi">2</span><span class="n">x</span><span class="o">+</span><span class="n">y</span>
 </pre></div>
 
 </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[57]:</div>
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>(::#23) (generic function with 1 method)</pre>
+</div>
+
+</div>
+
 </div>
 </div>
 
@@ -13458,13 +14232,31 @@ $$ b_{n+1}=r*b_{n}(1-b_{n}) $$<p>where $b_{n}$ is the number of bunnies at time 
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[58]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="n">g</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="mi">2</span><span class="n">x</span>
 </pre></div>
 
 </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[58]:</div>
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>(::#25) (generic function with 1 method)</pre>
+</div>
+
+</div>
+
 </div>
 </div>
 
@@ -13483,7 +14275,7 @@ $$ b_{n+1}=r*b_{n}(1-b_{n}) $$<p>where $b_{n}$ is the number of bunnies at time 
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[16]:</div>
+<div class="prompt input_prompt">In&nbsp;[59]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="n">struct</span> <span class="n">Car</span>
@@ -13509,7 +14301,7 @@ $$ b_{n+1}=r*b_{n}(1-b_{n}) $$<p>where $b_{n}$ is the number of bunnies at time 
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[17]:</div>
+<div class="prompt input_prompt">In&nbsp;[60]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="n">mycar</span> <span class="o">=</span> <span class="n">Car</span><span class="p">(</span><span class="s">&quot;Toyota&quot;</span><span class="p">,</span><span class="s">&quot;Rav4&quot;</span><span class="p">)</span>
@@ -13524,7 +14316,7 @@ $$ b_{n+1}=r*b_{n}(1-b_{n}) $$<p>where $b_{n}$ is the number of bunnies at time 
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[17]:</div>
+<div class="prompt output_prompt">Out[60]:</div>
 
 
 
@@ -13550,7 +14342,7 @@ $$ b_{n+1}=r*b_{n}(1-b_{n}) $$<p>where $b_{n}$ is the number of bunnies at time 
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[18]:</div>
+<div class="prompt input_prompt">In&nbsp;[61]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="n">mycar</span><span class="o">.</span><span class="n">make</span>
@@ -13565,7 +14357,7 @@ $$ b_{n+1}=r*b_{n}(1-b_{n}) $$<p>where $b_{n}$ is the number of bunnies at time 
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[18]:</div>
+<div class="prompt output_prompt">Out[61]:</div>
 
 
 
@@ -13591,7 +14383,7 @@ $$ b_{n+1}=r*b_{n}(1-b_{n}) $$<p>where $b_{n}$ is the number of bunnies at time 
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[19]:</div>
+<div class="prompt input_prompt">In&nbsp;[62]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="n">struct</span> <span class="n">WorkshopParticipant</span>
@@ -13610,7 +14402,7 @@ $$ b_{n+1}=r*b_{n}(1-b_{n}) $$<p>where $b_{n}$ is the number of bunnies at time 
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[19]:</div>
+<div class="prompt output_prompt">Out[62]:</div>
 
 
 
@@ -13636,7 +14428,7 @@ $$ b_{n+1}=r*b_{n}(1-b_{n}) $$<p>where $b_{n}$ is the number of bunnies at time 
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[20]:</div>
+<div class="prompt input_prompt">In&nbsp;[63]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="n">struct</span> <span class="n">StaffMember</span><span class="p">{</span><span class="n">T</span><span class="o">&lt;:</span><span class="kt">Number</span><span class="p">}</span>
@@ -13656,7 +14448,7 @@ $$ b_{n+1}=r*b_{n}(1-b_{n}) $$<p>where $b_{n}$ is the number of bunnies at time 
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[20]:</div>
+<div class="prompt output_prompt">Out[63]:</div>
 
 
 
@@ -13672,11 +14464,11 @@ $$ b_{n+1}=r*b_{n}(1-b_{n}) $$<p>where $b_{n}$ is the number of bunnies at time 
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[21]:</div>
+<div class="prompt input_prompt">In&nbsp;[64]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="c"># notice that we cannot change terry:</span>
-<span class="n">ter</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s">&quot;Ptere&quot;</span>
+<span class="n">ter</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s">&quot;Peter&quot;</span>
 </pre></div>
 
 </div>
@@ -13705,7 +14497,7 @@ Stacktrace:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[23]:</div>
+<div class="prompt input_prompt">In&nbsp;[92]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="n">mutable</span> <span class="n">struct</span> <span class="n">StaffM</span><span class="p">{</span><span class="n">T</span><span class="o">&lt;:</span><span class="kt">Number</span><span class="p">}</span>
@@ -13727,7 +14519,7 @@ Stacktrace:
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[23]:</div>
+<div class="prompt output_prompt">Out[92]:</div>
 
 
 
@@ -13754,7 +14546,7 @@ Stacktrace:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[28]:</div>
+<div class="prompt input_prompt">In&nbsp;[66]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="k">abstract</span> <span class="k">type</span> <span class="n">Person</span> <span class="k">end</span>
@@ -13777,7 +14569,7 @@ Stacktrace:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[29]:</div>
+<div class="prompt input_prompt">In&nbsp;[67]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="k">type</span> <span class="n">Student</span> <span class="o">&lt;:</span> <span class="n">Person</span>
@@ -13803,7 +14595,7 @@ Stacktrace:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[30]:</div>
+<div class="prompt input_prompt">In&nbsp;[68]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="k">abstract</span> <span class="k">type</span> <span class="n">AbstractStudent</span> <span class="o">&lt;:</span> <span class="n">Person</span> <span class="k">end</span>
@@ -13826,7 +14618,7 @@ Stacktrace:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[31]:</div>
+<div class="prompt input_prompt">In&nbsp;[69]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="k">immutable</span> <span class="n">Field</span>
@@ -13845,7 +14637,7 @@ Stacktrace:
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[31]:</div>
+<div class="prompt output_prompt">Out[69]:</div>
 
 
 
@@ -13872,13 +14664,32 @@ Stacktrace:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[70]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="n">ds</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="o">:</span><span class="n">ComputationalStatistics</span>
 </pre></div>
 
 </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+
+<div class="output_subarea output_text output_error">
+<pre>
+<span class="ansi-red-intense-fg">type Field is immutable</span>
+
+Stacktrace:
+ [1] <span class="ansi-bold">include_string</span><span class="ansi-bold">(</span>::String, ::String<span class="ansi-bold">)</span> at <span class="ansi-bold">./loading.jl:515</span></pre>
+</div>
+</div>
+
 </div>
 </div>
 
@@ -13895,7 +14706,7 @@ Stacktrace:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[71]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="n">push!</span><span class="p">(</span><span class="n">ds</span><span class="o">.</span><span class="n">school</span><span class="p">,</span><span class="o">:</span><span class="n">BiologicalScience</span><span class="p">)</span>
@@ -13906,6 +14717,27 @@ Stacktrace:
 </div>
 </div>
 
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[71]:</div>
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>3-element Array{Symbol,1}:
+ :PhysicalScience  
+ :ComputerScience  
+ :BiologicalScience</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
 </div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
@@ -13913,25 +14745,9 @@ Stacktrace:
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>(Hint: recall that an array is not the values itself, but a pointer to the memory of the values)</p>
-<hr>
-<p>One important detail in Julia is that everything is a type (and every piece of code is an Expression type, more on this later). Thus functions are also types, which we can access the fields of. Not only is everything compiled down to C, but all of the "C parts" are always accessible. For example, we can, if we so choose, get a function pointer:</p>
 
 </div>
 </div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-julia"><pre><span></span><span class="n">foo</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">=</span> <span class="mi">2</span><span class="n">x</span>
-<span class="n">first</span><span class="p">(</span><span class="n">methods</span><span class="p">(</span><span class="n">foo</span><span class="p">))</span><span class="o">.</span><span class="n">lambda_template</span><span class="o">.</span><span class="n">fptr</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
@@ -13948,7 +14764,7 @@ Stacktrace:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[50]:</div>
+<div class="prompt input_prompt">In&nbsp;[73]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">1</span><span class="o">:</span><span class="mi">5</span>
@@ -13991,7 +14807,7 @@ Stacktrace:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[51]:</div>
+<div class="prompt input_prompt">In&nbsp;[74]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="n">println</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="mi">2</span><span class="p">]);</span> <span class="n">println</span><span class="p">(</span><span class="n">b</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
@@ -14031,7 +14847,7 @@ Stacktrace:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[52]:</div>
+<div class="prompt input_prompt">In&nbsp;[75]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="n">println</span><span class="p">(</span><span class="n">typeof</span><span class="p">(</span><span class="n">b</span><span class="p">))</span>
@@ -14070,7 +14886,7 @@ Stacktrace:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[53]:</div>
+<div class="prompt input_prompt">In&nbsp;[76]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="n">fieldnames</span><span class="p">(</span><span class="kt">StepRange</span><span class="p">)</span>
@@ -14085,7 +14901,7 @@ Stacktrace:
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[53]:</div>
+<div class="prompt output_prompt">Out[76]:</div>
 
 
 
@@ -14114,7 +14930,7 @@ Stacktrace:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[54]:</div>
+<div class="prompt input_prompt">In&nbsp;[77]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="n">c</span> <span class="o">=</span> <span class="n">collect</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
@@ -14129,7 +14945,7 @@ Stacktrace:
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[54]:</div>
+<div class="prompt output_prompt">Out[77]:</div>
 
 
 
@@ -14160,7 +14976,7 @@ Stacktrace:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[55]:</div>
+<div class="prompt input_prompt">In&nbsp;[78]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="nd">@time</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">1</span><span class="o">:</span><span class="mi">100000</span>
@@ -14180,9 +14996,9 @@ Stacktrace:
 <div class="prompt"></div>
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>  0.000006 seconds (85 allocations: 6.467 KiB)
-  0.000001 seconds (5 allocations: 192 bytes)
-  0.000292 seconds (8 allocations: 781.547 KiB)
+<pre>  0.000014 seconds (85 allocations: 6.467 KiB)
+  0.000004 seconds (5 allocations: 192 bytes)
+  0.000634 seconds (8 allocations: 781.547 KiB)
 </pre>
 </div>
 </div>
@@ -14204,7 +15020,7 @@ Stacktrace:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[79]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="n">d</span> <span class="o">=</span> <span class="kt">Dict</span><span class="p">(</span><span class="o">:</span><span class="n">test</span><span class="o">=&gt;</span><span class="mi">2</span><span class="p">,</span><span class="s">&quot;silly&quot;</span><span class="o">=&gt;:</span><span class="n">suit</span><span class="p">)</span>
@@ -14213,6 +15029,23 @@ Stacktrace:
 </pre></div>
 
 </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>2
+suit
+</pre>
+</div>
+</div>
+
 </div>
 </div>
 
@@ -14229,7 +15062,7 @@ Stacktrace:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[80]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="n">tup</span> <span class="o">=</span> <span class="p">(</span><span class="mf">2.</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span> <span class="c"># Don&#39;t have to match types</span>
@@ -14237,6 +15070,24 @@ Stacktrace:
 </pre></div>
 
 </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[80]:</div>
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>(3.0, &#34;hi&#34;)</pre>
+</div>
+
+</div>
+
 </div>
 </div>
 
@@ -14264,7 +15115,7 @@ Stacktrace:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[57]:</div>
+<div class="prompt input_prompt">In&nbsp;[81]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="n">prog</span> <span class="o">=</span> <span class="s">&quot;1 + 1&quot;</span>
@@ -14301,7 +15152,7 @@ Stacktrace:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[58]:</div>
+<div class="prompt input_prompt">In&nbsp;[82]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="n">ex1</span><span class="o">.</span><span class="n">head</span>
@@ -14316,7 +15167,7 @@ Stacktrace:
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[58]:</div>
+<div class="prompt output_prompt">Out[82]:</div>
 
 
 
@@ -14332,7 +15183,7 @@ Stacktrace:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[59]:</div>
+<div class="prompt input_prompt">In&nbsp;[83]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="n">ex1</span><span class="o">.</span><span class="n">args</span>
@@ -14347,7 +15198,7 @@ Stacktrace:
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[59]:</div>
+<div class="prompt output_prompt">Out[83]:</div>
 
 
 
@@ -14366,7 +15217,7 @@ Stacktrace:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[60]:</div>
+<div class="prompt input_prompt">In&nbsp;[84]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="c"># directly constructing</span>
@@ -14383,7 +15234,7 @@ Stacktrace:
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[60]:</div>
+<div class="prompt output_prompt">Out[84]:</div>
 
 
 
@@ -14450,7 +15301,7 @@ Stacktrace:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[62]:</div>
+<div class="prompt input_prompt">In&nbsp;[85]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
@@ -14468,7 +15319,7 @@ Stacktrace:
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[62]:</div>
+<div class="prompt output_prompt">Out[85]:</div>
 
 
 
@@ -14499,7 +15350,7 @@ Stacktrace:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[63]:</div>
+<div class="prompt input_prompt">In&nbsp;[86]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="c"># simplest macro?</span>
@@ -14532,7 +15383,7 @@ Stacktrace:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[65]:</div>
+<div class="prompt input_prompt">In&nbsp;[87]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="c"># look inside a macro</span>
@@ -14559,7 +15410,7 @@ Stacktrace:
 </div>
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[65]:</div>
+<div class="prompt output_prompt">Out[87]:</div>
 
 
 
@@ -14569,23 +15420,13 @@ Stacktrace:
 
 </div>
 
-<div class="output_area">
-<div class="prompt"></div>
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>search: <span class="ansi-bold">e</span><span class="ansi-bold">n</span><span class="ansi-bold">d</span> <span class="ansi-bold">e</span><span class="ansi-bold">n</span><span class="ansi-bold">d</span>of <span class="ansi-bold">e</span><span class="ansi-bold">n</span><span class="ansi-bold">d</span>swith <span class="ansi-bold">E</span><span class="ansi-bold">N</span><span class="ansi-bold">D</span>IAN_BOM s<span class="ansi-bold">e</span><span class="ansi-bold">n</span><span class="ansi-bold">d</span> app<span class="ansi-bold">e</span><span class="ansi-bold">n</span><span class="ansi-bold">d</span>! Quot<span class="ansi-bold">e</span><span class="ansi-bold">N</span>o<span class="ansi-bold">d</span>e Rang<span class="ansi-bold">e</span>I<span class="ansi-bold">n</span><span class="ansi-bold">d</span>ex g<span class="ansi-bold">e</span>ti<span class="ansi-bold">n</span><span class="ansi-bold">d</span>ex
-
-</pre>
-</div>
-</div>
-
 </div>
 </div>
 
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[68]:</div>
+<div class="prompt input_prompt">In&nbsp;[88]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="c">## two step illustration: parse time vs run time</span>
@@ -14620,7 +15461,7 @@ Stacktrace:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[69]:</div>
+<div class="prompt input_prompt">In&nbsp;[89]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="c"># runtime:</span>
@@ -14650,7 +15491,7 @@ Stacktrace:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[90]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="c"># Thus you can think of metaprogramming as </span>
@@ -14672,16 +15513,53 @@ Stacktrace:
 </div>
 </div>
 
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[90]:</div>
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>@my_time (macro with 1 method)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[91]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="nd">@my_time</span> <span class="p">(</span><span class="k">macro</span> <span class="n">with</span> <span class="mi">1</span> <span class="n">method</span><span class="p">)</span>
 </pre></div>
 
 </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+
+<div class="output_subarea output_text output_error">
+<pre>
+<span class="ansi-red-intense-fg">syntax: expected &#34;(&#34; in macro definition</span>
+
+Stacktrace:
+ [1] <span class="ansi-bold">include_string</span><span class="ansi-bold">(</span>::String, ::String<span class="ansi-bold">)</span> at <span class="ansi-bold">./loading.jl:515</span></pre>
+</div>
+</div>
+
 </div>
 </div>
 

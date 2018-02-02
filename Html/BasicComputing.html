@@ -12341,8 +12341,8 @@ Step back! I&#39;m a 95.1 kg jaguar.
 <div class="prompt"></div>
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>  0.426990 seconds (60.00 M allocations: 915.613 MiB, 9.22% gc time)
-  0.003771 seconds (1.09 k allocations: 59.092 KiB)
+<pre>  0.586747 seconds (60.00 M allocations: 915.613 MiB, 7.64% gc time)
+  0.007323 seconds (1.09 k allocations: 59.092 KiB)
 </pre>
 </div>
 </div>
@@ -12766,6 +12766,15 @@ Stacktrace:
 
 
 <div class="output_area">
+<div class="prompt"></div>
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre><span class="ansi-cyan-intense-fg ansi-bold">INFO: </span><span class="ansi-cyan-fg">Recompiling stale cache file /Users/florian.oswald/.julia/lib/v0.6/DataFrames.ji for module DataFrames.
+</span></pre>
+</div>
+</div>
+
+<div class="output_area">
 <div class="prompt output_prompt">Out[8]:</div>
 
 
@@ -12896,7 +12905,7 @@ Stacktrace:
 
 
 <div class="output_html rendered_html output_subarea output_execute_result">
-<table class="data-frame"><thead><tr><th></th><th>nums</th><th>words</th></tr></thead><tbody><tr><th>1</th><td>0.088924</td><td>little</td></tr><tr><th>2</th><td>0.0816585</td><td>brown</td></tr><tr><th>3</th><td>0.835273</td><td>dog</td></tr></tbody></table>
+<table class="data-frame"><thead><tr><th></th><th>nums</th><th>words</th></tr></thead><tbody><tr><th>1</th><td>0.526495</td><td>little</td></tr><tr><th>2</th><td>0.607385</td><td>brown</td></tr><tr><th>3</th><td>0.502525</td><td>dog</td></tr></tbody></table>
 </div>
 
 </div>
@@ -12930,7 +12939,7 @@ Stacktrace:
 
 
 <div class="output_html rendered_html output_subarea output_execute_result">
-<table class="data-frame"><thead><tr><th></th><th>nums</th><th>words</th></tr></thead><tbody><tr><th>1</th><td>0.088924</td><td>little</td></tr><tr><th>2</th><td>1.0</td><td>brown</td></tr><tr><th>3</th><td>1.0</td><td>dog</td></tr></tbody></table>
+<table class="data-frame"><thead><tr><th></th><th>nums</th><th>words</th></tr></thead><tbody><tr><th>1</th><td>0.526495</td><td>little</td></tr><tr><th>2</th><td>1.0</td><td>brown</td></tr><tr><th>3</th><td>1.0</td><td>dog</td></tr></tbody></table>
 </div>
 
 </div>
@@ -12958,13 +12967,18 @@ Stacktrace:
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[13]:</div>
+<div class="prompt"></div>
 
+<div class="output_subarea output_text output_error">
+<pre>
+<span class="ansi-red-intense-fg">ArgumentError: Module RDatasets not found in current path.
+Run `Pkg.add(&#34;RDatasets&#34;)` to install the RDatasets package.</span>
 
-<div class="output_html rendered_html output_subarea output_execute_result">
-<table class="data-frame"><thead><tr><th></th><th>SepalLength</th><th>SepalWidth</th><th>PetalLength</th><th>PetalWidth</th><th>Species</th></tr></thead><tbody><tr><th>1</th><td>5.1</td><td>3.5</td><td>1.4</td><td>0.2</td><td>setosa</td></tr><tr><th>2</th><td>4.9</td><td>3.0</td><td>1.4</td><td>0.2</td><td>setosa</td></tr><tr><th>3</th><td>4.7</td><td>3.2</td><td>1.3</td><td>0.2</td><td>setosa</td></tr><tr><th>4</th><td>4.6</td><td>3.1</td><td>1.5</td><td>0.2</td><td>setosa</td></tr><tr><th>5</th><td>5.0</td><td>3.6</td><td>1.4</td><td>0.2</td><td>setosa</td></tr><tr><th>6</th><td>5.4</td><td>3.9</td><td>1.7</td><td>0.4</td><td>setosa</td></tr></tbody></table>
+Stacktrace:
+ [1] <span class="ansi-bold">_require</span><span class="ansi-bold">(</span>::Symbol<span class="ansi-bold">)</span> at <span class="ansi-bold">./loading.jl:428</span>
+ [2] <span class="ansi-bold">require</span><span class="ansi-bold">(</span>::Symbol<span class="ansi-bold">)</span> at <span class="ansi-bold">./loading.jl:398</span>
+ [3] <span class="ansi-bold">include_string</span><span class="ansi-bold">(</span>::String, ::String<span class="ansi-bold">)</span> at <span class="ansi-bold">./loading.jl:515</span></pre>
 </div>
-
 </div>
 
 </div>
@@ -13007,62 +13021,12 @@ Stacktrace:
 <div class="output_area">
 <div class="prompt"></div>
 
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>[5.1, 4.9, 4.7, 4.6, 5.0, 5.4]
-1×5 DataFrames.DataFrame
-│ Row │ SepalLength │ SepalWidth │ PetalLength │ PetalWidth │ Species │
-├─────┼─────────────┼────────────┼─────────────┼────────────┼─────────┤
-│ 1   │ 4.9         │ 3.0        │ 1.4         │ 0.2        │ setosa  │SepalLength
-Summary Stats:
-Mean:           5.843333
-Minimum:        4.300000
-1st Quartile:   5.100000
-Median:         5.800000
-3rd Quartile:   6.400000
-Maximum:        7.900000
-Length:         150
-Type:           Float64
+<div class="output_subarea output_text output_error">
+<pre>
+<span class="ansi-red-intense-fg">UndefVarError: iris not defined</span>
 
-SepalWidth
-Summary Stats:
-Mean:           3.057333
-Minimum:        2.000000
-1st Quartile:   2.800000
-Median:         3.000000
-3rd Quartile:   3.300000
-Maximum:        4.400000
-Length:         150
-Type:           Float64
-
-PetalLength
-Summary Stats:
-Mean:           3.758000
-Minimum:        1.000000
-1st Quartile:   1.600000
-Median:         4.350000
-3rd Quartile:   5.100000
-Maximum:        6.900000
-Length:         150
-Type:           Float64
-
-PetalWidth
-Summary Stats:
-Mean:           1.199333
-Minimum:        0.100000
-1st Quartile:   0.300000
-Median:         1.300000
-3rd Quartile:   1.800000
-Maximum:        2.500000
-Length:         150
-Type:           Float64
-
-Species
-Summary Stats:
-Length:         150
-Type:           CategoricalArrays.CategoricalString{UInt8}
-Number Unique:  3
-
-</pre>
+Stacktrace:
+ [1] <span class="ansi-bold">include_string</span><span class="ansi-bold">(</span>::String, ::String<span class="ansi-bold">)</span> at <span class="ansi-bold">./loading.jl:515</span></pre>
 </div>
 </div>
 
@@ -13105,7 +13069,7 @@ Number Unique:  3
 
 
 <div class="output_html rendered_html output_subarea output_execute_result">
-<table class="data-frame"><thead><tr><th></th><th>B</th><th>x1</th></tr></thead><tbody><tr><th>1</th><td>2</td><td>0.473845</td></tr><tr><th>2</th><td>1</td><td>0.672309</td></tr></tbody></table>
+<table class="data-frame"><thead><tr><th></th><th>B</th><th>x1</th></tr></thead><tbody><tr><th>1</th><td>1</td><td>0.605719</td></tr><tr><th>2</th><td>2</td><td>0.382219</td></tr></tbody></table>
 </div>
 
 </div>
@@ -13139,7 +13103,7 @@ Number Unique:  3
 
 
 <div class="output_html rendered_html output_subarea output_execute_result">
-<table class="data-frame"><thead><tr><th></th><th>A</th><th>B</th><th>C</th></tr></thead><tbody><tr><th>1</th><td>0.890072</td><td>2</td><td>word 1</td></tr><tr><th>2</th><td>0.525528</td><td>2</td><td>word 2</td></tr><tr><th>3</th><td>0.360638</td><td>2</td><td>word 3</td></tr><tr><th>4</th><td>0.478534</td><td>2</td><td>word 4</td></tr><tr><th>5</th><td>0.511762</td><td>2</td><td>word 8</td></tr><tr><th>6</th><td>0.119715</td><td>2</td><td>word 9</td></tr><tr><th>7</th><td>0.677806</td><td>2</td><td>word 10</td></tr></tbody></table>
+<table class="data-frame"><thead><tr><th></th><th>A</th><th>B</th><th>C</th></tr></thead><tbody><tr><th>1</th><td>0.134315</td><td>2</td><td>word 2</td></tr><tr><th>2</th><td>0.929985</td><td>2</td><td>word 3</td></tr><tr><th>3</th><td>0.84077</td><td>2</td><td>word 5</td></tr><tr><th>4</th><td>0.831327</td><td>2</td><td>word 8</td></tr><tr><th>5</th><td>0.607283</td><td>2</td><td>word 9</td></tr></tbody></table>
 </div>
 
 </div>
@@ -13191,7 +13155,7 @@ Number Unique:  3
 
 
 <div class="output_html rendered_html output_subarea output_execute_result">
-<table class="data-frame"><thead><tr><th></th><th>B</th><th>m</th></tr></thead><tbody><tr><th>1</th><td>2</td><td>0.456984</td></tr><tr><th>2</th><td>1</td><td>0.460514</td></tr></tbody></table>
+<table class="data-frame"><thead><tr><th></th><th>B</th><th>m</th></tr></thead><tbody><tr><th>1</th><td>1</td><td>0.418524</td></tr><tr><th>2</th><td>2</td><td>0.668736</td></tr></tbody></table>
 </div>
 
 </div>
@@ -13255,16 +13219,16 @@ Number Unique:  3
 <pre><span class="ansi-yellow-intense-fg ansi-bold">WARNING: </span><span class="ansi-yellow-fg">calling vector of vectors constructor without passing column names is deprecated</span>
 Stacktrace:
  [1] <span class="ansi-bold">depwarn</span><span class="ansi-bold">(</span>::String, ::Symbol<span class="ansi-bold">)</span> at <span class="ansi-bold">./deprecated.jl:70</span>
- [2] <span class="ansi-bold">Type</span> at <span class="ansi-bold">/Users/74097/.julia/v0.6/DataFrames/src/deprecated.jl:4</span> [inlined]
- [3] <span class="ansi-bold">#35</span> at <span class="ansi-bold">/Users/74097/.julia/v0.6/DataFramesMeta/src/DataFramesMeta.jl:316</span> [inlined]
- [4] <span class="ansi-bold">##708</span> at <span class="ansi-bold">/Users/74097/.julia/v0.6/DataFramesMeta/src/DataFramesMeta.jl:70</span> [inlined]
- [5] <span class="ansi-bold">(::##21#29{DataFrames.DataFrame})</span><span class="ansi-bold">(</span>::DataFrames.DataFrame<span class="ansi-bold">)</span> at <span class="ansi-bold">/Users/74097/.julia/v0.6/DataFramesMeta/src/DataFramesMeta.jl:72</span>
- [6] <span class="ansi-bold">orderby</span><span class="ansi-bold">(</span>::DataFrames.DataFrame, ::##21#29{DataFrames.DataFrame}<span class="ansi-bold">)</span> at <span class="ansi-bold">/Users/74097/.julia/v0.6/DataFramesMeta/src/DataFramesMeta.jl:313</span>
+ [2] <span class="ansi-bold">Type</span> at <span class="ansi-bold">/Users/florian.oswald/.julia/v0.6/DataFrames/src/deprecated.jl:4</span> [inlined]
+ [3] <span class="ansi-bold">#35</span> at <span class="ansi-bold">/Users/florian.oswald/.julia/v0.6/DataFramesMeta/src/DataFramesMeta.jl:316</span> [inlined]
+ [4] <span class="ansi-bold">##696</span> at <span class="ansi-bold">/Users/florian.oswald/.julia/v0.6/DataFramesMeta/src/DataFramesMeta.jl:70</span> [inlined]
+ [5] <span class="ansi-bold">(::##21#29{DataFrames.DataFrame})</span><span class="ansi-bold">(</span>::DataFrames.DataFrame<span class="ansi-bold">)</span> at <span class="ansi-bold">/Users/florian.oswald/.julia/v0.6/DataFramesMeta/src/DataFramesMeta.jl:72</span>
+ [6] <span class="ansi-bold">orderby</span><span class="ansi-bold">(</span>::DataFrames.DataFrame, ::##21#29{DataFrames.DataFrame}<span class="ansi-bold">)</span> at <span class="ansi-bold">/Users/florian.oswald/.julia/v0.6/DataFramesMeta/src/DataFramesMeta.jl:313</span>
  [7] <span class="ansi-bold">include_string</span><span class="ansi-bold">(</span>::String, ::String<span class="ansi-bold">)</span> at <span class="ansi-bold">./loading.jl:515</span>
- [8] <span class="ansi-bold">include_string</span><span class="ansi-bold">(</span>::Module, ::String, ::String<span class="ansi-bold">)</span> at <span class="ansi-bold">/Users/74097/.julia/v0.6/Compat/src/Compat.jl:174</span>
- [9] <span class="ansi-bold">execute_request</span><span class="ansi-bold">(</span>::ZMQ.Socket, ::IJulia.Msg<span class="ansi-bold">)</span> at <span class="ansi-bold">/Users/74097/.julia/v0.6/IJulia/src/execute_request.jl:154</span>
- [10] <span class="ansi-bold">(::Compat.#inner#17{Array{Any,1},IJulia.#execute_request,Tuple{ZMQ.Socket,IJulia.Msg}})</span><span class="ansi-bold">(</span><span class="ansi-bold">)</span> at <span class="ansi-bold">/Users/74097/.julia/v0.6/Compat/src/Compat.jl:488</span>
- [11] <span class="ansi-bold">eventloop</span><span class="ansi-bold">(</span>::ZMQ.Socket<span class="ansi-bold">)</span> at <span class="ansi-bold">/Users/74097/.julia/v0.6/IJulia/src/eventloop.jl:8</span>
+ [8] <span class="ansi-bold">include_string</span><span class="ansi-bold">(</span>::Module, ::String, ::String<span class="ansi-bold">)</span> at <span class="ansi-bold">/Users/florian.oswald/.julia/v0.6/Compat/src/Compat.jl:174</span>
+ [9] <span class="ansi-bold">execute_request</span><span class="ansi-bold">(</span>::ZMQ.Socket, ::IJulia.Msg<span class="ansi-bold">)</span> at <span class="ansi-bold">/Users/florian.oswald/.julia/v0.6/IJulia/src/execute_request.jl:154</span>
+ [10] <span class="ansi-bold">(::Compat.#inner#17{Array{Any,1},IJulia.#execute_request,Tuple{ZMQ.Socket,IJulia.Msg}})</span><span class="ansi-bold">(</span><span class="ansi-bold">)</span> at <span class="ansi-bold">/Users/florian.oswald/.julia/v0.6/Compat/src/Compat.jl:488</span>
+ [11] <span class="ansi-bold">eventloop</span><span class="ansi-bold">(</span>::ZMQ.Socket<span class="ansi-bold">)</span> at <span class="ansi-bold">/Users/florian.oswald/.julia/v0.6/IJulia/src/eventloop.jl:8</span>
  [12] <span class="ansi-bold">(::IJulia.##14#17)</span><span class="ansi-bold">(</span><span class="ansi-bold">)</span> at <span class="ansi-bold">./task.jl:335</span>
 while loading In[18], in expression starting on line 323
 </pre>
@@ -13276,7 +13240,7 @@ while loading In[18], in expression starting on line 323
 
 
 <div class="output_html rendered_html output_subarea output_execute_result">
-<table class="data-frame"><thead><tr><th></th><th>meanx</th><th>meany</th><th>var</th></tr></thead><tbody><tr><th>1</th><td>0.508733</td><td>5.08733</td><td>10</td></tr><tr><th>2</th><td>0.574488</td><td>5.74488</td><td>2</td></tr><tr><th>3</th><td>0.575243</td><td>5.75243</td><td>5</td></tr></tbody></table>
+<table class="data-frame"><thead><tr><th></th><th>meanx</th><th>meany</th><th>var</th></tr></thead><tbody><tr><th>1</th><td>0.400537</td><td>4.00537</td><td>5</td></tr><tr><th>2</th><td>0.516743</td><td>5.16743</td><td>10</td></tr><tr><th>3</th><td>0.70122</td><td>7.0122</td><td>2</td></tr></tbody></table>
 </div>
 
 </div>
@@ -13312,7 +13276,7 @@ while loading In[18], in expression starting on line 323
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[19]:</div>
+<div class="prompt input_prompt">In&nbsp;[21]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="k">using</span> <span class="n">Query</span>
@@ -13378,7 +13342,7 @@ while loading In[18], in expression starting on line 323
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[20]:</div>
+<div class="prompt input_prompt">In&nbsp;[22]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">DataFrame</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">repeat</span><span class="p">([</span><span class="s">&quot;John&quot;</span><span class="p">,</span> <span class="s">&quot;Sally&quot;</span><span class="p">,</span> <span class="s">&quot;Kirk&quot;</span><span class="p">],</span><span class="n">inner</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">outer</span><span class="o">=</span><span class="p">[</span><span class="mi">2</span><span class="p">]),</span> 
@@ -13415,19 +13379,6 @@ while loading In[18], in expression starting on line 323
 </div>
 </div>
 
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-julia"><pre><span></span>
-</pre></div>
-
-</div>
 </div>
 </div>
 

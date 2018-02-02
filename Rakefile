@@ -66,7 +66,7 @@ end
 rule ".pdf" => ".ipynb" do |t|
 	# exclude those from bibtex citations
 	exclude = ["BasicComputing","BasicIntroduction","Index","PlotsJL","HPC"]
-	no_bib = ["mpec-starters","CEPM"]
+	no_bib = ["mpec-starters","CEPM","optimization","optimization2"]
 	bn = File.basename("#{t.source}")
 	b  = File.basename("#{t.source}",".ipynb")
 	dir = File.dirname("#{t.name}")

@@ -1,44 +1,41 @@
 # ScPo-CompEcon CoursePack
 
-This repo contains all relevant course material. 
+This repo contains all relevant course material. If you just want to look at the slides, please go to the website at [https://scpo-compecon.github.io/CoursePack/](https://scpo-compecon.github.io/CoursePack/)
 
-## How to use
+## How to use this
 
-Clone this somewhere on your computer (don't install as a julia package). You can do this easily in Github Desktop as in the first homework. Choose a suitable location on your computer.
+You can build the CoursePack website an all material on your computer. You should only worry about this section if you want to rebuild the site yourself.
 
-```bash
-git clone https://github.com/ScPo-CompEcon/CoursePack /whereto/on/your/computer
-```
-
-
-## How to build this 
-
-You should only worry about this section if you want to rebuild the site yourself.
-
-#### Requirements
+### Requirements
 
 ```bash
-#python
-#latex
-#ruby
+# you need
+# 1. python
+# 2. latex
+# 3. ruby
 pip install jupyter
 pip install pandoc
 ```
 
-#### Building
+### Building
 
-in the root of this repo do
+1. Clone this to your computer
 
-```bash
-rake # builds all
-rake html # builds only html
-rake offline # builds offline slides
-```
+	```bash
+	git clone https://github.com/ScPo-CompEcon/CoursePack /whereto/on/your/computer
+	```
 
-## Easy Usage from Julia
+2. in the root of that repo then do
 
-This repository is also setup as a Julia package repository. To have users easily
-open up the Jupyter notebooks, they can use the commands from within Julia:
+	```bash
+	rake # builds all
+	rake html # builds only html
+	rake offline # builds offline slides
+	```
+
+## Looking at the material built on your computer
+
+Use those commands from within Julia:
 
 ```julia
 Pkg.add("IJulia") # use once to install IJulia
