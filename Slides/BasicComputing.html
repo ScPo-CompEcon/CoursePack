@@ -11710,8 +11710,10 @@ ul.typeahead-list > li > a {
 .highlight .mh { color: #666666 } /* Literal.Number.Hex */
 .highlight .mi { color: #666666 } /* Literal.Number.Integer */
 .highlight .mo { color: #666666 } /* Literal.Number.Oct */
+.highlight .sa { color: #BA2121 } /* Literal.String.Affix */
 .highlight .sb { color: #BA2121 } /* Literal.String.Backtick */
 .highlight .sc { color: #BA2121 } /* Literal.String.Char */
+.highlight .dl { color: #BA2121 } /* Literal.String.Delimiter */
 .highlight .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
 .highlight .s2 { color: #BA2121 } /* Literal.String.Double */
 .highlight .se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
@@ -11722,9 +11724,11 @@ ul.typeahead-list > li > a {
 .highlight .s1 { color: #BA2121 } /* Literal.String.Single */
 .highlight .ss { color: #19177C } /* Literal.String.Symbol */
 .highlight .bp { color: #008000 } /* Name.Builtin.Pseudo */
+.highlight .fm { color: #0000FF } /* Name.Function.Magic */
 .highlight .vc { color: #19177C } /* Name.Variable.Class */
 .highlight .vg { color: #19177C } /* Name.Variable.Global */
 .highlight .vi { color: #19177C } /* Name.Variable.Instance */
+.highlight .vm { color: #19177C } /* Name.Variable.Magic */
 .highlight .il { color: #666666 } /* Literal.Number.Integer.Long */
     </style>
 <style type="text/css">
@@ -12024,7 +12028,7 @@ a.anchor-link {
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Economists-and-Their-Software">Economists and Their Software<a class="anchor-link" href="#Economists-and-Their-Software">&#182;</a></h2><ul>
-<li>In <a href="http://economics.sas.upenn.edu/~jesusfv/comparison_languages.pdf"><em>A Comparison of Programming Languages in Economics</em></a>&lt;cite data-cite=jesuscomputing&gt;&lt;/cite&gt;, they compare some widely used languages on a close to <a href="https://github.com/jesusfv/Comparison-Programming-Languages-Economics">identical piece of code</a>.</li>
+<li>In <a href="http://economics.sas.upenn.edu/~jesusfv/comparison_languages.pdf"><em>A Comparison of Programming Languages in Economics</em></a>&lt;cite data-cite=jesuscomputing&gt;&lt;/cite&gt;, the authors compare some widely used languages on a close to <a href="https://github.com/jesusfv/Comparison-Programming-Languages-Economics">identical piece of code</a>.</li>
 <li>It can be quite contentious to talk about Software to Economists.<ul>
 <li>Religious War. </li>
 <li>Look at the <a href="http://marginalrevolution.com/marginalrevolution/2014/07/a-comparison-of-programming-languages-in-economics.html">comments on this blog post regarding the paper</a>.</li>
@@ -12082,7 +12086,7 @@ a.anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="A-Warning">A Warning<a class="anchor-link" href="#A-Warning">&#182;</a></h2><p>In Donald Knuth's paper "Structured Programming With GoTo Statements", he wrote:</p>
+<h2 id="A-Warning-about-Optimizing-your-Code!">A Warning about Optimizing your Code!<a class="anchor-link" href="#A-Warning-about-Optimizing-your-Code!">&#182;</a></h2><p>In Donald Knuth's paper "Structured Programming With GoTo Statements", he wrote:</p>
 <blockquote><p>"Programmers waste enormous amounts of time thinking about, or worrying about, the speed of noncritical parts of their programs, and these attempts at efficiency actually have a strong negative impact when debugging and maintenance are considered. We should forget about small efficiencies, say about 97% of the time: <strong>premature optimization is the root of all evil</strong>. Yet we should not pass up our opportunities in that critical 3%."</p>
 </blockquote>
 
@@ -12117,7 +12121,7 @@ a.anchor-link {
 <li>Infinity: A number greater than all representable numbers on your computer. <a href="http://docs.julialang.org/en/release-0.4/manual/integers-and-floating-point-numbers/?highlight=infinity#special-floating-point-values">Obeys some arithmethmic rules</a><ul>
 <li>Overflow: If you perform an operation where the result is greater than the largest representable number.</li>
 <li>Underflow: You take two (very small) representable numbers, but the result is smaller than <code>eps()</code>. </li>
-<li>In Julia, you are wrapped around the end of your representable space:<div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="nb">typemax</span><span class="p">(</span><span class="kt">Int64</span><span class="p">)</span>
+<li>In Julia, you are wrapped around the end of your representable space:<div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">typemax</span><span class="p">(</span><span class="kt">Int64</span><span class="p">)</span>
 <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span>
 </pre></div>
 </li>
@@ -12135,12 +12139,12 @@ a.anchor-link {
 </div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-julia"><pre><span></span><span class="k">for</span> <span class="n">T</span> <span class="k">in</span> <span class="p">[</span><span class="kt">Int8</span><span class="p">,</span><span class="kt">Int16</span><span class="p">,</span><span class="kt">Int32</span><span class="p">,</span><span class="kt">Int64</span><span class="p">,</span><span class="n">Int128</span><span class="p">,</span><span class="n">UInt8</span><span class="p">,</span><span class="n">UInt16</span><span class="p">,</span><span class="n">UInt32</span><span class="p">,</span>
-		  <span class="n">UInt64</span><span class="p">,</span><span class="n">UInt128</span><span class="p">,</span><span class="kt">Float32</span><span class="p">,</span><span class="kt">Float64</span><span class="p">]</span>
-         <span class="n">println</span><span class="p">(</span><span class="s">&quot;</span><span class="si">$(lpad(T,7))</span><span class="s">: [</span><span class="si">$(typemin(T))</span><span class="s">,</span><span class="si">$(typemax(T))</span><span class="s">]&quot;</span><span class="p">)</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="k">for</span> <span class="n">T</span> <span class="kp">in</span> <span class="p">[</span><span class="kt">Int8</span><span class="p">,</span><span class="kt">Int16</span><span class="p">,</span><span class="kt">Int32</span><span class="p">,</span><span class="kt">Int64</span><span class="p">,</span><span class="kt">Int128</span><span class="p">,</span><span class="kt">UInt8</span><span class="p">,</span><span class="kt">UInt16</span><span class="p">,</span><span class="kt">UInt32</span><span class="p">,</span>
+		  <span class="kt">UInt64</span><span class="p">,</span><span class="kt">UInt128</span><span class="p">,</span><span class="kt">Float32</span><span class="p">,</span><span class="kt">Float64</span><span class="p">]</span>
+         <span class="n">println</span><span class="p">(</span><span class="s">&quot;</span><span class="si">$</span><span class="p">(</span><span class="n">lpad</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="mi">7</span><span class="p">))</span><span class="s">: [</span><span class="si">$</span><span class="p">(</span><span class="n">typemin</span><span class="p">(</span><span class="n">T</span><span class="p">))</span><span class="s">,</span><span class="si">$</span><span class="p">(</span><span class="n">typemax</span><span class="p">(</span><span class="n">T</span><span class="p">))</span><span class="s">]&quot;</span><span class="p">)</span>
 <span class="k">end</span>
 </pre></div>
 
@@ -12218,12 +12222,12 @@ Float64: [-Inf,Inf]
 <li>Going with the example from the wikibook, we could have types <code>Jaguar</code> and <code>Cat</code> as being subtypes of <code>Feline</code>:</li>
 </ul>
 <div class="highlight"><pre><span></span><span class="n">struct</span> <span class="n">Feline</span>
-    <span class="n">weight</span><span class="p">::</span><span class="kt">Float64</span>
-    <span class="n">sound</span><span class="p">::</span><span class="n">String</span>
+    <span class="n">weight</span><span class="o">::</span><span class="kt">Float64</span>
+    <span class="n">sound</span><span class="o">::</span><span class="n">String</span>
 <span class="k">end</span>
 <span class="n">struct</span> <span class="n">Cat</span> <span class="o">&lt;:</span> <span class="n">Feline</span>
-    <span class="n">weight</span><span class="p">::</span><span class="kt">Float64</span>
-    <span class="n">sound</span><span class="p">::</span><span class="n">String</span>
+    <span class="n">weight</span><span class="o">::</span><span class="kt">Float64</span>
+    <span class="n">sound</span><span class="o">::</span><span class="n">String</span>
 <span class="k">end</span>
 </pre></div>
 
@@ -12232,22 +12236,68 @@ Float64: [-Inf,Inf]
 </div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-julia"><pre><span></span><span class="k">abstract</span><span class="nc"> type</span> <span class="n">Feline</span> <span class="k">end</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="k">abstract</span> <span class="k">type</span> <span class="n">Feline</span> <span class="k">end</span>
 
 <span class="n">struct</span> <span class="n">Jaguar</span> <span class="o">&lt;:</span> <span class="n">Feline</span>
-	<span class="n">weight</span><span class="p">::</span><span class="kt">Float64</span>
-	<span class="n">sound</span><span class="p">::</span><span class="n">String</span>
+	<span class="n">weight</span><span class="o">::</span><span class="kt">Float64</span>
+	<span class="n">sound</span><span class="o">::</span><span class="n">String</span>
 <span class="k">end</span>
 <span class="n">struct</span> <span class="n">Cat</span> <span class="o">&lt;:</span> <span class="n">Feline</span>
-	<span class="n">weight</span><span class="p">::</span><span class="kt">Float64</span>
-	<span class="n">sound</span><span class="p">::</span><span class="n">String</span>
+	<span class="n">weight</span><span class="o">::</span><span class="kt">Float64</span>
+	<span class="n">sound</span><span class="o">::</span><span class="n">String</span>
 <span class="k">end</span>
 
 <span class="c"># is a cat a Feline?</span>
 <span class="n">Cat</span> <span class="o">&lt;:</span> <span class="n">Feline</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[2]:</div>
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>true</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div></section><section>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-julia"><pre><span></span><span class="c"># create a cat and a jaguar</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">Cat</span><span class="p">(</span><span class="mf">15.2</span><span class="p">,</span><span class="s">&quot;miauu&quot;</span><span class="p">)</span>
+<span class="n">j</span> <span class="o">=</span> <span class="n">Jaguar</span><span class="p">(</span><span class="mf">95.1</span><span class="p">,</span><span class="s">&quot;ROARRRRRR!!!!!&quot;</span><span class="p">)</span>
+
+<span class="c"># is c an instance of type Cat?</span>
+<span class="n">isa</span><span class="p">(</span><span class="n">c</span><span class="p">,</span><span class="n">Cat</span><span class="p">)</span>
+
+<span class="c"># methods</span>
+<span class="k">function</span> <span class="n">behave</span><span class="p">(</span><span class="n">c</span><span class="o">::</span><span class="n">Cat</span><span class="p">)</span>
+    <span class="n">println</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">sound</span><span class="p">)</span>
+    <span class="n">println</span><span class="p">(</span><span class="s">&quot;my weight is </span><span class="si">$</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">weight</span><span class="p">)</span><span class="s"> kg! should go on a diet&quot;</span><span class="p">)</span>
+<span class="k">end</span>
+<span class="k">function</span> <span class="n">behave</span><span class="p">(</span><span class="n">j</span><span class="o">::</span><span class="n">Jaguar</span><span class="p">)</span>
+    <span class="n">println</span><span class="p">(</span><span class="n">j</span><span class="o">.</span><span class="n">sound</span><span class="p">)</span>
+    <span class="n">println</span><span class="p">(</span><span class="s">&quot;Step back! I&#39;m a </span><span class="si">$</span><span class="p">(</span><span class="n">j</span><span class="o">.</span><span class="n">weight</span><span class="p">)</span><span class="s"> kg jaguar.&quot;</span><span class="p">)</span>
+<span class="k">end</span>
 </pre></div>
 
 </div>
@@ -12264,52 +12314,6 @@ Float64: [-Inf,Inf]
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>true</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div></section><section>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[10]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-julia"><pre><span></span><span class="c"># create a cat and a jaguar</span>
-<span class="n">c</span> <span class="o">=</span> <span class="n">Cat</span><span class="p">(</span><span class="mf">15.2</span><span class="p">,</span><span class="s">&quot;miauu&quot;</span><span class="p">)</span>
-<span class="n">j</span> <span class="o">=</span> <span class="n">Jaguar</span><span class="p">(</span><span class="mf">95.1</span><span class="p">,</span><span class="s">&quot;ROARRRRRR!!!!!&quot;</span><span class="p">)</span>
-
-<span class="c"># is c an instance of type Cat?</span>
-<span class="nb">isa</span><span class="p">(</span><span class="n">c</span><span class="p">,</span><span class="n">Cat</span><span class="p">)</span>
-
-<span class="c"># methods</span>
-<span class="k">function</span><span class="nf"> behave</span><span class="p">(</span><span class="n">c</span><span class="p">::</span><span class="n">Cat</span><span class="p">)</span>
-    <span class="n">println</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">sound</span><span class="p">)</span>
-    <span class="n">println</span><span class="p">(</span><span class="s">&quot;my weight is </span><span class="si">$(c.weight)</span><span class="s"> kg! should go on a diet&quot;</span><span class="p">)</span>
-<span class="k">end</span>
-<span class="k">function</span><span class="nf"> behave</span><span class="p">(</span><span class="n">j</span><span class="p">::</span><span class="n">Jaguar</span><span class="p">)</span>
-    <span class="n">println</span><span class="p">(</span><span class="n">j</span><span class="o">.</span><span class="n">sound</span><span class="p">)</span>
-    <span class="n">println</span><span class="p">(</span><span class="s">&quot;Step back! I&#39;m a </span><span class="si">$(j.weight)</span><span class="s"> kg jaguar.&quot;</span><span class="p">)</span>
-<span class="k">end</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-<div class="prompt output_prompt">Out[10]:</div>
-
-
-
-<div class="output_text output_subarea output_execute_result">
 <pre>behave (generic function with 2 methods)</pre>
 </div>
 
@@ -12321,7 +12325,7 @@ Float64: [-Inf,Inf]
 </div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="c"># make a cat behave:</span>
@@ -12387,26 +12391,43 @@ Step back! I&#39;m a 95.1 kg jaguar.
 </div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-julia"><pre><span></span><span class="k">function</span><span class="nf"> t1</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="k">function</span> <span class="n">t1</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
     <span class="n">s</span>  <span class="o">=</span> <span class="mi">0</span>  <span class="c"># typeof(s) = Int</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="k">in</span> <span class="mi">1</span><span class="p">:</span><span class="n">n</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="kp">in</span> <span class="mi">1</span><span class="o">:</span><span class="n">n</span>
         <span class="n">s</span> <span class="o">+=</span> <span class="n">s</span><span class="o">/</span><span class="n">i</span>
     <span class="k">end</span>
 <span class="k">end</span>
-<span class="k">function</span><span class="nf"> t2</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+<span class="k">function</span> <span class="n">t2</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
     <span class="n">s</span>  <span class="o">=</span> <span class="mf">0.0</span>   <span class="c"># typeof(s) = Float64</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="k">in</span> <span class="mi">1</span><span class="p">:</span><span class="n">n</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="kp">in</span> <span class="mi">1</span><span class="o">:</span><span class="n">n</span>
         <span class="n">s</span> <span class="o">+=</span> <span class="n">s</span><span class="o">/</span><span class="n">i</span>
     <span class="k">end</span>
 <span class="k">end</span>
-<span class="p">@</span><span class="n">time</span> <span class="n">t1</span><span class="p">(</span><span class="mi">10000000</span><span class="p">)</span>
-<span class="p">@</span><span class="n">time</span> <span class="n">t2</span><span class="p">(</span><span class="mi">10000000</span><span class="p">)</span>
+<span class="nd">@time</span> <span class="n">t1</span><span class="p">(</span><span class="mi">10000000</span><span class="p">)</span>
+<span class="nd">@time</span> <span class="n">t2</span><span class="p">(</span><span class="mi">10000000</span><span class="p">)</span>
 </pre></div>
 
 </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>  0.586747 seconds (60.00 M allocations: 915.613 MiB, 7.64% gc time)
+  0.007323 seconds (1.09 k allocations: 59.092 KiB)
+</pre>
+</div>
+</div>
+
 </div>
 </div>
 
@@ -12433,7 +12454,7 @@ Step back! I&#39;m a 95.1 kg jaguar.
 <h3 id="An-example-Module">An example Module<a class="anchor-link" href="#An-example-Module">&#182;</a></h3><div class="highlight"><pre><span></span><span class="k">module</span> <span class="n">MyModule</span>
     <span class="c"># which other modules to use: imports</span>
     <span class="k">using</span> <span class="n">Lib</span>
-    <span class="k">using</span> <span class="n">BigLib</span><span class="p">:</span> <span class="n">thing1</span><span class="p">,</span> <span class="n">thing2</span>
+    <span class="k">using</span> <span class="n">BigLib</span><span class="o">:</span> <span class="n">thing1</span><span class="p">,</span> <span class="n">thing2</span>
     <span class="k">import</span> <span class="n">Base</span><span class="o">.</span><span class="n">show</span>
     <span class="k">importall</span> <span class="n">OtherLib</span>
 
@@ -12447,9 +12468,9 @@ Step back! I&#39;m a 95.1 kg jaguar.
 
     <span class="c"># methods</span>
     <span class="n">bar</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">=</span> <span class="mi">2</span><span class="n">x</span>
-    <span class="n">foo</span><span class="p">(</span><span class="n">a</span><span class="p">::</span><span class="n">MyType</span><span class="p">)</span> <span class="o">=</span> <span class="n">bar</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="n">foo</span><span class="p">(</span><span class="n">a</span><span class="o">::</span><span class="n">MyType</span><span class="p">)</span> <span class="o">=</span> <span class="n">bar</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
 
-    <span class="n">show</span><span class="p">(</span><span class="n">io</span><span class="p">::</span><span class="n">IO</span><span class="p">,</span> <span class="n">a</span><span class="p">::</span><span class="n">MyType</span><span class="p">)</span> <span class="o">=</span> <span class="n">print</span><span class="p">(</span><span class="n">io</span><span class="p">,</span> <span class="s">&quot;MyType </span><span class="si">$(a.x)</span><span class="s">&quot;</span><span class="p">)</span>
+    <span class="n">show</span><span class="p">(</span><span class="n">io</span><span class="o">::</span><span class="kt">IO</span><span class="p">,</span> <span class="n">a</span><span class="o">::</span><span class="n">MyType</span><span class="p">)</span> <span class="o">=</span> <span class="n">print</span><span class="p">(</span><span class="n">io</span><span class="p">,</span> <span class="s">&quot;MyType </span><span class="si">$</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">x</span><span class="p">)</span><span class="s">&quot;</span><span class="p">)</span>
 <span class="k">end</span>
 </pre></div>
 
@@ -12488,7 +12509,7 @@ Step back! I&#39;m a 95.1 kg jaguar.
 <li>Julia reads the file <code>~/.juliarc.jl</code> on each startup. Modify the <code>LOAD_PATH</code> variable:</li>
 </ul>
 <div class="highlight"><pre><span></span><span class="c"># add this to ~/.juliarc.jl</span>
-<span class="n">push!</span><span class="p">(</span><span class="n">LOAD_PATH</span><span class="p">,</span> <span class="s">&quot;/Path/To/My/Module/&quot;</span><span class="p">)</span>
+<span class="n">push!</span><span class="p">(</span><span class="nb">LOAD_PATH</span><span class="p">,</span> <span class="s">&quot;/Path/To/My/Module/&quot;</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -12652,24 +12673,94 @@ Inside the control system unit (VCSU) is a countdown timer that ticks off time i
 <li>If the repository is public on github, the service is for free.</li>
 <li>Many julia packages are testing on Travis.</li>
 <li>You should look out for this green badge: <a href="http://pkg.julialang.org/?pkg=Example"><img src="../assets/figs/BasicComputing/Example_0.6.png" alt="Example"></a></li>
+<li>You can run the tests for a package with <code>Pkg.test("Package_name")</code></li>
+<li>You can run the tests for julia itself with <code>Base.runtests()</code></li>
 </ul>
 
 </div>
 </div>
-</div>
+</div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="c"># let&#39;s do some simple testing</span>
+<span class="k">using</span> <span class="n">Base</span><span class="o">.</span><span class="n">Test</span>
+
+<span class="nd">@test</span> <span class="mi">1</span><span class="o">==</span><span class="mi">1</span>
+<span class="nd">@test</span> <span class="nb">pi</span> <span class="n">≈</span> <span class="mf">3.14159</span> <span class="n">atol</span><span class="o">=</span><span class="mf">1e-4</span>
 </pre></div>
 
 </div>
 </div>
 </div>
 
-</div></section></section><section><section>
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[6]:</div>
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre><span class="ansi-green-intense-fg ansi-bold">Test Passed
+</span></pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div><div class="fragment">
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-julia"><pre><span></span><span class="nd">@test</span> <span class="mi">2</span><span class="o">&gt;</span><span class="mi">3</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre><span class="ansi-red-intense-fg ansi-bold">Test Failed
+</span>  Expression: 2 &gt; 3
+   Evaluated: 2 &gt; 3
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+<div class="prompt"></div>
+
+<div class="output_subarea output_text output_error">
+<pre>
+<span class="ansi-red-intense-fg">There was an error during testing</span>
+
+Stacktrace:
+ [1] <span class="ansi-bold">record</span><span class="ansi-bold">(</span>::Base.Test.FallbackTestSet, ::Base.Test.Fail<span class="ansi-bold">)</span> at <span class="ansi-bold">./test.jl:533</span>
+ [2] <span class="ansi-bold">do_test</span><span class="ansi-bold">(</span>::Base.Test.Returned, ::Expr<span class="ansi-bold">)</span> at <span class="ansi-bold">./test.jl:352</span>
+ [3] <span class="ansi-bold">include_string</span><span class="ansi-bold">(</span>::String, ::String<span class="ansi-bold">)</span> at <span class="ansi-bold">./loading.jl:515</span></pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div></div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -12677,33 +12768,25 @@ Inside the control system unit (VCSU) is a countdown timer that ticks off time i
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Debugging-Julia">Debugging Julia<a class="anchor-link" href="#Debugging-Julia">&#182;</a></h2><p>There are at least 2 ways to chase down a bug.</p>
 <ol>
-<li>Use logging facilities. This is writing <code>println</code> statements at various points in your code.</li>
-<li>Use a debugger:<ul>
-<li>The Julia debugger is called <a href="https://github.com/Keno/Gallium.jl">Gallium.jl</a></li>
-<li>This works well in Juno. </li>
+<li>Use logging facilities. <ul>
+<li>poor man's logger: write <code>println</code> statements at various points in your code.</li>
+<li>better: use Base.logging<ul>
+<li>this will really become useful in v1.0, when you can choose the logging level in a better way.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Use the debugger:<ul>
+<li>The Julia debugger used to be <a href="https://github.com/Keno/Gallium.jl">Gallium.jl</a><ul>
+<li>There is a lot of work on that repo. in the meantime:</li>
+</ul>
+</li>
+<li><a href="https://github.com/Keno/ASTInterpreter2.jl">https://github.com/Keno/ASTInterpreter2.jl</a> works very well.</li>
+<li>Debugging works well in Juno. </li>
+<li>We will try this out next time, when you start to work with actual code.</li>
 </ul>
 </li>
 </ol>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Debugging-with-Gallium">Debugging with Gallium<a class="anchor-link" href="#Debugging-with-Gallium">&#182;</a></h3><ul>
-<li>Let's switch to Juno for a second.</li>
-<li>The <a href="https://github.com/ScPo-CompEcon/ScPoExample.jl">ScPoExample.jl</a> repo contains a branch called <code>dbg</code>. do</li>
-</ul>
-<div class="highlight"><pre><span></span><span class="nb">cd</span> ScPoExample.jl
-git checkout dbg
-</pre></div>
-<p>or select branch in github desktop.</p>
-<ul>
-<li>Then open Juno and load that code.</li>
-</ul>
 
 </div>
 </div>
@@ -12714,13 +12797,160 @@ git checkout dbg
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Julia-and-Data">Julia and Data<a class="anchor-link" href="#Julia-and-Data">&#182;</a></h2><ul>
+<li>There is a github org for <a href="https://github.com/JuliaData">julia and data</a></li>
+<li>Some prominent members of that org are<ul>
 <li><a href="https://dataframesjl.readthedocs.io">DataFrames.jl</a></li>
 <li><a href="https://github.com/JuliaStats/DataFramesMeta.jl">DataFramesMeta.jl</a></li>
 <li><a href="https://github.com/davidanthoff/Query.jl">Queries.jl</a></li>
 </ul>
+</li>
+</ul>
 
 </div>
 </div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="What's-special-about-Data?">What's special about Data?<a class="anchor-link" href="#What's-special-about-Data?">&#182;</a></h3><ul>
+<li>There are several issues when working with <em>data</em>:<ul>
+<li>A typical dataset might be deliverd to you in tabular form. A comma separated file, for example: a spreadsheet.</li>
+<li>R, julia and python share the concept of a <code>DataFrame</code>. A tabular dataset with column names.</li>
+<li>that means in particular that each column could have a different datatype.</li>
+<li>For a language that optimizes on efficiently computing with different datatypes, that is a challenge.</li>
+<li>Importantly: data can be <strong>missing</strong>, i.e. for several reasons there is a record that was not, well, recorded.</li>
+<li>Julia has made a lot of progress here. We now have the <code>Missing</code> data type, provided in <code>Missings.jl</code></li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-julia"><pre><span></span><span class="k">using</span> <span class="n">DataFrames</span>  <span class="c"># DataFrames re-exports Missings.jl</span>
+<span class="n">m</span> <span class="o">=</span> <span class="n">missings</span><span class="p">(</span><span class="kt">Float64</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>  <span class="c"># you choose a datatype, and the dims for an array</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre><span class="ansi-cyan-intense-fg ansi-bold">INFO: </span><span class="ansi-cyan-fg">Recompiling stale cache file /Users/florian.oswald/.julia/lib/v0.6/DataFrames.ji for module DataFrames.
+</span></pre>
+</div>
+</div>
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[8]:</div>
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>3-element Array{Union{Float64, Missings.Missing},1}:
+ missing
+ missing
+ missing</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div></section><section>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-julia"><pre><span></span><span class="n">m</span><span class="p">[</span><span class="mi">1</span><span class="o">:</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">ones</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">sum</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>  <span class="c"># =&gt; missing. because Float64 + missing = missing</span>
+<span class="n">prod</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>  <span class="c"># =&gt; missing. because Float64 * missing = missing</span>
+<span class="n">sum</span><span class="p">(</span><span class="n">skipmissing</span><span class="p">(</span><span class="n">m</span><span class="p">))</span> <span class="c"># =&gt; 2</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[9]:</div>
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>2.0</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div></section><section>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-julia"><pre><span></span><span class="c"># you can replace missing values</span>
+<span class="n">println</span><span class="p">(</span><span class="n">typeof</span><span class="p">(</span><span class="n">Missings</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">m</span><span class="p">,</span><span class="mi">3</span><span class="p">)))</span>
+<span class="n">collect</span><span class="p">(</span><span class="n">Missings</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">m</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Missings.EachReplaceMissing{Array{Union{Float64, Missings.Missing},1},Float64}
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[10]:</div>
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>3-element Array{Float64,1}:
+ 1.0
+ 1.0
+ 3.0</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
 </div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
@@ -12730,12 +12960,6 @@ git checkout dbg
 <h3 id="DataFrames">DataFrames<a class="anchor-link" href="#DataFrames">&#182;</a></h3><ul>
 <li>A dataframe is a tabular dataset: a spreadsheet</li>
 <li>columns can be of different data type. very convenient, very hard to optimize.</li>
-<li>Importantly, working with data requires one special data type. <strong>missing data</strong>.<ul>
-<li>What should be the features of such a data type?</li>
-</ul>
-</li>
-<li>DataFrames still supports the <code>NA</code> value.</li>
-<li>This is going to disappear in future versions in favour of the new <code>Nullable</code> type.</li>
 </ul>
 
 </div>
@@ -12743,11 +12967,74 @@ git checkout dbg
 </div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-julia"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">DataFrame</span><span class="p">(</span><span class="n">nums</span> <span class="o">=</span> <span class="n">rand</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span><span class="n">words</span><span class="o">=</span><span class="p">[</span><span class="s">&quot;little&quot;</span><span class="p">,</span><span class="s">&quot;brown&quot;</span><span class="p">,</span><span class="s">&quot;dog&quot;</span><span class="p">])</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[11]:</div>
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<table class="data-frame"><thead><tr><th></th><th>nums</th><th>words</th></tr></thead><tbody><tr><th>1</th><td>0.526495</td><td>little</td></tr><tr><th>2</th><td>0.607385</td><td>brown</td></tr><tr><th>3</th><td>0.502525</td><td>dog</td></tr></tbody></table>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div></section><section>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-julia"><pre><span></span><span class="c"># there is alot of functionality. please consult the manual.</span>
+<span class="n">df</span><span class="p">[</span><span class="o">:</span><span class="n">nums</span><span class="p">]</span>
+<span class="n">df</span><span class="p">[</span><span class="o">:</span><span class="n">words</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>  <span class="c"># &quot;little&quot;</span>
+<span class="n">df</span><span class="p">[</span><span class="o">:</span><span class="n">nums</span><span class="p">][</span><span class="mi">2</span><span class="o">:</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">df</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[12]:</div>
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<table class="data-frame"><thead><tr><th></th><th>nums</th><th>words</th></tr></thead><tbody><tr><th>1</th><td>0.526495</td><td>little</td></tr><tr><th>2</th><td>1.0</td><td>brown</td></tr><tr><th>3</th><td>1.0</td><td>dog</td></tr></tbody></table>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div></section><section>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="k">using</span> <span class="n">RDatasets</span>   <span class="c"># popular Datasets from R</span>
-<span class="k">using</span> <span class="n">DataFrames</span>
 <span class="n">iris</span> <span class="o">=</span> <span class="n">dataset</span><span class="p">(</span><span class="s">&quot;datasets&quot;</span><span class="p">,</span> <span class="s">&quot;iris&quot;</span><span class="p">)</span>
 <span class="n">head</span><span class="p">(</span><span class="n">iris</span><span class="p">)</span>  <span class="c"># get the first 6 rows</span>
 </pre></div>
@@ -12756,20 +13043,115 @@ git checkout dbg
 </div>
 </div>
 
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre><span class="ansi-cyan-intense-fg ansi-bold">INFO: </span><span class="ansi-cyan-fg">Recompiling stale cache file /Users/74097/.julia/lib/v0.6/RDatasets.ji for module RDatasets.
+</span></pre>
+</div>
+</div>
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[1]:</div>
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<table class="data-frame"><thead><tr><th></th><th>SepalLength</th><th>SepalWidth</th><th>PetalLength</th><th>PetalWidth</th><th>Species</th></tr></thead><tbody><tr><th>1</th><td>5.1</td><td>3.5</td><td>1.4</td><td>0.2</td><td>setosa</td></tr><tr><th>2</th><td>4.9</td><td>3.0</td><td>1.4</td><td>0.2</td><td>setosa</td></tr><tr><th>3</th><td>4.7</td><td>3.2</td><td>1.3</td><td>0.2</td><td>setosa</td></tr><tr><th>4</th><td>4.6</td><td>3.1</td><td>1.5</td><td>0.2</td><td>setosa</td></tr><tr><th>5</th><td>5.0</td><td>3.6</td><td>1.4</td><td>0.2</td><td>setosa</td></tr><tr><th>6</th><td>5.4</td><td>3.9</td><td>1.7</td><td>0.4</td><td>setosa</td></tr></tbody></table>
+</div>
+
+</div>
+
+</div>
+</div>
+
 </div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-julia"><pre><span></span><span class="n">println</span><span class="p">(</span><span class="n">iris</span><span class="p">[:</span><span class="n">SepalLength</span><span class="p">][</span><span class="mi">1</span><span class="p">:</span><span class="mi">6</span><span class="p">])</span>  <span class="c"># get a column</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="n">println</span><span class="p">(</span><span class="n">iris</span><span class="p">[</span><span class="o">:</span><span class="n">SepalLength</span><span class="p">][</span><span class="mi">1</span><span class="o">:</span><span class="mi">6</span><span class="p">])</span>  <span class="c"># get a column</span>
 
-<span class="n">show</span><span class="p">(</span><span class="n">iris</span><span class="p">[</span><span class="mi">2</span><span class="p">,:])</span>   <span class="c"># get a row</span>
+<span class="n">show</span><span class="p">(</span><span class="n">iris</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="o">:</span><span class="p">])</span>   <span class="c"># get a row</span>
 
 <span class="n">describe</span><span class="p">(</span><span class="n">iris</span><span class="p">);</span>   <span class="c"># get a description</span>
 </pre></div>
 
 </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[5.1, 4.9, 4.7, 4.6, 5.0, 5.4]
+1×5 DataFrames.DataFrame
+│ Row │ SepalLength │ SepalWidth │ PetalLength │ PetalWidth │ Species │
+├─────┼─────────────┼────────────┼─────────────┼────────────┼─────────┤
+│ 1   │ 4.9         │ 3.0        │ 1.4         │ 0.2        │ setosa  │SepalLength
+Summary Stats:
+Mean:           5.843333
+Minimum:        4.300000
+1st Quartile:   5.100000
+Median:         5.800000
+3rd Quartile:   6.400000
+Maximum:        7.900000
+Length:         150
+Type:           Float64
+
+SepalWidth
+Summary Stats:
+Mean:           3.057333
+Minimum:        2.000000
+1st Quartile:   2.800000
+Median:         3.000000
+3rd Quartile:   3.300000
+Maximum:        4.400000
+Length:         150
+Type:           Float64
+
+PetalLength
+Summary Stats:
+Mean:           3.758000
+Minimum:        1.000000
+1st Quartile:   1.600000
+Median:         4.350000
+3rd Quartile:   5.100000
+Maximum:        6.900000
+Length:         150
+Type:           Float64
+
+PetalWidth
+Summary Stats:
+Mean:           1.199333
+Minimum:        0.100000
+1st Quartile:   0.300000
+Median:         1.300000
+3rd Quartile:   1.800000
+Maximum:        2.500000
+Length:         150
+Type:           Float64
+
+Species
+Summary Stats:
+Length:         150
+Type:           CategoricalArrays.CategoricalString{UInt8}
+Number Unique:  3
+
+</pre>
+</div>
+</div>
+
 </div>
 </div>
 
@@ -12780,30 +13162,74 @@ git checkout dbg
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Working-with-DataFrames">Working with DataFrames<a class="anchor-link" href="#Working-with-DataFrames">&#182;</a></h3><ul>
-<li><a href="http://juliastats.github.io/DataFrames.jl/stable/">RTFM</a></li>
+<li><a href="http://juliastats.github.io/DataFrames.jl/stable/">RTFM :-)</a></li>
 <li>We can sort, join (i.e. merge), split-apply-combine and reshape dataframes. We can do most things one can do in base R with a <code>data.frame</code>.</li>
-<li>Mention <code>pooled</code> data:</li>
 </ul>
-<div class="highlight"><pre><span></span><span class="n">pdv</span> <span class="o">=</span> <span class="p">@</span><span class="n">pdata</span><span class="p">([</span><span class="s">&quot;Group A&quot;</span><span class="p">,</span> <span class="s">&quot;Group A&quot;</span><span class="p">,</span> <span class="s">&quot;Group A&quot;</span><span class="p">,</span>
-              <span class="s">&quot;Group B&quot;</span><span class="p">,</span> <span class="s">&quot;Group B&quot;</span><span class="p">,</span> <span class="s">&quot;Group B&quot;</span><span class="p">])</span>
-</pre></div>
 
 </div>
 </div>
 </div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[15]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-julia"><pre><span></span><span class="c"># subsetting a dataframe can become cumbersome</span>
-<span class="n">d</span> <span class="o">=</span> <span class="n">DataFrame</span><span class="p">(</span><span class="n">A</span> <span class="o">=</span> <span class="n">rand</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span><span class="n">B</span><span class="o">=</span><span class="n">rand</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span><span class="mi">10</span><span class="p">),</span><span class="n">C</span><span class="o">=</span><span class="p">[</span><span class="s">&quot;word </span><span class="si">$i</span><span class="s">&quot;</span> <span class="k">for</span> <span class="n">i</span> <span class="k">in</span> <span class="mi">1</span><span class="p">:</span><span class="mi">10</span><span class="p">])</span>
- <span class="n">d</span><span class="p">[(</span><span class="n">d</span><span class="p">[:</span><span class="n">A</span><span class="p">]</span><span class="o">.&gt;</span><span class="mf">0.1</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">d</span><span class="p">[:</span><span class="n">B</span><span class="p">]</span><span class="o">.==</span><span class="mi">2</span><span class="p">),:]</span>  
-<span class="k">using</span> <span class="n">DataFramesMeta</span>
-<span class="p">@</span><span class="n">where</span><span class="p">(</span><span class="n">d</span><span class="p">,(:</span><span class="n">A</span> <span class="o">.&gt;</span><span class="mf">0.1</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(:</span><span class="n">B</span><span class="o">.==</span><span class="mi">2</span><span class="p">))</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="n">d</span> <span class="o">=</span> <span class="n">DataFrame</span><span class="p">(</span><span class="n">A</span> <span class="o">=</span> <span class="n">rand</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span><span class="n">B</span><span class="o">=</span><span class="n">rand</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span><span class="mi">10</span><span class="p">),</span><span class="n">C</span><span class="o">=</span><span class="p">[</span><span class="s">&quot;word </span><span class="si">$i</span><span class="s">&quot;</span> <span class="k">for</span> <span class="n">i</span> <span class="kp">in</span> <span class="mi">1</span><span class="o">:</span><span class="mi">10</span><span class="p">])</span>
+<span class="n">by</span><span class="p">(</span><span class="n">d</span><span class="p">,</span><span class="o">:</span><span class="n">B</span><span class="p">,</span><span class="n">x</span><span class="o">-&gt;</span><span class="n">mean</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="o">:</span><span class="n">A</span><span class="p">]))</span>
 </pre></div>
 
 </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[15]:</div>
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<table class="data-frame"><thead><tr><th></th><th>B</th><th>x1</th></tr></thead><tbody><tr><th>1</th><td>1</td><td>0.605719</td></tr><tr><th>2</th><td>2</td><td>0.382219</td></tr></tbody></table>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div></section><section>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[16]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-julia"><pre><span></span><span class="c"># subsetting a dataframe can become cumbersome</span>
+<span class="n">d</span> <span class="o">=</span> <span class="n">DataFrame</span><span class="p">(</span><span class="n">A</span> <span class="o">=</span> <span class="n">rand</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span><span class="n">B</span><span class="o">=</span><span class="n">rand</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span><span class="mi">10</span><span class="p">),</span><span class="n">C</span><span class="o">=</span><span class="p">[</span><span class="s">&quot;word </span><span class="si">$i</span><span class="s">&quot;</span> <span class="k">for</span> <span class="n">i</span> <span class="kp">in</span> <span class="mi">1</span><span class="o">:</span><span class="mi">10</span><span class="p">])</span>
+<span class="n">d</span><span class="p">[(</span><span class="n">d</span><span class="p">[</span><span class="o">:</span><span class="n">A</span><span class="p">]</span><span class="o">.&gt;</span><span class="mf">0.1</span><span class="p">)</span> <span class="o">.&amp;</span> <span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="o">:</span><span class="n">B</span><span class="p">]</span><span class="o">.==</span><span class="mi">2</span><span class="p">),</span><span class="o">:</span><span class="p">]</span>  <span class="c"># approach 1</span>
+<span class="k">using</span> <span class="n">DataFramesMeta</span>
+<span class="nd">@where</span><span class="p">(</span><span class="n">d</span><span class="p">,(</span><span class="o">:</span><span class="n">A</span> <span class="o">.&gt;</span><span class="mf">0.1</span><span class="p">)</span> <span class="o">.&amp;</span> <span class="p">(</span><span class="o">:</span><span class="n">B</span><span class="o">.==</span><span class="mi">2</span><span class="p">))</span>  <span class="c"># approach 2</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[16]:</div>
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<table class="data-frame"><thead><tr><th></th><th>A</th><th>B</th><th>C</th></tr></thead><tbody><tr><th>1</th><td>0.134315</td><td>2</td><td>word 2</td></tr><tr><th>2</th><td>0.929985</td><td>2</td><td>word 3</td></tr><tr><th>3</th><td>0.84077</td><td>2</td><td>word 5</td></tr><tr><th>4</th><td>0.831327</td><td>2</td><td>word 8</td></tr><tr><th>5</th><td>0.607283</td><td>2</td><td>word 9</td></tr></tbody></table>
+</div>
+
+</div>
+
 </div>
 </div>
 
@@ -12820,7 +13246,7 @@ git checkout dbg
 <li>The same thing from before is now</li>
 </ul>
 <div class="highlight"><pre><span></span><span class="k">using</span> <span class="n">DataFramesMeta</span>
-<span class="p">@</span><span class="n">where</span><span class="p">(</span><span class="n">d</span><span class="p">,(:</span><span class="n">A</span> <span class="o">.&gt;</span><span class="mf">0.1</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(:</span><span class="n">B</span><span class="o">.==</span><span class="mi">2</span><span class="p">))</span>
+<span class="nd">@where</span><span class="p">(</span><span class="n">d</span><span class="p">,(</span><span class="o">:</span><span class="n">A</span> <span class="o">.&gt;</span><span class="mf">0.1</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="o">:</span><span class="n">B</span><span class="o">.==</span><span class="mi">2</span><span class="p">))</span>
 </pre></div>
 <ul>
 <li>We can access column names as <em>symbols</em> inside an expression.</li>
@@ -12828,6 +13254,37 @@ git checkout dbg
 
 </div>
 </div>
+</div></section><section>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[17]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-julia"><pre><span></span><span class="c"># the previous operation would become</span>
+<span class="nd">@by</span><span class="p">(</span><span class="n">d</span><span class="p">,</span><span class="o">:</span><span class="n">B</span><span class="p">,</span><span class="n">m</span><span class="o">=</span><span class="n">mean</span><span class="p">(</span><span class="o">:</span><span class="n">A</span><span class="p">))</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[17]:</div>
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<table class="data-frame"><thead><tr><th></th><th>B</th><th>m</th></tr></thead><tbody><tr><th>1</th><td>1</td><td>0.418524</td></tr><tr><th>2</th><td>2</td><td>0.668736</td></tr></tbody></table>
+</div>
+
+</div>
+
+</div>
+</div>
+
 </div></section><section>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
@@ -12846,24 +13303,74 @@ git checkout dbg
 </div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[18]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-julia"><pre><span></span><span class="k">using</span> <span class="n">DataFramesMeta</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">DataFrame</span><span class="p">(</span><span class="n">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">:</span><span class="mi">20</span><span class="p">,</span><span class="n">b</span> <span class="o">=</span> <span class="n">rand</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">10</span><span class="p">],</span><span class="mi">20</span><span class="p">),</span> <span class="n">x</span> <span class="o">=</span> <span class="n">rand</span><span class="p">(</span><span class="mi">20</span><span class="p">))</span>
-<span class="n">x_thread</span> <span class="o">=</span> <span class="p">@</span><span class="n">linq</span> <span class="n">df</span> <span class="o">|&gt;</span>
-    <span class="n">transform</span><span class="p">(</span><span class="n">y</span> <span class="o">=</span> <span class="mi">10</span> <span class="o">*</span> <span class="p">:</span><span class="n">x</span><span class="p">)</span> <span class="o">|&gt;</span>
-    <span class="n">where</span><span class="p">(:</span><span class="n">a</span> <span class="o">.&gt;</span> <span class="mi">2</span><span class="p">)</span> <span class="o">|&gt;</span>
-    <span class="n">by</span><span class="p">(:</span><span class="n">b</span><span class="p">,</span> <span class="n">meanX</span> <span class="o">=</span> <span class="n">mean</span><span class="p">(:</span><span class="n">x</span><span class="p">),</span> <span class="n">meanY</span> <span class="o">=</span> <span class="n">mean</span><span class="p">(:</span><span class="n">y</span><span class="p">))</span> <span class="o">|&gt;</span>
-    <span class="n">orderby</span><span class="p">(:</span><span class="n">meanX</span><span class="p">)</span> <span class="o">|&gt;</span>
-    <span class="n">select</span><span class="p">(:</span><span class="n">meanX</span><span class="p">,</span> <span class="p">:</span><span class="n">meanY</span><span class="p">,</span> <span class="n">var</span> <span class="o">=</span> <span class="p">:</span><span class="n">b</span><span class="p">)</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">DataFrame</span><span class="p">(</span><span class="n">a</span> <span class="o">=</span> <span class="mi">1</span><span class="o">:</span><span class="mi">20</span><span class="p">,</span><span class="n">b</span> <span class="o">=</span> <span class="n">rand</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">10</span><span class="p">],</span><span class="mi">20</span><span class="p">),</span> <span class="n">x</span> <span class="o">=</span> <span class="n">rand</span><span class="p">(</span><span class="mi">20</span><span class="p">))</span>
+<span class="n">x_thread</span> <span class="o">=</span> <span class="nd">@linq</span> <span class="n">df</span> <span class="o">|&gt;</span>
+    <span class="n">transform</span><span class="p">(</span><span class="n">y</span> <span class="o">=</span> <span class="mi">10</span> <span class="o">*</span> <span class="o">:</span><span class="n">x</span><span class="p">)</span> <span class="o">|&gt;</span>
+    <span class="n">where</span><span class="p">(</span><span class="o">:</span><span class="n">a</span> <span class="o">.&gt;</span> <span class="mi">2</span><span class="p">)</span> <span class="o">|&gt;</span>
+    <span class="n">by</span><span class="p">(</span><span class="o">:</span><span class="n">b</span><span class="p">,</span> <span class="n">meanX</span> <span class="o">=</span> <span class="n">mean</span><span class="p">(</span><span class="o">:</span><span class="n">x</span><span class="p">),</span> <span class="n">meanY</span> <span class="o">=</span> <span class="n">mean</span><span class="p">(</span><span class="o">:</span><span class="n">y</span><span class="p">))</span> <span class="o">|&gt;</span>
+    <span class="n">orderby</span><span class="p">(</span><span class="o">:</span><span class="n">meanX</span><span class="p">)</span> <span class="o">|&gt;</span>
+    <span class="n">select</span><span class="p">(</span><span class="n">meanx</span><span class="o">=:</span><span class="n">meanX</span><span class="p">,</span><span class="n">meany</span><span class="o">=</span> <span class="o">:</span><span class="n">meanY</span><span class="p">,</span> <span class="n">var</span> <span class="o">=</span> <span class="o">:</span><span class="n">b</span><span class="p">)</span>
+
+<span class="c"># or</span>
+<span class="c"># using Lazy</span>
+<span class="c"># x_thread = @&gt; begin</span>
+<span class="c">#     df</span>
+<span class="c">#     @transform(y = 10 * :x)</span>
+<span class="c">#     @where(:a .&gt; 2)</span>
+<span class="c">#     @by(:b, meanX = mean(:x), meanY = mean(:y))</span>
+<span class="c">#     @orderby(:meanX)</span>
+<span class="c">#     @select(:meanX, :meanY, var = :b)</span>
+<span class="c"># end</span>
 </pre></div>
 
 </div>
 </div>
 </div>
 
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre><span class="ansi-yellow-intense-fg ansi-bold">WARNING: </span><span class="ansi-yellow-fg">calling vector of vectors constructor without passing column names is deprecated</span>
+Stacktrace:
+ [1] <span class="ansi-bold">depwarn</span><span class="ansi-bold">(</span>::String, ::Symbol<span class="ansi-bold">)</span> at <span class="ansi-bold">./deprecated.jl:70</span>
+ [2] <span class="ansi-bold">Type</span> at <span class="ansi-bold">/Users/florian.oswald/.julia/v0.6/DataFrames/src/deprecated.jl:4</span> [inlined]
+ [3] <span class="ansi-bold">#35</span> at <span class="ansi-bold">/Users/florian.oswald/.julia/v0.6/DataFramesMeta/src/DataFramesMeta.jl:316</span> [inlined]
+ [4] <span class="ansi-bold">##696</span> at <span class="ansi-bold">/Users/florian.oswald/.julia/v0.6/DataFramesMeta/src/DataFramesMeta.jl:70</span> [inlined]
+ [5] <span class="ansi-bold">(::##21#29{DataFrames.DataFrame})</span><span class="ansi-bold">(</span>::DataFrames.DataFrame<span class="ansi-bold">)</span> at <span class="ansi-bold">/Users/florian.oswald/.julia/v0.6/DataFramesMeta/src/DataFramesMeta.jl:72</span>
+ [6] <span class="ansi-bold">orderby</span><span class="ansi-bold">(</span>::DataFrames.DataFrame, ::##21#29{DataFrames.DataFrame}<span class="ansi-bold">)</span> at <span class="ansi-bold">/Users/florian.oswald/.julia/v0.6/DataFramesMeta/src/DataFramesMeta.jl:313</span>
+ [7] <span class="ansi-bold">include_string</span><span class="ansi-bold">(</span>::String, ::String<span class="ansi-bold">)</span> at <span class="ansi-bold">./loading.jl:515</span>
+ [8] <span class="ansi-bold">include_string</span><span class="ansi-bold">(</span>::Module, ::String, ::String<span class="ansi-bold">)</span> at <span class="ansi-bold">/Users/florian.oswald/.julia/v0.6/Compat/src/Compat.jl:174</span>
+ [9] <span class="ansi-bold">execute_request</span><span class="ansi-bold">(</span>::ZMQ.Socket, ::IJulia.Msg<span class="ansi-bold">)</span> at <span class="ansi-bold">/Users/florian.oswald/.julia/v0.6/IJulia/src/execute_request.jl:154</span>
+ [10] <span class="ansi-bold">(::Compat.#inner#17{Array{Any,1},IJulia.#execute_request,Tuple{ZMQ.Socket,IJulia.Msg}})</span><span class="ansi-bold">(</span><span class="ansi-bold">)</span> at <span class="ansi-bold">/Users/florian.oswald/.julia/v0.6/Compat/src/Compat.jl:488</span>
+ [11] <span class="ansi-bold">eventloop</span><span class="ansi-bold">(</span>::ZMQ.Socket<span class="ansi-bold">)</span> at <span class="ansi-bold">/Users/florian.oswald/.julia/v0.6/IJulia/src/eventloop.jl:8</span>
+ [12] <span class="ansi-bold">(::IJulia.##14#17)</span><span class="ansi-bold">(</span><span class="ansi-bold">)</span> at <span class="ansi-bold">./task.jl:335</span>
+while loading In[18], in expression starting on line 323
+</pre>
 </div>
+</div>
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[18]:</div>
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<table class="data-frame"><thead><tr><th></th><th>meanx</th><th>meany</th><th>var</th></tr></thead><tbody><tr><th>1</th><td>0.400537</td><td>4.00537</td><td>5</td></tr><tr><th>2</th><td>0.516743</td><td>5.16743</td><td>10</td></tr><tr><th>3</th><td>0.70122</td><td>7.0122</td><td>2</td></tr></tbody></table>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -12878,26 +13385,30 @@ git checkout dbg
 </li>
 <li>It is not as convenient to summarise data, however.</li>
 <li>It is one of the <a href="http://www.david-anthoff.com/Query.jl/stable/">best documented packages</a> I know.</li>
-<li>Here is an example.</li>
+<li>In general, a query looks like this:<div class="highlight"><pre><span></span><span class="n">q</span> <span class="o">=</span> <span class="nd">@from</span> <span class="o">&lt;</span><span class="n">range</span> <span class="n">variable</span><span class="o">&gt;</span> <span class="kp">in</span> <span class="o">&lt;</span><span class="n">source</span><span class="o">&gt;</span> <span class="k">begin</span>
+  <span class="o">&lt;</span><span class="n">query</span> <span class="n">statements</span><span class="o">&gt;</span>
+<span class="k">end</span>
+</pre></div>
+</li>
+<li>Here is an example:</li>
 </ul>
 
 </div>
 </div>
-</div>
+</div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="prompt input_prompt">In&nbsp;[21]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="k">using</span> <span class="n">Query</span>
-<span class="k">using</span> <span class="n">DataFrames</span>
 
 <span class="n">df</span> <span class="o">=</span> <span class="n">DataFrame</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="p">[</span><span class="s">&quot;John&quot;</span><span class="p">,</span> <span class="s">&quot;Sally&quot;</span><span class="p">,</span> <span class="s">&quot;Kirk&quot;</span><span class="p">],</span> <span class="n">age</span><span class="o">=</span><span class="p">[</span><span class="mf">23.</span><span class="p">,</span> <span class="mf">42.</span><span class="p">,</span> <span class="mf">59.</span><span class="p">],</span> <span class="n">children</span><span class="o">=</span><span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">2</span><span class="p">])</span>
 
-<span class="n">x</span> <span class="o">=</span> <span class="p">@</span><span class="n">from</span> <span class="n">i</span> <span class="k">in</span> <span class="n">df</span> <span class="k">begin</span>
-    <span class="p">@</span><span class="n">where</span> <span class="n">i</span><span class="o">.</span><span class="n">age</span><span class="o">&gt;</span><span class="mi">50</span>
-    <span class="p">@</span><span class="n">select</span> <span class="p">{</span><span class="n">i</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">i</span><span class="o">.</span><span class="n">children</span><span class="p">}</span>
-    <span class="p">@</span><span class="n">collect</span> <span class="n">DataFrame</span>
+<span class="n">x</span> <span class="o">=</span> <span class="nd">@from</span> <span class="n">i</span> <span class="kp">in</span> <span class="n">df</span> <span class="k">begin</span>
+    <span class="nd">@where</span> <span class="n">i</span><span class="o">.</span><span class="n">age</span><span class="o">&gt;</span><span class="mi">50</span>
+    <span class="nd">@select</span> <span class="p">{</span><span class="n">i</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">i</span><span class="o">.</span><span class="n">children</span><span class="p">}</span>
+    <span class="nd">@collect</span> <span class="n">DataFrame</span>
 <span class="k">end</span>
 <span class="n">println</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
 <span class="n">println</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
@@ -12916,15 +13427,15 @@ git checkout dbg
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>3×3 DataFrames.DataFrame
-│ Row │ name    │ age  │ children │
-├─────┼─────────┼──────┼──────────┤
-│ 1   │ &#34;John&#34;  │ 23.0 │ 3        │
-│ 2   │ &#34;Sally&#34; │ 42.0 │ 5        │
-│ 3   │ &#34;Kirk&#34;  │ 59.0 │ 2        │
+│ Row │ name  │ age  │ children │
+├─────┼───────┼──────┼──────────┤
+│ 1   │ John  │ 23.0 │ 3        │
+│ 2   │ Sally │ 42.0 │ 5        │
+│ 3   │ Kirk  │ 59.0 │ 2        │
 1×2 DataFrames.DataFrame
-│ Row │ name   │ children │
-├─────┼────────┼──────────┤
-│ 1   │ &#34;Kirk&#34; │ 2        │
+│ Row │ name │ children │
+├─────┼──────┼──────────┤
+│ 1   │ Kirk │ 2        │
 </pre>
 </div>
 </div>
@@ -12932,20 +13443,20 @@ git checkout dbg
 </div>
 </div>
 
-</div></section></section><section><section>
+</div></section><section>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Plotting-with-Julia">Plotting with Julia<a class="anchor-link" href="#Plotting-with-Julia">&#182;</a></h2><ul>
-<li>There are many different plotting packages for julia. Gadfly.jl, PyPlot.jl, Winston.jl, Vega.jl, ...</li>
-<li>We will use the <a href="https://juliaplots.github.io">Plots.jl</a> package with talks to them all.</li>
-<li>The aim is to provide a unique interface to the user, who then has the freedom to choose their preferred backend.<ul>
-<li><a href="http://mth229.github.io/graphing.html">http://mth229.github.io/graphing.html</a> has a nice intro to plotting.</li>
-<li>See <a href="http://quant-econ.net/jl/julia_libraries.html#plotting">quant-econ.net website</a> for good intro to PyPlot plotting.</li>
-</ul>
-</li>
+<p>you can do <a href="http://www.david-anthoff.com/Query.jl/stable/querycommands.html">several things in a query</a>:</p>
+<ul>
+<li>sort</li>
+<li>filter</li>
+<li>project</li>
+<li>flatten</li>
+<li>join</li>
+<li>split-apply-combine (dplyr)</li>
 </ul>
 
 </div>
@@ -12953,48 +13464,46 @@ git checkout dbg
 </div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[22]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-julia"><pre><span></span><span class="k">using</span> <span class="n">Plots</span>
-<span class="n">plotlyjs</span><span class="p">()</span>
-<span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">=</span> <span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="o">^</span><span class="mi">2</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">plot</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span> <span class="c"># plot f over [-3,3]</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">DataFrame</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">repeat</span><span class="p">([</span><span class="s">&quot;John&quot;</span><span class="p">,</span> <span class="s">&quot;Sally&quot;</span><span class="p">,</span> <span class="s">&quot;Kirk&quot;</span><span class="p">],</span><span class="n">inner</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">outer</span><span class="o">=</span><span class="p">[</span><span class="mi">2</span><span class="p">]),</span> 
+     <span class="n">age</span><span class="o">=</span><span class="n">vcat</span><span class="p">([</span><span class="mf">10.</span><span class="p">,</span> <span class="mf">20.</span><span class="p">,</span> <span class="mf">30.</span><span class="p">],[</span><span class="mf">10.</span><span class="p">,</span> <span class="mf">20.</span><span class="p">,</span> <span class="mf">30.</span><span class="p">]</span><span class="o">.+</span><span class="mi">3</span><span class="p">),</span> 
+     <span class="n">children</span><span class="o">=</span><span class="n">repeat</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span><span class="n">inner</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">outer</span><span class="o">=</span><span class="p">[</span><span class="mi">2</span><span class="p">]),</span><span class="n">state</span><span class="o">=</span><span class="p">[</span><span class="o">:</span><span class="n">a</span><span class="p">,</span><span class="o">:</span><span class="n">a</span><span class="p">,</span><span class="o">:</span><span class="n">a</span><span class="p">,</span><span class="o">:</span><span class="n">b</span><span class="p">,</span><span class="o">:</span><span class="n">b</span><span class="p">,</span><span class="o">:</span><span class="n">b</span><span class="p">])</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="nd">@from</span> <span class="n">i</span> <span class="kp">in</span> <span class="n">df</span> <span class="k">begin</span>
+    <span class="nd">@group</span> <span class="n">i</span> <span class="n">by</span> <span class="n">i</span><span class="o">.</span><span class="n">state</span> <span class="n">into</span> <span class="n">g</span>
+    <span class="nd">@select</span> <span class="p">{</span><span class="n">group</span><span class="o">=</span><span class="n">g</span><span class="o">.</span><span class="n">key</span><span class="p">,</span><span class="n">mage</span><span class="o">=</span><span class="n">mean</span><span class="p">(</span><span class="n">g</span><span class="o">..</span><span class="n">age</span><span class="p">),</span> <span class="n">oldest</span><span class="o">=</span><span class="n">maximum</span><span class="p">(</span><span class="n">g</span><span class="o">..</span><span class="n">age</span><span class="p">),</span> <span class="n">youngest</span><span class="o">=</span><span class="n">minimum</span><span class="p">(</span><span class="n">g</span><span class="o">..</span><span class="n">age</span><span class="p">)}</span>
+    <span class="nd">@collect</span> <span class="n">DataFrame</span>
+<span class="k">end</span>
+
+<span class="n">println</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 </pre></div>
 
 </div>
 </div>
 </div>
 
-</div></section><section>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-julia"><pre><span></span><span class="c"># We can add to the current plot with the `plot!` function:</span>
-<span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">=</span> <span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="n">g</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">x</span><span class="o">^</span><span class="mi">2</span><span class="o">/</span><span class="mi">2</span>
-<span class="n">plot</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="o">-</span><span class="nb">pi</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="nb">pi</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">plot!</span><span class="p">(</span><span class="n">g</span><span class="p">,</span> <span class="o">-</span><span class="nb">pi</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="nb">pi</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>   <span class="c"># try without the a and b, it may work.</span>
-</pre></div>
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>2×4 DataFrames.DataFrame
+│ Row │ group │ mage │ oldest │ youngest │
+├─────┼───────┼──────┼────────┼──────────┤
+│ 1   │ a     │ 20.0 │ 30.0   │ 10.0     │
+│ 2   │ b     │ 23.0 │ 33.0   │ 13.0     │
+</pre>
+</div>
+</div>
 
 </div>
 </div>
-</div>
 
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="References">References<a class="anchor-link" href="#References">&#182;</a></h1><ul>
-<li>Judd Chapter 1 &lt;cite data-cite=juddbook&gt;&lt;/cite&gt;</li>
-</ul>
-
-</div>
-</div>
 </div></section></section>
 </div>
 </div>
