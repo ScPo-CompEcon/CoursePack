@@ -11654,10 +11654,8 @@ ul.typeahead-list > li > a {
 .highlight .mh { color: #666666 } /* Literal.Number.Hex */
 .highlight .mi { color: #666666 } /* Literal.Number.Integer */
 .highlight .mo { color: #666666 } /* Literal.Number.Oct */
-.highlight .sa { color: #BA2121 } /* Literal.String.Affix */
 .highlight .sb { color: #BA2121 } /* Literal.String.Backtick */
 .highlight .sc { color: #BA2121 } /* Literal.String.Char */
-.highlight .dl { color: #BA2121 } /* Literal.String.Delimiter */
 .highlight .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
 .highlight .s2 { color: #BA2121 } /* Literal.String.Double */
 .highlight .se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
@@ -11668,11 +11666,9 @@ ul.typeahead-list > li > a {
 .highlight .s1 { color: #BA2121 } /* Literal.String.Single */
 .highlight .ss { color: #19177C } /* Literal.String.Symbol */
 .highlight .bp { color: #008000 } /* Name.Builtin.Pseudo */
-.highlight .fm { color: #0000FF } /* Name.Function.Magic */
 .highlight .vc { color: #19177C } /* Name.Variable.Class */
 .highlight .vg { color: #19177C } /* Name.Variable.Global */
 .highlight .vi { color: #19177C } /* Name.Variable.Instance */
-.highlight .vm { color: #19177C } /* Name.Variable.Magic */
 .highlight .il { color: #666666 } /* Literal.Number.Integer.Long */
     </style>
 <style type="text/css">
@@ -11991,9 +11987,9 @@ $$<ul>
 <div class=" highlight hl-julia"><pre><span></span><span class="k">using</span> <span class="n">Plots</span>
 <span class="n">plotlyjs</span><span class="p">()</span>  <span class="c"># choose plotlyjs backend</span>
 <span class="n">v</span><span class="o">=</span><span class="n">collect</span><span class="p">(</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">30</span><span class="p">))</span>  <span class="c"># values</span>
-<span class="n">mini</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="o">^</span><span class="mi">2</span> <span class="o">+</span> <span class="n">y</span><span class="o">^</span><span class="mi">2</span> <span class="k">for</span> <span class="n">x</span> <span class="kp">in</span> <span class="n">v</span><span class="p">,</span> <span class="n">y</span> <span class="kp">in</span> <span class="n">v</span><span class="p">]</span>
+<span class="n">mini</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="o">^</span><span class="mi">2</span> <span class="o">+</span> <span class="n">y</span><span class="o">^</span><span class="mi">2</span> <span class="k">for</span> <span class="n">x</span> <span class="k">in</span> <span class="n">v</span><span class="p">,</span> <span class="n">y</span> <span class="k">in</span> <span class="n">v</span><span class="p">]</span>
 <span class="n">maxi</span> <span class="o">=</span> <span class="o">-</span><span class="n">mini</span>
-<span class="n">saddle</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="o">^</span><span class="mi">2</span> <span class="o">+</span> <span class="n">y</span><span class="o">^</span><span class="mi">3</span> <span class="k">for</span> <span class="n">x</span> <span class="kp">in</span> <span class="n">v</span><span class="p">,</span> <span class="n">y</span> <span class="kp">in</span> <span class="n">v</span><span class="p">];</span>
+<span class="n">saddle</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="o">^</span><span class="mi">2</span> <span class="o">+</span> <span class="n">y</span><span class="o">^</span><span class="mi">3</span> <span class="k">for</span> <span class="n">x</span> <span class="k">in</span> <span class="n">v</span><span class="p">,</span> <span class="n">y</span> <span class="k">in</span> <span class="n">v</span><span class="p">];</span>
 </pre></div>
 
 </div>
@@ -12129,7 +12125,7 @@ WARNING: using Lazy.remove in module AtomShell conflicts with an existing identi
 <div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-julia"><pre><span></span><span class="n">surface</span><span class="p">(</span><span class="n">v</span><span class="p">,</span><span class="n">v</span><span class="p">,</span><span class="n">maxi</span><span class="p">,</span><span class="n">title</span><span class="o">=</span><span class="s">&quot;local max&quot;</span><span class="p">,</span><span class="n">fillalpha</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span><span class="n">leg</span><span class="o">=</span><span class="kc">false</span><span class="p">,</span><span class="n">fillcolor</span><span class="o">=:</span><span class="n">heat</span><span class="p">)</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="n">surface</span><span class="p">(</span><span class="n">v</span><span class="p">,</span><span class="n">v</span><span class="p">,</span><span class="n">maxi</span><span class="p">,</span><span class="n">title</span><span class="o">=</span><span class="s">&quot;local max&quot;</span><span class="p">,</span><span class="n">fillalpha</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span><span class="n">leg</span><span class="o">=</span><span class="n">false</span><span class="p">,</span><span class="n">fillcolor</span><span class="o">=</span><span class="p">:</span><span class="n">heat</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -12170,7 +12166,7 @@ WARNING: using Lazy.remove in module AtomShell conflicts with an existing identi
 <div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-julia"><pre><span></span><span class="n">surface</span><span class="p">(</span><span class="n">v</span><span class="p">,</span><span class="n">v</span><span class="p">,</span><span class="n">mini</span><span class="p">,</span><span class="n">title</span><span class="o">=</span><span class="s">&quot;local min&quot;</span><span class="p">,</span><span class="n">fillalpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span><span class="n">leg</span><span class="o">=</span><span class="kc">false</span><span class="p">,</span><span class="n">fillcolor</span><span class="o">=:</span><span class="n">heat</span><span class="p">)</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="n">surface</span><span class="p">(</span><span class="n">v</span><span class="p">,</span><span class="n">v</span><span class="p">,</span><span class="n">mini</span><span class="p">,</span><span class="n">title</span><span class="o">=</span><span class="s">&quot;local min&quot;</span><span class="p">,</span><span class="n">fillalpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span><span class="n">leg</span><span class="o">=</span><span class="n">false</span><span class="p">,</span><span class="n">fillcolor</span><span class="o">=</span><span class="p">:</span><span class="n">heat</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -12211,7 +12207,7 @@ WARNING: using Lazy.remove in module AtomShell conflicts with an existing identi
 <div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-julia"><pre><span></span><span class="n">surface</span><span class="p">(</span><span class="n">v</span><span class="p">,</span><span class="n">v</span><span class="p">,</span><span class="n">saddle</span><span class="p">,</span><span class="n">title</span><span class="o">=</span><span class="s">&quot;saddle&quot;</span><span class="p">,</span><span class="n">fillalpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span><span class="n">leg</span><span class="o">=</span><span class="kc">false</span><span class="p">,</span><span class="n">fillcolor</span><span class="o">=:</span><span class="n">heat</span><span class="p">)</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="n">surface</span><span class="p">(</span><span class="n">v</span><span class="p">,</span><span class="n">v</span><span class="p">,</span><span class="n">saddle</span><span class="p">,</span><span class="n">title</span><span class="o">=</span><span class="s">&quot;saddle&quot;</span><span class="p">,</span><span class="n">fillalpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span><span class="n">leg</span><span class="o">=</span><span class="n">false</span><span class="p">,</span><span class="n">fillcolor</span><span class="o">=</span><span class="p">:</span><span class="n">heat</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -12265,11 +12261,11 @@ $$ f(\mathbf{x}) = (1-x_1)^2  + 5(x_2-x_1^2)^2  $$
 <div class=" highlight hl-julia"><pre><span></span><span class="c"># let&#39;s get a picture of this</span>
 <span class="n">rosenbrock</span><span class="p">(</span><span class="n">x</span><span class="p">;</span> <span class="n">a</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span> <span class="o">=</span> <span class="p">(</span><span class="n">a</span><span class="o">-</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span><span class="o">^</span><span class="mi">2</span> <span class="o">+</span> <span class="n">b</span><span class="o">*</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">-</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">^</span><span class="mi">2</span><span class="p">)</span><span class="o">^</span><span class="mi">2</span>
 <span class="n">x</span><span class="o">=</span><span class="n">y</span><span class="o">=</span><span class="n">collect</span><span class="p">(</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">100</span><span class="p">))</span>  <span class="c"># x and y axis</span>
-<span class="n">f</span> <span class="o">=</span> <span class="p">[</span><span class="n">rosenbrock</span><span class="p">([</span><span class="n">ix</span><span class="p">,</span><span class="n">iy</span><span class="p">])</span> <span class="k">for</span> <span class="n">ix</span> <span class="kp">in</span> <span class="n">x</span><span class="p">,</span> <span class="n">iy</span> <span class="kp">in</span> <span class="n">y</span><span class="p">]</span>  <span class="c"># f evaluations</span>
+<span class="n">f</span> <span class="o">=</span> <span class="p">[</span><span class="n">rosenbrock</span><span class="p">([</span><span class="n">ix</span><span class="p">,</span><span class="n">iy</span><span class="p">])</span> <span class="k">for</span> <span class="n">ix</span> <span class="k">in</span> <span class="n">x</span><span class="p">,</span> <span class="n">iy</span> <span class="k">in</span> <span class="n">y</span><span class="p">]</span>  <span class="c"># f evaluations</span>
 
 <span class="c"># plotting</span>
-<span class="n">wireframe</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">f</span><span class="p">,</span><span class="n">linecolor</span><span class="o">=:</span><span class="n">grey</span><span class="p">)</span>
-<span class="n">surface!</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">f</span><span class="p">,</span><span class="n">fillcolor</span><span class="o">=:</span><span class="n">darkrainbow</span><span class="p">,</span><span class="n">colorbar</span><span class="o">=</span><span class="kc">false</span><span class="p">)</span>
+<span class="n">wireframe</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">f</span><span class="p">,</span><span class="n">linecolor</span><span class="o">=</span><span class="p">:</span><span class="n">grey</span><span class="p">)</span>
+<span class="n">surface!</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">f</span><span class="p">,</span><span class="n">fillcolor</span><span class="o">=</span><span class="p">:</span><span class="n">darkrainbow</span><span class="p">,</span><span class="n">colorbar</span><span class="o">=</span><span class="n">false</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -12493,13 +12489,13 @@ $$ f'(x) = \frac{\text{Im}(f(x+ih))}{h} + O(h^2) \text{ as }h\to \infty $$</li>
 <span class="k">using</span> <span class="n">Calculus</span>
 
 <span class="n">derivative</span><span class="p">(</span><span class="n">x</span><span class="o">-&gt;</span><span class="n">x</span><span class="o">^</span><span class="mi">2</span><span class="p">,</span><span class="mf">1.0</span><span class="p">)</span>  <span class="c"># standard signature of function</span>
-<span class="n">println</span><span class="p">(</span><span class="s">&quot;forward = </span><span class="si">$</span><span class="p">(</span><span class="n">Calculus</span><span class="o">.</span><span class="n">finite_difference</span><span class="p">(</span><span class="n">x</span><span class="o">-&gt;</span><span class="n">x</span><span class="o">^</span><span class="mi">2</span><span class="p">,</span><span class="mf">1.0</span><span class="p">,</span><span class="o">:</span><span class="n">forward</span><span class="p">))</span><span class="s">&quot;</span><span class="p">)</span>
-<span class="n">println</span><span class="p">(</span><span class="s">&quot;central = </span><span class="si">$</span><span class="p">(</span><span class="n">Calculus</span><span class="o">.</span><span class="n">finite_difference</span><span class="p">(</span><span class="n">x</span><span class="o">-&gt;</span><span class="n">x</span><span class="o">^</span><span class="mi">2</span><span class="p">,</span><span class="mf">1.0</span><span class="p">,</span><span class="o">:</span><span class="n">central</span><span class="p">))</span><span class="s">&quot;</span><span class="p">)</span>
-<span class="n">println</span><span class="p">(</span><span class="s">&quot;complex = </span><span class="si">$</span><span class="p">(</span><span class="n">Calculus</span><span class="o">.</span><span class="n">finite_difference</span><span class="p">(</span><span class="n">x</span><span class="o">-&gt;</span><span class="n">x</span><span class="o">^</span><span class="mi">2</span><span class="p">,</span><span class="mf">1.0</span><span class="p">,</span><span class="o">:</span><span class="n">complex</span><span class="p">))</span><span class="s">&quot;</span><span class="p">)</span>
+<span class="n">println</span><span class="p">(</span><span class="s">&quot;forward = </span><span class="si">$(Calculus.finite_difference(x-&gt;x^2,1.0,:forward))</span><span class="s">&quot;</span><span class="p">)</span>
+<span class="n">println</span><span class="p">(</span><span class="s">&quot;central = </span><span class="si">$(Calculus.finite_difference(x-&gt;x^2,1.0,:central))</span><span class="s">&quot;</span><span class="p">)</span>
+<span class="n">println</span><span class="p">(</span><span class="s">&quot;complex = </span><span class="si">$(Calculus.finite_difference(x-&gt;x^2,1.0,:complex))</span><span class="s">&quot;</span><span class="p">)</span>
 <span class="n">println</span><span class="p">(</span><span class="s">&quot;&quot;</span><span class="p">)</span>
-<span class="n">println</span><span class="p">(</span><span class="s">&quot;forward = </span><span class="si">$</span><span class="p">(</span><span class="n">Calculus</span><span class="o">.</span><span class="n">finite_difference</span><span class="p">(</span> <span class="n">x</span><span class="o">-&gt;</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="o">^</span><span class="mi">2</span><span class="p">)</span> <span class="p">,</span><span class="nb">π</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span><span class="o">:</span><span class="n">forward</span><span class="p">))</span><span class="s">&quot;</span><span class="p">)</span>
-<span class="n">println</span><span class="p">(</span><span class="s">&quot;central = </span><span class="si">$</span><span class="p">(</span><span class="n">Calculus</span><span class="o">.</span><span class="n">finite_difference</span><span class="p">(</span> <span class="n">x</span><span class="o">-&gt;</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="o">^</span><span class="mi">2</span><span class="p">)</span> <span class="p">,</span><span class="nb">π</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span><span class="o">:</span><span class="n">central</span><span class="p">))</span><span class="s">&quot;</span><span class="p">)</span>
-<span class="n">println</span><span class="p">(</span><span class="s">&quot;complex = </span><span class="si">$</span><span class="p">(</span><span class="n">Calculus</span><span class="o">.</span><span class="n">finite_difference</span><span class="p">(</span> <span class="n">x</span><span class="o">-&gt;</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="o">^</span><span class="mi">2</span><span class="p">)</span> <span class="p">,</span><span class="nb">π</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span><span class="o">:</span><span class="n">complex</span><span class="p">))</span><span class="s">&quot;</span><span class="p">)</span>
+<span class="n">println</span><span class="p">(</span><span class="s">&quot;forward = </span><span class="si">$(Calculus.finite_difference( x-&gt;sin(x^2) ,π/2,:forward))</span><span class="s">&quot;</span><span class="p">)</span>
+<span class="n">println</span><span class="p">(</span><span class="s">&quot;central = </span><span class="si">$(Calculus.finite_difference( x-&gt;sin(x^2) ,π/2,:central))</span><span class="s">&quot;</span><span class="p">)</span>
+<span class="n">println</span><span class="p">(</span><span class="s">&quot;complex = </span><span class="si">$(Calculus.finite_difference( x-&gt;sin(x^2) ,π/2,:complex))</span><span class="s">&quot;</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -12570,7 +12566,7 @@ complex = -2.4542495411512917
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="c"># there is another problem apart from numerical issues with small h:</span>
-<span class="n">f1</span> <span class="o">=</span> <span class="k">function</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">f1</span> <span class="o">=</span> <span class="n">function</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
     <span class="n">println</span><span class="p">(</span><span class="s">&quot;evaluation of f1&quot;</span><span class="p">)</span>
     <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">^</span><span class="mi">2</span> <span class="o">*</span> <span class="n">exp</span><span class="p">(</span><span class="mi">3</span><span class="n">x</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
 <span class="k">end</span>
@@ -12790,17 +12786,17 @@ $$</li>
     <span class="n">∂</span>
 <span class="k">end</span>
 
-<span class="n">Base</span><span class="o">.:+</span><span class="p">(</span><span class="n">a</span><span class="o">::</span><span class="n">Dual</span><span class="p">,</span> <span class="n">b</span><span class="o">::</span><span class="n">Dual</span><span class="p">)</span> <span class="o">=</span> <span class="n">Dual</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">v</span> <span class="o">+</span> <span class="n">b</span><span class="o">.</span><span class="n">v</span><span class="p">,</span> <span class="n">a</span><span class="o">.</span><span class="n">∂</span> <span class="o">+</span> <span class="n">b</span><span class="o">.</span><span class="n">∂</span><span class="p">)</span> 
-<span class="n">Base</span><span class="o">.:*</span><span class="p">(</span><span class="n">a</span><span class="o">::</span><span class="n">Dual</span><span class="p">,</span> <span class="n">b</span><span class="o">::</span><span class="n">Dual</span><span class="p">)</span> <span class="o">=</span> <span class="n">Dual</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">v</span> <span class="o">*</span> <span class="n">b</span><span class="o">.</span><span class="n">v</span><span class="p">,</span> <span class="n">a</span><span class="o">.</span><span class="n">v</span><span class="o">*</span><span class="n">b</span><span class="o">.</span><span class="n">∂</span> <span class="o">+</span> <span class="n">b</span><span class="o">.</span><span class="n">v</span><span class="o">*</span><span class="n">a</span><span class="o">.</span><span class="n">∂</span><span class="p">)</span> 
-<span class="n">Base</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">a</span><span class="o">::</span><span class="n">Dual</span><span class="p">)</span> <span class="o">=</span> <span class="n">Dual</span><span class="p">(</span><span class="n">log</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">v</span><span class="p">),</span> <span class="n">a</span><span class="o">.</span><span class="n">∂</span><span class="o">/</span><span class="n">a</span><span class="o">.</span><span class="n">v</span><span class="p">)</span>
-<span class="k">function</span> <span class="n">Base</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">a</span><span class="o">::</span><span class="n">Dual</span><span class="p">,</span> <span class="n">b</span><span class="o">::</span><span class="n">Dual</span><span class="p">)</span>
+<span class="n">Base</span><span class="o">.</span><span class="p">:</span><span class="o">+</span><span class="p">(</span><span class="n">a</span><span class="p">::</span><span class="n">Dual</span><span class="p">,</span> <span class="n">b</span><span class="p">::</span><span class="n">Dual</span><span class="p">)</span> <span class="o">=</span> <span class="n">Dual</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">v</span> <span class="o">+</span> <span class="n">b</span><span class="o">.</span><span class="n">v</span><span class="p">,</span> <span class="n">a</span><span class="o">.</span><span class="n">∂</span> <span class="o">+</span> <span class="n">b</span><span class="o">.</span><span class="n">∂</span><span class="p">)</span> 
+<span class="n">Base</span><span class="o">.</span><span class="p">:</span><span class="o">*</span><span class="p">(</span><span class="n">a</span><span class="p">::</span><span class="n">Dual</span><span class="p">,</span> <span class="n">b</span><span class="p">::</span><span class="n">Dual</span><span class="p">)</span> <span class="o">=</span> <span class="n">Dual</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">v</span> <span class="o">*</span> <span class="n">b</span><span class="o">.</span><span class="n">v</span><span class="p">,</span> <span class="n">a</span><span class="o">.</span><span class="n">v</span><span class="o">*</span><span class="n">b</span><span class="o">.</span><span class="n">∂</span> <span class="o">+</span> <span class="n">b</span><span class="o">.</span><span class="n">v</span><span class="o">*</span><span class="n">a</span><span class="o">.</span><span class="n">∂</span><span class="p">)</span> 
+<span class="n">Base</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">a</span><span class="p">::</span><span class="n">Dual</span><span class="p">)</span> <span class="o">=</span> <span class="n">Dual</span><span class="p">(</span><span class="n">log</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">v</span><span class="p">),</span> <span class="n">a</span><span class="o">.</span><span class="n">∂</span><span class="o">/</span><span class="n">a</span><span class="o">.</span><span class="n">v</span><span class="p">)</span>
+<span class="k">function</span><span class="nf"> Base</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">a</span><span class="p">::</span><span class="n">Dual</span><span class="p">,</span> <span class="n">b</span><span class="p">::</span><span class="n">Dual</span><span class="p">)</span>
     <span class="n">v</span> <span class="o">=</span> <span class="n">max</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">v</span><span class="p">,</span> <span class="n">b</span><span class="o">.</span><span class="n">v</span><span class="p">)</span>
-    <span class="n">∂</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">v</span> <span class="o">&gt;</span> <span class="n">b</span><span class="o">.</span><span class="n">v</span> <span class="o">?</span> <span class="n">a</span><span class="o">.</span><span class="n">∂</span> <span class="o">:</span> <span class="n">a</span><span class="o">.</span><span class="n">v</span> <span class="o">&lt;</span> <span class="n">b</span><span class="o">.</span><span class="n">v</span> <span class="o">?</span> <span class="n">b</span><span class="o">.</span><span class="n">∂</span> <span class="o">:</span> <span class="nb">NaN</span> 
+    <span class="n">∂</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">v</span> <span class="o">&gt;</span> <span class="n">b</span><span class="o">.</span><span class="n">v</span> <span class="o">?</span> <span class="n">a</span><span class="o">.</span><span class="n">∂</span> <span class="p">:</span> <span class="n">a</span><span class="o">.</span><span class="n">v</span> <span class="o">&lt;</span> <span class="n">b</span><span class="o">.</span><span class="n">v</span> <span class="o">?</span> <span class="n">b</span><span class="o">.</span><span class="n">∂</span> <span class="p">:</span> <span class="n">NaN</span> 
     <span class="k">return</span> <span class="n">Dual</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">∂</span><span class="p">)</span>
 <span class="k">end</span>
-<span class="k">function</span> <span class="n">Base</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">a</span><span class="o">::</span><span class="n">Dual</span><span class="p">,</span> <span class="n">b</span><span class="o">::</span><span class="kt">Int</span><span class="p">)</span> 
+<span class="k">function</span><span class="nf"> Base</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">a</span><span class="p">::</span><span class="n">Dual</span><span class="p">,</span> <span class="n">b</span><span class="p">::</span><span class="kt">Int</span><span class="p">)</span> 
     <span class="n">v</span> <span class="o">=</span> <span class="n">max</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">v</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
-    <span class="n">∂</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">v</span> <span class="o">&gt;</span> <span class="n">b</span> <span class="o">?</span> <span class="n">a</span><span class="o">.</span><span class="n">∂</span> <span class="o">:</span> <span class="n">a</span><span class="o">.</span><span class="n">v</span> <span class="o">&lt;</span> <span class="n">b</span> <span class="o">?</span> <span class="mi">1</span> <span class="o">:</span> <span class="nb">NaN</span>
+    <span class="n">∂</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">v</span> <span class="o">&gt;</span> <span class="n">b</span> <span class="o">?</span> <span class="n">a</span><span class="o">.</span><span class="n">∂</span> <span class="p">:</span> <span class="n">a</span><span class="o">.</span><span class="n">v</span> <span class="o">&lt;</span> <span class="n">b</span> <span class="o">?</span> <span class="mi">1</span> <span class="p">:</span> <span class="n">NaN</span>
     <span class="k">return</span> <span class="n">Dual</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">∂</span><span class="p">)</span> 
 <span class="k">end</span>
 </pre></div>
@@ -12850,7 +12846,7 @@ $$</li>
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="c"># AutoDiffSource.jl is for reverse mode</span>
 <span class="k">using</span> <span class="n">AutoDiffSource</span>
-<span class="nd">@δ</span> <span class="n">g</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="o">=</span> <span class="n">log</span><span class="p">(</span><span class="n">x</span><span class="o">*</span><span class="n">y</span> <span class="o">+</span> <span class="n">max</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="mi">2</span><span class="p">));</span>
+<span class="p">@</span><span class="n">δ</span> <span class="n">g</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="o">=</span> <span class="n">log</span><span class="p">(</span><span class="n">x</span><span class="o">*</span><span class="n">y</span> <span class="o">+</span> <span class="n">max</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="mi">2</span><span class="p">));</span>
 <span class="n">y</span><span class="p">,</span> <span class="n">∇</span> <span class="o">=</span> <span class="n">δg</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">);</span>
 <span class="n">y</span>
 <span class="n">∂x</span><span class="p">,</span> <span class="n">∂y</span> <span class="o">=</span> <span class="n">∇</span><span class="p">()</span>
@@ -12896,13 +12892,13 @@ $$</li>
 <h3 id="Analyzing-Expressions">Analyzing Expressions<a class="anchor-link" href="#Analyzing-Expressions">&#182;</a></h3><ul>
 <li>Everything you type into julia is an <code>Expr</code>ession:</li>
 </ul>
-<div class="highlight"><pre><span></span><span class="n">mutable</span> <span class="n">struct</span> <span class="kt">Expr</span> <span class="o">&lt;:</span> <span class="kt">Any</span>
+<div class="highlight"><pre><span></span><span class="n">mutable</span> <span class="n">struct</span> <span class="n">Expr</span> <span class="o">&lt;:</span> <span class="kt">Any</span>
 
-  <span class="n">Fields</span><span class="o">:</span>
+  <span class="n">Fields</span><span class="p">:</span>
 
-  <span class="n">head</span> <span class="o">::</span> <span class="kt">Symbol</span>
-  <span class="n">args</span> <span class="o">::</span> <span class="kt">Array</span><span class="p">{</span><span class="kt">Any</span><span class="p">,</span><span class="mi">1</span><span class="p">}</span>
-  <span class="n">typ</span>  <span class="o">::</span> <span class="kt">Any</span>
+  <span class="n">head</span> <span class="p">::</span> <span class="n">Symbol</span>
+  <span class="n">args</span> <span class="p">::</span> <span class="n">Array</span><span class="p">{</span><span class="kt">Any</span><span class="p">,</span><span class="mi">1</span><span class="p">}</span>
+  <span class="n">typ</span>  <span class="p">::</span> <span class="kt">Any</span>
 </pre></div>
 
 </div>
@@ -12914,16 +12910,16 @@ $$</li>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="n">println</span><span class="p">(</span><span class="s">&quot;create an explicit expression by `quoting` it with `:`&quot;</span><span class="p">)</span>
-<span class="n">expr</span> <span class="o">=</span> <span class="o">:</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="p">)</span>
-<span class="n">println</span><span class="p">(</span><span class="s">&quot;typeof(expr)=</span><span class="si">$</span><span class="p">(</span><span class="n">typeof</span><span class="p">(</span><span class="n">expr</span><span class="p">))</span><span class="s">&quot;</span><span class="p">)</span>
+<span class="n">expr</span> <span class="o">=</span> <span class="p">:(</span><span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">println</span><span class="p">(</span><span class="s">&quot;typeof(expr)=</span><span class="si">$(typeof(expr))</span><span class="s">&quot;</span><span class="p">)</span>
 
 <span class="n">println</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">can evaluate an expression&quot;</span><span class="p">)</span>
 <span class="n">x</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span><span class="n">y</span><span class="o">=</span><span class="mi">3</span>
 <span class="n">println</span><span class="p">(</span><span class="n">eval</span><span class="p">(</span><span class="n">expr</span><span class="p">))</span>
 
 <span class="n">println</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">and we can pick it apart:&quot;</span><span class="p">)</span>
-<span class="n">println</span><span class="p">(</span><span class="s">&quot;expr.head=</span><span class="si">$</span><span class="p">(</span><span class="n">expr</span><span class="o">.</span><span class="n">head</span><span class="p">)</span><span class="s">&quot;</span><span class="p">)</span>
-<span class="n">println</span><span class="p">(</span><span class="s">&quot;expr.args=</span><span class="si">$</span><span class="p">(</span><span class="n">expr</span><span class="o">.</span><span class="n">args</span><span class="p">)</span><span class="s">&quot;</span><span class="p">)</span>
+<span class="n">println</span><span class="p">(</span><span class="s">&quot;expr.head=</span><span class="si">$(expr.head)</span><span class="s">&quot;</span><span class="p">)</span>
+<span class="n">println</span><span class="p">(</span><span class="s">&quot;expr.args=</span><span class="si">$(expr.args)</span><span class="s">&quot;</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -12961,7 +12957,7 @@ expr.args=Any[:+, :x, :y]
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="c"># our example was </span>
-<span class="n">ex</span> <span class="o">=</span> <span class="o">:</span><span class="p">(</span><span class="n">log</span><span class="p">(</span><span class="n">x</span><span class="o">*</span><span class="n">y</span> <span class="o">+</span> <span class="n">max</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="mi">2</span><span class="p">)))</span>
+<span class="n">ex</span> <span class="o">=</span> <span class="p">:(</span><span class="n">log</span><span class="p">(</span><span class="n">x</span><span class="o">*</span><span class="n">y</span> <span class="o">+</span> <span class="n">max</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="mi">2</span><span class="p">)))</span>
 <span class="c"># we can access every piece of the call graph, e.g.</span>
 <span class="n">println</span><span class="p">(</span><span class="n">ex</span><span class="o">.</span><span class="n">args</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
 

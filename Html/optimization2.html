@@ -11654,10 +11654,8 @@ ul.typeahead-list > li > a {
 .highlight .mh { color: #666666 } /* Literal.Number.Hex */
 .highlight .mi { color: #666666 } /* Literal.Number.Integer */
 .highlight .mo { color: #666666 } /* Literal.Number.Oct */
-.highlight .sa { color: #BA2121 } /* Literal.String.Affix */
 .highlight .sb { color: #BA2121 } /* Literal.String.Backtick */
 .highlight .sc { color: #BA2121 } /* Literal.String.Char */
-.highlight .dl { color: #BA2121 } /* Literal.String.Delimiter */
 .highlight .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
 .highlight .s2 { color: #BA2121 } /* Literal.String.Double */
 .highlight .se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
@@ -11668,11 +11666,9 @@ ul.typeahead-list > li > a {
 .highlight .s1 { color: #BA2121 } /* Literal.String.Single */
 .highlight .ss { color: #19177C } /* Literal.String.Symbol */
 .highlight .bp { color: #008000 } /* Name.Builtin.Pseudo */
-.highlight .fm { color: #0000FF } /* Name.Function.Magic */
 .highlight .vc { color: #19177C } /* Name.Variable.Class */
 .highlight .vg { color: #19177C } /* Name.Variable.Global */
 .highlight .vi { color: #19177C } /* Name.Variable.Instance */
-.highlight .vm { color: #19177C } /* Name.Variable.Magic */
 .highlight .il { color: #666666 } /* Literal.Number.Integer.Long */
     </style>
 <style type="text/css">
@@ -11836,7 +11832,7 @@ Sciences Po, 2018</p>
 <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">=</span> <span class="n">exp</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">-</span> <span class="n">x</span><span class="o">^</span><span class="mi">4</span>
 <span class="n">minf</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">=</span> <span class="o">-</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 <span class="n">brent</span> <span class="o">=</span> <span class="n">optimize</span><span class="p">(</span><span class="n">minf</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="n">Brent</span><span class="p">())</span>
-<span class="nb">golden</span> <span class="o">=</span> <span class="n">optimize</span><span class="p">(</span><span class="n">minf</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="n">GoldenSection</span><span class="p">())</span>
+<span class="n">golden</span> <span class="o">=</span> <span class="n">optimize</span><span class="p">(</span><span class="n">minf</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="n">GoldenSection</span><span class="p">())</span>
 <span class="n">plot</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
 <span class="n">gui</span><span class="p">()</span>
 <span class="n">println</span><span class="p">(</span><span class="s">&quot;brent = </span><span class="si">$brent</span><span class="s">&quot;</span><span class="p">)</span>
@@ -12121,11 +12117,11 @@ Sciences Po, 2018</p>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="c"># grid search on rosenbrock</span>
-<span class="n">grid</span> <span class="o">=</span> <span class="n">collect</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="o">:</span><span class="mf">0.1</span><span class="o">:</span><span class="mi">3</span><span class="p">);</span>
-<span class="n">grid2D</span> <span class="o">=</span> <span class="p">[[</span><span class="n">i</span><span class="p">;</span><span class="n">j</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="kp">in</span> <span class="n">grid</span><span class="p">,</span><span class="n">j</span> <span class="kp">in</span> <span class="n">grid</span><span class="p">];</span>
+<span class="n">grid</span> <span class="o">=</span> <span class="n">collect</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">:</span><span class="mf">0.1</span><span class="p">:</span><span class="mi">3</span><span class="p">);</span>
+<span class="n">grid2D</span> <span class="o">=</span> <span class="p">[[</span><span class="n">i</span><span class="p">;</span><span class="n">j</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="k">in</span> <span class="n">grid</span><span class="p">,</span><span class="n">j</span> <span class="k">in</span> <span class="n">grid</span><span class="p">];</span>
 <span class="n">val2D</span> <span class="o">=</span> <span class="n">map</span><span class="p">(</span><span class="n">rosenbrock</span><span class="o">.</span><span class="n">f</span><span class="p">,</span><span class="n">grid2D</span><span class="p">);</span>
 <span class="n">r</span> <span class="o">=</span> <span class="n">findmin</span><span class="p">(</span><span class="n">val2D</span><span class="p">);</span>
-<span class="n">println</span><span class="p">(</span><span class="s">&quot;grid search results in minimizer = </span><span class="si">$</span><span class="p">(</span><span class="n">grid2D</span><span class="p">[</span><span class="n">r</span><span class="p">[</span><span class="mi">2</span><span class="p">]])</span><span class="s">&quot;</span><span class="p">)</span>
+<span class="n">println</span><span class="p">(</span><span class="s">&quot;grid search results in minimizer = </span><span class="si">$(grid2D[r[2]])</span><span class="s">&quot;</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -12371,8 +12367,8 @@ Sciences Po, 2018</p>
 <div class=" highlight hl-julia"><pre><span></span><span class="c"># Optim.jl again</span>
 <span class="n">GradientDescent</span><span class="p">(;</span> <span class="n">alphaguess</span> <span class="o">=</span> <span class="n">LineSearches</span><span class="o">.</span><span class="n">InitialPrevious</span><span class="p">(),</span>
                   <span class="n">linesearch</span> <span class="o">=</span> <span class="n">LineSearches</span><span class="o">.</span><span class="n">HagerZhang</span><span class="p">(),</span>
-                  <span class="n">P</span> <span class="o">=</span> <span class="nb">nothing</span><span class="p">,</span>
-                  <span class="n">precondprep</span> <span class="o">=</span> <span class="p">(</span><span class="n">P</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">nothing</span><span class="p">)</span>
+                  <span class="n">P</span> <span class="o">=</span> <span class="n">nothing</span><span class="p">,</span>
+                  <span class="n">precondprep</span> <span class="o">=</span> <span class="p">(</span><span class="n">P</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">nothing</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -12424,9 +12420,9 @@ Sciences Po, 2018</p>
 
 <span class="n">println</span><span class="p">(</span><span class="s">&quot;gradient descent = </span><span class="si">$GD</span><span class="s">&quot;</span><span class="p">)</span>
 <span class="n">println</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)</span>
-<span class="n">println</span><span class="p">(</span><span class="s">&quot;gradient descent 2 = </span><span class="si">$GD1</span><span class="s">&quot;</span><span class="p">)</span>
+<span class="n">println</span><span class="p">(</span><span class="s">&quot;gradient descent 2 = </span><span class="si">$GD</span><span class="s">1&quot;</span><span class="p">)</span>
 <span class="n">println</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)</span>
-<span class="n">println</span><span class="p">(</span><span class="s">&quot;gradient descent 3 = </span><span class="si">$GD2</span><span class="s">&quot;</span><span class="p">)</span>
+<span class="n">println</span><span class="p">(</span><span class="s">&quot;gradient descent 3 = </span><span class="si">$GD</span><span class="s">2&quot;</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -12547,7 +12543,7 @@ gradient descent 3 = Results of Optimization Algorithm
 <div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-julia"><pre><span></span><span class="n">optimize</span><span class="p">(</span><span class="n">rosenbrock</span><span class="o">.</span><span class="n">f</span><span class="p">,</span> <span class="n">rosenbrock</span><span class="o">.</span><span class="n">g!</span><span class="p">,</span> <span class="n">rosenbrock</span><span class="o">.</span><span class="n">h!</span><span class="p">,</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span> <span class="n">Newton</span><span class="p">(),</span><span class="n">Optim</span><span class="o">.</span><span class="n">Options</span><span class="p">(</span><span class="n">show_trace</span><span class="o">=</span><span class="kc">true</span><span class="p">))</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="n">optimize</span><span class="p">(</span><span class="n">rosenbrock</span><span class="o">.</span><span class="n">f</span><span class="p">,</span> <span class="n">rosenbrock</span><span class="o">.</span><span class="n">g!</span><span class="p">,</span> <span class="n">rosenbrock</span><span class="o">.</span><span class="n">h!</span><span class="p">,</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span> <span class="n">Newton</span><span class="p">(),</span><span class="n">Optim</span><span class="o">.</span><span class="n">Options</span><span class="p">(</span><span class="n">show_trace</span><span class="o">=</span><span class="n">true</span><span class="p">))</span>
 </pre></div>
 
 </div>
@@ -12619,7 +12615,7 @@ gradient descent 3 = Results of Optimization Algorithm
 <div class="prompt input_prompt">In&nbsp;[9]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-julia"><pre><span></span><span class="nd">@show</span> <span class="n">optimize</span><span class="p">(</span><span class="n">rosenbrock</span><span class="o">.</span><span class="n">f</span><span class="p">,</span> <span class="n">rosenbrock</span><span class="o">.</span><span class="n">g!</span><span class="p">,</span> <span class="n">rosenbrock</span><span class="o">.</span><span class="n">h!</span><span class="p">,</span>  <span class="p">[</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">],</span> <span class="n">BFGS</span><span class="p">());</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="p">@</span><span class="n">show</span> <span class="n">optimize</span><span class="p">(</span><span class="n">rosenbrock</span><span class="o">.</span><span class="n">f</span><span class="p">,</span> <span class="n">rosenbrock</span><span class="o">.</span><span class="n">g!</span><span class="p">,</span> <span class="n">rosenbrock</span><span class="o">.</span><span class="n">h!</span><span class="p">,</span>  <span class="p">[</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">],</span> <span class="n">BFGS</span><span class="p">());</span>
 </pre></div>
 
 </div>
@@ -12665,7 +12661,7 @@ gradient descent 3 = Results of Optimization Algorithm
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="c"># low memory BFGS</span>
-<span class="nd">@show</span> <span class="n">optimize</span><span class="p">(</span><span class="n">rosenbrock</span><span class="o">.</span><span class="n">f</span><span class="p">,</span> <span class="n">rosenbrock</span><span class="o">.</span><span class="n">g!</span><span class="p">,</span> <span class="n">rosenbrock</span><span class="o">.</span><span class="n">h!</span><span class="p">,</span>  <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span> <span class="n">LBFGS</span><span class="p">());</span>
+<span class="p">@</span><span class="n">show</span> <span class="n">optimize</span><span class="p">(</span><span class="n">rosenbrock</span><span class="o">.</span><span class="n">f</span><span class="p">,</span> <span class="n">rosenbrock</span><span class="o">.</span><span class="n">g!</span><span class="p">,</span> <span class="n">rosenbrock</span><span class="o">.</span><span class="n">h!</span><span class="p">,</span>  <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span> <span class="n">LBFGS</span><span class="p">());</span>
 </pre></div>
 
 </div>
@@ -12746,12 +12742,12 @@ gradient descent 3 = Results of Optimization Algorithm
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="c"># start to setup a basis function, i.e. unit vectors to index each direction:</span>
-<span class="n">basis</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span> <span class="o">=</span> <span class="p">[</span><span class="n">k</span> <span class="o">==</span> <span class="n">i</span> <span class="o">?</span> <span class="mf">1.0</span> <span class="o">:</span> <span class="mf">0.0</span> <span class="k">for</span> <span class="n">k</span> <span class="kp">in</span> <span class="mi">1</span> <span class="o">:</span> <span class="n">n</span><span class="p">]</span>
-<span class="k">function</span> <span class="n">cyclic_coordinate_descent</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">ε</span><span class="p">)</span> 
+<span class="n">basis</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span> <span class="o">=</span> <span class="p">[</span><span class="n">k</span> <span class="o">==</span> <span class="n">i</span> <span class="o">?</span> <span class="mf">1.0</span> <span class="p">:</span> <span class="mf">0.0</span> <span class="k">for</span> <span class="n">k</span> <span class="k">in</span> <span class="mi">1</span> <span class="p">:</span> <span class="n">n</span><span class="p">]</span>
+<span class="k">function</span><span class="nf"> cyclic_coordinate_descent</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">ε</span><span class="p">)</span> 
     <span class="n">Δ</span><span class="p">,</span> <span class="n">n</span> <span class="o">=</span> <span class="nb">Inf</span><span class="p">,</span> <span class="n">length</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
     <span class="k">while</span> <span class="n">abs</span><span class="p">(</span><span class="n">Δ</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">ε</span>
         <span class="n">x′</span> <span class="o">=</span> <span class="n">copy</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> 
-            <span class="k">for</span> <span class="n">i</span> <span class="kp">in</span> <span class="mi">1</span> <span class="o">:</span> <span class="n">n</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="k">in</span> <span class="mi">1</span> <span class="p">:</span> <span class="n">n</span>
                 <span class="n">d</span> <span class="o">=</span> <span class="n">basis</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
                 <span class="n">x</span> <span class="o">=</span> <span class="n">line_search</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">d</span><span class="p">)</span> 
             <span class="k">end</span>
@@ -12807,23 +12803,23 @@ gradient descent 3 = Results of Optimization Algorithm
 <div class="prompt input_prompt">In&nbsp;[12]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-julia"><pre><span></span><span class="k">function</span> <span class="n">generalized_pattern_search</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">α</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">ε</span><span class="p">,</span> <span class="nb">γ</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span> 
+<div class=" highlight hl-julia"><pre><span></span><span class="k">function</span><span class="nf"> generalized_pattern_search</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">α</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">ε</span><span class="p">,</span> <span class="n">γ</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span> 
     <span class="n">y</span><span class="p">,</span> <span class="n">n</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">length</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
     <span class="n">evals</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="k">while</span> <span class="n">α</span> <span class="o">&gt;</span> <span class="n">ε</span>
-        <span class="n">improved</span> <span class="o">=</span> <span class="kc">false</span>
-        <span class="k">for</span> <span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">d</span><span class="p">)</span> <span class="kp">in</span> <span class="n">enumerate</span><span class="p">(</span><span class="n">D</span><span class="p">)</span>
+        <span class="n">improved</span> <span class="o">=</span> <span class="n">false</span>
+        <span class="k">for</span> <span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">d</span><span class="p">)</span> <span class="k">in</span> <span class="n">enumerate</span><span class="p">(</span><span class="n">D</span><span class="p">)</span>
             <span class="n">x′</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">α</span><span class="o">*</span><span class="n">d</span> 
             <span class="n">y′</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">x′</span><span class="p">)</span> 
             <span class="n">evals</span> <span class="o">+=</span> <span class="mi">1</span>
             <span class="k">if</span> <span class="n">y′</span> <span class="o">&lt;</span> <span class="n">y</span>
-                <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">improved</span> <span class="o">=</span> <span class="n">x′</span><span class="p">,</span> <span class="n">y′</span><span class="p">,</span> <span class="kc">true</span>
+                <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">improved</span> <span class="o">=</span> <span class="n">x′</span><span class="p">,</span> <span class="n">y′</span><span class="p">,</span> <span class="n">true</span>
                 <span class="n">D</span> <span class="o">=</span> <span class="n">unshift!</span><span class="p">(</span><span class="n">deleteat!</span><span class="p">(</span><span class="n">D</span><span class="p">,</span> <span class="n">i</span><span class="p">),</span> <span class="n">d</span><span class="p">)</span> 
                 <span class="k">break</span>
             <span class="k">end</span> 
         <span class="k">end</span>
         <span class="k">if</span> <span class="o">!</span><span class="n">improved</span> 
-            <span class="n">α</span> <span class="o">*=</span> <span class="nb">γ</span>
+            <span class="n">α</span> <span class="o">*=</span> <span class="n">γ</span>
         <span class="k">end</span> 
     <span class="k">end</span>
     <span class="n">println</span><span class="p">(</span><span class="s">&quot;</span><span class="si">$evals</span><span class="s"> evaluations&quot;</span><span class="p">)</span>
@@ -13091,20 +13087,20 @@ $$
 
 <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span> <span class="c"># keep track of # function evaluations</span>
 
-<span class="k">function</span> <span class="n">myfunc</span><span class="p">(</span><span class="n">x</span><span class="o">::</span><span class="kt">Vector</span><span class="p">,</span> <span class="n">grad</span><span class="o">::</span><span class="kt">Vector</span><span class="p">)</span>
+<span class="k">function</span><span class="nf"> myfunc</span><span class="p">(</span><span class="n">x</span><span class="p">::</span><span class="n">Vector</span><span class="p">,</span> <span class="n">grad</span><span class="p">::</span><span class="n">Vector</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">length</span><span class="p">(</span><span class="n">grad</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span>
         <span class="n">grad</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
         <span class="n">grad</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.5</span><span class="o">/</span><span class="n">sqrt</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
     <span class="k">end</span>
 
     <span class="kd">global</span> <span class="n">count</span>
-    <span class="n">count</span><span class="o">::</span><span class="kt">Int</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="n">count</span><span class="p">::</span><span class="kt">Int</span> <span class="o">+=</span> <span class="mi">1</span>
     <span class="n">println</span><span class="p">(</span><span class="s">&quot;f_</span><span class="si">$count</span><span class="s">(</span><span class="si">$x</span><span class="s">)&quot;</span><span class="p">)</span>
 
     <span class="n">sqrt</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
 <span class="k">end</span>
 
-<span class="k">function</span> <span class="n">myconstraint</span><span class="p">(</span><span class="n">x</span><span class="o">::</span><span class="kt">Vector</span><span class="p">,</span> <span class="n">grad</span><span class="o">::</span><span class="kt">Vector</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+<span class="k">function</span><span class="nf"> myconstraint</span><span class="p">(</span><span class="n">x</span><span class="p">::</span><span class="n">Vector</span><span class="p">,</span> <span class="n">grad</span><span class="p">::</span><span class="n">Vector</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">length</span><span class="p">(</span><span class="n">grad</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span>
         <span class="n">grad</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">3</span><span class="n">a</span> <span class="o">*</span> <span class="p">(</span><span class="n">a</span><span class="o">*</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span><span class="o">^</span><span class="mi">2</span>
         <span class="n">grad</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
@@ -13112,7 +13108,7 @@ $$
     <span class="p">(</span><span class="n">a</span><span class="o">*</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span><span class="o">^</span><span class="mi">3</span> <span class="o">-</span> <span class="n">x</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
 <span class="k">end</span>
 
-<span class="n">opt</span> <span class="o">=</span> <span class="n">Opt</span><span class="p">(</span><span class="o">:</span><span class="n">LD_MMA</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">opt</span> <span class="o">=</span> <span class="n">Opt</span><span class="p">(:</span><span class="n">LD_MMA</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
 <span class="n">lower_bounds!</span><span class="p">(</span><span class="n">opt</span><span class="p">,</span> <span class="p">[</span><span class="o">-</span><span class="nb">Inf</span><span class="p">,</span> <span class="mf">0.</span><span class="p">])</span>
 <span class="n">xtol_rel!</span><span class="p">(</span><span class="n">opt</span><span class="p">,</span><span class="mf">1e-4</span><span class="p">)</span>
 
@@ -13176,21 +13172,21 @@ got minf at [0.333333, 0.296296] after 11 iterations (returned XTOL_REACHED)
 <div class="prompt input_prompt">In&nbsp;[32]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-julia"><pre><span></span><span class="k">function</span> <span class="n">rosenbrockf</span><span class="p">(</span><span class="n">x</span><span class="o">::</span><span class="kt">Vector</span><span class="p">,</span><span class="n">grad</span><span class="o">::</span><span class="kt">Vector</span><span class="p">)</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="k">function</span><span class="nf"> rosenbrockf</span><span class="p">(</span><span class="n">x</span><span class="p">::</span><span class="n">Vector</span><span class="p">,</span><span class="n">grad</span><span class="p">::</span><span class="n">Vector</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">length</span><span class="p">(</span><span class="n">grad</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span>
 	    <span class="n">grad</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mf">2.0</span> <span class="o">*</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">-</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">-</span> <span class="mf">400.0</span> <span class="o">*</span> <span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">-</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">^</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
 	    <span class="n">grad</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="mf">200.0</span> <span class="o">*</span> <span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">-</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">^</span><span class="mi">2</span><span class="p">)</span>
     <span class="k">end</span>
     <span class="k">return</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">-</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span><span class="o">^</span><span class="mi">2</span> <span class="o">+</span> <span class="mf">100.0</span> <span class="o">*</span> <span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">-</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">^</span><span class="mi">2</span><span class="p">)</span><span class="o">^</span><span class="mi">2</span>
 <span class="k">end</span>
-<span class="k">function</span> <span class="n">r_constraint</span><span class="p">(</span><span class="n">x</span><span class="o">::</span><span class="kt">Vector</span><span class="p">,</span> <span class="n">grad</span><span class="o">::</span><span class="kt">Vector</span><span class="p">)</span>
+<span class="k">function</span><span class="nf"> r_constraint</span><span class="p">(</span><span class="n">x</span><span class="p">::</span><span class="n">Vector</span><span class="p">,</span> <span class="n">grad</span><span class="p">::</span><span class="n">Vector</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">length</span><span class="p">(</span><span class="n">grad</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span>
 	<span class="n">grad</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
 	<span class="n">grad</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">x</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
 	<span class="k">end</span>
 	<span class="k">return</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">^</span><span class="mi">2</span> <span class="o">+</span> <span class="n">x</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">^</span><span class="mi">2</span> <span class="o">-</span> <span class="mf">0.8</span>
 <span class="k">end</span>
-<span class="n">opt</span> <span class="o">=</span> <span class="n">Opt</span><span class="p">(</span><span class="o">:</span><span class="n">LD_MMA</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">opt</span> <span class="o">=</span> <span class="n">Opt</span><span class="p">(:</span><span class="n">LD_MMA</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
 <span class="n">lower_bounds!</span><span class="p">(</span><span class="n">opt</span><span class="p">,</span> <span class="p">[</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="o">-</span><span class="mf">5.0</span><span class="p">])</span>
 <span class="n">min_objective!</span><span class="p">(</span><span class="n">opt</span><span class="p">,(</span><span class="n">x</span><span class="p">,</span><span class="n">g</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">rosenbrockf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">g</span><span class="p">))</span>
 <span class="n">inequality_constraint!</span><span class="p">(</span><span class="n">opt</span><span class="p">,</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">g</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">r_constraint</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">g</span><span class="p">))</span>
@@ -13269,10 +13265,10 @@ got minf at [0.333333, 0.296296] after 11 iterations (returned XTOL_REACHED)
 <span class="n">m</span> <span class="o">=</span> <span class="n">Model</span><span class="p">(</span><span class="n">solver</span><span class="o">=</span><span class="n">ClpSolver</span><span class="p">())</span>  <span class="c"># provide a solver</span>
 
 <span class="c"># Define variables</span>
-<span class="nd">@variable</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">x</span> <span class="p">)</span>              <span class="c"># No bounds</span>
-<span class="nd">@variable</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">x</span> <span class="o">&gt;=</span> <span class="n">lb</span> <span class="p">)</span>        <span class="c"># Lower bound only (note: &#39;lb &lt;= x&#39; is not valid)</span>
-<span class="nd">@variable</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">x</span> <span class="o">&lt;=</span> <span class="n">ub</span> <span class="p">)</span>        <span class="c"># Upper bound only</span>
-<span class="nd">@variable</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">lb</span> <span class="o">&lt;=</span> <span class="n">x</span> <span class="o">&lt;=</span> <span class="n">ub</span> <span class="p">)</span>  <span class="c"># Lower and upper bounds</span>
+<span class="p">@</span><span class="n">variable</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">x</span> <span class="p">)</span>              <span class="c"># No bounds</span>
+<span class="p">@</span><span class="n">variable</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">x</span> <span class="o">&gt;=</span> <span class="n">lb</span> <span class="p">)</span>        <span class="c"># Lower bound only (note: &#39;lb &lt;= x&#39; is not valid)</span>
+<span class="p">@</span><span class="n">variable</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">x</span> <span class="o">&lt;=</span> <span class="n">ub</span> <span class="p">)</span>        <span class="c"># Upper bound only</span>
+<span class="p">@</span><span class="n">variable</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">lb</span> <span class="o">&lt;=</span> <span class="n">x</span> <span class="o">&lt;=</span> <span class="n">ub</span> <span class="p">)</span>  <span class="c"># Lower and upper bounds</span>
 </pre></div>
 
 </div>
@@ -13285,28 +13281,28 @@ got minf at [0.333333, 0.296296] after 11 iterations (returned XTOL_REACHED)
 <div class="text_cell_render border-box-sizing rendered_html">
 <div class="highlight"><pre><span></span><span class="c"># we can create arrays of a variable</span>
 <span class="n">N</span> <span class="o">=</span> <span class="mi">2</span>
-<span class="nd">@variable</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="o">:</span><span class="n">M</span><span class="p">,</span><span class="mi">1</span><span class="o">:</span><span class="n">N</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="p">)</span>
+<span class="p">@</span><span class="n">variable</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="n">M</span><span class="p">,</span><span class="mi">1</span><span class="p">:</span><span class="n">N</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="p">)</span>
 
 <span class="c"># or put them in a block</span>
-<span class="nd">@variables</span> <span class="n">m</span> <span class="k">begin</span>
+<span class="p">@</span><span class="n">variables</span> <span class="n">m</span> <span class="k">begin</span>
     <span class="n">x</span>
     <span class="n">y</span> <span class="o">&gt;=</span> <span class="mi">0</span>
-    <span class="n">Z</span><span class="p">[</span><span class="mi">1</span><span class="o">:</span><span class="mi">10</span><span class="p">],</span> <span class="n">Bin</span>
-    <span class="n">X</span><span class="p">[</span><span class="mi">1</span><span class="o">:</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="o">:</span><span class="mi">3</span><span class="p">],</span> <span class="n">SDP</span>
-    <span class="n">q</span><span class="p">[</span><span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="o">:</span><span class="mi">2</span><span class="p">],</span> <span class="p">(</span><span class="n">lowerbound</span> <span class="o">=</span> <span class="n">i</span><span class="p">,</span> <span class="n">start</span> <span class="o">=</span> <span class="mi">2</span><span class="n">i</span><span class="p">,</span> <span class="n">upperbound</span> <span class="o">=</span> <span class="mi">3</span><span class="n">i</span><span class="p">)</span>
-    <span class="n">t</span><span class="p">[</span><span class="n">j</span><span class="o">=</span><span class="mi">1</span><span class="o">:</span><span class="mi">3</span><span class="p">],</span> <span class="p">(</span><span class="kt">Int</span><span class="p">,</span> <span class="n">start</span> <span class="o">=</span> <span class="n">j</span><span class="p">)</span>
+    <span class="n">Z</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">10</span><span class="p">],</span> <span class="n">Bin</span>
+    <span class="n">X</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">],</span> <span class="n">SDP</span>
+    <span class="n">q</span><span class="p">[</span><span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="p">],</span> <span class="p">(</span><span class="n">lowerbound</span> <span class="o">=</span> <span class="n">i</span><span class="p">,</span> <span class="n">start</span> <span class="o">=</span> <span class="mi">2</span><span class="n">i</span><span class="p">,</span> <span class="n">upperbound</span> <span class="o">=</span> <span class="mi">3</span><span class="n">i</span><span class="p">)</span>
+    <span class="n">t</span><span class="p">[</span><span class="n">j</span><span class="o">=</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">],</span> <span class="p">(</span><span class="kt">Int</span><span class="p">,</span> <span class="n">start</span> <span class="o">=</span> <span class="n">j</span><span class="p">)</span>
 <span class="k">end</span>
 
 <span class="c"># Equivalent to:</span>
-<span class="nd">@variable</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
-<span class="nd">@variable</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">y</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">)</span>
-<span class="nd">@variable</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">Z</span><span class="p">[</span><span class="mi">1</span><span class="o">:</span><span class="mi">10</span><span class="p">],</span> <span class="n">Bin</span><span class="p">)</span>
-<span class="nd">@variable</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">X</span><span class="p">[</span><span class="mi">1</span><span class="o">:</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="o">:</span><span class="mi">3</span><span class="p">],</span> <span class="n">SDP</span><span class="p">)</span>
-<span class="nd">@variable</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">q</span><span class="p">[</span><span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="o">:</span><span class="mi">2</span><span class="p">],</span> <span class="n">lowerbound</span> <span class="o">=</span> <span class="n">i</span><span class="p">,</span> <span class="n">start</span> <span class="o">=</span> <span class="mi">2</span><span class="n">i</span><span class="p">,</span> <span class="n">upperbound</span> <span class="o">=</span> <span class="mi">3</span><span class="n">i</span><span class="p">)</span>
-<span class="nd">@variable</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">t</span><span class="p">[</span><span class="n">j</span><span class="o">=</span><span class="mi">1</span><span class="o">:</span><span class="mi">3</span><span class="p">],</span> <span class="kt">Int</span><span class="p">,</span> <span class="n">start</span> <span class="o">=</span> <span class="n">j</span><span class="p">)</span>
+<span class="p">@</span><span class="n">variable</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+<span class="p">@</span><span class="n">variable</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">y</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">)</span>
+<span class="p">@</span><span class="n">variable</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">Z</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">10</span><span class="p">],</span> <span class="n">Bin</span><span class="p">)</span>
+<span class="p">@</span><span class="n">variable</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">X</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">],</span> <span class="n">SDP</span><span class="p">)</span>
+<span class="p">@</span><span class="n">variable</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">q</span><span class="p">[</span><span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="p">],</span> <span class="n">lowerbound</span> <span class="o">=</span> <span class="n">i</span><span class="p">,</span> <span class="n">start</span> <span class="o">=</span> <span class="mi">2</span><span class="n">i</span><span class="p">,</span> <span class="n">upperbound</span> <span class="o">=</span> <span class="mi">3</span><span class="n">i</span><span class="p">)</span>
+<span class="p">@</span><span class="n">variable</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">t</span><span class="p">[</span><span class="n">j</span><span class="o">=</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">],</span> <span class="kt">Int</span><span class="p">,</span> <span class="n">start</span> <span class="o">=</span> <span class="n">j</span><span class="p">)</span>
 
 <span class="c"># bounds can depend on indices</span>
-<span class="nd">@variable</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="o">:</span><span class="mi">10</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">i</span> <span class="p">)</span>
+<span class="p">@</span><span class="n">variable</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">:</span><span class="mi">10</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">i</span> <span class="p">)</span>
 </pre></div>
 
 </div>
@@ -13320,14 +13316,14 @@ got minf at [0.333333, 0.296296] after 11 iterations (returned XTOL_REACHED)
 <h2 id="Objective-and-Constraints">Objective and Constraints<a class="anchor-link" href="#Objective-and-Constraints">&#182;</a></h2><ul>
 <li>We can easily add objective and constraint functions:</li>
 </ul>
-<div class="highlight"><pre><span></span><span class="nd">@constraint</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">)</span>  <span class="c"># Other options: == and &gt;=</span>
-<span class="nd">@constraint</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">sum</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="o">:</span><span class="n">numLocation</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span>
-<span class="nd">@objective</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">Max</span><span class="p">,</span> <span class="mi">5</span><span class="n">x</span> <span class="o">+</span> <span class="mi">22</span><span class="n">y</span> <span class="o">+</span> <span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="n">y</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span> <span class="c"># or Min</span>
+<div class="highlight"><pre><span></span><span class="p">@</span><span class="n">constraint</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">)</span>  <span class="c"># Other options: == and &gt;=</span>
+<span class="p">@</span><span class="n">constraint</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">sum</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">:</span><span class="n">numLocation</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span>
+<span class="p">@</span><span class="n">objective</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">Max</span><span class="p">,</span> <span class="mi">5</span><span class="n">x</span> <span class="o">+</span> <span class="mi">22</span><span class="n">y</span> <span class="o">+</span> <span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="n">y</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span> <span class="c"># or Min</span>
 </pre></div>
 <ul>
 <li>This is fully integrated with Julia. you can use the <code>generator</code> syntax for sums:</li>
 </ul>
-<div class="highlight"><pre><span></span><span class="nd">@objective</span><span class="p">(</span><span class="n">sum</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">/</span><span class="nb">pi</span> <span class="k">for</span> <span class="n">i</span> <span class="o">=</span> <span class="n">I1</span><span class="p">,</span> <span class="n">j</span> <span class="o">=</span> <span class="n">I2</span> <span class="k">if</span> <span class="n">i</span><span class="o">+</span><span class="n">j</span> <span class="o">&lt;</span> <span class="n">some_val</span><span class="p">))</span>
+<div class="highlight"><pre><span></span><span class="p">@</span><span class="n">objective</span><span class="p">(</span><span class="n">sum</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">/</span><span class="nb">pi</span> <span class="k">for</span> <span class="n">i</span> <span class="o">=</span> <span class="n">I1</span><span class="p">,</span> <span class="n">j</span> <span class="o">=</span> <span class="n">I2</span> <span class="k">if</span> <span class="n">i</span><span class="o">+</span><span class="n">j</span> <span class="o">&lt;</span> <span class="n">some_val</span><span class="p">))</span>
 </pre></div>
 
 </div>
@@ -13343,11 +13339,11 @@ got minf at [0.333333, 0.296296] after 11 iterations (returned XTOL_REACHED)
 <span class="k">using</span> <span class="n">Clp</span>
 
 <span class="n">m</span> <span class="o">=</span> <span class="n">Model</span><span class="p">(</span><span class="n">solver</span> <span class="o">=</span> <span class="n">ClpSolver</span><span class="p">())</span>
-<span class="nd">@variable</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">x</span> <span class="o">&lt;=</span> <span class="mi">2</span> <span class="p">)</span>
-<span class="nd">@variable</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">y</span> <span class="o">&lt;=</span> <span class="mi">30</span> <span class="p">)</span>
+<span class="p">@</span><span class="n">variable</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">x</span> <span class="o">&lt;=</span> <span class="mi">2</span> <span class="p">)</span>
+<span class="p">@</span><span class="n">variable</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">y</span> <span class="o">&lt;=</span> <span class="mi">30</span> <span class="p">)</span>
 
-<span class="nd">@objective</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">Max</span><span class="p">,</span> <span class="mi">5</span><span class="n">x</span> <span class="o">+</span> <span class="mi">3</span><span class="o">*</span><span class="n">y</span> <span class="p">)</span>
-<span class="nd">@constraint</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="mi">1</span><span class="n">x</span> <span class="o">+</span> <span class="mi">5</span><span class="n">y</span> <span class="o">&lt;=</span> <span class="mf">3.0</span> <span class="p">)</span>
+<span class="p">@</span><span class="n">objective</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">Max</span><span class="p">,</span> <span class="mi">5</span><span class="n">x</span> <span class="o">+</span> <span class="mi">3</span><span class="o">*</span><span class="n">y</span> <span class="p">)</span>
+<span class="p">@</span><span class="n">constraint</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="mi">1</span><span class="n">x</span> <span class="o">+</span> <span class="mi">5</span><span class="n">y</span> <span class="o">&lt;=</span> <span class="mf">3.0</span> <span class="p">)</span>
 
 <span class="n">print</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
 
@@ -13410,10 +13406,10 @@ y = 0.2
 
     <span class="n">m</span> <span class="o">=</span> <span class="n">Model</span><span class="p">(</span><span class="n">solver</span><span class="o">=</span><span class="n">IpoptSolver</span><span class="p">())</span>
 
-    <span class="nd">@variable</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
-    <span class="nd">@variable</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+    <span class="p">@</span><span class="n">variable</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+    <span class="p">@</span><span class="n">variable</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
 
-    <span class="nd">@NLobjective</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">Min</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">x</span><span class="p">)</span><span class="o">^</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">100</span><span class="p">(</span><span class="n">y</span><span class="o">-</span><span class="n">x</span><span class="o">^</span><span class="mi">2</span><span class="p">)</span><span class="o">^</span><span class="mi">2</span><span class="p">)</span>
+    <span class="p">@</span><span class="n">NLobjective</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">Min</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">x</span><span class="p">)</span><span class="o">^</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">100</span><span class="p">(</span><span class="n">y</span><span class="o">-</span><span class="n">x</span><span class="o">^</span><span class="mi">2</span><span class="p">)</span><span class="o">^</span><span class="mi">2</span><span class="p">)</span>
 
     <span class="n">solve</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
 
@@ -13511,11 +13507,11 @@ x = 0.9999999999999899 y = 0.9999999999999792
     
     <span class="n">m</span> <span class="o">=</span> <span class="n">Model</span><span class="p">(</span><span class="n">solver</span><span class="o">=</span><span class="n">IpoptSolver</span><span class="p">())</span>
 
-    <span class="nd">@variable</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
-    <span class="nd">@variable</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+    <span class="p">@</span><span class="n">variable</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+    <span class="p">@</span><span class="n">variable</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
 
-    <span class="nd">@NLobjective</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">Min</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">x</span><span class="p">)</span><span class="o">^</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">100</span><span class="p">(</span><span class="n">y</span><span class="o">-</span><span class="n">x</span><span class="o">^</span><span class="mi">2</span><span class="p">)</span><span class="o">^</span><span class="mi">2</span><span class="p">)</span>
-    <span class="nd">@NLconstraint</span><span class="p">(</span><span class="n">m</span><span class="p">,</span><span class="n">x</span><span class="o">^</span><span class="mi">2</span> <span class="o">+</span> <span class="n">y</span><span class="o">^</span><span class="mi">2</span> <span class="o">&lt;=</span> <span class="mf">0.8</span><span class="p">)</span>
+    <span class="p">@</span><span class="n">NLobjective</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">Min</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">x</span><span class="p">)</span><span class="o">^</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">100</span><span class="p">(</span><span class="n">y</span><span class="o">-</span><span class="n">x</span><span class="o">^</span><span class="mi">2</span><span class="p">)</span><span class="o">^</span><span class="mi">2</span><span class="p">)</span>
+    <span class="p">@</span><span class="n">NLconstraint</span><span class="p">(</span><span class="n">m</span><span class="p">,</span><span class="n">x</span><span class="o">^</span><span class="mi">2</span> <span class="o">+</span> <span class="n">y</span><span class="o">^</span><span class="mi">2</span> <span class="o">&lt;=</span> <span class="mf">0.8</span><span class="p">)</span>
 
     <span class="n">solve</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
 
@@ -13646,10 +13642,10 @@ $$ \log L = l = -\frac{n}{2} \log \left( 2\pi \sigma^2 \right) - \frac{1}{2\sigm
 
 <span class="n">m</span> <span class="o">=</span> <span class="n">Model</span><span class="p">(</span><span class="n">solver</span><span class="o">=</span><span class="n">IpoptSolver</span><span class="p">())</span>
 
-<span class="nd">@variable</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">start</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">)</span>
-<span class="nd">@variable</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">sigma</span> <span class="o">&gt;=</span> <span class="mf">0.0</span><span class="p">,</span> <span class="n">start</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">)</span>
+<span class="p">@</span><span class="n">variable</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">start</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">)</span>
+<span class="p">@</span><span class="n">variable</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">sigma</span> <span class="o">&gt;=</span> <span class="mf">0.0</span><span class="p">,</span> <span class="n">start</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">)</span>
 
-<span class="nd">@NLobjective</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">Max</span><span class="p">,</span> <span class="o">-</span><span class="p">(</span><span class="n">n</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">log</span><span class="p">(</span><span class="mi">2</span><span class="nb">π</span><span class="o">*</span><span class="n">sigma</span><span class="o">^</span><span class="mi">2</span><span class="p">)</span><span class="o">-</span><span class="n">sum</span><span class="p">((</span><span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="n">mu</span><span class="p">)</span> <span class="o">^</span> <span class="mi">2</span> <span class="k">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="o">:</span><span class="n">n</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">sigma</span><span class="o">^</span><span class="mi">2</span><span class="p">))</span>
+<span class="p">@</span><span class="n">NLobjective</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">Max</span><span class="p">,</span> <span class="o">-</span><span class="p">(</span><span class="n">n</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">log</span><span class="p">(</span><span class="mi">2</span><span class="n">π</span><span class="o">*</span><span class="n">sigma</span><span class="o">^</span><span class="mi">2</span><span class="p">)</span><span class="o">-</span><span class="n">sum</span><span class="p">((</span><span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="n">mu</span><span class="p">)</span> <span class="o">^</span> <span class="mi">2</span> <span class="k">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">:</span><span class="n">n</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">sigma</span><span class="o">^</span><span class="mi">2</span><span class="p">))</span>
 
 <span class="n">solve</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
 <span class="n">println</span><span class="p">(</span><span class="s">&quot;μ = &quot;</span><span class="p">,</span> <span class="n">getvalue</span><span class="p">(</span><span class="n">mu</span><span class="p">),</span><span class="s">&quot;, mean(data) = &quot;</span><span class="p">,</span> <span class="n">mean</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
