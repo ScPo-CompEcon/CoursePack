@@ -13168,7 +13168,7 @@ $$ y = \sum_{i=1}^{25} \sum_{j=1}^i j^{-1}  $$<h4 id="Problem-2">Problem 2<a cla
 <span class="n">y</span> <span class="o">=</span> <span class="n">X</span> <span class="o">*</span> <span class="n">a0</span> <span class="o">+</span> <span class="mf">0.1</span> <span class="o">*</span> <span class="n">randn</span><span class="p">(</span><span class="mi">1000</span><span class="p">);</span>  <span class="c"># generate response</span>
 </pre></div>
 <p>Given an Nx3 array of data (<code>randn(N,3)</code>) and a Nx1 array of outcomes, produce the data matrix <code>X</code> which appends a column of 1's to the data matrix, and solve for the 4x1 array <code>β</code> via <code>βX = b</code> using <code>qrfact</code> or <code>\</code>. (Note: This is linear regression)</p>
-<h4 id="Problem-3">Problem 3<a class="anchor-link" href="#Problem-3">&#182;</a></h4><p>Compare your results to that of using <code>llsq</code> from <code>MultivariateStats.jl</code> (note: you need to go find the documentation to find out how to use this!)</p>
+<h4 id="Problem-3">Problem 3<a class="anchor-link" href="#Problem-3">&#182;</a></h4><p>Compare your results to that of using <code>fit</code> from <code>GLM.jl</code> (note: you need to go find the documentation to find out how to use this!)</p>
 <h4 id="Problem-4">Problem 4<a class="anchor-link" href="#Problem-4">&#182;</a></h4><p>The logistic difference equation is defined by the recursion</p>
 $$ b_{n+1}=r*b_{n}(1-b_{n}) $$<p>where $b_{n}$ is the number of bunnies at time $n$. Starting with $b_{0}=.25$, by around $400$ iterations this will reach a steady state. This steady state (or steady periodic state) is dependent on $r$. Write a function which solves for the steady state(s) for each given $r$, and plot "every state" in the steady attractor for each $r$ (x-axis is $r$, $y$=value seen in the attractor) using Plots.jl. Take $r\in\left(2.9,4\right)$</p>
 <h2 id="Functions">Functions<a class="anchor-link" href="#Functions">&#182;</a></h2>
@@ -14550,6 +14550,7 @@ Stacktrace:
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="c"># notice that we cannot change terry:</span>
 <span class="n">ter</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s">&quot;Peter&quot;</span>
+<span class="c"># because...</span>
 </pre></div>
 
 </div>
@@ -14575,6 +14576,16 @@ Stacktrace:
 </div>
 </div>
 
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>struct</code> StaffMember is <code>immutable</code> by default. The fields of the type cannot be changed. However, Julia will automatically stack allocate immutable types, whereas standard types are heap allocated. If this is unfamiliar terminology, then think of this as meaning that immutable types are able to be stored closer to the CPU and have less cost for memory access (this is a detail not present in many scripting languages). Many things like Julia's built-in Number types are defined as <code>immutable</code> in order to give good performance.</p>
+
+</div>
+</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
@@ -14653,7 +14664,7 @@ Stacktrace:
 <div class="prompt input_prompt">In&nbsp;[67]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-julia"><pre><span></span><span class="k">type</span> <span class="n">Student</span> <span class="o">&lt;:</span> <span class="n">Person</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="n">struct</span> <span class="n">Student</span> <span class="o">&lt;:</span> <span class="n">Person</span>
     <span class="n">name</span>
     <span class="n">grade</span>
 <span class="k">end</span>
@@ -14686,16 +14697,6 @@ Stacktrace:
 </div>
 </div>
 
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Another "version" of type is <code>immutable</code>. When one uses <code>immutable</code>, the fields of the type cannot be changed. However, Julia will automatically stack allocate immutable types, whereas standard types are heap allocated. If this is unfamiliar terminology, then think of this as meaning that immutable types are able to be stored closer to the CPU and have less cost for memory access (this is a detail not present in many scripting languages). Many things like Julia's built-in Number types are defined as <code>immutable</code> in order to give good performance.</p>
-
-</div>
-</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
@@ -14836,7 +14837,6 @@ Stacktrace:
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <hr>
-<h2 id="Problems">Problems<a class="anchor-link" href="#Problems">&#182;</a></h2><p>Try the new few problems in the Basic Problems</p>
 <h2 id="Some-Basic-Types">Some Basic Types<a class="anchor-link" href="#Some-Basic-Types">&#182;</a></h2><p>Julia provides many basic types. Indeed, you will come to know Julia as a system of multiple dispatch on types, meaning that the interaction of types with functions is core to the design.</p>
 <h3 id="Lazy-Iterator-Types">Lazy Iterator Types<a class="anchor-link" href="#Lazy-Iterator-Types">&#182;</a></h3><p>While MATLAB or Python has easy functions for building arrays, Julia tends to side-step the actual "array" part with specially made types. One such example are ranges. To define a range, use the <code>start:stepsize:end</code> syntax. For example:</p>
 
@@ -15104,9 +15104,9 @@ Stacktrace:
 <div class="prompt input_prompt">In&nbsp;[79]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-julia"><pre><span></span><span class="n">d</span> <span class="o">=</span> <span class="kt">Dict</span><span class="p">(</span><span class="o">:</span><span class="n">test</span><span class="o">=&gt;</span><span class="mi">2</span><span class="p">,</span><span class="s">&quot;silly&quot;</span><span class="o">=&gt;:</span><span class="n">suit</span><span class="p">)</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="n">d</span> <span class="o">=</span> <span class="kt">Dict</span><span class="p">(</span><span class="o">:</span><span class="n">test</span><span class="o">=&gt;</span><span class="mi">2</span><span class="p">,</span><span class="o">:</span><span class="n">silly</span><span class="o">=&gt;</span><span class="s">&quot;suit&quot;</span><span class="p">)</span>
 <span class="n">println</span><span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="o">:</span><span class="n">test</span><span class="p">])</span>
-<span class="n">println</span><span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="s">&quot;silly&quot;</span><span class="p">])</span>
+<span class="n">println</span><span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="o">:</span><span class="n">silly</span><span class="p">])</span>
 </pre></div>
 
 </div>
@@ -15178,7 +15178,6 @@ suit
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Problems">Problems<a class="anchor-link" href="#Problems">&#182;</a></h2><p>Try problems 8-11 in the Basic Problems</p>
 <h2 id="Metaprogramming">Metaprogramming<a class="anchor-link" href="#Metaprogramming">&#182;</a></h2><p>Metaprogramming is a huge feature of Julia. The key idea is that every statement in Julia is of the type <code>Expression</code>. Julia operates by building an Abstract Syntax Tree (AST) from the Expressions. You've already been exposed to this a little bit: a <code>Symbol</code> (like <code>:PhysicalSciences</code> is not a string because it is part of the AST, and thus is part of the parsing/expression structure. One interesting thing is that symbol comparisons are O(1) while string comparisons, like always, are O(n)) is part of this, and macros (the weird functions with an <code>@</code>) are functions on expressions.</p>
 <ul>
 <li>This is different from a <code>C++</code> preprocessor, which passes over your code and <em>replaces</em> some text with another piece of text, before continuing to compile it to machine code.</li>

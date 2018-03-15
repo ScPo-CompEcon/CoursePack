@@ -11654,8 +11654,10 @@ ul.typeahead-list > li > a {
 .highlight .mh { color: #666666 } /* Literal.Number.Hex */
 .highlight .mi { color: #666666 } /* Literal.Number.Integer */
 .highlight .mo { color: #666666 } /* Literal.Number.Oct */
+.highlight .sa { color: #BA2121 } /* Literal.String.Affix */
 .highlight .sb { color: #BA2121 } /* Literal.String.Backtick */
 .highlight .sc { color: #BA2121 } /* Literal.String.Char */
+.highlight .dl { color: #BA2121 } /* Literal.String.Delimiter */
 .highlight .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
 .highlight .s2 { color: #BA2121 } /* Literal.String.Double */
 .highlight .se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
@@ -11666,9 +11668,11 @@ ul.typeahead-list > li > a {
 .highlight .s1 { color: #BA2121 } /* Literal.String.Single */
 .highlight .ss { color: #19177C } /* Literal.String.Symbol */
 .highlight .bp { color: #008000 } /* Name.Builtin.Pseudo */
+.highlight .fm { color: #0000FF } /* Name.Function.Magic */
 .highlight .vc { color: #19177C } /* Name.Variable.Class */
 .highlight .vg { color: #19177C } /* Name.Variable.Global */
 .highlight .vi { color: #19177C } /* Name.Variable.Instance */
+.highlight .vm { color: #19177C } /* Name.Variable.Magic */
 .highlight .il { color: #666666 } /* Literal.Number.Integer.Long */
     </style>
 <style type="text/css">
@@ -11923,7 +11927,7 @@ $$<ul>
 <span class="n">grid_max</span>  <span class="o">=</span> <span class="mi">2</span>  <span class="c"># upper bound of capital grid</span>
 <span class="n">n</span>         <span class="o">=</span> <span class="mi">150</span>  <span class="c"># number of grid points</span>
 <span class="n">N_iter</span>    <span class="o">=</span> <span class="mi">3000</span>  <span class="c"># number of iterations</span>
-<span class="n">kgrid</span>     <span class="o">=</span> <span class="mf">1e-6</span><span class="p">:(</span><span class="n">grid_max</span><span class="o">-</span><span class="mf">1e-6</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span><span class="n">grid_max</span>  <span class="c"># equispaced grid</span>
+<span class="n">kgrid</span>     <span class="o">=</span> <span class="mf">1e-6</span><span class="o">:</span><span class="p">(</span><span class="n">grid_max</span><span class="o">-</span><span class="mf">1e-6</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">:</span><span class="n">grid_max</span>  <span class="c"># equispaced grid</span>
 <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">=</span> <span class="n">x</span><span class="o">^</span><span class="n">alpha</span>  <span class="c"># defines the production function f(k)</span>
 <span class="n">tol</span> <span class="o">=</span> <span class="mf">1e-9</span>
 </pre></div>
@@ -12048,7 +12052,7 @@ $$<ul>
 <span class="c"># `pol`: corresponding policy function </span>
 
 <span class="c">#takes a grid of state variables and computes the next iterate of the value function.</span>
-<span class="k">function</span><span class="nf"> bellman_operator</span><span class="p">(</span><span class="n">grid</span><span class="p">,</span><span class="n">v0</span><span class="p">)</span>
+<span class="k">function</span> <span class="n">bellman_operator</span><span class="p">(</span><span class="n">grid</span><span class="p">,</span><span class="n">v0</span><span class="p">)</span>
     
     <span class="n">v1</span>  <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>     <span class="c"># next guess</span>
     <span class="n">pol</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="kt">Int</span><span class="p">,</span><span class="n">n</span><span class="p">)</span>     <span class="c"># policy function</span>
@@ -12056,10 +12060,10 @@ $$<ul>
 
     <span class="c"># loop over current states</span>
     <span class="c"># current capital</span>
-    <span class="k">for</span> <span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">k</span><span class="p">)</span> <span class="k">in</span> <span class="n">enumerate</span><span class="p">(</span><span class="n">grid</span><span class="p">)</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">k</span><span class="p">)</span> <span class="kp">in</span> <span class="n">enumerate</span><span class="p">(</span><span class="n">grid</span><span class="p">)</span>
 
         <span class="c"># loop over all possible kprime choices</span>
-        <span class="k">for</span> <span class="p">(</span><span class="n">iprime</span><span class="p">,</span><span class="n">kprime</span><span class="p">)</span> <span class="k">in</span> <span class="n">enumerate</span><span class="p">(</span><span class="n">grid</span><span class="p">)</span>
+        <span class="k">for</span> <span class="p">(</span><span class="n">iprime</span><span class="p">,</span><span class="n">kprime</span><span class="p">)</span> <span class="kp">in</span> <span class="n">enumerate</span><span class="p">(</span><span class="n">grid</span><span class="p">)</span>
             <span class="k">if</span> <span class="n">f</span><span class="p">(</span><span class="n">k</span><span class="p">)</span> <span class="o">-</span> <span class="n">kprime</span> <span class="o">&lt;</span> <span class="mi">0</span>   <span class="c">#check for negative consumption</span>
                 <span class="n">w</span><span class="p">[</span><span class="n">iprime</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="nb">Inf</span>
             <span class="k">else</span>
@@ -12080,9 +12084,9 @@ $$<ul>
 <span class="c"># `n`: number of grid points</span>
 <span class="c"># output</span>
 <span class="c"># `v_next`: tuple with value and policy functions after `n` iterations.</span>
-<span class="k">function</span><span class="nf"> VFI</span><span class="p">()</span>
+<span class="k">function</span> <span class="n">VFI</span><span class="p">()</span>
     <span class="n">v_init</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>     <span class="c"># initial guess</span>
-    <span class="k">for</span> <span class="n">iter</span> <span class="k">in</span> <span class="mi">1</span><span class="p">:</span><span class="n">N_iter</span>
+    <span class="k">for</span> <span class="n">iter</span> <span class="kp">in</span> <span class="mi">1</span><span class="o">:</span><span class="n">N_iter</span>
         <span class="n">v_next</span> <span class="o">=</span> <span class="n">bellman_operator</span><span class="p">(</span><span class="n">kgrid</span><span class="p">,</span><span class="n">v_init</span><span class="p">)</span>  <span class="c"># returns a tuple: (v1,pol)</span>
         <span class="c"># check convergence</span>
         <span class="k">if</span> <span class="n">maxabs</span><span class="p">(</span><span class="n">v_init</span><span class="o">.-</span><span class="n">v_next</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">&lt;</span> <span class="n">tol</span>
@@ -12101,7 +12105,7 @@ $$<ul>
 <span class="k">end</span>
 
 <span class="c"># plot</span>
-<span class="k">function</span><span class="nf"> plotVFI</span><span class="p">()</span>
+<span class="k">function</span> <span class="n">plotVFI</span><span class="p">()</span>
     <span class="n">v</span> <span class="o">=</span> <span class="n">VFI</span><span class="p">()</span>
     <span class="n">figure</span><span class="p">(</span><span class="s">&quot;discrete VFI&quot;</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
     <span class="n">subplot</span><span class="p">(</span><span class="mi">131</span><span class="p">)</span>
@@ -12207,7 +12211,7 @@ maximal policy function error = 0.010775693497948935
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="k">using</span> <span class="n">Interpolations</span>
 <span class="k">using</span> <span class="n">Optim</span>
-<span class="k">function</span><span class="nf"> bellman_operator2</span><span class="p">(</span><span class="n">grid</span><span class="p">,</span><span class="n">v0</span><span class="p">)</span>
+<span class="k">function</span> <span class="n">bellman_operator2</span><span class="p">(</span><span class="n">grid</span><span class="p">,</span><span class="n">v0</span><span class="p">)</span>
     
     <span class="n">v1</span>  <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>     <span class="c"># next guess</span>
     <span class="n">pol</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>     <span class="c"># consumption policy function</span>
@@ -12216,7 +12220,7 @@ maximal policy function error = 0.010775693497948935
 
     <span class="c"># loop over current states</span>
     <span class="c"># of current capital</span>
-    <span class="k">for</span> <span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">k</span><span class="p">)</span> <span class="k">in</span> <span class="n">enumerate</span><span class="p">(</span><span class="n">grid</span><span class="p">)</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">k</span><span class="p">)</span> <span class="kp">in</span> <span class="n">enumerate</span><span class="p">(</span><span class="n">grid</span><span class="p">)</span>
 
         <span class="n">objective</span><span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="o">=</span> <span class="o">-</span> <span class="p">(</span><span class="n">log</span><span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="o">+</span> <span class="n">beta</span> <span class="o">*</span> <span class="n">Interp</span><span class="p">[</span><span class="n">f</span><span class="p">(</span><span class="n">k</span><span class="p">)</span> <span class="o">-</span> <span class="n">c</span><span class="p">])</span>
         <span class="c"># find max of ojbective between [0,k^alpha]</span>
@@ -12227,9 +12231,9 @@ maximal policy function error = 0.010775693497948935
     <span class="k">return</span> <span class="p">(</span><span class="n">v1</span><span class="p">,</span><span class="n">pol</span><span class="p">)</span>   <span class="c"># return both value and policy function</span>
 <span class="k">end</span>
 
-<span class="k">function</span><span class="nf"> VFI2</span><span class="p">()</span>
+<span class="k">function</span> <span class="n">VFI2</span><span class="p">()</span>
     <span class="n">v_init</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>     <span class="c"># initial guess</span>
-    <span class="k">for</span> <span class="n">iter</span> <span class="k">in</span> <span class="mi">1</span><span class="p">:</span><span class="n">N_iter</span>
+    <span class="k">for</span> <span class="n">iter</span> <span class="kp">in</span> <span class="mi">1</span><span class="o">:</span><span class="n">N_iter</span>
         <span class="n">v_next</span> <span class="o">=</span> <span class="n">bellman_operator2</span><span class="p">(</span><span class="n">kgrid</span><span class="p">,</span><span class="n">v_init</span><span class="p">)</span>  <span class="c"># returns a tuple: (v1,pol)</span>
         <span class="c"># check convergence</span>
         <span class="k">if</span> <span class="n">maxabs</span><span class="p">(</span><span class="n">v_init</span><span class="o">.-</span><span class="n">v_next</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">&lt;</span> <span class="n">tol</span>
@@ -12246,10 +12250,10 @@ maximal policy function error = 0.010775693497948935
         <span class="k">end</span>
         <span class="n">v_init</span> <span class="o">=</span> <span class="n">v_next</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>  <span class="c"># update guess </span>
     <span class="k">end</span>
-    <span class="k">return</span> <span class="n">nothing</span>
+    <span class="k">return</span> <span class="nb">nothing</span>
 <span class="k">end</span>
 
-<span class="k">function</span><span class="nf"> plotVFI2</span><span class="p">()</span>
+<span class="k">function</span> <span class="n">plotVFI2</span><span class="p">()</span>
     <span class="n">v</span> <span class="o">=</span> <span class="n">VFI2</span><span class="p">()</span>
     <span class="n">figure</span><span class="p">(</span><span class="s">&quot;discrete VFI - continuous control&quot;</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
     <span class="n">subplot</span><span class="p">(</span><span class="mi">131</span><span class="p">)</span>
@@ -12361,14 +12365,14 @@ $$
 
 
 <span class="k">using</span> <span class="n">Roots</span>
-<span class="k">function</span><span class="nf"> policy_iter</span><span class="p">(</span><span class="n">grid</span><span class="p">,</span><span class="n">c0</span><span class="p">,</span><span class="n">u_prime</span><span class="p">,</span><span class="n">f_prime</span><span class="p">)</span>
+<span class="k">function</span> <span class="n">policy_iter</span><span class="p">(</span><span class="n">grid</span><span class="p">,</span><span class="n">c0</span><span class="p">,</span><span class="n">u_prime</span><span class="p">,</span><span class="n">f_prime</span><span class="p">)</span>
     
     <span class="n">c1</span>  <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">length</span><span class="p">(</span><span class="n">grid</span><span class="p">))</span>     <span class="c"># next guess</span>
     <span class="n">pol_fun</span> <span class="o">=</span> <span class="n">interpolate</span><span class="p">((</span><span class="n">collect</span><span class="p">(</span><span class="n">grid</span><span class="p">),),</span> <span class="n">c0</span><span class="p">,</span> <span class="n">Gridded</span><span class="p">(</span><span class="n">Linear</span><span class="p">())</span> <span class="p">)</span> 
     
     <span class="c"># loop over current states</span>
     <span class="c"># of current capital</span>
-    <span class="k">for</span> <span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">k</span><span class="p">)</span> <span class="k">in</span> <span class="n">enumerate</span><span class="p">(</span><span class="n">grid</span><span class="p">)</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">k</span><span class="p">)</span> <span class="kp">in</span> <span class="n">enumerate</span><span class="p">(</span><span class="n">grid</span><span class="p">)</span>
         <span class="n">objective</span><span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="o">=</span> <span class="n">u_prime</span><span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="o">-</span> <span class="n">beta</span> <span class="o">*</span> <span class="n">u_prime</span><span class="p">(</span><span class="n">pol_fun</span><span class="p">[</span><span class="n">f</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">-</span><span class="n">c</span><span class="p">])</span> <span class="o">*</span> <span class="n">f_prime</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">-</span><span class="n">c</span><span class="p">)</span>
         <span class="n">c1</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">fzero</span><span class="p">(</span><span class="n">objective</span><span class="p">,</span> <span class="mf">1e-10</span><span class="p">,</span> <span class="n">f</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">-</span><span class="mf">1e-10</span><span class="p">)</span> 
     <span class="k">end</span>
@@ -12378,9 +12382,9 @@ $$
 <span class="n">uprime</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">./</span> <span class="n">x</span>
 <span class="n">fprime</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">=</span> <span class="n">alpha</span> <span class="o">*</span> <span class="n">x</span><span class="o">.^</span><span class="p">(</span><span class="n">alpha</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
 
-<span class="k">function</span><span class="nf"> PFI</span><span class="p">()</span>
+<span class="k">function</span> <span class="n">PFI</span><span class="p">()</span>
     <span class="n">c_init</span> <span class="o">=</span> <span class="n">kgrid</span>
-    <span class="k">for</span> <span class="n">iter</span> <span class="k">in</span> <span class="mi">1</span><span class="p">:</span><span class="n">N_iter</span>
+    <span class="k">for</span> <span class="n">iter</span> <span class="kp">in</span> <span class="mi">1</span><span class="o">:</span><span class="n">N_iter</span>
         <span class="n">c_next</span> <span class="o">=</span> <span class="n">policy_iter</span><span class="p">(</span><span class="n">kgrid</span><span class="p">,</span><span class="n">c_init</span><span class="p">,</span><span class="n">uprime</span><span class="p">,</span><span class="n">fprime</span><span class="p">)</span>  
         <span class="c"># check convergence</span>
         <span class="k">if</span> <span class="n">maxabs</span><span class="p">(</span><span class="n">c_init</span><span class="o">.-</span><span class="n">c_next</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">tol</span>
@@ -12396,7 +12400,7 @@ $$
         <span class="n">c_init</span> <span class="o">=</span> <span class="n">c_next</span>  <span class="c"># update guess </span>
     <span class="k">end</span>
 <span class="k">end</span>
-<span class="k">function</span><span class="nf"> plotPFI</span><span class="p">()</span>
+<span class="k">function</span> <span class="n">plotPFI</span><span class="p">()</span>
     <span class="n">v</span> <span class="o">=</span> <span class="n">PFI</span><span class="p">()</span>
     <span class="n">figure</span><span class="p">(</span><span class="s">&quot;PFI&quot;</span><span class="p">)</span>
     <span class="n">subplot</span><span class="p">(</span><span class="mi">121</span><span class="p">)</span>
@@ -12620,23 +12624,23 @@ $$<ul>
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="k">using</span> <span class="n">CompEcon</span>
 <span class="k">using</span> <span class="n">NLsolve</span>
-<span class="k">function</span><span class="nf"> proj</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">25</span><span class="p">)</span>
+<span class="k">function</span> <span class="n">proj</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">25</span><span class="p">)</span>
     <span class="n">alpha</span> <span class="o">=</span> <span class="mf">1.0</span>
     <span class="n">eta</span>   <span class="o">=</span> <span class="mf">1.5</span>
     <span class="n">a</span>     <span class="o">=</span> <span class="mf">0.1</span>
     <span class="n">b</span>     <span class="o">=</span> <span class="mf">3.0</span>
-    <span class="n">basis</span> <span class="o">=</span> <span class="n">fundefn</span><span class="p">(:</span><span class="n">cheb</span><span class="p">,</span><span class="n">n</span><span class="p">,</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">)</span>  <span class="c"># cheby basis</span>
+    <span class="n">basis</span> <span class="o">=</span> <span class="n">fundefn</span><span class="p">(</span><span class="o">:</span><span class="n">cheb</span><span class="p">,</span><span class="n">n</span><span class="p">,</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">)</span>  <span class="c"># cheby basis</span>
     <span class="n">p</span>     <span class="o">=</span> <span class="n">funnode</span><span class="p">(</span><span class="n">basis</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>   <span class="c"># collocation points</span>
     <span class="n">c0</span> <span class="o">=</span> <span class="n">ones</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="o">*</span><span class="mf">0.3</span>  <span class="c"># starting value is crucial!</span>
     
     <span class="c"># your turn!</span>
-    <span class="k">function</span><span class="nf"> resid</span><span class="p">(</span><span class="n">c</span><span class="p">::</span><span class="n">Vector</span><span class="p">,</span><span class="n">result</span><span class="p">::</span><span class="n">Vector</span><span class="p">,</span><span class="n">p</span><span class="p">,</span><span class="n">basis</span><span class="p">,</span><span class="n">alpha</span><span class="p">,</span><span class="n">eta</span><span class="p">)</span>
+    <span class="k">function</span> <span class="n">resid</span><span class="p">(</span><span class="n">c</span><span class="o">::</span><span class="kt">Vector</span><span class="p">,</span><span class="n">result</span><span class="o">::</span><span class="kt">Vector</span><span class="p">,</span><span class="n">p</span><span class="p">,</span><span class="n">basis</span><span class="p">,</span><span class="n">alpha</span><span class="p">,</span><span class="n">eta</span><span class="p">)</span>
    
         
     <span class="k">end</span>
     
     <span class="c"># need a closure around it</span>
-    <span class="n">f_closure</span><span class="p">(</span><span class="n">x</span><span class="p">::</span><span class="n">Vector</span><span class="p">,</span><span class="n">r</span><span class="p">::</span><span class="n">Vector</span><span class="p">)</span> <span class="o">=</span> <span class="n">resid!</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">r</span><span class="p">,</span><span class="n">p</span><span class="p">,</span><span class="n">basis</span><span class="p">,</span><span class="n">alpha</span><span class="p">,</span><span class="n">eta</span><span class="p">)</span>
+    <span class="n">f_closure</span><span class="p">(</span><span class="n">x</span><span class="o">::</span><span class="kt">Vector</span><span class="p">,</span><span class="n">r</span><span class="o">::</span><span class="kt">Vector</span><span class="p">)</span> <span class="o">=</span> <span class="n">resid!</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">r</span><span class="p">,</span><span class="n">p</span><span class="p">,</span><span class="n">basis</span><span class="p">,</span><span class="n">alpha</span><span class="p">,</span><span class="n">eta</span><span class="p">)</span>
     <span class="n">res</span> <span class="o">=</span> <span class="n">nlsolve</span><span class="p">(</span><span class="n">f_closure</span><span class="p">,</span><span class="n">c0</span><span class="p">)</span>
 
    <span class="c"># plot mS(p) and D(p) for m=1,10,20</span>
@@ -12802,24 +12806,24 @@ $$<ul>
 <div class="highlight"><pre><span></span><span class="c"># Core of a simple implementation</span>
 
 
-<span class="k">type</span><span class="nc"> iidModel</span> <span class="o">&lt;:</span> <span class="n">Model</span>
+<span class="k">type</span> <span class="n">iidModel</span> <span class="o">&lt;:</span> <span class="n">Model</span>
 
     <span class="c"># computation grids</span>
-    <span class="n">avec</span><span class="p">::</span><span class="n">Vector</span><span class="p">{</span><span class="kt">Float64</span><span class="p">}</span>
-    <span class="n">yvec</span><span class="p">::</span><span class="n">Vector</span><span class="p">{</span><span class="kt">Float64</span><span class="p">}</span>   <span class="c"># income support</span>
-    <span class="n">ywgt</span><span class="p">::</span><span class="n">Vector</span><span class="p">{</span><span class="kt">Float64</span><span class="p">}</span>   <span class="c"># income weights</span>
+    <span class="n">avec</span><span class="o">::</span><span class="kt">Vector</span><span class="p">{</span><span class="kt">Float64</span><span class="p">}</span>
+    <span class="n">yvec</span><span class="o">::</span><span class="kt">Vector</span><span class="p">{</span><span class="kt">Float64</span><span class="p">}</span>   <span class="c"># income support</span>
+    <span class="n">ywgt</span><span class="o">::</span><span class="kt">Vector</span><span class="p">{</span><span class="kt">Float64</span><span class="p">}</span>   <span class="c"># income weights</span>
 
     <span class="c"># intermediate objects (na,ny)</span>
-    <span class="n">m1</span><span class="p">::</span><span class="n">Array</span><span class="p">{</span><span class="kt">Float64</span><span class="p">,</span><span class="mi">2</span><span class="p">}</span>    <span class="c"># next period cash on hand (na,ny)</span>
-    <span class="n">c1</span><span class="p">::</span><span class="n">Array</span><span class="p">{</span><span class="kt">Float64</span><span class="p">,</span><span class="mi">2</span><span class="p">}</span>    <span class="c"># next period consumption</span>
-    <span class="n">ev</span><span class="p">::</span><span class="n">Array</span><span class="p">{</span><span class="kt">Float64</span><span class="p">,</span><span class="mi">2</span><span class="p">}</span>
+    <span class="n">m1</span><span class="o">::</span><span class="kt">Array</span><span class="p">{</span><span class="kt">Float64</span><span class="p">,</span><span class="mi">2</span><span class="p">}</span>    <span class="c"># next period cash on hand (na,ny)</span>
+    <span class="n">c1</span><span class="o">::</span><span class="kt">Array</span><span class="p">{</span><span class="kt">Float64</span><span class="p">,</span><span class="mi">2</span><span class="p">}</span>    <span class="c"># next period consumption</span>
+    <span class="n">ev</span><span class="o">::</span><span class="kt">Array</span><span class="p">{</span><span class="kt">Float64</span><span class="p">,</span><span class="mi">2</span><span class="p">}</span>
 
     <span class="c"># result objects</span>
-    <span class="n">C</span><span class="p">::</span><span class="n">Array</span><span class="p">{</span><span class="kt">Float64</span><span class="p">,</span><span class="mi">2</span><span class="p">}</span>     <span class="c"># consumption function on (na,nT)</span>
-    <span class="n">S</span><span class="p">::</span><span class="n">Array</span><span class="p">{</span><span class="kt">Float64</span><span class="p">,</span><span class="mi">2</span><span class="p">}</span>     <span class="c"># savings function on (na,nT)</span>
-    <span class="n">M</span><span class="p">::</span><span class="n">Array</span><span class="p">{</span><span class="kt">Float64</span><span class="p">,</span><span class="mi">2</span><span class="p">}</span>     <span class="c"># endogenous cash on hand on (na,nT)</span>
-    <span class="n">V</span><span class="p">::</span><span class="n">Array</span><span class="p">{</span><span class="kt">Float64</span><span class="p">,</span><span class="mi">2</span><span class="p">}</span>     <span class="c"># value function on (na,nT). Optional.</span>
-    <span class="n">Vzero</span><span class="p">::</span><span class="n">Array</span><span class="p">{</span><span class="kt">Float64</span><span class="p">,</span><span class="mi">1</span><span class="p">}</span> <span class="c"># value of saving zero</span>
+    <span class="n">C</span><span class="o">::</span><span class="kt">Array</span><span class="p">{</span><span class="kt">Float64</span><span class="p">,</span><span class="mi">2</span><span class="p">}</span>     <span class="c"># consumption function on (na,nT)</span>
+    <span class="n">S</span><span class="o">::</span><span class="kt">Array</span><span class="p">{</span><span class="kt">Float64</span><span class="p">,</span><span class="mi">2</span><span class="p">}</span>     <span class="c"># savings function on (na,nT)</span>
+    <span class="n">M</span><span class="o">::</span><span class="kt">Array</span><span class="p">{</span><span class="kt">Float64</span><span class="p">,</span><span class="mi">2</span><span class="p">}</span>     <span class="c"># endogenous cash on hand on (na,nT)</span>
+    <span class="n">V</span><span class="o">::</span><span class="kt">Array</span><span class="p">{</span><span class="kt">Float64</span><span class="p">,</span><span class="mi">2</span><span class="p">}</span>     <span class="c"># value function on (na,nT). Optional.</span>
+    <span class="n">Vzero</span><span class="o">::</span><span class="kt">Array</span><span class="p">{</span><span class="kt">Float64</span><span class="p">,</span><span class="mi">1</span><span class="p">}</span> <span class="c"># value of saving zero</span>
 <span class="k">end</span>
 </pre></div>
 
@@ -12831,23 +12835,23 @@ $$<ul>
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<div class="highlight"><pre><span></span><span class="k">function</span><span class="nf"> EGM</span><span class="o">!</span><span class="p">(</span><span class="n">m</span><span class="p">::</span><span class="n">iidModel</span><span class="p">,</span><span class="n">p</span><span class="p">::</span><span class="n">Param</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><span class="k">function</span> <span class="n">EGM!</span><span class="p">(</span><span class="n">m</span><span class="o">::</span><span class="n">iidModel</span><span class="p">,</span><span class="n">p</span><span class="o">::</span><span class="n">Param</span><span class="p">)</span>
 
     <span class="c"># final period: consume everything.</span>
-    <span class="n">m</span><span class="o">.</span><span class="n">M</span><span class="p">[:,</span><span class="n">p</span><span class="o">.</span><span class="n">nT</span><span class="p">]</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">avec</span>
-    <span class="n">m</span><span class="o">.</span><span class="n">C</span><span class="p">[:,</span><span class="n">p</span><span class="o">.</span><span class="n">nT</span><span class="p">]</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">avec</span>
-    <span class="n">m</span><span class="o">.</span><span class="n">C</span><span class="p">[</span><span class="n">m</span><span class="o">.</span><span class="n">C</span><span class="p">[:,</span><span class="n">p</span><span class="o">.</span><span class="n">nT</span><span class="p">]</span><span class="o">.&lt;</span><span class="n">p</span><span class="o">.</span><span class="n">cfloor</span><span class="p">,</span><span class="n">p</span><span class="o">.</span><span class="n">nT</span><span class="p">]</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">cfloor</span>
+    <span class="n">m</span><span class="o">.</span><span class="n">M</span><span class="p">[</span><span class="o">:</span><span class="p">,</span><span class="n">p</span><span class="o">.</span><span class="n">nT</span><span class="p">]</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">avec</span>
+    <span class="n">m</span><span class="o">.</span><span class="n">C</span><span class="p">[</span><span class="o">:</span><span class="p">,</span><span class="n">p</span><span class="o">.</span><span class="n">nT</span><span class="p">]</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">avec</span>
+    <span class="n">m</span><span class="o">.</span><span class="n">C</span><span class="p">[</span><span class="n">m</span><span class="o">.</span><span class="n">C</span><span class="p">[</span><span class="o">:</span><span class="p">,</span><span class="n">p</span><span class="o">.</span><span class="n">nT</span><span class="p">]</span><span class="o">.&lt;</span><span class="n">p</span><span class="o">.</span><span class="n">cfloor</span><span class="p">,</span><span class="n">p</span><span class="o">.</span><span class="n">nT</span><span class="p">]</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">cfloor</span>
 
     <span class="c"># preceding periods</span>
-    <span class="k">for</span> <span class="n">it</span> <span class="k">in</span> <span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">nT</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span><span class="mi">1</span>
+    <span class="k">for</span> <span class="n">it</span> <span class="kp">in</span> <span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">nT</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">:-</span><span class="mi">1</span><span class="o">:</span><span class="mi">1</span>
 
         <span class="c"># interpolate optimal consumption from next period on all cash-on-hand states</span>
         <span class="c"># using C[:,it+1] and M[:,it+1], find c(m,it)</span>
 
-        <span class="n">tmpx</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">;</span> <span class="n">m</span><span class="o">.</span><span class="n">M</span><span class="p">[:,</span><span class="n">it</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="p">]</span> 
-        <span class="n">tmpy</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">;</span> <span class="n">m</span><span class="o">.</span><span class="n">C</span><span class="p">[:,</span><span class="n">it</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="p">]</span>
-        <span class="k">for</span> <span class="n">ia</span> <span class="k">in</span> <span class="mi">1</span><span class="p">:</span><span class="n">p</span><span class="o">.</span><span class="n">na</span>
-            <span class="k">for</span> <span class="n">iy</span> <span class="k">in</span> <span class="mi">1</span><span class="p">:</span><span class="n">p</span><span class="o">.</span><span class="n">ny</span>
+        <span class="n">tmpx</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">;</span> <span class="n">m</span><span class="o">.</span><span class="n">M</span><span class="p">[</span><span class="o">:</span><span class="p">,</span><span class="n">it</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="p">]</span> 
+        <span class="n">tmpy</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">;</span> <span class="n">m</span><span class="o">.</span><span class="n">C</span><span class="p">[</span><span class="o">:</span><span class="p">,</span><span class="n">it</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="p">]</span>
+        <span class="k">for</span> <span class="n">ia</span> <span class="kp">in</span> <span class="mi">1</span><span class="o">:</span><span class="n">p</span><span class="o">.</span><span class="n">na</span>
+            <span class="k">for</span> <span class="n">iy</span> <span class="kp">in</span> <span class="mi">1</span><span class="o">:</span><span class="n">p</span><span class="o">.</span><span class="n">ny</span>
                 <span class="n">m</span><span class="o">.</span><span class="n">c1</span><span class="p">[</span><span class="n">ia</span><span class="o">+</span><span class="n">p</span><span class="o">.</span><span class="n">na</span><span class="o">*</span><span class="p">(</span><span class="n">iy</span><span class="o">-</span><span class="mi">1</span><span class="p">)]</span> <span class="o">=</span> <span class="n">linearapprox</span><span class="p">(</span><span class="n">tmpx</span><span class="p">,</span><span class="n">tmpy</span><span class="p">,</span><span class="n">m</span><span class="o">.</span><span class="n">m1</span><span class="p">[</span><span class="n">ia</span><span class="o">+</span><span class="n">p</span><span class="o">.</span><span class="n">na</span><span class="o">*</span><span class="p">(</span><span class="n">iy</span><span class="o">-</span><span class="mi">1</span><span class="p">)],</span><span class="mi">1</span><span class="p">,</span><span class="n">p</span><span class="o">.</span><span class="n">na</span><span class="p">)</span>
                 <span class="c"># m.c1[ia,iy] = linearapprox(tmpx,tmpy,m.m1[ia,iy],1,p.na)  # equivalent</span>
             <span class="k">end</span>
@@ -12858,13 +12862,13 @@ $$<ul>
         <span class="n">Eu</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">R</span> <span class="o">*</span> <span class="n">p</span><span class="o">.</span><span class="n">beta</span> <span class="o">.*</span> <span class="n">up</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">c1</span><span class="p">,</span><span class="n">p</span><span class="p">)</span> <span class="o">*</span> <span class="n">m</span><span class="o">.</span><span class="n">ywgt</span>
 
         <span class="c"># get optimal consumption today from euler equation: invert marginal utility</span>
-        <span class="n">m</span><span class="o">.</span><span class="n">C</span><span class="p">[:,</span><span class="n">it</span><span class="p">]</span> <span class="o">=</span> <span class="n">iup</span><span class="p">(</span><span class="n">Eu</span><span class="p">,</span><span class="n">p</span><span class="p">)</span>
+        <span class="n">m</span><span class="o">.</span><span class="n">C</span><span class="p">[</span><span class="o">:</span><span class="p">,</span><span class="n">it</span><span class="p">]</span> <span class="o">=</span> <span class="n">iup</span><span class="p">(</span><span class="n">Eu</span><span class="p">,</span><span class="n">p</span><span class="p">)</span>
 
         <span class="c"># floor consumption</span>
-        <span class="n">m</span><span class="o">.</span><span class="n">C</span><span class="p">[</span><span class="n">m</span><span class="o">.</span><span class="n">C</span><span class="p">[:,</span><span class="n">it</span><span class="p">]</span><span class="o">.&lt;</span><span class="n">p</span><span class="o">.</span><span class="n">cfloor</span><span class="p">,</span><span class="n">it</span><span class="p">]</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">cfloor</span>
+        <span class="n">m</span><span class="o">.</span><span class="n">C</span><span class="p">[</span><span class="n">m</span><span class="o">.</span><span class="n">C</span><span class="p">[</span><span class="o">:</span><span class="p">,</span><span class="n">it</span><span class="p">]</span><span class="o">.&lt;</span><span class="n">p</span><span class="o">.</span><span class="n">cfloor</span><span class="p">,</span><span class="n">it</span><span class="p">]</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">cfloor</span>
 
         <span class="c"># get endogenous grid today</span>
-        <span class="n">m</span><span class="o">.</span><span class="n">M</span><span class="p">[:,</span><span class="n">it</span><span class="p">]</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">C</span><span class="p">[:,</span><span class="n">it</span><span class="p">]</span> <span class="o">.+</span> <span class="n">m</span><span class="o">.</span><span class="n">avec</span>
+        <span class="n">m</span><span class="o">.</span><span class="n">M</span><span class="p">[</span><span class="o">:</span><span class="p">,</span><span class="n">it</span><span class="p">]</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">C</span><span class="p">[</span><span class="o">:</span><span class="p">,</span><span class="n">it</span><span class="p">]</span> <span class="o">.+</span> <span class="n">m</span><span class="o">.</span><span class="n">avec</span>
     <span class="k">end</span>
 <span class="k">end</span>
 </pre></div>
