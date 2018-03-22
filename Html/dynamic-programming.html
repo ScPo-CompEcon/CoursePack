@@ -11726,9 +11726,7 @@ body {
 div#notebook {
   overflow: visible;
   border-top: none;
-}
-
-@media print {
+}@media print {
   div.cell {
     display: block;
     page-break-inside: avoid;
@@ -11749,7 +11747,7 @@ div#notebook {
 
 <!-- Loading mathjax macro -->
 <!-- Load mathjax -->
-    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_HTML"></script>
     <!-- MathJax configuration -->
     <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
@@ -11773,8 +11771,7 @@ div#notebook {
   <div tabindex="-1" id="notebook" class="border-box-sizing">
     <div class="container" id="notebook-container">
 
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -11783,8 +11780,7 @@ div#notebook {
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -11810,15 +11806,14 @@ div#notebook {
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Dynamic-Programming-Theory">Dynamic Programming Theory<a class="anchor-link" href="#Dynamic-Programming-Theory">&#182;</a></h2><ul>
 <li><p>Payoffs over time are 
   $$U=\sum_{t=1}^{\infty}\beta^{t}u\left(s_{t},c_{t}\right) $$
-  where $\beta<1$ is a discount factor, $s_{t}$ is the state, $c_{t}$ is the control.</p>
+  where $\beta&lt;1$ is a discount factor, $s_{t}$ is the state, $c_{t}$ is the control.</p>
 </li>
 <li><p>The state (vector) evolves as $s_{t+1}=h(s_{t},c_{t})$.</p>
 </li>
@@ -11832,13 +11827,12 @@ div#notebook {
 <li>$\Gamma(s)$ is the constraint set (or feasible set) for $s'$ when the current state is $s$</li>
 </ul>
 <h3 id="Existence">Existence<a class="anchor-link" href="#Existence">&#182;</a></h3><p><strong>Theorem.</strong> Assume that $u(s,s')$ is real-valued, continuous, and bounded, that $\beta\in(0,1)$, and that the constraint set $\Gamma(s)$ is nonempty, compact, and continuous. Then there exists a unique function $v(s)$ that solves the above functional equation.</p>
-<p><strong>Proof.</strong> [@stokeylucas] &lt;cite data-cite=stokeylucas&gt;&lt;/cite&gt; theoreom 4.6.</p>
+<p><strong>Proof.</strong> [@stokeylucas] <cite data-cite=stokeylucas></cite> theoreom 4.6.</p>
 
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -11862,34 +11856,35 @@ div#notebook {
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Deterministic-growth-model-with-Discrete-VFI">Deterministic growth model with Discrete VFI<a class="anchor-link" href="#Deterministic-growth-model-with-Discrete-VFI">&#182;</a></h3><ul>
 <li>We have this theoretical model:</li>
 </ul>
-$$ 
+<p>$$ 
 \begin{aligned}
-   V(k) &= \max_{0<k'<f(k)} u(f(k) - k') + \beta V(k')\\
-  f(k)  & = k^\alpha\\
-  k_0   & \text{given} 
+   V(k) &amp;= \max_{0&lt;k'&lt;f(k)} u(f(k) - k') + \beta V(k')\\
+  f(k)  &amp; = k^\alpha\\
+  k_0   &amp; \text{given} 
 \end{aligned}
-$$<ul>
+$$</p>
+<ul>
 <li><p>and we employ the followign numerical approximation:
   $$ V(k_i) = \max_{i'=1,2,\dots,n} u(f(k_i) - k_{i'}) + \beta V(i') $$</p>
 </li>
 <li><p>The iteration is then on successive iterates of $V$: The LHS gets updated in each iteration!</p>
 </li>
 </ul>
-$$ \begin{aligned}
-    V^{r+1}(k_i) &= \max_{i'=1,2,\dots,n} u(f(k_i) - k_{i'}) + \beta V^{r}(i') \\
-    V^{r+2}(k_i) &= \max_{i'=1,2,\dots,n} u(f(k_i) - k_{i'}) + \beta V^{r+1}(i') \\
-    ... & 
+<p>$$ \begin{aligned}
+    V^{r+1}(k_i) &amp;= \max_{i'=1,2,\dots,n} u(f(k_i) - k_{i'}) + \beta V^{r}(i') \\
+    V^{r+2}(k_i) &amp;= \max_{i'=1,2,\dots,n} u(f(k_i) - k_{i'}) + \beta V^{r+1}(i') \\
+    ... &amp; 
     \end{aligned}
-$$<ul>
-<li>And it stops at iteration $r$ if $d(V^{r},V^{r-1}) < \text{tol}$</li>
+$$</p>
+<ul>
+<li>And it stops at iteration $r$ if $d(V^{r},V^{r-1}) &lt; \text{tol}$</li>
 <li>You choose a measure of <em>distance</em>, $d(\cdot,\cdot)$, and a level of tolerance.</li>
 <li>$V^{r}$ is usually an <em>array</em>. So $d$ will be some kind of <em>norm</em>.</li>
 <li>maximal absolute distance</li>
@@ -11899,8 +11894,7 @@ $$<ul>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -11909,7 +11903,7 @@ $$<ul>
 <li>define a grid for state variable $k \in [0,2]$</li>
 <li>initialize value function $V$</li>
 <li>start iteration, repeatedly computing a new version of $V$.</li>
-<li>stop if $d(V^{r},V^{r-1}) < \text{tol}$.</li>
+<li>stop if $d(V^{r},V^{r-1}) &lt; \text{tol}$.</li>
 <li>plot value and policy function </li>
 <li>report the maximum error of both wrt to analytic solution</li>
 </ol>
@@ -11941,7 +11935,9 @@ $$<ul>
 
 
 <div class="output_area">
+
 <div class="prompt output_prompt">Out[1]:</div>
+
 
 
 
@@ -11955,8 +11951,7 @@ $$<ul>
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -11992,7 +11987,9 @@ $$<ul>
 
 
 <div class="output_area">
+
 <div class="prompt output_prompt">Out[2]:</div>
+
 
 
 
@@ -12023,7 +12020,9 @@ $$<ul>
 
 
 <div class="output_area">
+
 <div class="prompt output_prompt">Out[4]:</div>
+
 
 
 
@@ -12143,7 +12142,9 @@ $$<ul>
 
 
 <div class="output_area">
+
 <div class="prompt"></div>
+
 
 
 
@@ -12155,7 +12156,9 @@ $$<ul>
 </div>
 
 <div class="output_area">
+
 <div class="prompt"></div>
+
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Found solution after 448 iterations
@@ -12166,7 +12169,9 @@ maximal policy function error = 0.010775693497948935
 </div>
 
 <div class="output_area">
+
 <div class="prompt output_prompt">Out[5]:</div>
+
 
 
 
@@ -12180,8 +12185,7 @@ maximal policy function error = 0.010775693497948935
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12289,7 +12293,9 @@ maximal policy function error = 0.010775693497948935
 
 
 <div class="output_area">
+
 <div class="prompt"></div>
+
 
 
 
@@ -12301,7 +12307,9 @@ maximal policy function error = 0.010775693497948935
 </div>
 
 <div class="output_area">
+
 <div class="prompt"></div>
+
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>continuous VFI:
@@ -12313,7 +12321,9 @@ maximal policy function error = 0.004564649814724597
 </div>
 
 <div class="output_area">
+
 <div class="prompt output_prompt">Out[6]:</div>
+
 
 
 
@@ -12327,8 +12337,7 @@ maximal policy function error = 0.004564649814724597
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12337,22 +12346,25 @@ maximal policy function error = 0.004564649814724597
 <li>The idea is to choose a new policy $p^*$ in each iteration so as to satisfy an optimality condition. In our example, that would be the Euler Equation.</li>
 <li>We know that the solution to the above problem is a function $c^*(k)$ such that</li>
 </ul>
-$$ 
+<p>$$ 
    c^*(k) = \arg \max_z u(z) + \beta V(f(k)-z) \text{  }\forall k\in[0,\infty]
-$$<ul>
+$$</p>
+<ul>
 <li>We <strong>don't</strong> directly solve the maximiation problem outlined above, but it's first order condition:</li>
 </ul>
-$$
+<p>$$
 \begin{aligned}
-u'(c^*(k_t)) & = \beta u'(c^*(k_{t+1})) f'(k_{t+1}) \\
-             & = \beta u'[c^*(f(k_{t})-c^*(k_t))] f'(f(k_{t})-c^*(k_t)) 
+u'(c^*(k_t)) &amp; = \beta u'(c^*(k_{t+1})) f'(k_{t+1}) \\
+             &amp; = \beta u'[c^*(f(k_{t})-c^*(k_t))] f'(f(k_{t})-c^*(k_t)) 
 \end{aligned}
-$$<ul>
+$$</p>
+<ul>
 <li>In practice, we have to find the zeros of</li>
 </ul>
-$$
+<p>$$
 g(k_t) = u'(c^*(k_t)) - \beta u'[c^*(f(k_{t})-c^*(k_t))] f'(f(k_{t})-c^*(k_t)) 
-$$
+$$</p>
+
 </div>
 </div>
 </div>
@@ -12426,7 +12438,9 @@ $$
 
 
 <div class="output_area">
+
 <div class="prompt"></div>
+
 
 
 
@@ -12438,7 +12452,9 @@ $$
 </div>
 
 <div class="output_area">
+
 <div class="prompt"></div>
+
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>PFI:
@@ -12449,7 +12465,9 @@ max policy function error = 4.71194965185294e-5
 </div>
 
 <div class="output_area">
+
 <div class="prompt"></div>
+
 
 <div class="output_subarea output_stream output_stderr output_text">
 <pre>WARNING: Method definition policy_iter(Any, Any, Any, Any) in module Main at In[8]:8 overwritten at In[9]:7.
@@ -12462,7 +12480,9 @@ WARNING: Method definition plotPFI() in module Main at In[8]:50 overwritten at I
 </div>
 
 <div class="output_area">
+
 <div class="prompt output_prompt">Out[9]:</div>
+
 
 
 
@@ -12476,8 +12496,7 @@ WARNING: Method definition plotPFI() in module Main at In[8]:50 overwritten at I
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12494,8 +12513,7 @@ WARNING: Method definition plotPFI() in module Main at In[8]:50 overwritten at I
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12505,12 +12523,13 @@ WARNING: Method definition plotPFI() in module Main at In[8]:50 overwritten at I
 <li>At the true consumption function $c^*$, $g(k) = 0$.</li>
 <li>We define the following function operator:</li>
 </ul>
-$$
+<p>$$
 \begin{aligned}
-0 & = u'(c^*(k)) - \beta u'[c^*(f(k)-c^*(k))] f'(f(k)-c^*(k)) \\
- & \equiv (\mathcal{N(c^*)})(k)
+0 &amp; = u'(c^*(k)) - \beta u'[c^*(f(k)-c^*(k))] f'(f(k)-c^*(k)) \\
+ &amp; \equiv (\mathcal{N(c^*)})(k)
 \end{aligned}
-$$<ul>
+$$</p>
+<ul>
 <li>The Equilibrium solves the operator equation
 $$
 0 = \mathcal{N}(c^*)
@@ -12520,8 +12539,7 @@ $$</li>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12546,8 +12564,7 @@ $$</p>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12569,8 +12586,7 @@ $$</li>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12587,8 +12603,7 @@ where $h(x)$ is the equilibrium function at state $x$</li>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12597,15 +12612,17 @@ where $h(x)$ is the equilibrium function at state $x$</li>
 <li>We want to know $q = S(p)$, how much is supplied at each price $p$.</li>
 <li>This function is characterized as</li>
 </ul>
-$$
-p + \frac{S(p)}{D'(p)} - MC(S(p)) = 0,\forall p>0
-$$<ul>
+<p>$$
+p + \frac{S(p)}{D'(p)} - MC(S(p)) = 0,\forall p&gt;0
+$$</p>
+<ul>
 <li>Take $D(p) = p^{-\eta}$ and $MC(q) = \alpha \sqrt{q} + q^2$.</li>
 <li>Our task is to solve for $S(p)$ in </li>
 </ul>
-$$
-p - \frac{S(p)p^{\eta+1}}{\eta} - \alpha \sqrt{S(p)} - S(p)^2 = 0,\forall p>0
-$$<ul>
+<p>$$
+p - \frac{S(p)p^{\eta+1}}{\eta} - \alpha \sqrt{S(p)} - S(p)^2 = 0,\forall p&gt;0
+$$</p>
+<ul>
 <li>No closed form solution. But collocation works!</li>
 </ul>
 <h4 id="TASK">TASK<a class="anchor-link" href="#TASK">&#182;</a></h4><ol>
@@ -12654,8 +12671,7 @@ $$<ul>
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12663,7 +12679,7 @@ $$<ul>
 <li>Fast, elegant and precise method to solve consumption/savings problems</li>
 <li>One continuous state variable</li>
 <li>One continuous control variable
-  $$ V(M_t) = \max_{0<c<M_t} u(c) + \beta E V_{t+1}(R (M_t - c) + y_{t+1}) $$</li>
+  $$ V(M_t) = \max_{0&lt;c&lt;M_t} u(c) + \beta E V_{t+1}(R (M_t - c) + y_{t+1}) $$</li>
 <li>Here, $M_t$ is cash in hand, all available resources at the start of period $t$<ul>
 <li>For example, assets plus income.</li>
 </ul>
@@ -12677,13 +12693,12 @@ $$<ul>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="EGM-after-[@carroll2006method]">EGM after [@carroll2006method]<a class="anchor-link" href="#EGM-after-[@carroll2006method]">&#182;</a></h2><ul>
-<li>[@carroll2006method] &lt;cite data-cite=carroll2006method&gt;&lt;/cite&gt; introduced this method.</li>
+<li>[@carroll2006method] <cite data-cite=carroll2006method></cite> introduced this method.</li>
 <li>The idea is as follows:<ul>
 <li>Instead of using non-linear root finding for optimal $c$ (see above)</li>
 <li>fix a grid of possible end-of-period asset levels $A_t$</li>
@@ -12696,34 +12711,32 @@ $$<ul>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Recall-Traditional-Methods:-VFI-and-Euler-Equation">Recall Traditional Methods: VFI and Euler Equation<a class="anchor-link" href="#Recall-Traditional-Methods:-VFI-and-Euler-Equation">&#182;</a></h3><ul>
 <li>Just to be clear, let us repeat what we did in the beginning of this lecture, using the $M_t$ notation.
   $$ \begin{aligned}
-  V(M_t) &= \max_{0<c<M_t} u(c) + \beta E V_{t+1}(R (M_t - c) + y_{t+1}) \\
-  M_{t+1} &= R (M_t - c) + y_{t+1} 
+  V(M_t) &amp;= \max_{0&lt;c&lt;M_t} u(c) + \beta E V_{t+1}(R (M_t - c) + y_{t+1}) \\
+  M_{t+1} &amp;= R (M_t - c) + y_{t+1} 
   \end{aligned}
   $$</li>
 </ul>
 <h3 id="VFI">VFI<a class="anchor-link" href="#VFI">&#182;</a></h3><ol>
 <li>Define a grid over $M_t$.</li>
 <li>In the final period, compute
- $$ V_T(M_T) = \max_{0<c<M_t} u(c) $$</li>
+ $$ V_T(M_T) = \max_{0&lt;c&lt;M_t} u(c) $$</li>
 <li>In all preceding periods $t$, do
- $$ V_t(M_t) =  \max_{0<c_t<M_t} u(c_t) + \beta E V_{t+1}(R (M_t - c_t) + y_{t+1}) $$</li>
+ $$ V_t(M_t) =  \max_{0&lt;c_t&lt;M_t} u(c_t) + \beta E V_{t+1}(R (M_t - c_t) + y_{t+1}) $$</li>
 <li>where optimal consumption is
- $$ c_t^*(M_t) = \arg \max_{0<c_t<M_t} u(c_t) + \beta E V_{t+1}(R (M_t - c_t) + y_{t+1}) $$</li>
+ $$ c_t^*(M_t) = \arg \max_{0&lt;c_t&lt;M_t} u(c_t) + \beta E V_{t+1}(R (M_t - c_t) + y_{t+1}) $$</li>
 </ol>
 
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12731,18 +12744,18 @@ $$<ul>
 <li>The first order condition of the Bellman Equation is
   $$ 
   \begin{aligned}
-  \frac{\partial V_t}{\partial c_t} & = 0 \\
-  u'(c_t) & = \beta E \left[\frac{\partial V_{t+1} (M_{t+1}) }{\partial M_{t+1}} \right] \quad (FOC)
+  \frac{\partial V_t}{\partial c_t} &amp; = 0 \\
+  u'(c_t) &amp; = \beta E \left[\frac{\partial V_{t+1} (M_{t+1}) }{\partial M_{t+1}} \right] \quad (FOC)
   \end{aligned}
   $$</li>
 <li>By the Envelope Theorem, we have that
   $$ 
   \begin{aligned}
-  \frac{\partial V_t}{\partial M_t} & = \beta E \left[\frac{\partial V_{t+1} (M_{t+1}) }{\partial M_{t+1}} \right] \\
-  \text{by FOC} &  \\
-  \frac{\partial V_t}{\partial M_t} & = u'(c_t) \\
-  \text{true in every period:} & \\
-  \frac{\partial V_{t+1}}{\partial M_{t+1}} & = u'(c_{t+1}) 
+  \frac{\partial V_t}{\partial M_t} &amp; = \beta E \left[\frac{\partial V_{t+1} (M_{t+1}) }{\partial M_{t+1}} \right] \\
+  \text{by FOC} &amp;  \\
+  \frac{\partial V_t}{\partial M_t} &amp; = u'(c_t) \\
+  \text{true in every period:} &amp; \\
+  \frac{\partial V_{t+1}}{\partial M_{t+1}} &amp; = u'(c_{t+1}) 
   \end{aligned}
   $$</li>
 <li>Summing up, we get the Euler Equation:
@@ -12752,19 +12765,18 @@ $$<ul>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Euler-Equation-Algorithm">Euler Equation Algorithm<a class="anchor-link" href="#Euler-Equation-Algorithm">&#182;</a></h3><ol>
 <li>Fix grid over $M_t$</li>
 <li>In the final period, compute
- $$ c_T^*(M_T) = \arg\max_{0<cT<M_t} u(c_T) $$</li>
+ $$ c_T^*(M_T) = \arg\max_{0&lt;cT&lt;M_t} u(c_T) $$</li>
 <li>With optimal $c_{t+1}^*(M_{t+1})$ in hand, backward recurse to find $c_t$ from
  $$ u'(c_t) = \beta E \left[u'(c_{t+1}^*(R (M_t - c_t) + y_{t+1}) ) R \right] $$</li>
 <li>Notice that if $M_t$ is small, the euler equation does not hold.<ul>
-<li>In fact, the euler equation would prescribe to <em>borrow</em>, i.e. set $M_t <0$. This is ruled out.</li>
+<li>In fact, the euler equation would prescribe to <em>borrow</em>, i.e. set $M_t &lt;0$. This is ruled out.</li>
 <li>So, one needs to tweak this algorithm to check for this possibility</li>
 </ul>
 </li>
@@ -12774,8 +12786,7 @@ $$<ul>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12798,8 +12809,7 @@ $$<ul>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12830,8 +12840,7 @@ $$<ul>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12876,52 +12885,52 @@ $$<ul>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Discrete-Choice-EGM">Discrete Choice EGM<a class="anchor-link" href="#Discrete-Choice-EGM">&#182;</a></h2><ul>
 <li>This is a method developed by Fedor Iskhakov, Thomas Jorgensen, John Rust and Bertel Schjerning.</li>
-<li>Reference: [@iskhakovRust2014] &lt;cite data-cite=iskhakovRust2014&gt;&lt;/cite&gt;</li>
+<li>Reference: [@iskhakovRust2014] <cite data-cite=iskhakovRust2014></cite></li>
 <li>Suppose we have several discrete choices (like "work/retire"), combined with a continuous choice in each case (like "how much to consume given work/retire").</li>
 <li>Let $d=0$ mean to retire.</li>
 <li>Write the problem of a worker as</li>
 </ul>
-$$ 
+<p>$$ 
 \begin{aligned}
-V_t(M_t) & = \max \left[ v_t(M_t|d_t=0), v_t(M_t|d_t=1) \right] \\
- &  \text{with}\\
-v_t(M_t|d_t=0) & = \max_{0<c_t<M_t} u(c_t) + \beta E W_{t+1}(R (M_t - c_t)) \\
-v_t(M_t|d_t=1) & = \max_{0<c_t<M_t} u(c_t) -1 + \beta E V_{t+1}(R (M_t - c_t) + y_{t+1}) 
+V_t(M_t) &amp; = \max \left[ v_t(M_t|d_t=0), v_t(M_t|d_t=1) \right] \\
+ &amp;  \text{with}\\
+v_t(M_t|d_t=0) &amp; = \max_{0&lt;c_t&lt;M_t} u(c_t) + \beta E W_{t+1}(R (M_t - c_t)) \\
+v_t(M_t|d_t=1) &amp; = \max_{0&lt;c_t&lt;M_t} u(c_t) -1 + \beta E V_{t+1}(R (M_t - c_t) + y_{t+1}) 
 \end{aligned}
-$$<ul>
+$$</p>
+<ul>
 <li>The problem of a retiree is</li>
 </ul>
-$$
-W_t(M_t) = \max_{0<c_t<M_t} u(c_t) + \beta E W_{t+1}(R (M_t - c_t)) 
-$$<ul>
+<p>$$
+W_t(M_t) = \max_{0&lt;c_t&lt;M_t} u(c_t) + \beta E W_{t+1}(R (M_t - c_t)) 
+$$</p>
+<ul>
 <li>Our task is to compute the optimal consumption functions $c_t^*(M_t|d_t=0)$, $c_t^*(M_t|d_t=1)$</li>
 </ul>
 
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Problems-with-Discrete-Continuous-Choice">Problems with Discrete-Continuous Choice<a class="anchor-link" href="#Problems-with-Discrete-Continuous-Choice">&#182;</a></h3><ul>
 <li>Even if all conditional value functions $v$ are concave, the <em>envelope</em> over them, $V$, is in general not.</li>
-<li>[@clausenenvelope] &lt;cite data-cite=clausenenvelope&gt;&lt;/cite&gt;show that there will be a kink point $\bar{M}$ such that 
+<li>[@clausenenvelope] <cite data-cite=clausenenvelope></cite>show that there will be a kink point $\bar{M}$ such that 
   $$ v_t(\bar{M}|d_t=0) = v_t(\bar{M}|d_t=1) $$<ul>
 <li>We call any such point a <strong>primary kink</strong> (because it refers to a discrete choice in the <strong>current period</strong>)</li>
 </ul>
 </li>
 <li>$V$ is not differentiable at $\bar{M}$.</li>
 <li>However, it can be shown that both left and right derivatives exist, with
-  $$ V^-(\bar{M}) < V^+(\bar{M}) $$</li>
+  $$ V^-(\bar{M}) &lt; V^+(\bar{M}) $$</li>
 <li>Given that the value of the derivative changes discretely at $\bar{M_t}$, the value function in $t-1$ will exhibit a discontinuity as well:<ul>
 <li>$v_{t-1}$ depends on $V_t$.</li>
 <li>Tracing out the optimal choice of $c_{t-1}$ implies next period cash on hand $M_t$, and as that hits $\bar{M_t}$, the derivative jumps.</li>
@@ -12935,13 +12944,12 @@ $$<ul>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <ul>
-<li>[@iskhakovRust2014] &lt;cite data-cite=iskhakovRust2014&gt;&lt;/cite&gt; provide an analytic example where one can compute the actual number of kinks in period 1 of T.</li>
+<li>[@iskhakovRust2014] <cite data-cite=iskhakovRust2014></cite> provide an analytic example where one can compute the actual number of kinks in period 1 of T.</li>
 <li>Figure 1 in [@clausenenvelope]:</li>
 </ul>
 <p><img src="../assets/figs/clausen-struub.png" width="1200" height="500"/></p>
@@ -12950,8 +12958,7 @@ $$<ul>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12979,8 +12986,7 @@ $$<ul>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12994,8 +13000,7 @@ $$<ul>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -13009,8 +13014,7 @@ $$<ul>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -13034,8 +13038,7 @@ $$<ul>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -13056,18 +13059,18 @@ $$<ul>
 </li>
 <li>The problem becomes</li>
 </ul>
-$$ 
+<p>$$ 
 \begin{aligned}
-V_t(M_t) & = \max \left[ v_t(M_t|d_t=0) + \sigma_\epsilon \epsilon_t(0), v_t(M_t|d_t=1) + \sigma_\epsilon \epsilon_t(1)\right]  \\
-v_t(M_t|d_t=1) & = \max_{0<c_t<M_t} \log(c_t) -1 + \beta \int E V_{t+1}(R (M_t - c_t) + y\eta_{t+1})f(d\eta_{t+1}) 
+V_t(M_t) &amp; = \max \left[ v_t(M_t|d_t=0) + \sigma_\epsilon \epsilon_t(0), v_t(M_t|d_t=1) + \sigma_\epsilon \epsilon_t(1)\right]  \\
+v_t(M_t|d_t=1) &amp; = \max_{0&lt;c_t&lt;M_t} \log(c_t) -1 + \beta \int E V_{t+1}(R (M_t - c_t) + y\eta_{t+1})f(d\eta_{t+1}) 
 \end{aligned}
-$$<p>where the value for retirees stays the same.</p>
+$$</p>
+<p>where the value for retirees stays the same.</p>
 
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -13078,8 +13081,7 @@ $$<p>where the value for retirees stays the same.</p>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -13091,7 +13093,7 @@ $$<p>where the value for retirees stays the same.</p>
   $$ A(M|d) = M - c(M|d) $$
   is <strong>monotone non-decreasing</strong></li>
 <li>This means that, if you go through $A_i$, and find that
-  $$ M_t(A^j) < M_t(A^{j-1}) $$
+  $$ M_t(A^j) &lt; M_t(A^{j-1}) $$
   you know you entered a non-concave region</li>
 </ul>
 </li>

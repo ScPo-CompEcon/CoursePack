@@ -11726,9 +11726,7 @@ body {
 div#notebook {
   overflow: visible;
   border-top: none;
-}
-
-@media print {
+}@media print {
   div.cell {
     display: block;
     page-break-inside: avoid;
@@ -11749,7 +11747,7 @@ div#notebook {
 
 <!-- Loading mathjax macro -->
 <!-- Load mathjax -->
-    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_HTML"></script>
     <!-- MathJax configuration -->
     <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
@@ -11773,8 +11771,7 @@ div#notebook {
   <div tabindex="-1" id="notebook" class="border-box-sizing">
     <div class="container" id="notebook-container">
 
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -11784,8 +11781,7 @@ Sciences Po, 2018</p>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -11798,8 +11794,7 @@ Sciences Po, 2018</p>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -11821,8 +11816,7 @@ Sciences Po, 2018</p>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -11841,8 +11835,7 @@ Sciences Po, 2018</p>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -11861,8 +11854,7 @@ Sciences Po, 2018</p>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -11875,8 +11867,7 @@ Sciences Po, 2018</p>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -11893,17 +11884,17 @@ Sciences Po, 2018</p>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Optimisation-Basics">Optimisation Basics<a class="anchor-link" href="#Optimisation-Basics">&#182;</a></h2><ul>
 <li>Recall our generic definition of an optimization problem:</li>
 </ul>
-$$ 
+<p>$$ 
 \min_{x\in\mathbb{R}^n} f(x)  \text{ s.t. } x \in \mathcal{X}
-$$<ul>
+$$</p>
+<ul>
 <li>$x$ is our <em>choice variable</em> or a <em>design point</em>.</li>
 <li>$\mathcal{X}$ is the feasible set.</li>
 <li>$f$ is the <em>objective function</em></li>
@@ -11917,8 +11908,7 @@ $$</li>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -11930,26 +11920,25 @@ $$</li>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Constraints">Constraints<a class="anchor-link" href="#Constraints">&#182;</a></h2><ul>
 <li>We often have constraints on problems in economics.</li>
 </ul>
-$$ 
+<p>$$ 
 \max_{x_1,x_2} u(x_1,x_2)  \text{ s.t. } p_1 x_1 + p_2 x_2 \leq y
-$$<ul>
+$$</p>
+<ul>
 <li>Constraints define the feasible set $\mathcal{X}$.</li>
-<li>It's better to write <em>weak inequalities</em> (i.e. $\leq$) rather than strict ones ($<$). </li>
+<li>It's better to write <em>weak inequalities</em> (i.e. $\leq$) rather than strict ones ($&lt;$). </li>
 </ul>
 
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -11963,8 +11952,7 @@ $$<ul>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -11972,7 +11960,7 @@ $$<ul>
 <h3 id="Univariate-$f$">Univariate $f$<a class="anchor-link" href="#Univariate-$f$">&#182;</a></h3><ol>
 <li><strong>FONC:</strong> $f'(x^*) =0$</li>
 <li><strong>SONC</strong> $f''(x^*) \geq 0$ (and $f''(x^*) \leq 0$ for local maxima)</li>
-<li>(<strong>SOSC</strong> $f''(x^*) > 0$ (and $f''(x^*) < 0$ for local maxima))</li>
+<li>(<strong>SOSC</strong> $f''(x^*) &gt; 0$ (and $f''(x^*) &lt; 0$ for local maxima))</li>
 </ol>
 <h3 id="Multivariate-$f$">Multivariate $f$<a class="anchor-link" href="#Multivariate-$f$">&#182;</a></h3><ol>
 <li><strong>FONC:</strong> $\nabla f(x^*) =0$</li>
@@ -12005,7 +11993,9 @@ $$<ul>
 
 
 <div class="output_area">
+
 <div class="prompt"></div>
+
 
 
 <div class="output_html rendered_html output_subarea ">
@@ -12100,7 +12090,9 @@ $$<ul>
 </div>
 
 <div class="output_area">
+
 <div class="prompt"></div>
+
 
 <div class="output_subarea output_stream output_stderr output_text">
 <pre>WARNING: Method definition midpoints(Base.Range{T} where T) in module Base at deprecated.jl:56 overwritten in module StatsBase at /Users/74097/.julia/v0.6/StatsBase/src/hist.jl:535.
@@ -12130,7 +12122,9 @@ WARNING: Method definition midpoints(AbstractArray{T, 1} where T) in module Base
 
 
 <div class="output_area">
+
 <div class="prompt output_prompt">Out[2]:</div>
+
 
 
 <div class="output_html rendered_html output_subarea output_execute_result">
@@ -12194,7 +12188,9 @@ var layout_5715d576 = {"showlegend":false,"paper_bgcolor":"rgba(255, 255, 255, 1
 
 
 <div class="output_area">
+
 <div class="prompt output_prompt">Out[3]:</div>
+
 
 
 <div class="output_html rendered_html output_subarea output_execute_result">
@@ -12258,7 +12254,9 @@ var layout_24247d2f = {"showlegend":false,"paper_bgcolor":"rgba(255, 255, 255, 1
 
 
 <div class="output_area">
+
 <div class="prompt output_prompt">Out[4]:</div>
+
 
 
 <div class="output_html rendered_html output_subarea output_execute_result">
@@ -12305,13 +12303,13 @@ var layout_219881dd = {"showlegend":false,"paper_bgcolor":"rgba(255, 255, 255, 1
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Example-Time:-Rosenbrock's-Banana-Function">Example Time: Rosenbrock's Banana Function<a class="anchor-link" href="#Example-Time:-Rosenbrock's-Banana-Function">&#182;</a></h2><p>A well-known test function for numerical optimization algorithms is the Rosenbrock banana function developed by Rosenbrock in 1960. it is defined by</p>
-$$ f(\mathbf{x}) = (1-x_1)^2  + 5(x_2-x_1^2)^2  $$
+<p>$$ f(\mathbf{x}) = (1-x_1)^2  + 5(x_2-x_1^2)^2  $$</p>
+
 </div>
 </div>
 </div>
@@ -12339,7 +12337,9 @@ $$ f(\mathbf{x}) = (1-x_1)^2  + 5(x_2-x_1^2)^2  $$
 
 
 <div class="output_area">
+
 <div class="prompt output_prompt">Out[5]:</div>
+
 
 
 <div class="output_html rendered_html output_subarea output_execute_result">
@@ -12386,12 +12386,12 @@ var layout_9ae629ca = {"showlegend":true,"paper_bgcolor":"rgba(255, 255, 255, 1.
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Analysing-the-Rosenbrock-function">Analysing the Rosenbrock function<a class="anchor-link" href="#Analysing-the-Rosenbrock-function">&#182;</a></h3>$$f(\mathbf{x}) = (1-x_1)^2  + 5(x_2-x_1^2)^2$$<ul>
+<h3 id="Analysing-the-Rosenbrock-function">Analysing the Rosenbrock function<a class="anchor-link" href="#Analysing-the-Rosenbrock-function">&#182;</a></h3><p>$$f(\mathbf{x}) = (1-x_1)^2  + 5(x_2-x_1^2)^2$$</p>
+<ul>
 <li>Is the point $(1,1)$ satisfying FONC and SONC?</li>
 <li>Let's write down gradient and hessian to find out!</li>
 </ul>
@@ -12399,8 +12399,7 @@ var layout_9ae629ca = {"showlegend":true,"paper_bgcolor":"rgba(255, 255, 255, 1.
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12414,8 +12413,7 @@ var layout_9ae629ca = {"showlegend":true,"paper_bgcolor":"rgba(255, 255, 255, 1.
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12447,7 +12445,9 @@ var layout_9ae629ca = {"showlegend":true,"paper_bgcolor":"rgba(255, 255, 255, 1.
 
 
 <div class="output_area">
+
 <div class="prompt output_prompt">Out[6]:</div>
+
 
 
 
@@ -12461,8 +12461,7 @@ var layout_9ae629ca = {"showlegend":true,"paper_bgcolor":"rgba(255, 255, 255, 1.
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12470,31 +12469,31 @@ var layout_9ae629ca = {"showlegend":true,"paper_bgcolor":"rgba(255, 255, 255, 1.
 <li>Unless otherwise noted, we have $x \in \mathbb{R}^n$ as an $n$ element vector.</li>
 <li>The <strong>gradient</strong> of a function $f : \mathbb{R}^n \mapsto \mathbb{R}$ is denoted $\nabla f:\mathbb{R}^n \mapsto \mathbb{R}^n$ and it returns a vector</li>
 </ul>
-$$ \nabla f(x) = \left(\frac{\partial f}{\partial x_1}(x),\frac{\partial f}{\partial x_2}(x),\dots,\frac{\partial f}{\partial x_n}(x) \right) $$
+<p>$$ \nabla f(x) = \left(\frac{\partial f}{\partial x_1}(x),\frac{\partial f}{\partial x_2}(x),\dots,\frac{\partial f}{\partial x_n}(x) \right) $$</p>
+
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <ul>
 <li>It's <strong>hessian</strong> is a function denoted $\nabla^2 f(x)$ or $H_f :\mathbb{R}^n \mapsto \mathbb{R}^{n\times n}$ and returns an $(n,n)$ matrix given by</li>
 </ul>
-$$  
+<p>$$  
 H_f(x) = \left( \begin{array}{cccc} 
-\frac{\partial^2 f}{\partial x_1 \partial x_1}(x)  &  \frac{\partial^2 f}{\partial x_2 \partial x_1}(x) & \dots & \frac{\partial^2 f}{\partial x_n \partial x_1}(x) \\
-\frac{\partial^2 f}{\partial x_1 \partial x_2}(x)  &  \frac{\partial^2 f}{\partial x_2 \partial x_2}(x) & \dots & \frac{\partial^2 f}{\partial x_n \partial x_2}(x) \\
-\vdots & \vdots & \dots & \vdots \\
-\frac{\partial^2 f}{\partial x_1 \partial x_n}(x)  &  \frac{\partial^2 f}{\partial x_2 \partial x_n}(x) & \dots & \frac{\partial^2 f}{\partial x_n \partial x_n}(x) 
+\frac{\partial^2 f}{\partial x_1 \partial x_1}(x)  &amp;  \frac{\partial^2 f}{\partial x_2 \partial x_1}(x) &amp; \dots &amp; \frac{\partial^2 f}{\partial x_n \partial x_1}(x) \\
+\frac{\partial^2 f}{\partial x_1 \partial x_2}(x)  &amp;  \frac{\partial^2 f}{\partial x_2 \partial x_2}(x) &amp; \dots &amp; \frac{\partial^2 f}{\partial x_n \partial x_2}(x) \\
+\vdots &amp; \vdots &amp; \dots &amp; \vdots \\
+\frac{\partial^2 f}{\partial x_1 \partial x_n}(x)  &amp;  \frac{\partial^2 f}{\partial x_2 \partial x_n}(x) &amp; \dots &amp; \frac{\partial^2 f}{\partial x_n \partial x_n}(x) 
 \end{array}\right)
-$$
+$$</p>
+
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12510,8 +12509,7 @@ $$
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12519,8 +12517,8 @@ $$
 <li>For example, let's compute it for $f(\mathbf{x}) = x_1 x_2$ at $\mathbf{x} = [2, 0]$ in direction $\mathbf{x}=[-1,-1]$
   $$
   \begin{aligned}
-  \nabla f(\mathbf{x}) & = \left[ ,\frac{\partial f(\mathbf{x})}{\partial x_1},\frac{\partial f(\mathbf{x})}{\partial x_2} \right] = [x_2,x_1 ] \\
-  \nabla_\mathbf{s} f(\mathbf{x}) & = \nabla f(\mathbf{x})^\top \mathbf{s} = \left[\begin{array}{cc}0& 1\end{array}\right] \left[\begin{array}{c}-1\\-1\end{array} \right] = -1
+  \nabla f(\mathbf{x}) &amp; = \left[ ,\frac{\partial f(\mathbf{x})}{\partial x_1},\frac{\partial f(\mathbf{x})}{\partial x_2} \right] = [x_2,x_1 ] \\
+  \nabla_\mathbf{s} f(\mathbf{x}) &amp; = \nabla f(\mathbf{x})^\top \mathbf{s} = \left[\begin{array}{cc}0&amp; 1\end{array}\right] \left[\begin{array}{c}-1\\-1\end{array} \right] = -1
   \end{aligned}
   $$</li>
 </ul>
@@ -12528,8 +12526,7 @@ $$
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12542,8 +12539,7 @@ $$
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12559,8 +12555,7 @@ $$ f'(x) = \frac{\text{Im}(f(x+ih))}{h} + O(h^2) \text{ as }h\to \infty $$</li>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12601,7 +12596,9 @@ $$ f'(x) = \frac{\text{Im}(f(x+ih))}{h} + O(h^2) \text{ as }h\to \infty $$</li>
 
 
 <div class="output_area">
+
 <div class="prompt"></div>
+
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>forward = 2.000000014901161
@@ -12638,7 +12635,9 @@ complex = -2.4542495411512917
 
 
 <div class="output_area">
+
 <div class="prompt output_prompt">Out[8]:</div>
+
 
 
 
@@ -12678,7 +12677,9 @@ complex = -2.4542495411512917
 
 
 <div class="output_area">
+
 <div class="prompt"></div>
+
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>evaluation of f1
@@ -12690,7 +12691,9 @@ evaluation of f1
 </div>
 
 <div class="output_area">
+
 <div class="prompt output_prompt">Out[9]:</div>
+
 
 
 
@@ -12706,8 +12709,7 @@ evaluation of f1
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12723,25 +12725,24 @@ $$\frac{d}{dx}f(g(x)) = \frac{df}{dg}\frac{dg}{dx}$$</li>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Consider the function $f(x,y) = \ln(xy + \max(x,2))$. Let's get the partial derivative wrt $x$:</p>
-$$ 
-\begin{aligned} \frac{\partial f}{\partial x} &= \frac{1}{xy + \max(x,2)} \frac{\partial}{\partial x}(xy + \max(x,2)) \\
-         &= \frac{1}{xy + \max(x,2)} \left[\frac{\partial(xy)}{\partial x} + \frac{\partial\max(x,2)}{\partial x} \right]\\
-         &= \frac{1}{xy + \max(x,2)} \left[\left(y\frac{\partial(x)}{\partial x} + x\frac{\partial(y)}{\partial x}\right) + \left(\mathbf{1}(2>x)\frac{\partial 2}{\partial x} + \mathbf{1}(2<x)\frac{\partial x}{\partial x} \right)\right] \\
-          &= \frac{1}{xy + \max(x,2)} \left[y + \mathbf{1}(2<x)\right]
+<p>$$ 
+\begin{aligned} \frac{\partial f}{\partial x} &amp;= \frac{1}{xy + \max(x,2)} \frac{\partial}{\partial x}(xy + \max(x,2)) \\
+         &amp;= \frac{1}{xy + \max(x,2)} \left[\frac{\partial(xy)}{\partial x} + \frac{\partial\max(x,2)}{\partial x} \right]\\
+         &amp;= \frac{1}{xy + \max(x,2)} \left[\left(y\frac{\partial(x)}{\partial x} + x\frac{\partial(y)}{\partial x}\right) + \left(\mathbf{1}(2&gt;x)\frac{\partial 2}{\partial x} + \mathbf{1}(2&lt;x)\frac{\partial x}{\partial x} \right)\right] \\
+          &amp;= \frac{1}{xy + \max(x,2)} \left[y + \mathbf{1}(2&lt;x)\right]
 \end{aligned}
- $$<p>where the indicator function $\mathbf{1}(r)=1$ if $r$ evaluates to <em>true</em>, 0 otherwise.</p>
+ $$</p>
+<p>where the indicator function $\mathbf{1}(r)=1$ if $r$ evaluates to <em>true</em>, 0 otherwise.</p>
 
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12753,8 +12754,7 @@ $$
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12770,8 +12770,7 @@ $$
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12787,8 +12786,7 @@ $$
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12797,8 +12795,7 @@ $$
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12807,8 +12804,7 @@ $$
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12817,8 +12813,7 @@ $$
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12827,8 +12822,7 @@ $$
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12837,8 +12831,7 @@ $$
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12861,8 +12854,7 @@ ANSWER: <strong>Because it was tedious.</strong></p>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12875,8 +12867,8 @@ ANSWER: <strong>Because it was tedious.</strong></p>
 <li>For our example, we need to know how to do <em>addition</em>, <em>multiplication</em>, <em>log</em> and <em>max</em> for such a number type:
 $$
 \begin{aligned}
-(a+b\epsilon) + (c+d\epsilon) &= (a+c) + (b+d\epsilon) \\
-(a+b\epsilon) \times (c+d\epsilon) &= (ac) + (ad+bd\epsilon)
+(a+b\epsilon) + (c+d\epsilon) &amp;= (a+c) + (b+d\epsilon) \\
+(a+b\epsilon) \times (c+d\epsilon) &amp;= (ac) + (ad+bd\epsilon)
 \end{aligned}
 $$</li>
 </ul>
@@ -12887,8 +12879,7 @@ $$</li>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12937,7 +12928,9 @@ $$</li>
 
 
 <div class="output_area">
+
 <div class="prompt output_prompt">Out[10]:</div>
+
 
 
 
@@ -12973,7 +12966,9 @@ $$</li>
 
 
 <div class="output_area">
+
 <div class="prompt"></div>
+
 
 <div class="output_subarea output_stream output_stderr output_text">
 <pre><span class="ansi-cyan-intense-fg ansi-bold">INFO: </span><span class="ansi-cyan-fg">Recompiling stale cache file /Users/74097/.julia/lib/v0.6/AutoDiffSource.ji for module AutoDiffSource.
@@ -12982,7 +12977,9 @@ $$</li>
 </div>
 
 <div class="output_area">
+
 <div class="prompt output_prompt">Out[11]:</div>
+
 
 
 
@@ -12996,8 +12993,7 @@ $$</li>
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -13043,7 +13039,9 @@ $$</li>
 
 
 <div class="output_area">
+
 <div class="prompt"></div>
+
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>create an explicit expression by `quoting` it with `:`
@@ -13086,7 +13084,9 @@ expr.args=Any[:+, :x, :y]
 
 
 <div class="output_area">
+
 <div class="prompt"></div>
+
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>log
@@ -13122,8 +13122,7 @@ Expr
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -13140,8 +13139,7 @@ Expr
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
