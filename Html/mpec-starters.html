@@ -11726,7 +11726,9 @@ body {
 div#notebook {
   overflow: visible;
   border-top: none;
-}@media print {
+}
+
+@media print {
   div.cell {
     display: block;
     page-break-inside: avoid;
@@ -11747,7 +11749,7 @@ div#notebook {
 
 <!-- Loading mathjax macro -->
 <!-- Load mathjax -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_HTML"></script>
+    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
     <!-- MathJax configuration -->
     <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
@@ -11771,22 +11773,21 @@ div#notebook {
   <div tabindex="-1" id="notebook" class="border-box-sizing">
     <div class="container" id="notebook-container">
 
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="MPEC-for-Starters">MPEC for Starters<a class="anchor-link" href="#MPEC-for-Starters">&#182;</a></h1><p>Think of a consumer who decides how much of a certain good to consume, given prices. The consumer's behaviour is dictated by a preference parameter $\beta$, which is unobserved. We only observe data on choices, i.e. how much was consumed, at which price of the good. We will specify an economic model, and estimate the value of the preference parameter.</p>
 <p>The utility function is given generically as</p>
-<p>$$
+$$
 u(c;{\color{red}\beta})
-$$</p>
-<p>and there is a structural relationship dictated by theory between
+$$<p>and there is a structural relationship dictated by theory between
 demand for consumption and price of the consumption good: demand will be such that
 the marginal utility of consumption is equal to price, in other words</p>
-<p>\begin{equation}
+\begin{equation}
 u_{c}(c;{\color{red}\beta})=p \quad \text{ (FOC)}
-\end{equation}</p>
-<p>Our aim here is to show how one can estimate the parameter vector
+\end{equation}<p>Our aim here is to show how one can estimate the parameter vector
 $\beta$ quite easily with MPEC. This means that we set up an estimation
 procedure that is a constrainted maximization problem. Our estimate
 of $\beta$ will be a parameter vector that satisfies FOC
@@ -11800,30 +11801,26 @@ utility function; bear in mind, however, that the actual strength
 of MPEC is that one can dispense with the need to find convenient
 closed form solutions, just so that the model can be solved. Our utility
 will be quadratic, as in</p>
-<p>$$
+$$
 u(c;{\color{red}\beta})=c-{\color{red}\beta} c^{2}
-$$</p>
-<p>and marginal utility is 
+$$<p>and marginal utility is 
 $$ u_c = 1 - 2{\color{red}\beta} c $$</p>
 <p>Given our assumption about measurement error, we substitute out $c$</p>
-<p>$$ u_c = 1 - 2{\color{red}\beta} (q - \epsilon) $$</p>
-<p>The economic model prescribes that</p>
-<p>$$ p = u_c $$</p>
-<p>or, in other words</p>
-<p>$$ p_i = 1 - 2{\color{red}\beta}(q_i - \epsilon_i) $$</p>
-<p>Our estimation will be based on minimizing the sum of squared errors, $\epsilon$
+$$ u_c = 1 - 2{\color{red}\beta} (q - \epsilon) $$<p>The economic model prescribes that</p>
+$$ p = u_c $$<p>or, in other words</p>
+$$ p_i = 1 - 2{\color{red}\beta}(q_i - \epsilon_i) $$<p>Our estimation will be based on minimizing the sum of squared errors, $\epsilon$
 subject to complying with constraint FOC. We solve the
 following problem:</p>
-<p>$$
+$$
 \min_{\left\{ \epsilon\right\} _{i=1}^{N},{\color{red}\beta}}  \sum_{i=1}^{N}\epsilon_{i}^{2}  \\
 s.t.  u_{c}(q_{i}-\epsilon_{i};{\color{red}\beta})  =p_{i}
-$$</p>
-<p>We notice right away that the choice of $\beta$ does not directly influence the value of the objective function, therefore both the objective and it's gradient will be independent of $\beta$. However, every choice of $\beta$ needs to go together with a corresponding choice of $\epsilon$'s which need to be chosen s.t. the constraint is satisfied. This is not a general feature of MPEC, as in many cases the parameters of interest would appear in the objective. Also, in a more elaborate model, we would probably have some data that we would want to model to come close to; In that case our objective function would be augmented by the likelihood function of that data together with our model, or we could have a moment criterion etc.</p>
+$$<p>We notice right away that the choice of $\beta$ does not directly influence the value of the objective function, therefore both the objective and it's gradient will be independent of $\beta$. However, every choice of $\beta$ needs to go together with a corresponding choice of $\epsilon$'s which need to be chosen s.t. the constraint is satisfied. This is not a general feature of MPEC, as in many cases the parameters of interest would appear in the objective. Also, in a more elaborate model, we would probably have some data that we would want to model to come close to; In that case our objective function would be augmented by the likelihood function of that data together with our model, or we could have a moment criterion etc.</p>
 
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -11831,7 +11828,8 @@ $$</p>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -11843,7 +11841,8 @@ $$</p>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -11857,7 +11856,8 @@ $$</p>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -11967,9 +11967,7 @@ $$</p>
 
 
 <div class="output_area">
-
 <div class="prompt output_prompt">Out[9]:</div>
-
 
 
 
@@ -11983,7 +11981,8 @@ $$</p>
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12041,9 +12040,7 @@ $$</p>
 
 
 <div class="output_area">
-
 <div class="prompt"></div>
-
 
 <div class="output_subarea output_stream output_stderr output_text">
 <pre>WARNING: replacing module jump
@@ -12052,9 +12049,7 @@ $$</p>
 </div>
 
 <div class="output_area">
-
 <div class="prompt output_prompt">Out[10]:</div>
-
 
 
 

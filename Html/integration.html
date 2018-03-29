@@ -11726,7 +11726,9 @@ body {
 div#notebook {
   overflow: visible;
   border-top: none;
-}@media print {
+}
+
+@media print {
   div.cell {
     display: block;
     page-break-inside: avoid;
@@ -11747,7 +11749,7 @@ div#notebook {
 
 <!-- Loading mathjax macro -->
 <!-- Load mathjax -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_HTML"></script>
+    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
     <!-- MathJax configuration -->
     <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
@@ -11771,7 +11773,8 @@ div#notebook {
   <div tabindex="-1" id="notebook" class="border-box-sizing">
     <div class="container" id="notebook-container">
 
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -11780,7 +11783,8 @@ div#notebook {
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -11793,12 +11797,12 @@ div#notebook {
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>$$ E[G(\epsilon)] = \int_{\mathbb{R}^N} G(\epsilon) w(\epsilon) d\epsilon \approx \sum_{j=1}^J \omega_j G(\epsilon_j) $$</p>
-<ul>
+$$ E[G(\epsilon)] = \int_{\mathbb{R}^N} G(\epsilon) w(\epsilon) d\epsilon \approx \sum_{j=1}^J \omega_j G(\epsilon_j) $$<ul>
 <li>$N$ is the dimensionality of the integration problem.</li>
 <li>$G:\mathbb{R}^N \mapsto \mathbb{R}$ is the function we want to integrate wrt $\epsilon \in \mathbb{R}^N$.</li>
 <li>$w$ is a density function s.t. $\int_{\mathbb{R}^n} w(\epsilon) d\epsilon = 1$.</li>
@@ -11813,7 +11817,8 @@ div#notebook {
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -11832,7 +11837,8 @@ div#notebook {
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -11849,7 +11855,8 @@ div#notebook {
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -11865,7 +11872,8 @@ div#notebook {
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -11906,9 +11914,7 @@ div#notebook {
 
 
 <div class="output_area">
-
 <div class="prompt"></div>
-
 
 <div class="output_subarea output_stream output_stderr output_text">
 <pre><span class="ansi-cyan-intense-fg ansi-bold">INFO: </span><span class="ansi-cyan-fg">Precompiling module FastGaussQuadrature.
@@ -11919,9 +11925,7 @@ WARNING: Method definition midpoints(AbstractArray{T, 1} where T) in module Base
 </div>
 
 <div class="output_area">
-
 <div class="prompt output_prompt">Out[1]:</div>
-
 
 
 <div class="output_html rendered_html output_subarea output_execute_result">
@@ -11934,12 +11938,13 @@ WARNING: Method definition midpoints(AbstractArray{T, 1} where T) in module Base
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="&#160;Quadrature-in-more-dimensions:-Product-Rule">&#160;Quadrature in more dimensions: Product Rule<a class="anchor-link" href="#&#160;Quadrature-in-more-dimensions:-Product-Rule">&#182;</a></h2><ul>
-<li>If we have $N&gt;1$, we can use the product rule: this just takes the <em>kronecker product</em> of all univariate rules.</li>
+<li>If we have $N>1$, we can use the product rule: this just takes the <em>kronecker product</em> of all univariate rules.</li>
 <li>The what?</li>
 </ul>
 
@@ -11966,9 +11971,7 @@ WARNING: Method definition midpoints(AbstractArray{T, 1} where T) in module Base
 
 
 <div class="output_area">
-
 <div class="prompt output_prompt">Out[2]:</div>
-
 
 
 
@@ -11986,7 +11989,8 @@ WARNING: Method definition midpoints(AbstractArray{T, 1} where T) in module Base
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12023,9 +12027,7 @@ WARNING: Method definition midpoints(AbstractArray{T, 1} where T) in module Base
 
 
 <div class="output_area">
-
 <div class="prompt output_prompt">Out[3]:</div>
-
 
 
 
@@ -12087,9 +12089,7 @@ WARNING: Method definition midpoints(AbstractArray{T, 1} where T) in module Base
 
 
 <div class="output_area">
-
 <div class="prompt output_prompt">Out[4]:</div>
-
 
 
 <div class="output_html rendered_html output_subarea output_execute_result">
@@ -12102,7 +12102,8 @@ WARNING: Method definition midpoints(AbstractArray{T, 1} where T) in module Base
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12111,13 +12112,14 @@ WARNING: Method definition midpoints(AbstractArray{T, 1} where T) in module Base
 </ul>
 <h3 id="Alternatives-to-the-Product-Rule">Alternatives to the Product Rule<a class="anchor-link" href="#Alternatives-to-the-Product-Rule">&#182;</a></h3><ul>
 <li>Monomial Rules: They grow only linearly.</li>
-<li>Please refer to [juddbook] <cite data-cite=juddbook></cite> for more details.</li>
+<li>Please refer to [juddbook] &lt;cite data-cite=juddbook&gt;&lt;/cite&gt; for more details.</li>
 </ul>
 
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12133,7 +12135,8 @@ WARNING: Method definition midpoints(AbstractArray{T, 1} where T) in module Base
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12174,9 +12177,7 @@ WARNING: Method definition midpoints(AbstractArray{T, 1} where T) in module Base
 
 
 <div class="output_area">
-
 <div class="prompt"></div>
-
 
 <div class="output_subarea output_text output_error">
 <pre>
@@ -12194,7 +12195,8 @@ Stacktrace:
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12211,7 +12213,8 @@ $$ z_{t+1} = \rho z_t + \varepsilon_t, \varepsilon \sim N(0,\sigma^2) $$</li>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12230,7 +12233,8 @@ $$ z_{t+1} = \rho z_t + \varepsilon_t, \varepsilon \sim N(0,\sigma^2) $$</li>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12244,12 +12248,13 @@ $$ z_{t+1} = \rho z_t + \varepsilon_t, \varepsilon \sim N(0,\sigma^2) $$</li>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="References">References<a class="anchor-link" href="#References">&#182;</a></h2><ul>
-<li>The Integration part of these slides are based on [@maliar-maliar] <cite data-cite=maliarmaliar></cite> chapter 5</li>
+<li>The Integration part of these slides are based on [@maliar-maliar] &lt;cite data-cite=maliarmaliar&gt;&lt;/cite&gt; chapter 5</li>
 </ul>
 
 </div>

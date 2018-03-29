@@ -11726,7 +11726,9 @@ body {
 div#notebook {
   overflow: visible;
   border-top: none;
-}@media print {
+}
+
+@media print {
   div.cell {
     display: block;
     page-break-inside: avoid;
@@ -11747,7 +11749,7 @@ div#notebook {
 
 <!-- Loading mathjax macro -->
 <!-- Load mathjax -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_HTML"></script>
+    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
     <!-- MathJax configuration -->
     <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
@@ -11771,7 +11773,8 @@ div#notebook {
   <div tabindex="-1" id="notebook" class="border-box-sizing">
     <div class="container" id="notebook-container">
 
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -11780,7 +11783,8 @@ div#notebook {
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -11798,7 +11802,8 @@ div#notebook {
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -11817,7 +11822,8 @@ div#notebook {
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -11831,7 +11837,8 @@ div#notebook {
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -11846,17 +11853,17 @@ div#notebook {
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Interpolation-Basics">Interpolation Basics<a class="anchor-link" href="#Interpolation-Basics">&#182;</a></h2><ul>
 <li>Let $f$ be a smooth function mapping $\mathbb{R}^d \mapsto \mathbb{R}$, and define $\hat{f}(\cdot;c)$ to be our parametric approximation function. We generically define this as</li>
 </ul>
-<p>$$  
+$$  
     \hat{f}(x;c) = \sum_{j=1}^J c_j \phi_j(x) 
-$$</p>
-<p>where</p>
+$$<p>where</p>
 <ul>
 <li>$\phi_j : \mathbb{R}^d \mapsto \mathbb{R}$ is called a <strong>basis function</strong>,</li>
 <li>$c={c_1,c_2,\dots,c_J}$ is a coefficient vector</li>
@@ -11867,27 +11874,28 @@ $$</p>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>We will construct a <em>grid</em> of $M\geq J$ points ${x_1,\dots,x_M}$ within the domain $\mathbb{R}^d$, and we will denote the <em>residuals</em> at each grid point by $\epsilon = {\epsilon_1,\dots,\epsilon_M}$:</p>
-<p>$$ 
+$$ 
     \left[\begin{array}{c}
         \epsilon_1 \\
          \vdots \\
         \epsilon_M \\ \end{array} \right]  = \left[\begin{array}{c} f(x_1) \\ \vdots \\ f(x_M)  \end{array} \right] - \left[\begin{array}{ccc} 
-        \phi_1(x_1) &amp; \dots &amp; \phi_J(x_1) \\   
-        \vdots      &amp; \ddots &amp; \vdots \\   
-        \phi_1(x_M) &amp; \dots &amp; \phi_J(x_M)    
+        \phi_1(x_1) & \dots & \phi_J(x_1) \\   
+        \vdots      & \ddots & \vdots \\   
+        \phi_1(x_M) & \dots & \phi_J(x_M)    
         \end{array} \right]  \cdot 
         \left[\begin{array}{c} c_1 \\ \vdots \\ c_J  \end{array} \right]
-$$</p>
-
+$$
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -11895,13 +11903,12 @@ $$</p>
 <li><em>Interpolation</em> or <em>colocation</em> occurs when $J=M$, i.e. we have a square matrix of basis functions, and can exactly solve this.</li>
 <li>We basically need to solve the system</li>
 </ul>
-<p>$$ 
+$$ 
 \begin{aligned} 
-\sum_{j=1}^n c_j \phi_j(x_i) &amp;= f(x_i),\forall i=1,2,\dots,n \\
-                  \mathbf{\Phi c}&amp;= \mathbf{y}
+\sum_{j=1}^n c_j \phi_j(x_i) &= f(x_i),\forall i=1,2,\dots,n \\
+                  \mathbf{\Phi c}&= \mathbf{y}
 \end{aligned}
-$$</p>
-<p>where the second line uses vector notation, and $\mathbf{y}$ has all values of $f$.</p>
+$$<p>where the second line uses vector notation, and $\mathbf{y}$ has all values of $f$.</p>
 <ul>
 <li>Solution: $\mathbf{c}= \mathbf{\Phi}^{-1}y$.</li>
 </ul>
@@ -11909,27 +11916,28 @@ $$</p>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Regression-Basics">Regression Basics<a class="anchor-link" href="#Regression-Basics">&#182;</a></h2><ul>
 <li>Clearly, on the previous slide we required that there are as many interpolation nodes as there are basis functions - we had $J$ equations for $M$ unknowns, so there exists a unique solution for $c$.</li>
 <li>We needed to <em>invert</em> $\mathbf{\Phi}$.</li>
-<li>If we have more, $M&gt;J$ say, interpolation nodes than basis functions, we cannot do that. Instead we can define a loss function, and minimize it. </li>
+<li>If we have more, $M>J$ say, interpolation nodes than basis functions, we cannot do that. Instead we can define a loss function, and minimize it. </li>
 <li>In the case of squared loss, of course, this leads to the least squares solution:</li>
 </ul>
-<p>$$ 
-\begin{aligned} e_i &amp;= f(x_i) - \sum_{j=1}^n c_j \phi_j(x_i) \\
-        \min_c e_i^2 &amp; \implies \\
-        c            &amp;= (\Phi'\Phi)^{-1} \Phi'y
+$$ 
+\begin{aligned} e_i &= f(x_i) - \sum_{j=1}^n c_j \phi_j(x_i) \\
+        \min_c e_i^2 & \implies \\
+        c            &= (\Phi'\Phi)^{-1} \Phi'y
 \end{aligned}
- $$</p>
-
+ $$
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -11952,7 +11960,8 @@ $$</p>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -11965,26 +11974,28 @@ $$</p>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="Polynomial-Interpolation">Polynomial Interpolation<a class="anchor-link" href="#Polynomial-Interpolation">&#182;</a></h1><ul>
-<li>For any continuous real-valued function $f$ on interval $[a,b]$, and an $\epsilon&gt;0$, there is a polynomial $p$, such that
-  $$ || f - p ||_\infty \equiv \sup_{x\in[a,b]} |f(x)-p(x)| &lt; \epsilon $$</li>
+<li>For any continuous real-valued function $f$ on interval $[a,b]$, and an $\epsilon>0$, there is a polynomial $p$, such that
+  $$ || f - p ||_\infty \equiv \sup_{x\in[a,b]} |f(x)-p(x)| < \epsilon $$</li>
 <li>However, the choice of $p$ is critical. <em>Orthogonal Polynomials</em> have been shown to perform very well.</li>
 </ul>
 <blockquote><p><span style="color:red">Definition - Orthogonal Polynomials</span>: an orthogonal polynomial sequence is a family of polynomials such that any two different polynomials in the sequence are orthogonal to each other under some inner product.</p>
 </blockquote>
 <ul>
-<li>There are many families that satisfy this. See [@judd-book] <cite data-cite=juddbook></cite> table 6.3 for an overview.</li>
+<li>There are many families that satisfy this. See [@judd-book] &lt;cite data-cite=juddbook&gt;&lt;/cite&gt; table 6.3 for an overview.</li>
 <li>We will now look at a widely used family, the <strong>Chebyshev polynomial</strong>.</li>
 </ul>
 
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12020,9 +12031,7 @@ $$</p>
 
 
 <div class="output_area">
-
 <div class="prompt output_prompt">Out[1]:</div>
-
 
 
 <div class="output_html rendered_html output_subarea output_execute_result">
@@ -12194,7 +12203,8 @@ $$</p>
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12202,15 +12212,14 @@ $$</p>
 <li>In principle the <em>monomial basis</em> could be used. It is just the power functions of $x$: $1,x,x^2,x^3,\dots$</li>
 <li>Stacking this up for each evaluation node (Chebyshev, or any other), gives the <em>Vandermonde Matrix</em>:</li>
 </ul>
-<p>$$ 
+$$ 
 V = \left[\begin{matrix} 
-        1 &amp; x_1 &amp; \dots &amp; x_1^{n-2} &amp; x_1^{n-1} \\ 
-        1 &amp; x_2 &amp; \dots &amp; x_2^{n-2} &amp; x_2^{n-1} \\ 
-        \vdots &amp; \vdots &amp; \ddots &amp;  &amp; \vdots \\ 
-        1 &amp; x_m &amp; \dots &amp; x_m^{n-2} &amp; x_m^{n-1} 
+        1 & x_1 & \dots & x_1^{n-2} & x_1^{n-1} \\ 
+        1 & x_2 & \dots & x_2^{n-2} & x_2^{n-1} \\ 
+        \vdots & \vdots & \ddots &  & \vdots \\ 
+        1 & x_m & \dots & x_m^{n-2} & x_m^{n-1} 
         \end{matrix} \right]
-$$</p>
-<p>for the case with $m$ evaluation nodes for $x$, and $n$ basis functions for each $x_i$.</p>
+$$<p>for the case with $m$ evaluation nodes for $x$, and $n$ basis functions for each $x_i$.</p>
 <ul>
 <li>$V$ is often ill-conditioned and thus a bad choice.</li>
 <li>A much better polynomial basis is - <em>surprise, surprise</em> - the <em>Chebyshev Polynomial basis</em>.</li>
@@ -12219,7 +12228,8 @@ $$</p>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12233,18 +12243,18 @@ c_i T_i(z)$.<ol>
 </ol>
 </li>
 </ul>
-<p>$$
+$$
     \begin{aligned}
-    T_0(z) =&amp; 1 \\
-    T_1(z) =&amp; z \\
-    T_{i+1}(z) =&amp; 2zT_i(z) - T_{i-1}(z),i=1,\dots,n
+    T_0(z) =& 1 \\
+    T_1(z) =& z \\
+    T_{i+1}(z) =& 2zT_i(z) - T_{i-1}(z),i=1,\dots,n
     \end{aligned}
-$$</p>
-
+$$
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12259,7 +12269,8 @@ $$</p>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12283,7 +12294,8 @@ $$</p>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12323,9 +12335,7 @@ $$</p>
 
 
 <div class="output_area">
-
 <div class="prompt output_prompt">Out[2]:</div>
-
 
 
 <div class="output_html rendered_html output_subarea output_execute_result">
@@ -12530,9 +12540,7 @@ $$</p>
 
 
 <div class="output_area">
-
 <div class="prompt"></div>
-
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>-0.006370611665946768
@@ -12542,9 +12550,7 @@ $$</p>
 </div>
 
 <div class="output_area">
-
 <div class="prompt output_prompt">Out[3]:</div>
-
 
 
 
@@ -12558,7 +12564,8 @@ $$</p>
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12601,9 +12608,7 @@ $$</p>
 
 
 <div class="output_area">
-
 <div class="prompt"></div>
-
 
 <div class="output_subarea output_stream output_stderr output_text">
 <pre><span class="ansi-yellow-intense-fg ansi-bold">WARNING: </span><span class="ansi-yellow-fg">Array{T}(::Type{T}, m::Int, n::Int) is deprecated, use Array{T}(m, n) instead.</span>
@@ -12622,9 +12627,7 @@ while loading In[4], in expression starting on line 5
 </div>
 
 <div class="output_area">
-
 <div class="prompt output_prompt">Out[4]:</div>
-
 
 
 
@@ -12638,7 +12641,8 @@ while loading In[4], in expression starting on line 5
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12655,7 +12659,8 @@ while loading In[4], in expression starting on line 5
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12664,13 +12669,14 @@ while loading In[4], in expression starting on line 5
 <li>$\mathbf{z}$ is ordered in ascending order.</li>
 <li>$\mathbf{z}$ spans the domain $[a,b]$ of our function, and we have that $a=z_1,b=z_p$</li>
 <li>A spline is of <em>order k</em> if the polynomial segments are k-th order polynomials.</li>
-<li>Literature: [@deboor] <cite data-cite=deboo></cite> is the definitive reference for splines.</li>
+<li>Literature: [@deboor] &lt;cite data-cite=deboo&gt;&lt;/cite&gt; is the definitive reference for splines.</li>
 </ul>
 
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12685,7 +12691,8 @@ while loading In[4], in expression starting on line 5
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12704,27 +12711,26 @@ while loading In[4], in expression starting on line 5
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <ul>
 <li>The recursion starts with</li>
 </ul>
-<p>$$ B_j^{0,\mathbf{z}} (x) = \begin{cases}
-    1 &amp; \text{if }z_j \leq x &lt;  z_{j+1}\\
-    0 &amp; \text{otherwise.}
+$$ B_j^{0,\mathbf{z}} (x) = \begin{cases}
+    1 & \text{if }z_j \leq x <    z_{j+1}\\
+    0 & \text{otherwise.}
     \end{cases}
-$$</p>
-<ul>
-<li>For this formulation to work, we need to extend the knot vector for $j&lt;1,j&gt;p$:</li>
+$$<ul>
+<li>For this formulation to work, we need to extend the knot vector for $j<1,j>p$:</li>
 </ul>
-<p>$$ z_j = \begin{cases}
-    a &amp; \text{if }j \leq 1\\
-    b &amp; \text{if }j \geq p
+$$ z_j = \begin{cases}
+    a & \text{if }j \leq 1\\
+    b & \text{if }j \geq p
     \end{cases} 
-$$</p>
-<ul>
+$$<ul>
 <li>And we need to set the endpoints
   $$ B_0^{k-1,\mathbf{z}} = B_n^{k-1,\mathbf{z}} =0 $$</li>
 <li>You may see that this gives rise to a triangular computation strategy, as pointed out <a href="http://www.cs.mtu.edu/~shene/COURSES/cs3621/NOTES/spline/B-spline/bspline-basis.html">here</a>.</li>
@@ -12733,7 +12739,8 @@ $$</p>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12774,9 +12781,7 @@ $$</p>
 
 
 <div class="output_area">
-
 <div class="prompt output_prompt">Out[5]:</div>
-
 
 
 <div class="output_html rendered_html output_subarea output_execute_result">
@@ -14246,9 +14251,7 @@ $$</p>
 
 
 <div class="output_area">
-
 <div class="prompt"></div>
-
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>
@@ -14274,9 +14277,7 @@ $$</p>
 </div>
 
 <div class="output_area">
-
 <div class="prompt output_prompt">Out[6]:</div>
-
 
 
 <div class="output_html rendered_html output_subarea output_execute_result">
@@ -14862,7 +14863,8 @@ $$</p>
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -14881,12 +14883,11 @@ $$</p>
 </ul>
 </li>
 </ul>
-<p>$$ \phi_j (x) = \begin{cases}
-    1 - \frac{|x-z_j|}{h} &amp; \text{if } |x-z_j| \leq h \\
-    0                    &amp; \text{otherwise}
+$$ \phi_j (x) = \begin{cases}
+    1 - \frac{|x-z_j|}{h} & \text{if } |x-z_j| \leq h \\
+    0                    & \text{otherwise}
     \end{cases} 
-$$</p>
-<ul>
+$$<ul>
 <li>Notice that each interior basis function (i.e. not 0 and not $n$) has witdth $2h$.</li>
 </ul>
 
@@ -14912,9 +14913,7 @@ $$</p>
 
 
 <div class="output_area">
-
 <div class="prompt output_prompt">Out[7]:</div>
-
 
 
 <div class="output_html rendered_html output_subarea output_execute_result">
@@ -16365,14 +16364,15 @@ $$</p>
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Linear-B-Spline:-Evaluation">Linear B-Spline: Evaluation<a class="anchor-link" href="#Linear-B-Spline:-Evaluation">&#182;</a></h2><ul>
 <li>In order to evaluate the linear interpolator, we need to know only one thing: Which knot span is active, i.e. what is $j$ s.t. $x\in [z_j, z_{j+1}]$?</li>
 <li>This is a classic problem in computer science. Binary search.</li>
-<li><code>julia</code> implements <a href="http://docs.julialang.org/en/release-0.4/stdlib/sort/#Base.searchsortedlast"><code>searchsortedlast</code></a>. </li>
+<li><code>julia</code> implements <a href="http://docs.julialang.org/en/release-0.4/stdlib/sort/#Base.searchsortedlast"><code>searchsortedlast</code></a>.    </li>
 <li>Once we know $j$, it's easy to get the interpolated value as
   $$ \hat{f}(x) = \frac{x-z_j}{h}  f(z_{j+1}) + \frac{z_{j+1}-x}{h}  f(z_{j}) $$</li>
 </ul>
@@ -16380,7 +16380,8 @@ $$</p>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -16413,9 +16414,7 @@ $$</p>
 
 
 <div class="output_area">
-
 <div class="prompt output_prompt">Out[8]:</div>
-
 
 
 <div class="output_html rendered_html output_subarea output_execute_result">
@@ -16560,7 +16559,8 @@ $$</p>
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -16606,9 +16606,7 @@ $$</p>
 
 
 <div class="output_area">
-
 <div class="prompt"></div>
-
 
 <div class="output_subarea output_stream output_stderr output_text">
 <pre>WARNING: using Interpolations.BSpline in module Main conflicts with an existing identifier.
@@ -16617,9 +16615,7 @@ $$</p>
 </div>
 
 <div class="output_area">
-
 <div class="prompt output_prompt">Out[9]:</div>
-
 
 
 
@@ -16633,7 +16629,8 @@ $$</p>
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -16672,9 +16669,7 @@ $$</p>
 
 
 <div class="output_area">
-
 <div class="prompt output_prompt">Out[10]:</div>
-
 
 
 
@@ -16709,9 +16704,7 @@ $$</p>
 
 
 <div class="output_area">
-
 <div class="prompt output_prompt">Out[11]:</div>
-
 
 
 
@@ -16744,9 +16737,7 @@ $$</p>
 
 
 <div class="output_area">
-
 <div class="prompt output_prompt">Out[12]:</div>
-
 
 
 
@@ -16760,7 +16751,8 @@ $$</p>
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -16769,10 +16761,9 @@ $$</p>
 <li>Suppose we have a function $f : \mathbb{R} \mapsto \mathbb{R}^2$</li>
 <li>Economics example:</li>
 </ul>
-<p>$$  
+$$  
 f(x) = \left(\begin{array}{c} \text{savings}(x) \\ \text{consumption}(x) \end{array} \right)
-$$</p>
-
+$$
 </div>
 </div>
 </div>
@@ -16812,9 +16803,7 @@ $$</p>
 
 
 <div class="output_area">
-
 <div class="prompt"></div>
-
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>  0.167747 seconds (85 allocations: 6.467 KiB)
@@ -16823,9 +16812,7 @@ $$</p>
 </div>
 
 <div class="output_area">
-
 <div class="prompt output_prompt">Out[13]:</div>
-
 
 
 
@@ -16867,9 +16854,7 @@ $$</p>
 
 
 <div class="output_area">
-
 <div class="prompt"></div>
-
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>cons=0.46209812681126966
@@ -16879,9 +16864,7 @@ save=0.7324082026493517
 </div>
 
 <div class="output_area">
-
 <div class="prompt output_prompt">Out[14]:</div>
-
 
 
 <div class="output_html rendered_html output_subarea output_execute_result">
@@ -17072,7 +17055,8 @@ save=0.7324082026493517
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -17084,7 +17068,8 @@ save=0.7324082026493517
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -17101,7 +17086,8 @@ save=0.7324082026493517
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -17120,7 +17106,8 @@ save=0.7324082026493517
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -17140,7 +17127,8 @@ save=0.7324082026493517
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -17180,9 +17168,7 @@ save=0.7324082026493517
 
 
 <div class="output_area">
-
 <div class="prompt output_prompt">Out[15]:</div>
-
 
 
 <div class="output_html rendered_html output_subarea output_execute_result">
@@ -17474,7 +17460,8 @@ fs7+udQgoC/rNOfnsknqIwAAAABJRU5ErkJggg==
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -17502,9 +17489,7 @@ fs7+udQgoC/rNOfnsknqIwAAAABJRU5ErkJggg==
 
 
 <div class="output_area">
-
 <div class="prompt output_prompt">Out[16]:</div>
-
 
 
 <div class="output_html rendered_html output_subarea output_execute_result">
@@ -17755,7 +17740,8 @@ fs7+udQgoC/rNOfnsknqIwAAAABJRU5ErkJggg==
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -17776,7 +17762,8 @@ fs7+udQgoC/rNOfnsknqIwAAAABJRU5ErkJggg==
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -17784,14 +17771,15 @@ fs7+udQgoC/rNOfnsknqIwAAAABJRU5ErkJggg==
 <li>This is a modification of the Tensor product rule. </li>
 <li>It elemininates points from the full tensor product according to their <em>importance</em> for the quality of approximation.</li>
 <li>The user controls this quality parameter, thereby increasing/decreasing the size of the grid.</li>
-<li>[@jmmv] <cite data-cite=jmmv></cite>is a complete technical reference for this method.</li>
-<li>[@maliar-maliar] <cite data-cite=maliarmaliar></cite>chapter 4 is very good overview of this topic, and the basis of this part of the lecture.</li>
+<li>[@jmmv] &lt;cite data-cite=jmmv&gt;&lt;/cite&gt;is a complete technical reference for this method.</li>
+<li>[@maliar-maliar] &lt;cite data-cite=maliarmaliar&gt;&lt;/cite&gt;chapter 4 is very good overview of this topic, and the basis of this part of the lecture.</li>
 </ul>
 
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -17807,7 +17795,8 @@ fs7+udQgoC/rNOfnsknqIwAAAABJRU5ErkJggg==
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -17815,11 +17804,10 @@ fs7+udQgoC/rNOfnsknqIwAAAABJRU5ErkJggg==
 <li>The Smolyak method proceeds differently.</li>
 <li>We construct three nested sets:</li>
 </ul>
-<p>$$ \begin{array}{l}
+$$ \begin{array}{l}
         i=1 : S_1 = \{0\} \\
         i=2 : S_2 = \{0,-1,1\} \\
-        i=3 : S_3 = \left\{-1,\frac{-1}{\sqrt{2}},0,\frac{1}{\sqrt{2}},1\right\}  \end{array} $$</p>
-<ul>
+        i=3 : S_3 = \left\{-1,\frac{-1}{\sqrt{2}},0,\frac{1}{\sqrt{2}},1\right\}  \end{array} $$<ul>
 <li>Then, we construct all possible 2D tensor products using elements from these nested sets in a table (next slide).</li>
 <li>Finally, we select only those elements of the table, that satisfy the Smolyak rule:
   $$ i_1 + i_2 \leq d + \mu $$
@@ -17829,7 +17817,8 @@ fs7+udQgoC/rNOfnsknqIwAAAABJRU5ErkJggg==
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -17838,7 +17827,8 @@ fs7+udQgoC/rNOfnsknqIwAAAABJRU5ErkJggg==
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -17859,7 +17849,8 @@ fs7+udQgoC/rNOfnsknqIwAAAABJRU5ErkJggg==
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -17881,7 +17872,8 @@ fs7+udQgoC/rNOfnsknqIwAAAABJRU5ErkJggg==
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -17893,7 +17885,8 @@ fs7+udQgoC/rNOfnsknqIwAAAABJRU5ErkJggg==
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -17902,7 +17895,8 @@ fs7+udQgoC/rNOfnsknqIwAAAABJRU5ErkJggg==
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -17912,16 +17906,16 @@ fs7+udQgoC/rNOfnsknqIwAAAABJRU5ErkJggg==
   $$ \left\{1,x,2x^2-1,4x^3-3x,8x^4-8x^2+1\right\} $$</li>
 <li>Three nested sets:</li>
 </ul>
-<p>$$ \begin{array}{l}
+$$ \begin{array}{l}
     i=1 : S_1 = \{1\} \\
     i=2 : S_2 = \{1,x,2x^2-1\} \\
     i=3 : S_3 = \left\{1,x,2x^2-1,4x^3-3x,8x^4-8x^2+1\right\}  \end{array} 
-$$</p>
-
+$$
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -17933,7 +17927,8 @@ $$</p>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -17951,7 +17946,8 @@ $$</p>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -17966,7 +17962,8 @@ $$</p>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -18009,9 +18006,7 @@ $$</p>
 
 
 <div class="output_area">
-
 <div class="prompt"></div>
-
 
 <div class="output_subarea output_stream output_stderr output_text">
 <pre><span class="ansi-cyan-intense-fg ansi-bold">INFO: </span><span class="ansi-cyan-fg">Recompiling stale cache file /Users/74097/.julia/lib/v0.6/BasisMatrices.ji for module BasisMatrices.
@@ -18025,9 +18020,7 @@ WARNING: using BasisMatrices.nodes in module Main conflicts with an existing ide
 </div>
 
 <div class="output_area">
-
 <div class="prompt output_prompt">Out[21]:</div>
-
 
 
 
@@ -18070,9 +18063,7 @@ WARNING: using BasisMatrices.nodes in module Main conflicts with an existing ide
 
 
 <div class="output_area">
-
 <div class="prompt output_prompt">Out[22]:</div>
-
 
 
 <div class="output_html rendered_html output_subarea output_execute_result">
@@ -18287,9 +18278,7 @@ WARNING: using BasisMatrices.nodes in module Main conflicts with an existing ide
 
 
 <div class="output_area">
-
 <div class="prompt"></div>
-
 
 
 <div class="output_html rendered_html output_subarea ">
@@ -18384,9 +18373,7 @@ WARNING: using BasisMatrices.nodes in module Main conflicts with an existing ide
 </div>
 
 <div class="output_area">
-
 <div class="prompt output_prompt">Out[23]:</div>
-
 
 
 <div class="output_html rendered_html output_subarea output_execute_result">
@@ -18474,9 +18461,7 @@ var layout_7cab6491 = {"showlegend":true,"paper_bgcolor":"rgba(255, 255, 255, 1.
 
 
 <div class="output_area">
-
 <div class="prompt output_prompt">Out[24]:</div>
-
 
 
 <div class="output_html rendered_html output_subarea output_execute_result">
@@ -18519,6 +18504,19 @@ var layout_110ae10d = {"showlegend":true,"paper_bgcolor":"rgba(255, 255, 255, 1.
 
 </div>
 
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-julia"><pre><span></span>
+</pre></div>
+
+</div>
 </div>
 </div>
 
