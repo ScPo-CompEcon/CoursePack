@@ -291,6 +291,7 @@ function proj(n=25)
 
     c0 = ones(n)*0.3
     function resid!(c::Vector,result::Vector,p,basis,alpha,eta)
+        # your turn!
         q = funeval(c,basis,p)[1]
         q2 = zeros(q)
         for i in eachindex(q2)
@@ -302,34 +303,33 @@ function proj(n=25)
         end
         result[:] = p.+ q .*((-1/eta)*p.^(eta+1)) .- alpha*q2 .- q.^2
     end
-    f_closure(x::Vector,r::Vector) = resid!(x,r,p,basis,alpha,eta)
+    f_closure(r::Vector,x::Vector) = resid!(x,r,p,basis,alpha,eta)
     res = nlsolve(f_closure,c0)
+    println(res)
 
+    # plot residual function
     x = collect(linspace(a,b,501))
     y = similar(x)
     resid!(res.zero,y,x,basis,alpha,eta);
-    figure()
-    subplot(121)
-    plot(x,y)
-    xlabel("price")
-    ylabel("residual")
-    title("residual function")
-
-    subplot(122)
     y = funeval(res.zero,basis,x)[1]
-    plot(y,x,label="supply 1")
-    plot(10*y,x,label="supply 10")
-    plot(20*y,x,label="supply 20")
+    pl = Any[]
+    push!(pl,plot(x,y,title="residual function"))
+    
+    # plot supply functions at levels 1,10,20
+    
+    # plot demand function
+    
+    y = funeval(res.zero,basis,x)[1]
+    p2 = plot(y,x,label="supply 1")
+    plot!(10*y,x,label="supply 10")
+    plot!(20*y,x,label="supply 20")
     d = x.^(-eta)
-    plot(d,x,label="demand")
-    legend()
-    ylabel("price")
-    xlabel("quantity")
-    title("Equilibrium")
+    plot!(d,x,label="Demand")
 
-
-    return res
-
+    push!(pl,p2)
+    
+    plot(pl...,layout=2)
 end
+
 
 end # module

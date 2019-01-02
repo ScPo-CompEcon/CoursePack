@@ -17,16 +17,6 @@ task :slides => SOURCE_FILES.ext("slides.html")
 desc "convert notebook to pdf"
 task :pdf => SOURCE_FILES.ext("pdf")
 
-desc "convert notebook to markdown"
-task :md => SOURCE_FILES.ext("md")
-# task :offline => :slides
-
-desc "clean markdown"
-task :clean_md do
-	sh "rm -rf Notebooks/*.md"
-	sh "rm -rf Markdown/*.md"
-end
-
 desc "clean html"
 task :clean_html do
 	sh "rm -rf Notebooks/*.html"
@@ -55,7 +45,7 @@ end
 rule( /\.slides\.html$/ => [
     proc {|task_name| task_name.sub(/\.slides\.html$/, '.ipynb') }
 ]) do |t|
-	sh "jupyter-nbconvert --to slides #{t.source} --reveal-prefix=reveal.js"
+	sh "jupyter-nbconvert --to slides #{t.source} --reveal-prefix=reveal.js --SlidesExporter.reveal_theme=serif --SlidesExporter.reveal_scroll=True --SlidesExporter.reveal_transition=none"
 	# sh "jupyter-nbconvert --to slides #{t.source} "
 	FileUtils.cp("#{t.name}", File.join("Slides",File.basename("#{t.name}",".slides.html")+".html"))
 	sh "rm -rf #{t.name}"
