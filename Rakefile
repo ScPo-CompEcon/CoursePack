@@ -3,10 +3,14 @@ require 'fileutils'
 # Dir.chdir "Notebooks"
 SOURCE_FILES = Rake::FileList.new("Notebooks/*.ipynb")
 # puts SOURCE_FILES
+ROOT = File.dirname(__FILE__)
 
 task :default => :all 
-task :all => [:html, :pdf, :slides]
-task :clean => [:clean_md,:clean_slides,:clean_html,:clean_pdf]
+
+desc "build html, pdf, slides and pure markdown slides"
+task :all => [:html, :pdf, :slides, :mkdown]
+task :nopdf => [:html, :slides, :mkdown]
+task :clean => [:clean_md,:clean_slides,:clean_pdf]
 
 desc "convert notebook to html"
 task :html => SOURCE_FILES.ext("html")
@@ -17,19 +21,22 @@ task :slides => SOURCE_FILES.ext("slides.html")
 desc "convert notebook to pdf"
 task :pdf => SOURCE_FILES.ext("pdf")
 
-desc "clean html"
-task :clean_html do
-	sh "rm -rf Notebooks/*.html"
-	sh "rm -rf Html/*.html"
-	sh "rm -rf index.html"
-end
-
 desc "clean slides"
 task :clean_slides do
 	sh "rm -rf Notebooks/*.slides.html"
 	sh "rm -rf Slides/*.html"
 end
 
+desc "build pure markdown slides"
+task :mkdown do
+	puts "build markdown slides with backslide and move to static"
+	Dir.chdir "Markdown/intro"
+	sh "bs export"
+	FileUtils.cp("dist/presentation.html","#{ROOT}/assets/static/HTML/intro.html")
+	sh "bs pdf"
+	FileUtils.cp("pdf/presentation.pdf","#{ROOT}/assets/static/pdf/intro.pdf")
+	Dir.chdir "#{ROOT}"
+end
 
 rule ".html" => ".ipynb" do |t|
 	puts "#{t.source}"
@@ -39,6 +46,7 @@ rule ".html" => ".ipynb" do |t|
 	else
 		FileUtils.mv("#{t.name}", "Html/#{File.basename(t.name)}")
 	end
+
 end
 
 # special rule for .slides.html file ending!
@@ -55,7 +63,7 @@ end
 
 rule ".pdf" => ".ipynb" do |t|
 	# exclude those from bibtex citations
-	exclude = ["BasicComputing","BasicIntroduction","Index","PlotsJL","HPC"]
+	exclude = ["BasicComputing","BasicIntroduction","Index","PlotsJL","HPC","data_statistical_packages","fundamental_types","fundamental_types-solutions","getting_started","GrowthModelSolutionMethods_jl","introduction_to_types","julia_by_example-solutions","julia_by_example","julia_essentials","need_for_speed","testing","tools_editors","CEPM"]
 	no_bib = ["mpec-starters","CEPM","optimization","optimization2"]
 	bn = File.basename("#{t.source}")
 	b  = File.basename("#{t.source}",".ipynb")
