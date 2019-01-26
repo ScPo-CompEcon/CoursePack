@@ -13309,7 +13309,7 @@ a.anchor-link {
 </div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[15]:</div>
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="n">DEPOT_PATH</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
@@ -13325,13 +13325,13 @@ a.anchor-link {
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[15]:</div>
+    <div class="prompt output_prompt">Out[1]:</div>
 
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&#34;/Users/74097/.julia&#34;</pre>
+<pre>&#34;/Users/florian.oswald/.julia&#34;</pre>
 </div>
 
 </div>
@@ -13390,7 +13390,7 @@ a.anchor-link {
 </div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[16]:</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="p">;</span> <span class="n">pwd</span>
@@ -13410,7 +13410,7 @@ a.anchor-link {
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>/Users/74097/Dropbox/teaching/ScPo/ScPo-CompEcon/CoursePack/Notebooks/ExampleEnvironment
+<pre>/Users/florian.oswald/Dropbox/teaching/ScPo/ScPo-CompEcon/CoursePack/Notebooks
 </pre>
 </div>
 </div>
@@ -13429,7 +13429,7 @@ a.anchor-link {
 </div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[17]:</div>
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">2</span>
@@ -13445,7 +13445,7 @@ a.anchor-link {
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[17]:</div>
+    <div class="prompt output_prompt">Out[3]:</div>
 
 
 
@@ -13462,7 +13462,7 @@ a.anchor-link {
 </div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[18]:</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="p">;</span> <span class="n">echo</span> <span class="o">$</span><span class="n">x</span>
@@ -13509,7 +13509,7 @@ a.anchor-link {
 </div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[19]:</div>
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="p">]</span> <span class="o">?</span>
@@ -13564,6 +13564,14 @@ a.anchor-link {
   <span class="ansi-cyan-fg">precompile</span>: precompile all the project dependencies
 
   <span class="ansi-cyan-fg">preview</span>: previews a subsequent command without affecting the current state
+
+  <span class="ansi-cyan-fg">registry-add</span>: add package registries
+
+  <span class="ansi-cyan-fg">registry-remove</span>: remove package registries
+
+  <span class="ansi-cyan-fg">registry-status</span>: information about installed registries
+
+  <span class="ansi-cyan-fg">registry-update</span>: update package registries
 
   <span class="ansi-cyan-fg">remove</span>: remove packages from project or manifest
 
@@ -13714,7 +13722,7 @@ a.anchor-link {
 </div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[20]:</div>
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">2</span>
@@ -13730,7 +13738,7 @@ a.anchor-link {
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[20]:</div>
+    <div class="prompt output_prompt">Out[6]:</div>
 
 
 
@@ -13819,7 +13827,7 @@ a.anchor-link {
 </div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[21]:</div>
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="p">]</span> <span class="n">st</span>
@@ -13839,10 +13847,66 @@ a.anchor-link {
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre><span class="ansi-cyan-intense-fg ansi-bold">Project </span>ExampleEnvironment v0.1.0
-<span class="ansi-green-intense-fg ansi-bold">    Status</span> `~/Dropbox/teaching/ScPo/ScPo-CompEcon/CoursePack/Notebooks/ExampleEnvironment/Project.toml`
+<pre><span class="ansi-green-intense-fg ansi-bold">    Status</span> `~/.julia/environments/v1.1/Project.toml`
+ <span class="ansi-black-intense-fg"> [aae01518]</span><span class="ansi-white-fg"> BandedMatrices v0.8.1</span>
+ <span class="ansi-black-intense-fg"> [6e4b80f9]</span><span class="ansi-white-fg"> BenchmarkTools v0.4.2</span>
+ <span class="ansi-black-intense-fg"> [a134a8b2]</span><span class="ansi-white-fg"> BlackBoxOptim v0.4.0</span>
+ <span class="ansi-black-intense-fg"> [324d7699]</span><span class="ansi-white-fg"> CategoricalArrays v0.5.2</span>
+ <span class="ansi-black-intense-fg"> [3da002f7]</span><span class="ansi-white-fg"> ColorTypes v0.7.5</span>
+ <span class="ansi-black-intense-fg"> [34da2185]</span><span class="ansi-white-fg"> Compat v1.4.0</span>
+ <span class="ansi-black-intense-fg"> [a93c6f00]</span><span class="ansi-white-fg"> DataFrames v0.17.0</span>
+ <span class="ansi-black-intense-fg"> [1313f7d8]</span><span class="ansi-white-fg"> DataFramesMeta v0.4.0</span>
+ <span class="ansi-black-intense-fg"> [5721bf48]</span><span class="ansi-white-fg"> DataVoyager v0.3.1</span>
+ <span class="ansi-black-intense-fg"> [01453d9d]</span><span class="ansi-white-fg"> DiffEqDiffTools v0.7.1</span>
+ <span class="ansi-black-intense-fg"> [31c24e10]</span><span class="ansi-white-fg"> Distributions v0.16.4</span>
  <span class="ansi-black-intense-fg"> [2fe49d83]</span><span class="ansi-white-fg"> Expectations v1.0.2</span>
+ <span class="ansi-black-intense-fg"> [442a2c76]</span><span class="ansi-white-fg"> FastGaussQuadrature v0.3.2</span>
+ <span class="ansi-black-intense-fg"> [1a297f60]</span><span class="ansi-white-fg"> FillArrays v0.4.0</span>
+ <span class="ansi-black-intense-fg"> [9d5cd8c9]</span><span class="ansi-white-fg"> FixedEffectModels v0.7.1</span>
+ <span class="ansi-black-intense-fg"> [587475ba]</span><span class="ansi-white-fg"> Flux v0.7.1</span>
+ <span class="ansi-black-intense-fg"> [f6369f11]</span><span class="ansi-white-fg"> ForwardDiff v0.10.2</span>
+ <span class="ansi-black-intense-fg"> [38e38edf]</span><span class="ansi-white-fg"> GLM v1.0.2</span>
+ <span class="ansi-black-intense-fg"> [28b8d3ca]</span><span class="ansi-white-fg"> GR v0.37.0</span>
+ <span class="ansi-black-intense-fg"> [7073ff75]</span><span class="ansi-white-fg"> IJulia v1.15.2</span>
+ <span class="ansi-black-intense-fg"> [43edad99]</span><span class="ansi-white-fg"> InstantiateFromURL v0.2.1</span>
+ <span class="ansi-black-intense-fg"> [a98d9a8b]</span><span class="ansi-white-fg"> Interpolations v0.11.1</span>
+ <span class="ansi-black-intense-fg"> [b6b21f68]</span><span class="ansi-white-fg"> Ipopt v0.5.1</span>
+ <span class="ansi-black-intense-fg"> [4076af6c]</span><span class="ansi-white-fg"> JuMP v0.18.5</span>
+ <span class="ansi-black-intense-fg"> [5ab0869b]</span><span class="ansi-white-fg"> KernelDensity v0.5.1</span>
+ <span class="ansi-black-intense-fg"> [b964fa9f]</span><span class="ansi-white-fg"> LaTeXStrings v1.0.3</span>
+ <span class="ansi-black-intense-fg"> [23fbe1c1]</span><span class="ansi-white-fg"> Latexify v0.6.0</span>
+ <span class="ansi-black-intense-fg"> [5078a376]</span><span class="ansi-white-fg"> LazyArrays v0.5.1</span>
+ <span class="ansi-black-intense-fg"> [0fc2ff8b]</span><span class="ansi-white-fg"> LeastSquaresOptim v0.7.1</span>
+ <span class="ansi-black-intense-fg"> [093fc24a]</span><span class="ansi-white-fg"> LightGraphs v1.2.0</span>
+ <span class="ansi-black-intense-fg"> [76087f3c]</span><span class="ansi-white-fg"> NLopt v0.5.1</span>
+ <span class="ansi-black-intense-fg"> [2774e3e8]</span><span class="ansi-white-fg"> NLsolve v3.0.1</span>
+ <span class="ansi-black-intense-fg"> [429524aa]</span><span class="ansi-white-fg"> Optim v0.17.2</span>
  <span class="ansi-black-intense-fg"> [d96e819e]</span><span class="ansi-white-fg"> Parameters v0.10.3</span>
+ <span class="ansi-black-intense-fg"> [14b8a8f1]</span><span class="ansi-white-fg"> PkgTemplates v0.4.1</span>
+ <span class="ansi-black-intense-fg"> [91a5bcdd]</span><span class="ansi-white-fg"> Plots v0.22.5</span>
+ <span class="ansi-black-intense-fg"> [f27b6e38]</span><span class="ansi-white-fg"> Polynomials v0.5.2</span>
+ <span class="ansi-black-intense-fg"> [92933f4c]</span><span class="ansi-white-fg"> ProgressMeter v0.9.0</span>
+ <span class="ansi-black-intense-fg"> [1fd47b50]</span><span class="ansi-white-fg"> QuadGK v2.0.3</span>
+ <span class="ansi-black-intense-fg"> [fcd29c91]</span><span class="ansi-white-fg"> QuantEcon v0.15.0</span>
+ <span class="ansi-black-intense-fg"> [1a8c2f83]</span><span class="ansi-white-fg"> Query v0.10.1</span>
+ <span class="ansi-black-intense-fg"> [612083be]</span><span class="ansi-white-fg"> Queryverse v0.2.0</span>
+ <span class="ansi-black-intense-fg"> [ce6b1742]</span><span class="ansi-white-fg"> RDatasets v0.6.1</span>
+ <span class="ansi-black-intense-fg"> [d519eb52]</span><span class="ansi-white-fg"> RegressionTables v0.2.0</span>
+ <span class="ansi-black-intense-fg"> [295af30f]</span><span class="ansi-white-fg"> Revise v1.0.2</span>
+ <span class="ansi-black-intense-fg"> [f2b01f46]</span><span class="ansi-white-fg"> Roots v0.7.4</span>
+ <span class="ansi-black-intense-fg"> [60ddc479]</span><span class="ansi-white-fg"> StatPlots v0.9.1</span>
+ <span class="ansi-black-intense-fg"> [90137ffa]</span><span class="ansi-white-fg"> StaticArrays v0.10.2</span>
+ <span class="ansi-black-intense-fg"> [2913bbd2]</span><span class="ansi-white-fg"> StatsBase v0.27.0</span>
+ <span class="ansi-black-intense-fg"> [3eaba693]</span><span class="ansi-white-fg"> StatsModels v0.4.0</span>
+ <span class="ansi-black-intense-fg"> [37b6cedf]</span><span class="ansi-white-fg"> Traceur v0.2.1</span>
+ <span class="ansi-black-intense-fg"> [0ae4a718]</span><span class="ansi-white-fg"> VegaDatasets v0.5.0</span>
+ <span class="ansi-black-intense-fg"> [112f6efa]</span><span class="ansi-white-fg"> VegaLite v0.5.2</span>
+ <span class="ansi-black-intense-fg"> [37e2e46d]</span><span class="ansi-white-fg"> LinearAlgebra </span>
+ <span class="ansi-black-intense-fg"> [3fa0cd96]</span><span class="ansi-white-fg"> REPL </span>
+ <span class="ansi-black-intense-fg"> [9a3f8284]</span><span class="ansi-white-fg"> Random </span>
+ <span class="ansi-black-intense-fg"> [2f01184e]</span><span class="ansi-white-fg"> SparseArrays </span>
+ <span class="ansi-black-intense-fg"> [10745b16]</span><span class="ansi-white-fg"> Statistics </span>
+ <span class="ansi-black-intense-fg"> [8dfed614]</span><span class="ansi-white-fg"> Test </span>
 </pre>
 </div>
 </div>
@@ -13863,7 +13927,7 @@ a.anchor-link {
 </div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[22]:</div>
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="p">]</span> <span class="n">generate</span> <span class="n">ExampleEnvironment</span>
@@ -13906,7 +13970,7 @@ a.anchor-link {
 </div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[23]:</div>
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="p">;</span> <span class="n">cd</span> <span class="n">ExampleEnvironment</span>
@@ -13926,7 +13990,7 @@ a.anchor-link {
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>/Users/74097/Dropbox/teaching/ScPo/ScPo-CompEcon/CoursePack/Notebooks/ExampleEnvironment/ExampleEnvironment
+<pre>/Users/florian.oswald/Dropbox/teaching/ScPo/ScPo-CompEcon/CoursePack/Notebooks/ExampleEnvironment
 </pre>
 </div>
 </div>
@@ -13947,7 +14011,7 @@ a.anchor-link {
 </div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[24]:</div>
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="p">]</span> <span class="n">activate</span> <span class="o">.</span>
@@ -13972,7 +14036,7 @@ a.anchor-link {
 </div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[25]:</div>
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="p">]</span> <span class="n">add</span> <span class="n">Expectations</span> <span class="n">Parameters</span>
@@ -13992,11 +14056,13 @@ a.anchor-link {
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre><span class="ansi-green-intense-fg ansi-bold"> Resolving</span> package versions...
-<span class="ansi-green-intense-fg ansi-bold">  Updating</span> `~/Dropbox/teaching/ScPo/ScPo-CompEcon/CoursePack/Notebooks/ExampleEnvironment/ExampleEnvironment/Project.toml`
+<pre><span class="ansi-green-intense-fg ansi-bold">  Updating</span> registry at `~/.julia/registries/General`
+<span class="ansi-green-intense-fg ansi-bold">  Updating</span> git-repo `https://github.com/JuliaRegistries/General.git`
+[1mFetching: [========================================&gt;]  100.0 %.0 %<span class="ansi-green-intense-fg ansi-bold"> Resolving</span> package versions...
+<span class="ansi-green-intense-fg ansi-bold">  Updating</span> `~/Dropbox/teaching/ScPo/ScPo-CompEcon/CoursePack/Notebooks/ExampleEnvironment/Project.toml`
  <span class="ansi-black-intense-fg"> [2fe49d83]</span><span class="ansi-green-intense-fg"> + Expectations v1.0.2</span>
  <span class="ansi-black-intense-fg"> [d96e819e]</span><span class="ansi-green-intense-fg"> + Parameters v0.10.3</span>
-<span class="ansi-green-intense-fg ansi-bold">  Updating</span> `~/Dropbox/teaching/ScPo/ScPo-CompEcon/CoursePack/Notebooks/ExampleEnvironment/ExampleEnvironment/Manifest.toml`
+<span class="ansi-green-intense-fg ansi-bold">  Updating</span> `~/Dropbox/teaching/ScPo/ScPo-CompEcon/CoursePack/Notebooks/ExampleEnvironment/Manifest.toml`
  <span class="ansi-black-intense-fg"> [7d9fca2a]</span><span class="ansi-green-intense-fg"> + Arpack v0.3.0</span>
  <span class="ansi-black-intense-fg"> [9e28174c]</span><span class="ansi-green-intense-fg"> + BinDeps v0.8.10</span>
  <span class="ansi-black-intense-fg"> [b99e7846]</span><span class="ansi-green-intense-fg"> + BinaryProvider v0.5.3</span>
@@ -14005,7 +14071,7 @@ a.anchor-link {
  <span class="ansi-black-intense-fg"> [31c24e10]</span><span class="ansi-green-intense-fg"> + Distributions v0.16.4</span>
  <span class="ansi-black-intense-fg"> [2fe49d83]</span><span class="ansi-green-intense-fg"> + Expectations v1.0.2</span>
  <span class="ansi-black-intense-fg"> [442a2c76]</span><span class="ansi-green-intense-fg"> + FastGaussQuadrature v0.3.2</span>
- <span class="ansi-black-intense-fg"> [e1d29d7a]</span><span class="ansi-green-intense-fg"> + Missings v0.3.1</span>
+ <span class="ansi-black-intense-fg"> [e1d29d7a]</span><span class="ansi-green-intense-fg"> + Missings v0.4.0</span>
  <span class="ansi-black-intense-fg"> [bac558e1]</span><span class="ansi-green-intense-fg"> + OrderedCollections v1.0.2</span>
  <span class="ansi-black-intense-fg"> [90014a1f]</span><span class="ansi-green-intense-fg"> + PDMats v0.9.6</span>
  <span class="ansi-black-intense-fg"> [d96e819e]</span><span class="ansi-green-intense-fg"> + Parameters v0.10.3</span>
@@ -14087,7 +14153,7 @@ Parameters = &quot;d96e819e-fc66-5662-9728-84c9c7592b0a&quot;
 </div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[26]:</div>
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="p">]</span> <span class="n">precompile</span>
@@ -14108,7 +14174,7 @@ Parameters = &quot;d96e819e-fc66-5662-9728-84c9c7592b0a&quot;
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre><span class="ansi-green-intense-fg ansi-bold">Precompiling</span> project...
-<span class="ansi-green-intense-fg ansi-bold">Precompiling</span> ExampleEnvironment
+<span class="ansi-green-intense-fg ansi-bold">Precompiling</span> Parameters
 </pre>
 </div>
 </div>
@@ -14119,8 +14185,31 @@ Parameters = &quot;d96e819e-fc66-5662-9728-84c9c7592b0a&quot;
 
 
 <div class="output_subarea output_stream output_stderr output_text">
-<pre>┌ Info: Precompiling ExampleEnvironment [361db014-1a47-11e9-2578-079ce0f1a6cd]
-└ @ Base loading.jl:1192
+<pre>┌ Info: Recompiling stale cache file /Users/florian.oswald/.julia/compiled/v1.1/Parameters/ycYNs.ji for Parameters [d96e819e-fc66-5662-9728-84c9c7592b0a]
+└ @ Base loading.jl:1184
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre><span class="ansi-green-intense-fg ansi-bold">Precompiling</span> ExampleEnvironment
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>┌ Info: Precompiling ExampleEnvironment [5f706bf6-2171-11e9-03f1-797435e3197f]
+└ @ Base loading.jl:1186
 </pre>
 </div>
 </div>

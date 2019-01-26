@@ -15929,9 +15929,9 @@ without the <code>function</code> keyword or <code>end</code></p>
 
 <div class="output_text output_subarea output_execute_result">
 <pre>3-element Array{Float64,1}:
-  0.6513989067682926
-  0.9351412277586821
- -0.9667790266553704</pre>
+ -0.42467016347710973
+  0.1319681339272771 
+ -0.9677576973930294 </pre>
 </div>
 
 </div>
@@ -16260,7 +16260,7 @@ they are parsed and bounded by name rather than the order in the function call</
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>0.6477376466094344</pre>
+<pre>4.468531148123099</pre>
 </div>
 
 </div>
@@ -16346,9 +16346,9 @@ Stacktrace:
 
 <div class="output_text output_subarea output_execute_result">
 <pre>3-element Array{Float64,1}:
- 0.30722453740660843
- 2.139866505157648  
- 3.5790403128607626 </pre>
+ 0.43757066958315577
+ 2.9043458488289287 
+ 6.6535477557944205 </pre>
 </div>
 
 </div>
@@ -17175,9 +17175,42 @@ twice(g, 2.0) = 50.0
     <div class="prompt"></div>
 
 
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>┌ Info: Recompiling stale cache file /Users/florian.oswald/.julia/compiled/v1.1/Expectations/r1e2K.ji for Expectations [2fe49d83-0758-5602-8f54-1f90ad0d522b]
+└ @ Base loading.jl:1184
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>d = Exponential(2.0) = Exponential{Float64}(θ=2.0)
-expectation(f, d) = 8.0
+expectation(f, d) = </pre>
+</div>
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>WARNING: using Distributions.mode in module Main conflicts with an existing identifier.
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>8.0
 </pre>
 </div>
 </div>

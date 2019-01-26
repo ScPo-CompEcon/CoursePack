@@ -13164,6 +13164,62 @@ div#notebook {
 </div>
 </div>
 
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre><span class="ansi-green-intense-fg ansi-bold">Downloading </span>QuantEcon/QuantEconLectureAllPackages-v0.9.5 → /Users/florian.oswald/Dropbox/teaching/ScPo/ScPo-CompEcon/CoursePack/Notebooks/.projects
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>######################################################################### 100.0%########################### 100.0%
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre><span class="ansi-green-intense-fg ansi-bold">Instantiating </span>/Users/florian.oswald/Dropbox/teaching/ScPo/ScPo-CompEcon/CoursePack/Notebooks/.projects/QuantEconLectureAllPackages-v0.9.5
+<span class="ansi-green-intense-fg ansi-bold">  Updating</span> registry at `~/.julia/registries/General`
+<span class="ansi-green-intense-fg ansi-bold">  Updating</span> git-repo `https://github.com/JuliaRegistries/General.git`
+[1mFetching: [========================================&gt;]  100.0 %.0 %<span class="ansi-green-intense-fg ansi-bold">Precompiling</span> project...
+<span class="ansi-green-intense-fg ansi-bold">Precompiling</span> Revise
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>┌ Info: Recompiling stale cache file /Users/florian.oswald/.julia/compiled/v1.1/Revise/M1Qoh.ji for Revise [295af30f-e4ad-537b-8983-00126c2a3abe]
+└ @ Base loading.jl:1184
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
@@ -13176,6 +13232,35 @@ div#notebook {
 </pre></div>
 
     </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>┌ Info: Recompiling stale cache file /Users/florian.oswald/.julia/compiled/v1.1/RDatasets/JyIbx.ji for RDatasets [ce6b1742-4840-55fa-b093-852dadbb1d8b]
+└ @ Base loading.jl:1184
+┌ Info: Recompiling stale cache file /Users/florian.oswald/.julia/compiled/v1.1/DataFramesMeta/2xRTO.ji for DataFramesMeta [1313f7d8-7da2-5740-9ea0-a2ca25f37964]
+└ @ Base loading.jl:1184
+┌ Info: Recompiling stale cache file /Users/florian.oswald/.julia/compiled/v1.1/Query/wGX7b.ji for Query [1a8c2f83-1ff3-5112-b086-8aa67b057ba1]
+└ @ Base loading.jl:1184
+┌ Info: Recompiling stale cache file /Users/florian.oswald/.julia/compiled/v1.1/DataVoyager/5nnU1.ji for DataVoyager [5721bf48-af8e-5845-8445-c9e18126e773]
+└ @ Base loading.jl:1184
+┌ Info: Recompiling stale cache file /Users/florian.oswald/.julia/compiled/v1.1/GLM/6OREG.ji for GLM [38e38edf-8417-5370-95a0-9cbb8c7f171a]
+└ @ Base loading.jl:1184
+┌ Info: Recompiling stale cache file /Users/florian.oswald/.julia/compiled/v1.1/RegressionTables/cYvie.ji for RegressionTables [d519eb52-b820-54da-95a6-98e1306fdade]
+└ @ Base loading.jl:1184
+</pre>
+</div>
+</div>
+
 </div>
 </div>
 
@@ -13966,7 +14051,7 @@ mean(skipmissing(df2.col1)) = 4.033333333333333
 <div class="output_subarea output_stream output_stderr output_text">
 <pre>┌ Warning: In the future eachcol will have names argument set to false by default
 │   caller = evalcontrasts(::DataFrame, ::Dict{Any,Any}) at modelframe.jl:124
-└ @ StatsModels /home/quantecon/.julia/packages/StatsModels/AYB2E/src/modelframe.jl:124
+└ @ StatsModels /Users/florian.oswald/.julia/packages/StatsModels/AYB2E/src/modelframe.jl:124
 </pre>
 </div>
 </div>
@@ -13985,8 +14070,8 @@ Formula: y ~ 1 + x
 
 Coefficients:
              Estimate Std.Error t value Pr(&gt;|t|)
-(Intercept)  0.261613  0.014611 17.9052   &lt;1e-31
-x            0.896204 0.0137566 65.1471   &lt;1e-81
+(Intercept)  0.226951 0.0129786 17.4865   &lt;1e-31
+x            0.903225 0.0127802  70.674   &lt;1e-85
 </pre>
 </div>
 
@@ -14036,15 +14121,15 @@ similar to the Stata package esttab and the R package stargazer</p>
               --------
                    (1)
 ----------------------
-(Intercept)   0.262***
-               (0.015)
-x             0.896***
-               (0.014)
+(Intercept)   0.227***
+               (0.013)
+x             0.903***
+               (0.013)
 ----------------------
 Estimator          OLS
 ----------------------
 N                  100
-R2               0.977
+R2               0.981
 ----------------------
 
 
