@@ -13154,69 +13154,17 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-julia"><pre><span></span><span class="k">using</span> <span class="n">InstantiateFromURL</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="c"># It&#39;s a massive contribution of the QuantEcon team that we can now instantiate a fully tested package</span>
+<span class="c"># environment directly from the web. The below commands will download and precompile </span>
+<span class="c"># an extensive list of packages, the first time it&#39;s called. Next time, we will immediately be able to use them.</span>
+
+<span class="k">using</span> <span class="n">InstantiateFromURL</span>
 
 <span class="c"># activate the QuantEcon environment</span>
-<span class="n">activate_github</span><span class="p">(</span><span class="s">&quot;QuantEcon/QuantEconLectureAllPackages&quot;</span><span class="p">,</span> <span class="n">tag</span> <span class="o">=</span> <span class="s">&quot;v0.9.5&quot;</span><span class="p">);</span>
+<span class="n">activate_github</span><span class="p">(</span><span class="s">&quot;QuantEcon/QuantEconLectureAllPackages&quot;</span><span class="p">,</span> <span class="n">tag</span> <span class="o">=</span> <span class="s">&quot;v0.9.7&quot;</span><span class="p">);</span>
 </pre></div>
 
     </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre><span class="ansi-green-intense-fg ansi-bold">Downloading </span>QuantEcon/QuantEconLectureAllPackages-v0.9.5 → /Users/florian.oswald/Dropbox/teaching/ScPo/ScPo-CompEcon/CoursePack/Notebooks/.projects
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>######################################################################### 100.0%########################### 100.0%
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre><span class="ansi-green-intense-fg ansi-bold">Instantiating </span>/Users/florian.oswald/Dropbox/teaching/ScPo/ScPo-CompEcon/CoursePack/Notebooks/.projects/QuantEconLectureAllPackages-v0.9.5
-<span class="ansi-green-intense-fg ansi-bold">  Updating</span> registry at `~/.julia/registries/General`
-<span class="ansi-green-intense-fg ansi-bold">  Updating</span> git-repo `https://github.com/JuliaRegistries/General.git`
-[1mFetching: [========================================&gt;]  100.0 %.0 %<span class="ansi-green-intense-fg ansi-bold">Precompiling</span> project...
-<span class="ansi-green-intense-fg ansi-bold">Precompiling</span> Revise
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>┌ Info: Recompiling stale cache file /Users/florian.oswald/.julia/compiled/v1.1/Revise/M1Qoh.ji for Revise [295af30f-e4ad-537b-8983-00126c2a3abe]
-└ @ Base loading.jl:1184
-</pre>
-</div>
-</div>
-
 </div>
 </div>
 
@@ -13245,18 +13193,23 @@ div#notebook {
 
 
 <div class="output_subarea output_stream output_stderr output_text">
-<pre>┌ Info: Recompiling stale cache file /Users/florian.oswald/.julia/compiled/v1.1/RDatasets/JyIbx.ji for RDatasets [ce6b1742-4840-55fa-b093-852dadbb1d8b]
+<pre>┌ Info: Recompiling stale cache file /Users/florian.oswald/.julia/compiled/v1.1/DataFrames/AR9oZ.ji for DataFrames [a93c6f00-e57d-5684-b7b6-d8193f3e46c0]
 └ @ Base loading.jl:1184
-┌ Info: Recompiling stale cache file /Users/florian.oswald/.julia/compiled/v1.1/DataFramesMeta/2xRTO.ji for DataFramesMeta [1313f7d8-7da2-5740-9ea0-a2ca25f37964]
+┌ Info: Recompiling stale cache file /Users/florian.oswald/.julia/compiled/v1.1/RDatasets/JyIbx.ji for RDatasets [ce6b1742-4840-55fa-b093-852dadbb1d8b]
 └ @ Base loading.jl:1184
-┌ Info: Recompiling stale cache file /Users/florian.oswald/.julia/compiled/v1.1/Query/wGX7b.ji for Query [1a8c2f83-1ff3-5112-b086-8aa67b057ba1]
-└ @ Base loading.jl:1184
+┌ Info: Precompiling DataFramesMeta [1313f7d8-7da2-5740-9ea0-a2ca25f37964]
+└ @ Base loading.jl:1186
+┌ Info: Precompiling Query [1a8c2f83-1ff3-5112-b086-8aa67b057ba1]
+└ @ Base loading.jl:1186
+┌ Info: Precompiling VegaLite [112f6efa-9a02-5b7d-90c0-432ed331239a]
+└ @ Base loading.jl:1186
 ┌ Info: Recompiling stale cache file /Users/florian.oswald/.julia/compiled/v1.1/DataVoyager/5nnU1.ji for DataVoyager [5721bf48-af8e-5845-8445-c9e18126e773]
 └ @ Base loading.jl:1184
-┌ Info: Recompiling stale cache file /Users/florian.oswald/.julia/compiled/v1.1/GLM/6OREG.ji for GLM [38e38edf-8417-5370-95a0-9cbb8c7f171a]
-└ @ Base loading.jl:1184
+┌ Info: Precompiling GLM [38e38edf-8417-5370-95a0-9cbb8c7f171a]
+└ @ Base loading.jl:1186
 ┌ Info: Recompiling stale cache file /Users/florian.oswald/.julia/compiled/v1.1/RegressionTables/cYvie.ji for RegressionTables [d519eb52-b820-54da-95a6-98e1306fdade]
 └ @ Base loading.jl:1184
+WARNING: could not import StatsBase.df_residual into FixedEffectModels
 </pre>
 </div>
 </div>
@@ -14045,19 +13998,6 @@ mean(skipmissing(df2.col1)) = 4.033333333333333
 
 <div class="output_area">
 
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>┌ Warning: In the future eachcol will have names argument set to false by default
-│   caller = evalcontrasts(::DataFrame, ::Dict{Any,Any}) at modelframe.jl:124
-└ @ StatsModels /Users/florian.oswald/.julia/packages/StatsModels/AYB2E/src/modelframe.jl:124
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
     <div class="prompt output_prompt">Out[19]:</div>
 
 
@@ -14070,8 +14010,8 @@ Formula: y ~ 1 + x
 
 Coefficients:
              Estimate Std.Error t value Pr(&gt;|t|)
-(Intercept)  0.226951 0.0129786 17.4865   &lt;1e-31
-x            0.903225 0.0127802  70.674   &lt;1e-85
+(Intercept)  0.251829 0.0141899 17.7471   &lt;1e-31
+x            0.897752  0.012585 71.3353   &lt;1e-85
 </pre>
 </div>
 
@@ -14098,7 +14038,6 @@ similar to the Stata package esttab and the R package stargazer</p>
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="k">using</span> <span class="n">RegressionTables</span>
 <span class="n">regtable</span><span class="p">(</span><span class="n">ols</span><span class="p">)</span>
-<span class="c"># regtable(ols,  renderSettings = latexOutput()) # for LaTex output</span>
 </pre></div>
 
     </div>
@@ -14121,9 +14060,9 @@ similar to the Stata package esttab and the R package stargazer</p>
               --------
                    (1)
 ----------------------
-(Intercept)   0.227***
-               (0.013)
-x             0.903***
+(Intercept)   0.252***
+               (0.014)
+x             0.898***
                (0.013)
 ----------------------
 Estimator          OLS
@@ -14145,7 +14084,7 @@ R2               0.981
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Fixed-Effects">Fixed Effects<a class="anchor-link" href="#Fixed-Effects">&#182;</a></h3><p>While Julia may be overkill for estimating a simple linear regression,
-fixed-effects estimation with dummies for multiple variables are much more computationally intensive</p>
+fixed-effects estimation with dummies for multiple variables are much more computationally intensive. The <a href="https://github.com/matthieugomez/FixedEffectModels.jl">FixedEffectsModel.jl</a> is a great tool for this task.</p>
 <p>For a 2-way fixed-effect, taking the example directly from the documentation using <a href="https://github.com/johnmyleswhite/RDatasets.jl/blob/master/doc/plm/rst/Cigar.rst">cigarette consumption data</a></p>
 
 </div>
@@ -14158,9 +14097,43 @@ fixed-effects estimation with dummies for multiple variables are much more compu
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="k">using</span> <span class="n">FixedEffectModels</span>
 <span class="n">cigar</span> <span class="o">=</span> <span class="n">dataset</span><span class="p">(</span><span class="s">&quot;plm&quot;</span><span class="p">,</span> <span class="s">&quot;Cigar&quot;</span><span class="p">)</span>
-<span class="n">cigar</span><span class="o">.</span><span class="n">StateCategorical</span> <span class="o">=</span>  <span class="n">categorical</span><span class="p">(</span><span class="n">cigar</span><span class="o">.</span><span class="n">State</span><span class="p">)</span>
+<span class="n">cigar</span><span class="o">.</span><span class="n">StateCategorical</span> <span class="o">=</span>  <span class="n">categorical</span><span class="p">(</span><span class="n">cigar</span><span class="o">.</span><span class="n">State</span><span class="p">)</span>   <span class="c"># convert to categorical data type</span>
 <span class="n">cigar</span><span class="o">.</span><span class="n">YearCategorical</span> <span class="o">=</span>  <span class="n">categorical</span><span class="p">(</span><span class="n">cigar</span><span class="o">.</span><span class="n">Year</span><span class="p">)</span>
-<span class="n">fixedeffectresults</span> <span class="o">=</span> <span class="n">reg</span><span class="p">(</span><span class="n">cigar</span><span class="p">,</span> <span class="nd">@model</span><span class="p">(</span><span class="n">Sales</span> <span class="o">~</span> <span class="n">NDI</span><span class="p">,</span> <span class="n">fe</span> <span class="o">=</span> <span class="n">StateCategorical</span> <span class="o">+</span> <span class="n">YearCategorical</span><span class="p">,</span>
+
+<span class="n">describe</span><span class="p">(</span><span class="n">cigar</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[21]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<table class="data-frame"><thead><tr><th></th><th>variable</th><th>mean</th><th>min</th><th>median</th><th>max</th><th>nunique</th><th>nmissing</th><th>eltype</th></tr><tr><th></th><th>Symbol</th><th>Union…</th><th>Any</th><th>Union…</th><th>Any</th><th>Union…</th><th>Int64</th><th>DataType</th></tr></thead><tbody><p>11 rows × 8 columns</p><tr><th>1</th><td>State</td><td>26.8261</td><td>1</td><td>26.5</td><td>51</td><td></td><td>0</td><td>Int64</td></tr><tr><th>2</th><td>Year</td><td>77.5</td><td>63</td><td>77.5</td><td>92</td><td></td><td>0</td><td>Int64</td></tr><tr><th>3</th><td>Price</td><td>68.6999</td><td>23.4</td><td>52.3</td><td>201.9</td><td></td><td>0</td><td>Float64</td></tr><tr><th>4</th><td>Pop</td><td>4537.11</td><td>319.0</td><td>3174.0</td><td>30703.3</td><td></td><td>0</td><td>Float64</td></tr><tr><th>5</th><td>Pop16</td><td>3366.62</td><td>215.2</td><td>2315.3</td><td>22920.0</td><td></td><td>0</td><td>Float64</td></tr><tr><th>6</th><td>CPI</td><td>73.5967</td><td>30.6</td><td>62.9</td><td>140.3</td><td></td><td>0</td><td>Float64</td></tr><tr><th>7</th><td>NDI</td><td>7525.02</td><td>1322.57</td><td>6281.2</td><td>23074.0</td><td></td><td>0</td><td>Float64</td></tr><tr><th>8</th><td>Sales</td><td>123.951</td><td>53.4</td><td>121.2</td><td>297.9</td><td></td><td>0</td><td>Float64</td></tr><tr><th>9</th><td>Pimin</td><td>62.8993</td><td>23.4</td><td>46.4</td><td>178.5</td><td></td><td>0</td><td>Float64</td></tr><tr><th>10</th><td>StateCategorical</td><td></td><td>1</td><td></td><td>51</td><td>46</td><td>0</td><td>CategoricalValue{Int64,UInt32}</td></tr><tr><th>11</th><td>YearCategorical</td><td></td><td>63</td><td></td><td>92</td><td>30</td><td>0</td><td>CategoricalValue{Int64,UInt32}</td></tr></tbody></table>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[22]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-julia"><pre><span></span><span class="n">fixedeffectresults</span> <span class="o">=</span> <span class="n">reg</span><span class="p">(</span><span class="n">cigar</span><span class="p">,</span> 
+    <span class="nd">@model</span><span class="p">(</span><span class="n">Sales</span> <span class="o">~</span> <span class="n">NDI</span><span class="p">,</span> <span class="n">fe</span> <span class="o">=</span> <span class="n">StateCategorical</span> <span class="o">+</span> <span class="n">YearCategorical</span><span class="p">,</span>
                             <span class="n">weights</span> <span class="o">=</span> <span class="n">Pop</span><span class="p">,</span> <span class="n">vcov</span> <span class="o">=</span> <span class="n">cluster</span><span class="p">(</span><span class="n">StateCategorical</span><span class="p">)))</span>
 <span class="n">regtable</span><span class="p">(</span><span class="n">fixedeffectresults</span><span class="p">)</span>
 </pre></div>
@@ -14209,6 +14182,734 @@ R2                     0.804
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="R-LFE-vs-FixedEffects.jl-Shootout">R LFE vs FixedEffects.jl Shootout<a class="anchor-link" href="#R-LFE-vs-FixedEffects.jl-Shootout">&#182;</a></h2><ul>
+<li>High dimensional Fixed effect estimation is compuationally intensive</li>
+<li>The R packge <a href="https://cran.r-project.org/web/packages/lfe/index.html">lfe</a> is a good option that uses multithreading, if available.</li>
+<li>Let's see how FixedEffects.jl compares to it.</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[23]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-julia"><pre><span></span><span class="s">&quot;&quot;&quot;</span>
+<span class="s">    FEbenchmark(;N=10_000_000,K= 100)</span>
+
+<span class="s">A function to create a 2-way fixed effect dataset. `N` observations, `K` </span>
+<span class="s">and `N/K` categories for Fixed effects respectively. We generate 7 regressors as well as a weight vector.</span>
+<span class="s">&quot;&quot;&quot;</span>
+<span class="k">function</span> <span class="n">FEbenchmark</span><span class="p">(;</span><span class="n">N</span><span class="o">=</span><span class="mi">10_000_000</span><span class="p">,</span><span class="n">K</span><span class="o">=</span> <span class="mi">100</span><span class="p">)</span>
+    <span class="n">id1_int</span> <span class="o">=</span> <span class="kt">Int</span><span class="o">.</span><span class="p">(</span><span class="n">rand</span><span class="p">(</span><span class="mi">1</span><span class="o">:</span><span class="p">(</span><span class="n">N</span><span class="o">/</span><span class="n">K</span><span class="p">),</span> <span class="n">N</span><span class="p">))</span>
+    <span class="n">id2_int</span> <span class="o">=</span> <span class="kt">Int</span><span class="o">.</span><span class="p">(</span><span class="n">rand</span><span class="p">(</span><span class="mi">1</span><span class="o">:</span><span class="n">K</span><span class="p">,</span> <span class="n">N</span><span class="p">))</span>
+    <span class="n">w</span> <span class="o">=</span> <span class="n">cos</span><span class="o">.</span><span class="p">(</span><span class="n">id1_int</span><span class="p">)</span>
+    
+    <span class="n">x1</span> <span class="o">=</span> <span class="mi">5</span> <span class="o">*</span> <span class="n">cos</span><span class="o">.</span><span class="p">(</span><span class="n">id1_int</span><span class="p">)</span> <span class="o">+</span> <span class="mi">5</span> <span class="o">*</span> <span class="n">sin</span><span class="o">.</span><span class="p">(</span><span class="n">id2_int</span><span class="p">)</span> <span class="o">+</span> <span class="n">randn</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
+    <span class="n">x2</span> <span class="o">=</span>  <span class="n">cos</span><span class="o">.</span><span class="p">(</span><span class="n">id1_int</span><span class="p">)</span> <span class="o">+</span> <span class="n">sin</span><span class="o">.</span><span class="p">(</span><span class="n">id2_int</span><span class="p">)</span> <span class="o">+</span> <span class="n">randn</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
+    <span class="n">x3</span> <span class="o">=</span>  <span class="n">cos</span><span class="o">.</span><span class="p">(</span><span class="n">id1_int</span><span class="p">)</span> <span class="o">+</span> <span class="n">sin</span><span class="o">.</span><span class="p">(</span><span class="n">id2_int</span><span class="p">)</span> <span class="o">+</span> <span class="n">randn</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
+    <span class="n">x4</span> <span class="o">=</span>  <span class="n">cos</span><span class="o">.</span><span class="p">(</span><span class="n">id1_int</span><span class="p">)</span> <span class="o">+</span> <span class="n">sin</span><span class="o">.</span><span class="p">(</span><span class="n">id2_int</span><span class="p">)</span> <span class="o">+</span> <span class="n">randn</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
+    <span class="n">x5</span> <span class="o">=</span>  <span class="n">cos</span><span class="o">.</span><span class="p">(</span><span class="n">id1_int</span><span class="p">)</span> <span class="o">+</span> <span class="n">sin</span><span class="o">.</span><span class="p">(</span><span class="n">id2_int</span><span class="p">)</span> <span class="o">+</span> <span class="n">randn</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
+    <span class="n">x6</span> <span class="o">=</span>  <span class="n">cos</span><span class="o">.</span><span class="p">(</span><span class="n">id1_int</span><span class="p">)</span> <span class="o">+</span> <span class="n">sin</span><span class="o">.</span><span class="p">(</span><span class="n">id2_int</span><span class="p">)</span> <span class="o">+</span> <span class="n">randn</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
+    <span class="n">x7</span> <span class="o">=</span>  <span class="n">cos</span><span class="o">.</span><span class="p">(</span><span class="n">id1_int</span><span class="p">)</span> <span class="o">+</span> <span class="n">sin</span><span class="o">.</span><span class="p">(</span><span class="n">id2_int</span><span class="p">)</span> <span class="o">+</span> <span class="n">randn</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
+    <span class="n">y</span><span class="o">=</span> <span class="mi">3</span> <span class="o">.*</span> <span class="n">x1</span> <span class="o">.+</span> <span class="mi">5</span> <span class="o">.*</span> <span class="n">x2</span> <span class="o">.+</span> <span class="n">x3</span> <span class="o">.+</span> <span class="n">x4</span> <span class="o">.+</span> <span class="n">x5</span> <span class="o">.+</span> <span class="n">x6</span> <span class="o">.+</span> <span class="n">x7</span> <span class="o">.+</span> <span class="n">cos</span><span class="o">.</span><span class="p">(</span><span class="n">id1_int</span><span class="p">)</span> <span class="o">.+</span> <span class="n">cos</span><span class="o">.</span><span class="p">(</span><span class="n">id2_int</span><span class="p">)</span><span class="o">.^</span><span class="mi">2</span> <span class="o">.+</span> <span class="n">randn</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">DataFrame</span><span class="p">(</span><span class="n">id1</span> <span class="o">=</span> <span class="n">categorical</span><span class="p">(</span><span class="n">id1_int</span><span class="p">),</span><span class="n">id1_int</span> <span class="o">=</span> <span class="n">id1_int</span><span class="p">,</span> 
+                   <span class="n">id2</span> <span class="o">=</span> <span class="n">categorical</span><span class="p">(</span><span class="n">id2_int</span><span class="p">),</span> <span class="n">id2_int</span> <span class="o">=</span> <span class="n">id2_int</span><span class="p">,</span>
+                   <span class="n">x1</span> <span class="o">=</span> <span class="n">x1</span><span class="p">,</span> 
+                   <span class="n">x2</span> <span class="o">=</span> <span class="n">x2</span><span class="p">,</span>
+                   <span class="n">x3</span> <span class="o">=</span> <span class="n">x3</span><span class="p">,</span>
+                   <span class="n">x4</span> <span class="o">=</span> <span class="n">x4</span><span class="p">,</span>
+                   <span class="n">x5</span> <span class="o">=</span> <span class="n">x5</span><span class="p">,</span>
+                   <span class="n">x6</span> <span class="o">=</span> <span class="n">x6</span><span class="p">,</span>
+                   <span class="n">x7</span> <span class="o">=</span> <span class="n">x7</span><span class="p">,</span>        
+                   <span class="n">w</span> <span class="o">=</span> <span class="n">w</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">y</span><span class="p">)</span>
+    <span class="n">df</span>
+<span class="k">end</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[23]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>FEbenchmark</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[24]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-julia"><pre><span></span><span class="c"># create our dataset</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">FEbenchmark</span><span class="p">()</span>
+
+<span class="c"># run a bunch of different models</span>
+<span class="nd">@time</span> <span class="n">reg</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="nd">@model</span><span class="p">(</span><span class="n">y</span> <span class="o">~</span> <span class="n">x1</span> <span class="o">+</span> <span class="n">x2</span><span class="p">))</span>
+<span class="c"># 0.582029 seconds (852 allocations: 535.311 MiB, 18.28% gc time)</span>
+<span class="nd">@time</span> <span class="n">reg</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="nd">@model</span><span class="p">(</span><span class="n">y</span> <span class="o">~</span> <span class="n">x1</span> <span class="o">+</span> <span class="n">x2</span><span class="p">,</span> <span class="n">vcov</span> <span class="o">=</span> <span class="n">cluster</span><span class="p">(</span><span class="n">id2</span><span class="p">)))</span>
+<span class="c"># 0.809652 seconds (1.55 k allocations: 649.821 MiB, 14.40% gc time)</span>
+<span class="nd">@time</span> <span class="n">reg</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="nd">@model</span><span class="p">(</span><span class="n">y</span> <span class="o">~</span> <span class="n">x1</span> <span class="o">+</span> <span class="n">x2</span><span class="p">,</span> <span class="n">fe</span> <span class="o">=</span> <span class="n">id1</span><span class="p">))</span>
+<span class="c"># 1.655732 seconds (1.21 k allocations: 734.353 MiB, 16.88% gc time)</span>
+<span class="nd">@time</span> <span class="n">reg</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="nd">@model</span><span class="p">(</span><span class="n">y</span> <span class="o">~</span> <span class="n">x1</span> <span class="o">+</span> <span class="n">x2</span><span class="p">,</span> <span class="n">fe</span> <span class="o">=</span> <span class="n">id1</span><span class="p">,</span> <span class="n">vcov</span> <span class="o">=</span> <span class="n">cluster</span><span class="p">(</span><span class="n">id1</span><span class="p">)))</span>
+<span class="c">#  2.113248 seconds (499.66 k allocations: 811.751 MiB, 15.08% gc time)</span>
+<span class="nd">@time</span> <span class="n">reg</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="nd">@model</span><span class="p">(</span><span class="n">y</span> <span class="o">~</span> <span class="n">x1</span> <span class="o">+</span> <span class="n">x2</span><span class="p">,</span> <span class="n">fe</span> <span class="o">=</span> <span class="n">id1</span> <span class="o">+</span> <span class="n">id2</span><span class="p">))</span>
+<span class="c"># 3.553678 seconds (1.36 k allocations: 1005.101 MiB, 10.55% gc time))</span>
+
+<span class="c"># let&#39;s take the biggest model as our benchmark timing</span>
+<span class="nd">@time</span> <span class="n">result</span> <span class="o">=</span> <span class="n">reg</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="nd">@model</span><span class="p">(</span><span class="n">y</span> <span class="o">~</span> <span class="n">x1</span> <span class="o">+</span> <span class="n">x2</span> <span class="o">+</span> <span class="n">x3</span> <span class="o">+</span> <span class="n">x4</span> <span class="o">+</span> <span class="n">x5</span> <span class="o">+</span> <span class="n">x6</span> <span class="o">+</span> <span class="n">x7</span><span class="p">,</span> <span class="n">fe</span> <span class="o">=</span> <span class="n">id1</span> <span class="o">+</span> <span class="n">id2</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>  1.226953 seconds (319.70 k allocations: 550.932 MiB, 17.54% gc time)
+  1.392463 seconds (286.34 k allocations: 665.554 MiB, 16.57% gc time)
+  3.709866 seconds (862.79 k allocations: 851.879 MiB, 14.63% gc time)
+  4.957335 seconds (549.47 k allocations: 890.635 MiB, 18.70% gc time)
+  6.813577 seconds (598.22 k allocations: 1.158 GiB, 15.14% gc time)
+ 11.116133 seconds (28.16 k allocations: 1.504 GiB, 6.09% gc time)
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[24]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>                      Fixed Effect Model                      
+==============================================================
+Number of obs:        10000000  Degrees of freedom:     100107
+R2:                      0.999  R2 within:               0.975
+F-Statistic:         8.91586e7  p-value:                 0.000
+Iterations:                  6  Converged:                true
+     Estimate   Std.Error t value Pr(&gt;|t|) Lower 95% Upper 95%
+x1    3.00017 0.000317734 9442.38    0.000   2.99955   3.00079
+x2    5.00004 0.000317783 15734.2    0.000   4.99942   5.00066
+x3    1.00004 0.000317787 3146.88    0.000  0.999416   1.00066
+x4   0.999904 0.000317675 3147.57    0.000  0.999282   1.00053
+x5   0.999611 0.000317811  3145.3    0.000  0.998989   1.00023
+x6   0.999962 0.000317662 3147.88    0.000  0.999339   1.00058
+x7    1.00003 0.000317635 3148.35    0.000  0.999405   1.00065
+</pre>
+</div>
+
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>==============================================================
+--------------------------------------------------------------
+==============================================================
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[25]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-julia"><pre><span></span><span class="c"># using R lfe package</span>
+<span class="k">using</span> <span class="n">RCall</span>
+<span class="n">rstring</span> <span class="o">=</span> <span class="n">R</span><span class="s">&quot;&quot;&quot;</span>
+<span class="s"># factorize data</span>
+<span class="s"># notice that we have to pass the integer data in id1_int.</span>
+<span class="s">r_d = </span><span class="si">$df</span><span class="s"></span>
+<span class="s">r_d[,&quot;id1&quot;] = factor(r_d[,&quot;id1_int&quot;])</span>
+<span class="s">r_d[,&quot;id2&quot;] = factor(r_d[,&quot;id2_int&quot;])</span>
+
+<span class="s">library(lfe)</span>
+<span class="s">r_time = system.time(lfe &lt;- felm(y ~x1 + x2 + x3 + x4 + x5 + x6 + x7| id1 + id2, data=r_d))</span>
+<span class="s">print(paste0(&quot;R lfe time: &quot;,r_time[1]))</span>
+<span class="s">print(summary(lfe))</span>
+<span class="s">r_time[1]</span>
+<span class="s">#</span>
+<span class="s">## OLS.</span>
+<span class="s">#ols &lt;- lm(y ~x1 + x2 + x3 + x4 + x5 + x6 + x7 + id1 + id2 -1, data=r_d)</span>
+<span class="s">#summary(ols)</span>
+<span class="s">&quot;&quot;&quot;</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>┌ Info: Recompiling stale cache file /Users/florian.oswald/.julia/compiled/v1.1/RCall/8GFyb.ji for RCall [6f49c342-dc21-5d91-9882-a32aef131414]
+└ @ Base loading.jl:1184
+┌ Warning: RCall.jl: Loading required package: Matrix
+└ @ RCall /Users/florian.oswald/.julia/packages/RCall/29zDq/src/io.jl:113
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[1] &#34;R lfe time: 32.918&#34;
+
+Call:
+   felm(formula = y ~ x1 + x2 + x3 + x4 + x5 + x6 + x7 | id1 + id2,      data = r_d) 
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-5.6660 -0.6706 -0.0003  0.6709  4.9936 
+
+Coefficients:
+    Estimate Std. Error t value Pr(&gt;|t|)    
+x1 3.0001692  0.0003177    9442   &lt;2e-16 ***
+x2 5.0000417  0.0003178   15734   &lt;2e-16 ***
+x3 1.0000387  0.0003178    3147   &lt;2e-16 ***
+x4 0.9999043  0.0003177    3148   &lt;2e-16 ***
+x5 0.9996114  0.0003178    3145   &lt;2e-16 ***
+x6 0.9999619  0.0003177    3148   &lt;2e-16 ***
+x7 1.0000272  0.0003176    3148   &lt;2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 0.9997 on 9899894 degrees of freedom
+Multiple R-squared(full model): 0.9986   Adjusted R-squared: 0.9986 
+Multiple R-squared(proj model): 0.975   Adjusted R-squared: 0.9748 
+F-statistic(full model):6.909e+04 on 100105 and 9899894 DF, p-value: &lt; 2.2e-16 
+F-statistic(proj model): 5.519e+07 on 7 and 9899894 DF, p-value: &lt; 2.2e-16 
+
+
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[25]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>RObject{RealSxp}
+user.self 
+   32.918 
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[35]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-julia"><pre><span></span><span class="c"># use option save=true to store estimated fixed effects</span>
+<span class="nd">@time</span> <span class="n">result</span> <span class="o">=</span> <span class="n">reg</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="nd">@model</span><span class="p">(</span><span class="n">y</span> <span class="o">~</span> <span class="n">x1</span> <span class="o">+</span> <span class="n">x2</span> <span class="o">+</span> <span class="n">x3</span> <span class="o">+</span> <span class="n">x4</span> <span class="o">+</span> <span class="n">x5</span> <span class="o">+</span> <span class="n">x6</span> <span class="o">+</span> <span class="n">x7</span><span class="p">,</span> <span class="n">fe</span> <span class="o">=</span> <span class="n">id1</span> <span class="o">+</span> <span class="n">id2</span><span class="p">),</span> <span class="n">save</span> <span class="o">=</span> <span class="kc">true</span><span class="p">)</span>
+<span class="k">using</span> <span class="n">RegressionTables</span>
+<span class="n">regtable</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre> 20.261003 seconds (2.21 k allocations: 3.096 GiB, 9.50% gc time)
+
+----------------------
+                 y    
+            ----------
+                   (1)
+----------------------
+x1            3.000***
+               (0.000)
+x2            5.000***
+               (0.000)
+x3            1.000***
+               (0.000)
+x4            1.000***
+               (0.000)
+x5            1.000***
+               (0.000)
+x6            1.000***
+               (0.000)
+x7            1.000***
+               (0.000)
+----------------------
+id1                Yes
+id2                Yes
+----------------------
+Estimator          OLS
+----------------------
+N           10,000,000
+R2               0.999
+----------------------
+
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[27]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-julia"><pre><span></span><span class="n">cor</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">augmentdf</span><span class="o">.</span><span class="n">id1</span><span class="p">,</span><span class="n">result</span><span class="o">.</span><span class="n">augmentdf</span><span class="o">.</span><span class="n">id2</span><span class="p">)</span>   <span class="c"># AKM sorting?</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[27]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>-0.00020160140915523005</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[28]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-julia"><pre><span></span><span class="c"># more models</span>
+<span class="n">result2</span> <span class="o">=</span> <span class="n">reg</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="nd">@model</span><span class="p">(</span><span class="n">y</span> <span class="o">~</span> <span class="n">x1</span> <span class="o">+</span> <span class="n">x2</span> <span class="o">+</span> <span class="n">x3</span><span class="p">,</span> <span class="n">fe</span> <span class="o">=</span> <span class="n">id1</span> <span class="o">+</span> <span class="n">id2</span><span class="p">))</span>
+<span class="n">result3</span> <span class="o">=</span> <span class="n">reg</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="nd">@model</span><span class="p">(</span><span class="n">y</span> <span class="o">~</span> <span class="n">x1</span>      <span class="o">+</span> <span class="n">x3</span><span class="p">,</span> <span class="n">fe</span> <span class="o">=</span> <span class="n">id1</span> <span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[28]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>                      Fixed Effect Model                      
+==============================================================
+Number of obs:        10000000  Degrees of freedom:     100002
+R2:                      0.953  R2 within:               0.907
+F-Statistic:         8.63907e7  p-value:                 0.000
+Iterations:                  1  Converged:                true
+     Estimate   Std.Error t value Pr(&gt;|t|) Lower 95% Upper 95%
+x1    4.60759 0.000596781 7720.74    0.000   4.60642   4.60876
+x3    1.31957  0.00179355  735.73    0.000   1.31606   1.32309
+</pre>
+</div>
+
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>==============================================================
+--------------------------------------------------------------
+==============================================================
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[29]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-julia"><pre><span></span><span class="c"># how to look at those? -&gt; regtable!</span>
+<span class="n">regtable</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="n">result2</span><span class="p">,</span> <span class="n">result3</span> <span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>
+------------------------------------------------
+                              y                 
+            ------------------------------------
+                   (1)          (2)          (3)
+------------------------------------------------
+x1            3.000***     3.000***     4.608***
+               (0.000)      (0.001)      (0.001)
+x2            5.000***     5.001***             
+               (0.000)      (0.001)             
+x3            1.000***     1.000***     1.320***
+               (0.000)      (0.001)      (0.002)
+x4            1.000***                          
+               (0.000)                          
+x5            1.000***                          
+               (0.000)                          
+x6            1.000***                          
+               (0.000)                          
+x7            1.000***                          
+               (0.000)                          
+------------------------------------------------
+id1                Yes          Yes          Yes
+id2                Yes          Yes             
+------------------------------------------------
+Estimator          OLS          OLS          OLS
+------------------------------------------------
+N           10,000,000   10,000,000   10,000,000
+R2               0.999        0.993        0.953
+------------------------------------------------
+
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[30]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-julia"><pre><span></span><span class="c"># latex?</span>
+<span class="n">regtable</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="n">result2</span><span class="p">,</span> <span class="n">result3</span><span class="p">,</span> <span class="n">renderSettings</span> <span class="o">=</span> <span class="n">latexOutput</span><span class="p">()</span> <span class="p">)</span>  <span class="c"># latexOutput(filename::String)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>\begin{tabular}{lrrr}
+\toprule
+          &amp;         \multicolumn{3}{c}{y}        \\ 
+\cmidrule(lr){2-4} 
+          &amp;        (1) &amp;        (2) &amp;        (3) \\ 
+\midrule
+x1        &amp;   3.000*** &amp;   3.000*** &amp;   4.608*** \\ 
+          &amp;    (0.000) &amp;    (0.001) &amp;    (0.001) \\ 
+x2        &amp;   5.000*** &amp;   5.001*** &amp;            \\ 
+          &amp;    (0.000) &amp;    (0.001) &amp;            \\ 
+x3        &amp;   1.000*** &amp;   1.000*** &amp;   1.320*** \\ 
+          &amp;    (0.000) &amp;    (0.001) &amp;    (0.002) \\ 
+x4        &amp;   1.000*** &amp;            &amp;            \\ 
+          &amp;    (0.000) &amp;            &amp;            \\ 
+x5        &amp;   1.000*** &amp;            &amp;            \\ 
+          &amp;    (0.000) &amp;            &amp;            \\ 
+x6        &amp;   1.000*** &amp;            &amp;            \\ 
+          &amp;    (0.000) &amp;            &amp;            \\ 
+x7        &amp;   1.000*** &amp;            &amp;            \\ 
+          &amp;    (0.000) &amp;            &amp;            \\ 
+\midrule
+id1       &amp;        Yes &amp;        Yes &amp;        Yes \\ 
+id2       &amp;        Yes &amp;        Yes &amp;            \\ 
+\midrule
+Estimator &amp;        OLS &amp;        OLS &amp;        OLS \\ 
+\midrule
+$N$       &amp; 10,000,000 &amp; 10,000,000 &amp; 10,000,000 \\ 
+$R^2$     &amp;      0.999 &amp;      0.993 &amp;      0.953 \\ 
+\bottomrule
+\end{tabular}
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[31]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-julia"><pre><span></span><span class="c"># options</span>
+<span class="n">regtable</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="n">result2</span><span class="p">,</span> <span class="n">result3</span> <span class="p">,</span> <span class="n">below_statistic</span> <span class="o">=</span> <span class="o">:</span><span class="n">blank</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>
+------------------------------------------------
+                              y                 
+            ------------------------------------
+                   (1)          (2)          (3)
+------------------------------------------------
+x1            3.000***     3.000***     4.608***
+                                                
+x2            5.000***     5.001***             
+                                                
+x3            1.000***     1.000***     1.320***
+                                                
+x4            1.000***                          
+                                                
+x5            1.000***                          
+                                                
+x6            1.000***                          
+                                                
+x7            1.000***                          
+                                                
+------------------------------------------------
+id1                Yes          Yes          Yes
+id2                Yes          Yes             
+------------------------------------------------
+Estimator          OLS          OLS          OLS
+------------------------------------------------
+N           10,000,000   10,000,000   10,000,000
+R2               0.999        0.993        0.953
+------------------------------------------------
+
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[32]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-julia"><pre><span></span><span class="k">using</span> <span class="n">GLM</span>
+<span class="n">ols</span> <span class="o">=</span> <span class="n">lm</span><span class="p">(</span><span class="nd">@formula</span><span class="p">(</span><span class="n">y</span> <span class="o">~</span> <span class="n">x1</span> <span class="o">+</span> <span class="n">x2</span><span class="p">),</span><span class="n">df</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[32]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>StatsModels.DataFrameRegressionModel{LinearModel{LmResp{Array{Float64,1}},DensePredChol{Float64,Cholesky{Float64,Array{Float64,2}}}},Array{Float64,2}}
+
+Formula: y ~ 1 + x1 + x2
+
+Coefficients:
+             Estimate   Std.Error t value Pr(&gt;|t|)
+(Intercept)  0.497543 0.000865641 574.768   &lt;1e-99
+x1            4.01824 0.000235451 17066.2   &lt;1e-99
+x2            5.20388 0.000849626 6124.91   &lt;1e-99
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[33]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-julia"><pre><span></span><span class="n">regtable</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="n">result2</span><span class="p">,</span><span class="n">ols</span><span class="p">,</span><span class="n">below_decoration</span> <span class="o">=</span> <span class="n">s</span> <span class="o">-&gt;</span> <span class="s">&quot;[</span><span class="si">$</span><span class="p">(</span><span class="n">s</span><span class="p">)</span><span class="s">]&quot;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>
+--------------------------------------------------
+                                y                 
+              ------------------------------------
+                     (1)          (2)          (3)
+--------------------------------------------------
+x1              3.000***     3.000***     4.018***
+                 [0.000]      [0.001]      [0.000]
+x2              5.000***     5.001***     5.204***
+                 [0.000]      [0.001]      [0.001]
+x3              1.000***     1.000***             
+                 [0.000]      [0.001]             
+x4              1.000***                          
+                 [0.000]                          
+x5              1.000***                          
+                 [0.000]                          
+x6              1.000***                          
+                 [0.000]                          
+x7              1.000***                          
+                 [0.000]                          
+(Intercept)                               0.498***
+                                           [0.001]
+--------------------------------------------------
+id1                  Yes          Yes             
+id2                  Yes          Yes             
+--------------------------------------------------
+Estimator            OLS          OLS          OLS
+--------------------------------------------------
+N             10,000,000   10,000,000   10,000,000
+R2                 0.999        0.993        0.989
+--------------------------------------------------
+
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>💪 <a href="https://twitter.com/johannesmboehm">@jmboehm</a></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <p>To explore the data use the interactive DataVoyager and VegaLite</p>
 
 </div>
@@ -14216,7 +14917,7 @@ R2                     0.804
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[22]:</div>
+<div class="prompt input_prompt">In&nbsp;[34]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="c"># cigar |&gt; Voyager()</span>
@@ -14240,7 +14941,7 @@ R2                     0.804
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[22]:</div>
+    <div class="prompt output_prompt">Out[34]:</div>
 
 
 
@@ -14252,6 +14953,19 @@ R2                     0.804
 
 </div>
 
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-julia"><pre><span></span>
+</pre></div>
+
+    </div>
 </div>
 </div>
 
