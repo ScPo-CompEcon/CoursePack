@@ -13280,10 +13280,14 @@ a.anchor-link {
 <div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-julia"><pre><span></span><span class="k">using</span> <span class="n">InstantiateFromURL</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="c"># It&#39;s a massive contribution of the QuantEcon team that we can now instantiate a fully tested package</span>
+<span class="c"># environment directly from the web. The below commands will download and precompile </span>
+<span class="c"># an extensive list of packages, the first time it&#39;s called. Next time, we will immediately be able to use them.</span>
+
+<span class="k">using</span> <span class="n">InstantiateFromURL</span>
 
 <span class="c"># activate the QuantEcon environment</span>
-<span class="n">activate_github</span><span class="p">(</span><span class="s">&quot;QuantEcon/QuantEconLectureAllPackages&quot;</span><span class="p">,</span> <span class="n">tag</span> <span class="o">=</span> <span class="s">&quot;v0.9.5&quot;</span><span class="p">);</span>
+<span class="n">activate_github</span><span class="p">(</span><span class="s">&quot;QuantEcon/QuantEconLectureAllPackages&quot;</span><span class="p">,</span> <span class="n">tag</span> <span class="o">=</span> <span class="s">&quot;v0.9.7&quot;</span><span class="p">);</span>
 </pre></div>
 
     </div>
@@ -13300,7 +13304,7 @@ a.anchor-link {
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre><span class="ansi-green-intense-fg ansi-bold">Downloading </span>QuantEcon/QuantEconLectureAllPackages-v0.9.5 → /Users/florian.oswald/Dropbox/teaching/ScPo/ScPo-CompEcon/CoursePack/Notebooks/.projects
+<pre><span class="ansi-green-intense-fg ansi-bold">Downloading </span>QuantEcon/QuantEconLectureAllPackages-v0.9.7 → /Users/florian.oswald/Dropbox/teaching/ScPo/ScPo-CompEcon/CoursePack/Notebooks/.projects
 </pre>
 </div>
 </div>
@@ -13311,7 +13315,7 @@ a.anchor-link {
 
 
 <div class="output_subarea output_stream output_stderr output_text">
-<pre>######################################################################### 100.0%########################### 100.0%
+<pre>######################################################################### 100.0%
 </pre>
 </div>
 </div>
@@ -13322,11 +13326,11 @@ a.anchor-link {
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre><span class="ansi-green-intense-fg ansi-bold">Instantiating </span>/Users/florian.oswald/Dropbox/teaching/ScPo/ScPo-CompEcon/CoursePack/Notebooks/.projects/QuantEconLectureAllPackages-v0.9.5
+<pre><span class="ansi-green-intense-fg ansi-bold">Instantiating </span>/Users/florian.oswald/Dropbox/teaching/ScPo/ScPo-CompEcon/CoursePack/Notebooks/.projects/QuantEconLectureAllPackages-v0.9.7
 <span class="ansi-green-intense-fg ansi-bold">  Updating</span> registry at `~/.julia/registries/General`
 <span class="ansi-green-intense-fg ansi-bold">  Updating</span> git-repo `https://github.com/JuliaRegistries/General.git`
-[1mFetching: [========================================&gt;]  100.0 %.0 %<span class="ansi-green-intense-fg ansi-bold">Precompiling</span> project...
-<span class="ansi-green-intense-fg ansi-bold">Precompiling</span> Revise
+[1mFetching: [========================================&gt;]  100.0 %.0 %]  45.8 %=====================================&gt;   ]  92.0 %<span class="ansi-green-intense-fg ansi-bold">Precompiling</span> project...
+<span class="ansi-green-intense-fg ansi-bold">Precompiling</span> ForwardDiff
 </pre>
 </div>
 </div>
@@ -13337,8 +13341,732 @@ a.anchor-link {
 
 
 <div class="output_subarea output_stream output_stderr output_text">
-<pre>┌ Info: Recompiling stale cache file /Users/florian.oswald/.julia/compiled/v1.1/Revise/M1Qoh.ji for Revise [295af30f-e4ad-537b-8983-00126c2a3abe]
+<pre>┌ Info: Recompiling stale cache file /Users/florian.oswald/.julia/compiled/v1.1/ForwardDiff/k0ETY.ji for ForwardDiff [f6369f11-7733-5829-9624-2563aa707210]
 └ @ Base loading.jl:1184
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre><span class="ansi-green-intense-fg ansi-bold">Precompiling</span> LazyArrays
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>┌ Info: Recompiling stale cache file /Users/florian.oswald/.julia/compiled/v1.1/LazyArrays/h0pkJ.ji for LazyArrays [5078a376-72f3-5289-bfd5-ec5146d43c02]
+└ @ Base loading.jl:1184
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre><span class="ansi-green-intense-fg ansi-bold">Precompiling</span> VegaDatasets
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>┌ Info: Recompiling stale cache file /Users/florian.oswald/.julia/compiled/v1.1/VegaDatasets/v6OW9.ji for VegaDatasets [0ae4a718-28b7-58ec-9efb-cded64d6d5b4]
+└ @ Base loading.jl:1184
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre><span class="ansi-green-intense-fg ansi-bold">Precompiling</span> Compat
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>┌ Info: Recompiling stale cache file /Users/florian.oswald/.julia/compiled/v1.1/Compat/GSFWK.ji for Compat [34da2185-b29b-5c13-b0c7-acf172513d20]
+└ @ Base loading.jl:1184
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre><span class="ansi-green-intense-fg ansi-bold">Precompiling</span> Latexify
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>┌ Info: Precompiling Latexify [23fbe1c1-3f47-55db-b15f-69d7ec21a316]
+└ @ Base loading.jl:1186
+┌ Warning: Module Compat with build ID 95224860146667 is missing from the cache.
+│ This may mean Compat [34da2185-b29b-5c13-b0c7-acf172513d20] does not support precompilation but is imported by a module that does.
+└ @ Base loading.jl:947
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre><span class="ansi-green-intense-fg ansi-bold">Precompiling</span> Expectations
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>┌ Warning: Module Compat with build ID 95224860146667 is missing from the cache.
+│ This may mean Compat [34da2185-b29b-5c13-b0c7-acf172513d20] does not support precompilation but is imported by a module that does.
+└ @ Base loading.jl:947
+┌ Info: Precompiling Expectations [2fe49d83-0758-5602-8f54-1f90ad0d522b]
+└ @ Base loading.jl:1186
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre><span class="ansi-green-intense-fg ansi-bold">Precompiling</span> DataFrames
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>┌ Warning: Module Compat with build ID 95224860146667 is missing from the cache.
+│ This may mean Compat [34da2185-b29b-5c13-b0c7-acf172513d20] does not support precompilation but is imported by a module that does.
+└ @ Base loading.jl:947
+┌ Info: Recompiling stale cache file /Users/florian.oswald/.julia/compiled/v1.1/DataFrames/AR9oZ.ji for DataFrames [a93c6f00-e57d-5684-b7b6-d8193f3e46c0]
+└ @ Base loading.jl:1184
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre><span class="ansi-green-intense-fg ansi-bold">Precompiling</span> LeastSquaresOptim
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>┌ Warning: Module Compat with build ID 95224860146667 is missing from the cache.
+│ This may mean Compat [34da2185-b29b-5c13-b0c7-acf172513d20] does not support precompilation but is imported by a module that does.
+└ @ Base loading.jl:947
+┌ Info: Precompiling LeastSquaresOptim [0fc2ff8b-aaa3-5acd-a817-1944a5e08891]
+└ @ Base loading.jl:1186
+┌ Warning: Module Compat with build ID 95224860146667 is missing from the cache.
+│ This may mean Compat [34da2185-b29b-5c13-b0c7-acf172513d20] does not support precompilation but is imported by a module that does.
+└ @ Base loading.jl:947
+┌ Warning: Module Compat with build ID 95224860146667 is missing from the cache.
+│ This may mean Compat [34da2185-b29b-5c13-b0c7-acf172513d20] does not support precompilation but is imported by a module that does.
+└ @ Base loading.jl:947
+┌ Warning: Module Compat with build ID 95224860146667 is missing from the cache.
+│ This may mean Compat [34da2185-b29b-5c13-b0c7-acf172513d20] does not support precompilation but is imported by a module that does.
+└ @ Base loading.jl:947
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre><span class="ansi-green-intense-fg ansi-bold">Precompiling</span> GR
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>┌ Warning: Module Compat with build ID 95224860146667 is missing from the cache.
+│ This may mean Compat [34da2185-b29b-5c13-b0c7-acf172513d20] does not support precompilation but is imported by a module that does.
+└ @ Base loading.jl:947
+┌ Info: Recompiling stale cache file /Users/florian.oswald/.julia/compiled/v1.1/GR/NDU5Y.ji for GR [28b8d3ca-fb5f-59d9-8090-bfdbd6d07a71]
+└ @ Base loading.jl:1184
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre><span class="ansi-green-intense-fg ansi-bold">Precompiling</span> FastGaussQuadrature
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>┌ Info: Recompiling stale cache file /Users/florian.oswald/.julia/compiled/v1.1/FastGaussQuadrature/vg51R.ji for FastGaussQuadrature [442a2c76-b920-505d-bb47-c5924d526838]
+└ @ Base loading.jl:1184
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre><span class="ansi-green-intense-fg ansi-bold">Precompiling</span> Queryverse
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>┌ Warning: Module Compat with build ID 95224860146667 is missing from the cache.
+│ This may mean Compat [34da2185-b29b-5c13-b0c7-acf172513d20] does not support precompilation but is imported by a module that does.
+└ @ Base loading.jl:947
+┌ Info: Precompiling Queryverse [612083be-0b0f-5412-89c1-4e7c75506a58]
+└ @ Base loading.jl:1186
+┌ Warning: Module Compat with build ID 95224860146667 is missing from the cache.
+│ This may mean Compat [34da2185-b29b-5c13-b0c7-acf172513d20] does not support precompilation but is imported by a module that does.
+└ @ Base loading.jl:947
+┌ Warning: Module Compat with build ID 95224860146667 is missing from the cache.
+│ This may mean Compat [34da2185-b29b-5c13-b0c7-acf172513d20] does not support precompilation but is imported by a module that does.
+└ @ Base loading.jl:947
+┌ Warning: Module Compat with build ID 95224860146667 is missing from the cache.
+│ This may mean Compat [34da2185-b29b-5c13-b0c7-acf172513d20] does not support precompilation but is imported by a module that does.
+└ @ Base loading.jl:947
+┌ Warning: Module Compat with build ID 95224860146667 is missing from the cache.
+│ This may mean Compat [34da2185-b29b-5c13-b0c7-acf172513d20] does not support precompilation but is imported by a module that does.
+└ @ Base loading.jl:947
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre><span class="ansi-green-intense-fg ansi-bold">Precompiling</span> Sundials
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>┌ Info: Recompiling stale cache file /Users/florian.oswald/.julia/compiled/v1.1/Sundials/j8Ppj.ji for Sundials [c3572dad-4567-51f8-b174-8c6c989267f4]
+└ @ Base loading.jl:1184
+┌ Warning: Module Compat with build ID 95224860146667 is missing from the cache.
+│ This may mean Compat [34da2185-b29b-5c13-b0c7-acf172513d20] does not support precompilation but is imported by a module that does.
+└ @ Base loading.jl:947
+┌ Warning: Module Compat with build ID 95224860146667 is missing from the cache.
+│ This may mean Compat [34da2185-b29b-5c13-b0c7-acf172513d20] does not support precompilation but is imported by a module that does.
+└ @ Base loading.jl:947
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre><span class="ansi-green-intense-fg ansi-bold">Precompiling</span> StatsPlots
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>┌ Info: Precompiling StatsPlots [f3b207a7-027a-5e70-b257-86293d7955fd]
+└ @ Base loading.jl:1186
+┌ Warning: Module Compat with build ID 95224860146667 is missing from the cache.
+│ This may mean Compat [34da2185-b29b-5c13-b0c7-acf172513d20] does not support precompilation but is imported by a module that does.
+└ @ Base loading.jl:947
+┌ Warning: Module Compat with build ID 95224860146667 is missing from the cache.
+│ This may mean Compat [34da2185-b29b-5c13-b0c7-acf172513d20] does not support precompilation but is imported by a module that does.
+└ @ Base loading.jl:947
+┌ Warning: Module Compat with build ID 95224860146667 is missing from the cache.
+│ This may mean Compat [34da2185-b29b-5c13-b0c7-acf172513d20] does not support precompilation but is imported by a module that does.
+└ @ Base loading.jl:947
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre><span class="ansi-green-intense-fg ansi-bold">Precompiling</span> Traceur
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>┌ Warning: Module Compat with build ID 95224860146667 is missing from the cache.
+│ This may mean Compat [34da2185-b29b-5c13-b0c7-acf172513d20] does not support precompilation but is imported by a module that does.
+└ @ Base loading.jl:947
+┌ Info: Precompiling Traceur [37b6cedf-1f77-55f8-9503-c64b63398394]
+└ @ Base loading.jl:1186
+┌ Warning: Module Compat with build ID 95224860146667 is missing from the cache.
+│ This may mean Compat [34da2185-b29b-5c13-b0c7-acf172513d20] does not support precompilation but is imported by a module that does.
+└ @ Base loading.jl:947
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre><span class="ansi-green-intense-fg ansi-bold">Precompiling</span> BandedMatrices
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>┌ Warning: Module Compat with build ID 95224860146667 is missing from the cache.
+│ This may mean Compat [34da2185-b29b-5c13-b0c7-acf172513d20] does not support precompilation but is imported by a module that does.
+└ @ Base loading.jl:947
+┌ Info: Recompiling stale cache file /Users/florian.oswald/.julia/compiled/v1.1/BandedMatrices/OxlqV.ji for BandedMatrices [aae01518-5342-5314-be14-df237901396f]
+└ @ Base loading.jl:1184
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre><span class="ansi-green-intense-fg ansi-bold">Precompiling</span> Flux
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>┌ Info: Precompiling Flux [587475ba-b771-5e3f-ad9e-33799f191a9c]
+└ @ Base loading.jl:1186
+┌ Warning: Module Compat with build ID 95224860146667 is missing from the cache.
+│ This may mean Compat [34da2185-b29b-5c13-b0c7-acf172513d20] does not support precompilation but is imported by a module that does.
+└ @ Base loading.jl:947
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre><span class="ansi-green-intense-fg ansi-bold">Precompiling</span> Plots
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>┌ Warning: Module Compat with build ID 95224860146667 is missing from the cache.
+│ This may mean Compat [34da2185-b29b-5c13-b0c7-acf172513d20] does not support precompilation but is imported by a module that does.
+└ @ Base loading.jl:947
+┌ Info: Precompiling Plots [91a5bcdd-55d7-5caf-9e0b-520d859cae80]
+└ @ Base loading.jl:1186
+┌ Warning: Module Compat with build ID 95224860146667 is missing from the cache.
+│ This may mean Compat [34da2185-b29b-5c13-b0c7-acf172513d20] does not support precompilation but is imported by a module that does.
+└ @ Base loading.jl:947
+┌ Warning: Module Compat with build ID 95224860146667 is missing from the cache.
+│ This may mean Compat [34da2185-b29b-5c13-b0c7-acf172513d20] does not support precompilation but is imported by a module that does.
+└ @ Base loading.jl:947
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre><span class="ansi-green-intense-fg ansi-bold">Precompiling</span> BlackBoxOptim
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>┌ Info: Precompiling BlackBoxOptim [a134a8b2-14d6-55f6-9291-3336d3ab0209]
+└ @ Base loading.jl:1186
+┌ Warning: Module Compat with build ID 95224860146667 is missing from the cache.
+│ This may mean Compat [34da2185-b29b-5c13-b0c7-acf172513d20] does not support precompilation but is imported by a module that does.
+└ @ Base loading.jl:947
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre><span class="ansi-green-intense-fg ansi-bold">Precompiling</span> DiffEqDiffTools
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>┌ Info: Recompiling stale cache file /Users/florian.oswald/.julia/compiled/v1.1/DiffEqDiffTools/UPWPf.ji for DiffEqDiffTools [01453d9d-ee7c-5054-8395-0335cb756afa]
+└ @ Base loading.jl:1184
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre><span class="ansi-green-intense-fg ansi-bold">Precompiling</span> LightGraphs
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>┌ Info: Precompiling LightGraphs [093fc24a-ae57-5d10-9952-331d41423f4d]
+└ @ Base loading.jl:1186
+┌ Warning: Module Compat with build ID 95224860146667 is missing from the cache.
+│ This may mean Compat [34da2185-b29b-5c13-b0c7-acf172513d20] does not support precompilation but is imported by a module that does.
+└ @ Base loading.jl:947
+┌ Warning: Module Compat with build ID 95224860146667 is missing from the cache.
+│ This may mean Compat [34da2185-b29b-5c13-b0c7-acf172513d20] does not support precompilation but is imported by a module that does.
+└ @ Base loading.jl:947
+┌ Warning: Module Compat with build ID 95224860146667 is missing from the cache.
+│ This may mean Compat [34da2185-b29b-5c13-b0c7-acf172513d20] does not support precompilation but is imported by a module that does.
+└ @ Base loading.jl:947
+┌ Warning: Module Compat with build ID 95224860146667 is missing from the cache.
+│ This may mean Compat [34da2185-b29b-5c13-b0c7-acf172513d20] does not support precompilation but is imported by a module that does.
+└ @ Base loading.jl:947
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre><span class="ansi-green-intense-fg ansi-bold">Precompiling</span> Interpolations
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>┌ Info: Recompiling stale cache file /Users/florian.oswald/.julia/compiled/v1.1/Interpolations/VpKVx.ji for Interpolations [a98d9a8b-a2ab-59e6-89dd-64a1c18fca59]
+└ @ Base loading.jl:1184
+┌ Warning: Module Compat with build ID 95224860146667 is missing from the cache.
+│ This may mean Compat [34da2185-b29b-5c13-b0c7-acf172513d20] does not support precompilation but is imported by a module that does.
+└ @ Base loading.jl:947
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre><span class="ansi-green-intense-fg ansi-bold">Precompiling</span> JuMP
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>┌ Warning: Module Compat with build ID 95224860146667 is missing from the cache.
+│ This may mean Compat [34da2185-b29b-5c13-b0c7-acf172513d20] does not support precompilation but is imported by a module that does.
+└ @ Base loading.jl:947
+┌ Info: Precompiling JuMP [4076af6c-e467-56ae-b986-b466b2749572]
+└ @ Base loading.jl:1186
+┌ Warning: Module Compat with build ID 95224860146667 is missing from the cache.
+│ This may mean Compat [34da2185-b29b-5c13-b0c7-acf172513d20] does not support precompilation but is imported by a module that does.
+└ @ Base loading.jl:947
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre><span class="ansi-green-intense-fg ansi-bold">Precompiling</span> Query
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>┌ Warning: Module Compat with build ID 95224860146667 is missing from the cache.
+│ This may mean Compat [34da2185-b29b-5c13-b0c7-acf172513d20] does not support precompilation but is imported by a module that does.
+└ @ Base loading.jl:947
+┌ Info: Precompiling Query [1a8c2f83-1ff3-5112-b086-8aa67b057ba1]
+└ @ Base loading.jl:1186
+┌ Warning: Module Compat with build ID 95224860146667 is missing from the cache.
+│ This may mean Compat [34da2185-b29b-5c13-b0c7-acf172513d20] does not support precompilation but is imported by a module that does.
+└ @ Base loading.jl:947
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre><span class="ansi-green-intense-fg ansi-bold">Precompiling</span> Ipopt
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>┌ Warning: Module Compat with build ID 95224860146667 is missing from the cache.
+│ This may mean Compat [34da2185-b29b-5c13-b0c7-acf172513d20] does not support precompilation but is imported by a module that does.
+└ @ Base loading.jl:947
+┌ Info: Precompiling Ipopt [b6b21f68-93f8-5de0-b562-5493be1d77c9]
+└ @ Base loading.jl:1186
+┌ Warning: Module Compat with build ID 95224860146667 is missing from the cache.
+│ This may mean Compat [34da2185-b29b-5c13-b0c7-acf172513d20] does not support precompilation but is imported by a module that does.
+└ @ Base loading.jl:947
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre><span class="ansi-green-intense-fg ansi-bold">Precompiling</span> NLopt
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>┌ Info: Recompiling stale cache file /Users/florian.oswald/.julia/compiled/v1.1/NLopt/faRdv.ji for NLopt [76087f3c-5699-56af-9a33-bf431cd00edd]
+└ @ Base loading.jl:1184
+┌ Warning: Module Compat with build ID 95224860146667 is missing from the cache.
+│ This may mean Compat [34da2185-b29b-5c13-b0c7-acf172513d20] does not support precompilation but is imported by a module that does.
+└ @ Base loading.jl:947
+┌ Warning: Module Compat with build ID 95224860146667 is missing from the cache.
+│ This may mean Compat [34da2185-b29b-5c13-b0c7-acf172513d20] does not support precompilation but is imported by a module that does.
+└ @ Base loading.jl:947
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre><span class="ansi-green-intense-fg ansi-bold">Precompiling</span> LaTeXStrings
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>┌ Info: Precompiling LaTeXStrings [b964fa9f-0449-5b57-a5c2-d3ea65f4040f]
+└ @ Base loading.jl:1186
+┌ Warning: Module Compat with build ID 95224860146667 is missing from the cache.
+│ This may mean Compat [34da2185-b29b-5c13-b0c7-acf172513d20] does not support precompilation but is imported by a module that does.
+└ @ Base loading.jl:947
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre><span class="ansi-green-intense-fg ansi-bold">Precompiling</span> QuantEcon
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>┌ Info: Precompiling QuantEcon [fcd29c91-0bd7-5a09-975d-7ac3f643a60c]
+└ @ Base loading.jl:1186
+┌ Warning: Module Compat with build ID 95224860146667 is missing from the cache.
+│ This may mean Compat [34da2185-b29b-5c13-b0c7-acf172513d20] does not support precompilation but is imported by a module that does.
+└ @ Base loading.jl:947
+┌ Warning: Module Compat with build ID 95224860146667 is missing from the cache.
+│ This may mean Compat [34da2185-b29b-5c13-b0c7-acf172513d20] does not support precompilation but is imported by a module that does.
+└ @ Base loading.jl:947
 </pre>
 </div>
 </div>
@@ -13349,7 +14077,7 @@ a.anchor-link {
 </div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="k">using</span> <span class="n">LinearAlgebra</span><span class="p">,</span> <span class="n">Statistics</span><span class="p">,</span> <span class="n">Compat</span>
@@ -13371,18 +14099,21 @@ a.anchor-link {
 
 
 <div class="output_subarea output_stream output_stderr output_text">
-<pre>┌ Info: Recompiling stale cache file /Users/florian.oswald/.julia/compiled/v1.1/RDatasets/JyIbx.ji for RDatasets [ce6b1742-4840-55fa-b093-852dadbb1d8b]
-└ @ Base loading.jl:1184
-┌ Info: Recompiling stale cache file /Users/florian.oswald/.julia/compiled/v1.1/DataFramesMeta/2xRTO.ji for DataFramesMeta [1313f7d8-7da2-5740-9ea0-a2ca25f37964]
-└ @ Base loading.jl:1184
-┌ Info: Recompiling stale cache file /Users/florian.oswald/.julia/compiled/v1.1/Query/wGX7b.ji for Query [1a8c2f83-1ff3-5112-b086-8aa67b057ba1]
-└ @ Base loading.jl:1184
-┌ Info: Recompiling stale cache file /Users/florian.oswald/.julia/compiled/v1.1/DataVoyager/5nnU1.ji for DataVoyager [5721bf48-af8e-5845-8445-c9e18126e773]
-└ @ Base loading.jl:1184
-┌ Info: Recompiling stale cache file /Users/florian.oswald/.julia/compiled/v1.1/GLM/6OREG.ji for GLM [38e38edf-8417-5370-95a0-9cbb8c7f171a]
-└ @ Base loading.jl:1184
-┌ Info: Recompiling stale cache file /Users/florian.oswald/.julia/compiled/v1.1/RegressionTables/cYvie.ji for RegressionTables [d519eb52-b820-54da-95a6-98e1306fdade]
-└ @ Base loading.jl:1184
+<pre>┌ Info: Precompiling RDatasets [ce6b1742-4840-55fa-b093-852dadbb1d8b]
+└ @ Base loading.jl:1186
+┌ Info: Precompiling DataFramesMeta [1313f7d8-7da2-5740-9ea0-a2ca25f37964]
+└ @ Base loading.jl:1186
+┌ Info: Precompiling Query [1a8c2f83-1ff3-5112-b086-8aa67b057ba1]
+└ @ Base loading.jl:1186
+┌ Info: Precompiling VegaLite [112f6efa-9a02-5b7d-90c0-432ed331239a]
+└ @ Base loading.jl:1186
+┌ Info: Precompiling DataVoyager [5721bf48-af8e-5845-8445-c9e18126e773]
+└ @ Base loading.jl:1186
+┌ Info: Precompiling GLM [38e38edf-8417-5370-95a0-9cbb8c7f171a]
+└ @ Base loading.jl:1186
+┌ Info: Precompiling RegressionTables [d519eb52-b820-54da-95a6-98e1306fdade]
+└ @ Base loading.jl:1186
+WARNING: could not import StatsBase.df_residual into FixedEffectModels
 </pre>
 </div>
 </div>
@@ -13586,7 +14317,7 @@ a.anchor-link {
 </div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="n">describe</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
@@ -13602,7 +14333,7 @@ a.anchor-link {
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[7]:</div>
+    <div class="prompt output_prompt">Out[4]:</div>
 
 
 
@@ -13626,7 +14357,7 @@ a.anchor-link {
 </div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="n">nt</span> <span class="o">=</span> <span class="p">(</span><span class="n">commod</span> <span class="o">=</span> <span class="s">&quot;nickel&quot;</span><span class="p">,</span> <span class="n">price</span><span class="o">=</span> <span class="mf">5.1</span><span class="p">)</span>
@@ -13643,7 +14374,7 @@ a.anchor-link {
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[8]:</div>
+    <div class="prompt output_prompt">Out[5]:</div>
 
 
 
@@ -13667,11 +14398,11 @@ a.anchor-link {
 </div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-julia"><pre><span></span><span class="n">nt</span> <span class="o">=</span> <span class="p">(</span><span class="n">t</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">col1</span> <span class="o">=</span> <span class="mf">3.0</span><span class="p">)</span>
-<span class="n">df2</span> <span class="o">=</span> <span class="n">DataFrame</span><span class="p">([</span><span class="n">nt</span><span class="p">])</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="n">ntx</span> <span class="o">=</span> <span class="p">(</span><span class="n">t</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">col1</span> <span class="o">=</span> <span class="mf">3.0</span><span class="p">)</span>
+<span class="n">df2</span> <span class="o">=</span> <span class="n">DataFrame</span><span class="p">([</span><span class="n">ntx</span><span class="p">])</span>
 <span class="n">push!</span><span class="p">(</span><span class="n">df2</span><span class="p">,</span> <span class="p">(</span><span class="n">t</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">col1</span> <span class="o">=</span> <span class="mf">4.0</span><span class="p">))</span>
 </pre></div>
 
@@ -13685,7 +14416,7 @@ a.anchor-link {
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[9]:</div>
+    <div class="prompt output_prompt">Out[7]:</div>
 
 
 
@@ -13711,7 +14442,7 @@ from a source with <code>missing</code>’s, or call <code>allowmissing!</code> 
 </div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="n">allowmissing!</span><span class="p">(</span><span class="n">df2</span><span class="p">,</span> <span class="o">:</span><span class="n">col1</span><span class="p">)</span> <span class="c"># necessary to add in a for col1</span>
@@ -13729,12 +14460,45 @@ from a source with <code>missing</code>’s, or call <code>allowmissing!</code> 
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[10]:</div>
+    <div class="prompt output_prompt">Out[9]:</div>
 
 
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 <table class="data-frame"><thead><tr><th></th><th>t</th><th>col1</th></tr><tr><th></th><th>Int64</th><th>Float64⍰</th></tr></thead><tbody><p>4 rows × 2 columns</p><tr><th>1</th><td>1</td><td>3.0</td></tr><tr><th>2</th><td>2</td><td>4.0</td></tr><tr><th>3</th><td>3</td><td>missing</td></tr><tr><th>4</th><td>4</td><td>5.1</td></tr></tbody></table>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-julia"><pre><span></span><span class="n">eltype</span><span class="p">(</span><span class="n">df2</span><span class="o">.</span><span class="n">col1</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[12]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>Union{Missing, Float64}</pre>
 </div>
 
 </div>
@@ -13807,7 +14571,7 @@ mean(skipmissing(df2.col1)) = 4.033333333333333
 </div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="prompt input_prompt">In&nbsp;[13]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="n">df2</span><span class="o">.</span><span class="n">col1</span>  <span class="o">.=</span> <span class="n">coalesce</span><span class="o">.</span><span class="p">(</span><span class="n">df2</span><span class="o">.</span><span class="n">col1</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span> <span class="c"># replace all missing with 0.0</span>
@@ -13823,7 +14587,7 @@ mean(skipmissing(df2.col1)) = 4.033333333333333
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[12]:</div>
+    <div class="prompt output_prompt">Out[13]:</div>
 
 
 
@@ -13852,12 +14616,12 @@ mean(skipmissing(df2.col1)) = 4.033333333333333
 </div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="k">using</span> <span class="n">DataFramesMeta</span>
 <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">=</span> <span class="n">x</span><span class="o">^</span><span class="mi">2</span>
-<span class="n">df2</span> <span class="o">=</span> <span class="nd">@transform</span><span class="p">(</span><span class="n">df2</span><span class="p">,</span> <span class="n">col2</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="p">(</span><span class="o">:</span><span class="n">col1</span><span class="p">))</span>
+<span class="n">df2</span> <span class="o">=</span> <span class="nd">@transform</span><span class="p">(</span><span class="n">df2</span><span class="p">,</span> <span class="n">col2</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="p">(</span><span class="o">:</span><span class="n">col1</span><span class="p">),</span> <span class="n">col3</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -13870,12 +14634,12 @@ mean(skipmissing(df2.col1)) = 4.033333333333333
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[13]:</div>
+    <div class="prompt output_prompt">Out[14]:</div>
 
 
 
 <div class="output_html rendered_html output_subarea output_execute_result">
-<table class="data-frame"><thead><tr><th></th><th>t</th><th>col1</th><th>col2</th></tr><tr><th></th><th>Int64</th><th>Float64⍰</th><th>Float64</th></tr></thead><tbody><p>4 rows × 3 columns</p><tr><th>1</th><td>1</td><td>3.0</td><td>9.0</td></tr><tr><th>2</th><td>2</td><td>4.0</td><td>16.0</td></tr><tr><th>3</th><td>3</td><td>0.0</td><td>0.0</td></tr><tr><th>4</th><td>4</td><td>5.1</td><td>26.01</td></tr></tbody></table>
+<table class="data-frame"><thead><tr><th></th><th>t</th><th>col1</th><th>col2</th><th>col3</th></tr><tr><th></th><th>Int64</th><th>Float64⍰</th><th>Float64</th><th>Float64</th></tr></thead><tbody><p>4 rows × 4 columns</p><tr><th>1</th><td>1</td><td>3.0</td><td>9.0</td><td>1.0</td></tr><tr><th>2</th><td>2</td><td>4.0</td><td>16.0</td><td>1.0</td></tr><tr><th>3</th><td>3</td><td>0.0</td><td>0.0</td><td>1.0</td></tr><tr><th>4</th><td>4</td><td>5.1</td><td>26.01</td><td>1.0</td></tr></tbody></table>
 </div>
 
 </div>
@@ -13894,7 +14658,7 @@ mean(skipmissing(df2.col1)) = 4.033333333333333
 </div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[14]:</div>
+<div class="prompt input_prompt">In&nbsp;[15]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="k">using</span> <span class="n">CategoricalArrays</span>
@@ -13914,7 +14678,7 @@ mean(skipmissing(df2.col1)) = 4.033333333333333
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[14]:</div>
+    <div class="prompt output_prompt">Out[15]:</div>
 
 
 
@@ -13930,7 +14694,7 @@ mean(skipmissing(df2.col1)) = 4.033333333333333
 </div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[15]:</div>
+<div class="prompt input_prompt">In&nbsp;[16]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="n">levels</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">y</span><span class="p">)</span>
@@ -13946,7 +14710,7 @@ mean(skipmissing(df2.col1)) = 4.033333333333333
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[15]:</div>
+    <div class="prompt output_prompt">Out[16]:</div>
 
 
 
@@ -14020,7 +14784,7 @@ mean(skipmissing(df2.col1)) = 4.033333333333333
 </div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[17]:</div>
+<div class="prompt input_prompt">In&nbsp;[18]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="k">using</span> <span class="n">Query</span>
@@ -14044,7 +14808,7 @@ mean(skipmissing(df2.col1)) = 4.033333333333333
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[17]:</div>
+    <div class="prompt output_prompt">Out[18]:</div>
 
 
 
@@ -14068,7 +14832,7 @@ mean(skipmissing(df2.col1)) = 4.033333333333333
 </div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[18]:</div>
+<div class="prompt input_prompt">In&nbsp;[19]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="k">using</span> <span class="n">RDatasets</span><span class="p">,</span> <span class="n">VegaLite</span>
@@ -14092,7 +14856,7 @@ mean(skipmissing(df2.col1)) = 4.033333333333333
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[18]:</div>
+    <div class="prompt output_prompt">Out[19]:</div>
 
 
 
@@ -14100,6 +14864,38 @@ mean(skipmissing(df2.col1)) = 4.033333333333333
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg class="marks" width="374" height="245" viewBox="0 0 374 245" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g transform="translate(54,5)"><g class="mark-group role-frame root"><g transform="translate(0,0)"><path class="background" d="M0.5,0.5h200v200h-200Z" style="fill: none; stroke: #ddd;"></path><g><g class="mark-group role-axis"><g transform="translate(0.5,200.5)"><path class="background" d="M0,0h0v0h0Z" style="pointer-events: none; fill: none;"></path><g><g class="mark-rule role-axis-grid" style="pointer-events: none;"><line transform="translate(0,-200)" x2="0" y2="200" style="fill: none; stroke: #ddd; stroke-width: 1; opacity: 1;"></line><line transform="translate(29,-200)" x2="0" y2="200" style="fill: none; stroke: #ddd; stroke-width: 1; opacity: 1;"></line><line transform="translate(57,-200)" x2="0" y2="200" style="fill: none; stroke: #ddd; stroke-width: 1; opacity: 1;"></line><line transform="translate(86,-200)" x2="0" y2="200" style="fill: none; stroke: #ddd; stroke-width: 1; opacity: 1;"></line><line transform="translate(114,-200)" x2="0" y2="200" style="fill: none; stroke: #ddd; stroke-width: 1; opacity: 1;"></line><line transform="translate(143,-200)" x2="0" y2="200" style="fill: none; stroke: #ddd; stroke-width: 1; opacity: 1;"></line><line transform="translate(171,-200)" x2="0" y2="200" style="fill: none; stroke: #ddd; stroke-width: 1; opacity: 1;"></line><line transform="translate(200,-200)" x2="0" y2="200" style="fill: none; stroke: #ddd; stroke-width: 1; opacity: 1;"></line></g></g></g></g><g class="mark-group role-axis"><g transform="translate(0.5,0.5)"><path class="background" d="M0,0h0v0h0Z" style="pointer-events: none; fill: none;"></path><g><g class="mark-rule role-axis-grid" style="pointer-events: none;"><line transform="translate(0,200)" x2="200" y2="0" style="fill: none; stroke: #ddd; stroke-width: 1; opacity: 1;"></line><line transform="translate(0,162)" x2="200" y2="0" style="fill: none; stroke: #ddd; stroke-width: 1; opacity: 1;"></line><line transform="translate(0,123)" x2="200" y2="0" style="fill: none; stroke: #ddd; stroke-width: 1; opacity: 1;"></line><line transform="translate(0,85)" x2="200" y2="0" style="fill: none; stroke: #ddd; stroke-width: 1; opacity: 1;"></line><line transform="translate(0,46)" x2="200" y2="0" style="fill: none; stroke: #ddd; stroke-width: 1; opacity: 1;"></line><line transform="translate(0,8)" x2="200" y2="0" style="fill: none; stroke: #ddd; stroke-width: 1; opacity: 1;"></line></g></g></g></g><g class="mark-symbol role-mark marks"><path transform="translate(40,184.6153846153846)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #4c78a8; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(40,184.6153846153846)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #4c78a8; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(37.142857142857146,184.6153846153846)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #4c78a8; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(42.857142857142854,184.6153846153846)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #4c78a8; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(40,184.6153846153846)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #4c78a8; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(48.57142857142857,169.23076923076923)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #4c78a8; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(40,176.92307692307693)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #4c78a8; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(42.857142857142854,184.6153846153846)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #4c78a8; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(40,184.6153846153846)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #4c78a8; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(42.857142857142854,192.30769230769232)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #4c78a8; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(42.857142857142854,184.6153846153846)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #4c78a8; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(45.714285714285715,184.6153846153846)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #4c78a8; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(40,192.30769230769232)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #4c78a8; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(31.428571428571434,192.30769230769232)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #4c78a8; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(34.285714285714285,184.6153846153846)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #4c78a8; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(42.857142857142854,169.23076923076923)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #4c78a8; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(37.142857142857146,169.23076923076923)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #4c78a8; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(40,176.92307692307693)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #4c78a8; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(48.57142857142857,176.92307692307693)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #4c78a8; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(42.857142857142854,176.92307692307693)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #4c78a8; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(48.57142857142857,184.6153846153846)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #4c78a8; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(42.857142857142854,169.23076923076923)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #4c78a8; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(28.57142857142857,184.6153846153846)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #4c78a8; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(48.57142857142857,161.53846153846155)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #4c78a8; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(54.285714285714285,184.6153846153846)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #4c78a8; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(45.714285714285715,184.6153846153846)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #4c78a8; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(45.714285714285715,169.23076923076923)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #4c78a8; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(42.857142857142854,184.6153846153846)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #4c78a8; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(40,184.6153846153846)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #4c78a8; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(45.714285714285715,184.6153846153846)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #4c78a8; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(45.714285714285715,184.6153846153846)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #4c78a8; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(42.857142857142854,169.23076923076923)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #4c78a8; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(42.857142857142854,192.30769230769232)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #4c78a8; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(40,184.6153846153846)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #4c78a8; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(42.857142857142854,184.6153846153846)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #4c78a8; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(34.285714285714285,184.6153846153846)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #4c78a8; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(37.142857142857146,184.6153846153846)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #4c78a8; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(40,192.30769230769232)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #4c78a8; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(37.142857142857146,184.6153846153846)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #4c78a8; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(42.857142857142854,184.6153846153846)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #4c78a8; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(37.142857142857146,176.92307692307693)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #4c78a8; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(37.142857142857146,176.92307692307693)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #4c78a8; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(37.142857142857146,184.6153846153846)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #4c78a8; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(45.714285714285715,153.84615384615384)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #4c78a8; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(54.285714285714285,169.23076923076923)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #4c78a8; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(40,176.92307692307693)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #4c78a8; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(45.714285714285715,184.6153846153846)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #4c78a8; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(40,184.6153846153846)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #4c78a8; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(42.857142857142854,184.6153846153846)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #4c78a8; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(40,184.6153846153846)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #4c78a8; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(134.2857142857143,92.3076923076923)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #f58518; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(128.57142857142858,84.61538461538463)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #f58518; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(140,84.61538461538463)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #f58518; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(114.28571428571428,100)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #f58518; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(131.42857142857142,84.61538461538463)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #f58518; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(128.57142857142858,100)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #f58518; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(134.2857142857143,76.92307692307692)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #f58518; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(94.28571428571428,123.07692307692308)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #f58518; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(131.42857142857142,100)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #f58518; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(111.42857142857143,92.3076923076923)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #f58518; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(100,123.07692307692308)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #f58518; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(120,84.61538461538463)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #f58518; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(114.28571428571428,123.07692307692308)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #f58518; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(134.2857142857143,92.3076923076923)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #f58518; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(102.85714285714288,100)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #f58518; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(125.71428571428574,92.3076923076923)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #f58518; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(128.57142857142858,84.61538461538463)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #f58518; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(117.14285714285712,123.07692307692308)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #f58518; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(128.57142857142858,84.61538461538463)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #f58518; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(111.42857142857143,115.38461538461539)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #f58518; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(137.14285714285714,61.53846153846155)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #f58518; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(114.28571428571428,100)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #f58518; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(140,84.61538461538463)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #f58518; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(134.2857142857143,107.6923076923077)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #f58518; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(122.85714285714285,100)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #f58518; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(125.71428571428574,92.3076923076923)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #f58518; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(137.14285714285714,92.3076923076923)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #f58518; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(142.85714285714286,69.23076923076923)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #f58518; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(128.57142857142858,84.61538461538463)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #f58518; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(100,123.07692307692308)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #f58518; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(108.57142857142857,115.38461538461539)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #f58518; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(105.71428571428572,123.07692307692308)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #f58518; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(111.42857142857143,107.6923076923077)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #f58518; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(145.7142857142857,76.92307692307692)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #f58518; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(128.57142857142858,84.61538461538463)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #f58518; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(128.57142857142858,76.92307692307692)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #f58518; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(134.2857142857143,84.61538461538463)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #f58518; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(125.71428571428574,100)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #f58518; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(117.14285714285712,100)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #f58518; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(114.28571428571428,100)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #f58518; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(125.71428571428574,107.6923076923077)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #f58518; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(131.42857142857142,92.3076923076923)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #f58518; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(114.28571428571428,107.6923076923077)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #f58518; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(94.28571428571428,123.07692307692308)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #f58518; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(120,100)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #f58518; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(120,107.6923076923077)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #f58518; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(120,100)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #f58518; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(122.85714285714285,100)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #f58518; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(85.71428571428571,115.38461538461539)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #f58518; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(117.14285714285712,100)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #f58518; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(171.42857142857142,7.692307692307708)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #e45756; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(145.7142857142857,53.84615384615387)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #e45756; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(168.57142857142858,38.46153846153845)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #e45756; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(160,61.53846153846155)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #e45756; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(165.7142857142857,30.769230769230774)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #e45756; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(188.57142857142856,38.46153846153845)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #e45756; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(128.57142857142858,69.23076923076923)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #e45756; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(180,61.53846153846155)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #e45756; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(165.7142857142857,61.53846153846155)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #e45756; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(174.28571428571428,7.692307692307708)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #e45756; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(145.7142857142857,46.15384615384616)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #e45756; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(151.42857142857142,53.84615384615387)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #e45756; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(157.14285714285714,38.46153846153845)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #e45756; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(142.85714285714286,46.15384615384616)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #e45756; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(145.7142857142857,15.384615384615387)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #e45756; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(151.42857142857142,23.076923076923094)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #e45756; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(157.14285714285714,61.53846153846155)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #e45756; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(191.42857142857144,30.769230769230774)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #e45756; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(197.14285714285717,23.076923076923094)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #e45756; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(142.85714285714286,84.61538461538463)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #e45756; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(162.85714285714286,23.076923076923094)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #e45756; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(140,46.15384615384616)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #e45756; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(191.42857142857144,46.15384615384616)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #e45756; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(140,61.53846153846155)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #e45756; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(162.85714285714286,38.46153846153845)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #e45756; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(171.42857142857142,61.53846153846155)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #e45756; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(137.14285714285714,61.53846153846155)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #e45756; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(140,61.53846153846155)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #e45756; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(160,38.46153846153845)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #e45756; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(165.7142857142857,76.92307692307692)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #e45756; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(174.28571428571428,53.84615384615387)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #e45756; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(182.85714285714286,46.15384615384616)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #e45756; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(160,30.769230769230774)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #e45756; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(145.7142857142857,84.61538461538463)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #e45756; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(160,92.3076923076923)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #e45756; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(174.28571428571428,23.076923076923094)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #e45756; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(160,15.384615384615387)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #e45756; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(157.14285714285714,61.53846153846155)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #e45756; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(137.14285714285714,61.53846153846155)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #e45756; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(154.2857142857143,38.46153846153845)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #e45756; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(160,15.384615384615387)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #e45756; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(145.7142857142857,23.076923076923094)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #e45756; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(145.7142857142857,53.84615384615387)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #e45756; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(168.57142857142858,23.076923076923094)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #e45756; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(162.85714285714286,7.692307692307708)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #e45756; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(148.57142857142858,23.076923076923094)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #e45756; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(142.85714285714286,53.84615384615387)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #e45756; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(148.57142857142858,46.15384615384616)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #e45756; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(154.2857142857143,23.076923076923094)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #e45756; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(145.7142857142857,61.53846153846155)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #e45756; stroke-width: 2; opacity: 0.7;"></path></g><g class="mark-group role-legend"><g transform="translate(218,0)"><path class="background" d="M0,0h97v61h-97Z" style="pointer-events: none; fill: none;"></path><g><g class="mark-group role-legend-entry"><g transform="translate(0,16)"><path class="background" d="M0,0h0v0h0Z" style="pointer-events: none; fill: none;"></path><g><g class="mark-group role-scope"><g transform="translate(0,0)"><path class="background" d="M0,0h97v12.5h-97Z" style="pointer-events: none; fill: none; opacity: 1;"></path><g><g class="mark-symbol role-legend-symbol" style="pointer-events: none;"><path transform="translate(6,6)" d="M5,0A5,5,0,1,1,-5,0A5,5,0,1,1,5,0" style="fill: none; stroke: #4c78a8; stroke-width: 1.5; opacity: 0.7;"></path></g><g class="mark-text role-legend-label" style="pointer-events: none;"><text text-anchor="start" transform="translate(16,9)" style="font-family: sans-serif; font-size: 10px; fill: #000; opacity: 1;">setosa</text></g></g></g><g transform="translate(0,16)"><path class="background" d="M0,0h97v12.5h-97Z" style="pointer-events: none; fill: none; opacity: 1;"></path><g><g class="mark-symbol role-legend-symbol" style="pointer-events: none;"><path transform="translate(6,6)" d="M5,0A5,5,0,1,1,-5,0A5,5,0,1,1,5,0" style="fill: none; stroke: #f58518; stroke-width: 1.5; opacity: 0.7;"></path></g><g class="mark-text role-legend-label" style="pointer-events: none;"><text text-anchor="start" transform="translate(16,9)" style="font-family: sans-serif; font-size: 10px; fill: #000; opacity: 1;">versicolor</text></g></g></g><g transform="translate(0,32)"><path class="background" d="M0,0h97v12.5h-97Z" style="pointer-events: none; fill: none; opacity: 1;"></path><g><g class="mark-symbol role-legend-symbol" style="pointer-events: none;"><path transform="translate(6,6)" d="M5,0A5,5,0,1,1,-5,0A5,5,0,1,1,5,0" style="fill: none; stroke: #e45756; stroke-width: 1.5; opacity: 0.7;"></path></g><g class="mark-text role-legend-label" style="pointer-events: none;"><text text-anchor="start" transform="translate(16,9)" style="font-family: sans-serif; font-size: 10px; fill: #000; opacity: 1;">virginica</text></g></g></g></g></g></g></g><g class="mark-text role-legend-title" style="pointer-events: none;"><text text-anchor="start" transform="translate(0,9)" style="font-family: sans-serif; font-size: 11px; font-weight: bold; fill: #000; opacity: 1;">Species</text></g></g></g></g><g class="mark-group role-axis"><g transform="translate(0.5,200.5)"><path class="background" d="M0,0h0v0h0Z" style="pointer-events: none; fill: none;"></path><g><g class="mark-rule role-axis-tick" style="pointer-events: none;"><line transform="translate(0,0)" x2="0" y2="5" style="fill: none; stroke: #888; stroke-width: 1; opacity: 1;"></line><line transform="translate(29,0)" x2="0" y2="5" style="fill: none; stroke: #888; stroke-width: 1; opacity: 1;"></line><line transform="translate(57,0)" x2="0" y2="5" style="fill: none; stroke: #888; stroke-width: 1; opacity: 1;"></line><line transform="translate(86,0)" x2="0" y2="5" style="fill: none; stroke: #888; stroke-width: 1; opacity: 1;"></line><line transform="translate(114,0)" x2="0" y2="5" style="fill: none; stroke: #888; stroke-width: 1; opacity: 1;"></line><line transform="translate(143,0)" x2="0" y2="5" style="fill: none; stroke: #888; stroke-width: 1; opacity: 1;"></line><line transform="translate(171,0)" x2="0" y2="5" style="fill: none; stroke: #888; stroke-width: 1; opacity: 1;"></line><line transform="translate(200,0)" x2="0" y2="5" style="fill: none; stroke: #888; stroke-width: 1; opacity: 1;"></line></g><g class="mark-text role-axis-label" style="pointer-events: none;"><text text-anchor="start" transform="translate(0,15)" style="font-family: sans-serif; font-size: 10px; fill: #000; opacity: 1;">0</text><text text-anchor="middle" transform="translate(28.57142857142857,15)" style="font-family: sans-serif; font-size: 10px; fill: #000; opacity: 1;">1</text><text text-anchor="middle" transform="translate(57.14285714285714,15)" style="font-family: sans-serif; font-size: 10px; fill: #000; opacity: 1;">2</text><text text-anchor="middle" transform="translate(85.71428571428571,15)" style="font-family: sans-serif; font-size: 10px; fill: #000; opacity: 1;">3</text><text text-anchor="middle" transform="translate(114.28571428571428,15)" style="font-family: sans-serif; font-size: 10px; fill: #000; opacity: 1;">4</text><text text-anchor="middle" transform="translate(142.85714285714286,15)" style="font-family: sans-serif; font-size: 10px; fill: #000; opacity: 1;">5</text><text text-anchor="middle" transform="translate(171.42857142857142,15)" style="font-family: sans-serif; font-size: 10px; fill: #000; opacity: 1;">6</text><text text-anchor="end" transform="translate(200,15)" style="font-family: sans-serif; font-size: 10px; fill: #000; opacity: 1;">7</text></g><g class="mark-rule role-axis-domain" style="pointer-events: none;"><line transform="translate(0,0)" x2="200" y2="0" style="fill: none; stroke: #888; stroke-width: 1; opacity: 1;"></line></g><g class="mark-text role-axis-title" style="pointer-events: none;"><text text-anchor="middle" transform="translate(100,31)" style="font-family: sans-serif; font-size: 11px; font-weight: bold; fill: #000; opacity: 1;">PetalLength</text></g></g></g></g><g class="mark-group role-axis"><g transform="translate(0.5,0.5)"><path class="background" d="M0,0h0v0h0Z" style="pointer-events: none; fill: none;"></path><g><g class="mark-rule role-axis-tick" style="pointer-events: none;"><line transform="translate(0,200)" x2="-5" y2="0" style="fill: none; stroke: #888; stroke-width: 1; opacity: 1;"></line><line transform="translate(0,162)" x2="-5" y2="0" style="fill: none; stroke: #888; stroke-width: 1; opacity: 1;"></line><line transform="translate(0,123)" x2="-5" y2="0" style="fill: none; stroke: #888; stroke-width: 1; opacity: 1;"></line><line transform="translate(0,85)" x2="-5" y2="0" style="fill: none; stroke: #888; stroke-width: 1; opacity: 1;"></line><line transform="translate(0,46)" x2="-5" y2="0" style="fill: none; stroke: #888; stroke-width: 1; opacity: 1;"></line><line transform="translate(0,8)" x2="-5" y2="0" style="fill: none; stroke: #888; stroke-width: 1; opacity: 1;"></line></g><g class="mark-text role-axis-label" style="pointer-events: none;"><text text-anchor="end" transform="translate(-7,203)" style="font-family: sans-serif; font-size: 10px; fill: #000; opacity: 1;">0.0</text><text text-anchor="end" transform="translate(-7,164.53846153846155)" style="font-family: sans-serif; font-size: 10px; fill: #000; opacity: 1;">0.5</text><text text-anchor="end" transform="translate(-7,126.07692307692308)" style="font-family: sans-serif; font-size: 10px; fill: #000; opacity: 1;">1.0</text><text text-anchor="end" transform="translate(-7,87.61538461538463)" style="font-family: sans-serif; font-size: 10px; fill: #000; opacity: 1;">1.5</text><text text-anchor="end" transform="translate(-7,49.15384615384616)" style="font-family: sans-serif; font-size: 10px; fill: #000; opacity: 1;">2.0</text><text text-anchor="end" transform="translate(-7,10.692307692307708)" style="font-family: sans-serif; font-size: 10px; fill: #000; opacity: 1;">2.5</text></g><g class="mark-rule role-axis-domain" style="pointer-events: none;"><line transform="translate(0,200)" x2="0" y2="-200" style="fill: none; stroke: #888; stroke-width: 1; opacity: 1;"></line></g><g class="mark-text role-axis-title" style="pointer-events: none;"><text text-anchor="middle" transform="translate(-36,100) rotate(-90) translate(0,-2)" style="font-family: sans-serif; font-size: 11px; font-weight: bold; fill: #000; opacity: 1;">PetalWidth</text></g></g></g></g></g></g></g></g></svg>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[20]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-julia"><pre><span></span><span class="n">iris</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[20]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<table class="data-frame"><thead><tr><th></th><th>SepalLength</th><th>SepalWidth</th><th>PetalLength</th><th>PetalWidth</th><th>Species</th></tr><tr><th></th><th>Float64</th><th>Float64</th><th>Float64</th><th>Float64</th><th>Categorical…</th></tr></thead><tbody><p>150 rows × 5 columns</p><tr><th>1</th><td>5.1</td><td>3.5</td><td>1.4</td><td>0.2</td><td>setosa</td></tr><tr><th>2</th><td>4.9</td><td>3.0</td><td>1.4</td><td>0.2</td><td>setosa</td></tr><tr><th>3</th><td>4.7</td><td>3.2</td><td>1.3</td><td>0.2</td><td>setosa</td></tr><tr><th>4</th><td>4.6</td><td>3.1</td><td>1.5</td><td>0.2</td><td>setosa</td></tr><tr><th>5</th><td>5.0</td><td>3.6</td><td>1.4</td><td>0.2</td><td>setosa</td></tr><tr><th>6</th><td>5.4</td><td>3.9</td><td>1.7</td><td>0.4</td><td>setosa</td></tr><tr><th>7</th><td>4.6</td><td>3.4</td><td>1.4</td><td>0.3</td><td>setosa</td></tr><tr><th>8</th><td>5.0</td><td>3.4</td><td>1.5</td><td>0.2</td><td>setosa</td></tr><tr><th>9</th><td>4.4</td><td>2.9</td><td>1.4</td><td>0.2</td><td>setosa</td></tr><tr><th>10</th><td>4.9</td><td>3.1</td><td>1.5</td><td>0.1</td><td>setosa</td></tr><tr><th>11</th><td>5.4</td><td>3.7</td><td>1.5</td><td>0.2</td><td>setosa</td></tr><tr><th>12</th><td>4.8</td><td>3.4</td><td>1.6</td><td>0.2</td><td>setosa</td></tr><tr><th>13</th><td>4.8</td><td>3.0</td><td>1.4</td><td>0.1</td><td>setosa</td></tr><tr><th>14</th><td>4.3</td><td>3.0</td><td>1.1</td><td>0.1</td><td>setosa</td></tr><tr><th>15</th><td>5.8</td><td>4.0</td><td>1.2</td><td>0.2</td><td>setosa</td></tr><tr><th>16</th><td>5.7</td><td>4.4</td><td>1.5</td><td>0.4</td><td>setosa</td></tr><tr><th>17</th><td>5.4</td><td>3.9</td><td>1.3</td><td>0.4</td><td>setosa</td></tr><tr><th>18</th><td>5.1</td><td>3.5</td><td>1.4</td><td>0.3</td><td>setosa</td></tr><tr><th>19</th><td>5.7</td><td>3.8</td><td>1.7</td><td>0.3</td><td>setosa</td></tr><tr><th>20</th><td>5.1</td><td>3.8</td><td>1.5</td><td>0.3</td><td>setosa</td></tr><tr><th>21</th><td>5.4</td><td>3.4</td><td>1.7</td><td>0.2</td><td>setosa</td></tr><tr><th>22</th><td>5.1</td><td>3.7</td><td>1.5</td><td>0.4</td><td>setosa</td></tr><tr><th>23</th><td>4.6</td><td>3.6</td><td>1.0</td><td>0.2</td><td>setosa</td></tr><tr><th>24</th><td>5.1</td><td>3.3</td><td>1.7</td><td>0.5</td><td>setosa</td></tr><tr><th>25</th><td>4.8</td><td>3.4</td><td>1.9</td><td>0.2</td><td>setosa</td></tr><tr><th>26</th><td>5.0</td><td>3.0</td><td>1.6</td><td>0.2</td><td>setosa</td></tr><tr><th>27</th><td>5.0</td><td>3.4</td><td>1.6</td><td>0.4</td><td>setosa</td></tr><tr><th>28</th><td>5.2</td><td>3.5</td><td>1.5</td><td>0.2</td><td>setosa</td></tr><tr><th>29</th><td>5.2</td><td>3.4</td><td>1.4</td><td>0.2</td><td>setosa</td></tr><tr><th>30</th><td>4.7</td><td>3.2</td><td>1.6</td><td>0.2</td><td>setosa</td></tr><tr><th>&vellip;</th><td>&vellip;</td><td>&vellip;</td><td>&vellip;</td><td>&vellip;</td><td>&vellip;</td></tr></tbody></table>
 </div>
 
 </div>
@@ -14150,7 +14946,7 @@ mean(skipmissing(df2.col1)) = 4.033333333333333
 </div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[19]:</div>
+<div class="prompt input_prompt">In&nbsp;[21]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="k">using</span> <span class="n">GLM</span>
@@ -14171,20 +14967,7 @@ mean(skipmissing(df2.col1)) = 4.033333333333333
 
 <div class="output_area">
 
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>┌ Warning: In the future eachcol will have names argument set to false by default
-│   caller = evalcontrasts(::DataFrame, ::Dict{Any,Any}) at modelframe.jl:124
-└ @ StatsModels /Users/florian.oswald/.julia/packages/StatsModels/AYB2E/src/modelframe.jl:124
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[19]:</div>
+    <div class="prompt output_prompt">Out[21]:</div>
 
 
 
@@ -14196,8 +14979,8 @@ Formula: y ~ 1 + x
 
 Coefficients:
              Estimate Std.Error t value Pr(&gt;|t|)
-(Intercept)  0.226951 0.0129786 17.4865   &lt;1e-31
-x            0.903225 0.0127802  70.674   &lt;1e-85
+(Intercept)  0.254383 0.0142877 17.8044   &lt;1e-31
+x            0.901569 0.0132557 68.0138   &lt;1e-83
 </pre>
 </div>
 
@@ -14219,12 +15002,11 @@ similar to the Stata package esttab and the R package stargazer</p>
 </div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[20]:</div>
+<div class="prompt input_prompt">In&nbsp;[22]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="k">using</span> <span class="n">RegressionTables</span>
 <span class="n">regtable</span><span class="p">(</span><span class="n">ols</span><span class="p">)</span>
-<span class="c"># regtable(ols,  renderSettings = latexOutput()) # for LaTex output</span>
 </pre></div>
 
     </div>
@@ -14247,15 +15029,15 @@ similar to the Stata package esttab and the R package stargazer</p>
               --------
                    (1)
 ----------------------
-(Intercept)   0.227***
-               (0.013)
-x             0.903***
+(Intercept)   0.254***
+               (0.014)
+x             0.902***
                (0.013)
 ----------------------
 Estimator          OLS
 ----------------------
 N                  100
-R2               0.981
+R2               0.979
 ----------------------
 
 
@@ -14271,7 +15053,7 @@ R2               0.981
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Fixed-Effects">Fixed Effects<a class="anchor-link" href="#Fixed-Effects">&#182;</a></h3><p>While Julia may be overkill for estimating a simple linear regression,
-fixed-effects estimation with dummies for multiple variables are much more computationally intensive</p>
+fixed-effects estimation with dummies for multiple variables are much more computationally intensive. The <a href="https://github.com/matthieugomez/FixedEffectModels.jl">FixedEffectsModel.jl</a> is a great tool for this task.</p>
 <p>For a 2-way fixed-effect, taking the example directly from the documentation using <a href="https://github.com/johnmyleswhite/RDatasets.jl/blob/master/doc/plm/rst/Cigar.rst">cigarette consumption data</a></p>
 
 </div>
@@ -14279,14 +15061,48 @@ fixed-effects estimation with dummies for multiple variables are much more compu
 </div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[21]:</div>
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="k">using</span> <span class="n">FixedEffectModels</span>
 <span class="n">cigar</span> <span class="o">=</span> <span class="n">dataset</span><span class="p">(</span><span class="s">&quot;plm&quot;</span><span class="p">,</span> <span class="s">&quot;Cigar&quot;</span><span class="p">)</span>
-<span class="n">cigar</span><span class="o">.</span><span class="n">StateCategorical</span> <span class="o">=</span>  <span class="n">categorical</span><span class="p">(</span><span class="n">cigar</span><span class="o">.</span><span class="n">State</span><span class="p">)</span>
+<span class="n">cigar</span><span class="o">.</span><span class="n">StateCategorical</span> <span class="o">=</span>  <span class="n">categorical</span><span class="p">(</span><span class="n">cigar</span><span class="o">.</span><span class="n">State</span><span class="p">)</span>   <span class="c"># convert to categorical data type</span>
 <span class="n">cigar</span><span class="o">.</span><span class="n">YearCategorical</span> <span class="o">=</span>  <span class="n">categorical</span><span class="p">(</span><span class="n">cigar</span><span class="o">.</span><span class="n">Year</span><span class="p">)</span>
-<span class="n">fixedeffectresults</span> <span class="o">=</span> <span class="n">reg</span><span class="p">(</span><span class="n">cigar</span><span class="p">,</span> <span class="nd">@model</span><span class="p">(</span><span class="n">Sales</span> <span class="o">~</span> <span class="n">NDI</span><span class="p">,</span> <span class="n">fe</span> <span class="o">=</span> <span class="n">StateCategorical</span> <span class="o">+</span> <span class="n">YearCategorical</span><span class="p">,</span>
+
+<span class="n">describe</span><span class="p">(</span><span class="n">cigar</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[5]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<table class="data-frame"><thead><tr><th></th><th>variable</th><th>mean</th><th>min</th><th>median</th><th>max</th><th>nunique</th><th>nmissing</th><th>eltype</th></tr><tr><th></th><th>Symbol</th><th>Union…</th><th>Any</th><th>Union…</th><th>Any</th><th>Union…</th><th>Int64</th><th>DataType</th></tr></thead><tbody><p>11 rows × 8 columns</p><tr><th>1</th><td>State</td><td>26.8261</td><td>1</td><td>26.5</td><td>51</td><td></td><td>0</td><td>Int64</td></tr><tr><th>2</th><td>Year</td><td>77.5</td><td>63</td><td>77.5</td><td>92</td><td></td><td>0</td><td>Int64</td></tr><tr><th>3</th><td>Price</td><td>68.6999</td><td>23.4</td><td>52.3</td><td>201.9</td><td></td><td>0</td><td>Float64</td></tr><tr><th>4</th><td>Pop</td><td>4537.11</td><td>319.0</td><td>3174.0</td><td>30703.3</td><td></td><td>0</td><td>Float64</td></tr><tr><th>5</th><td>Pop16</td><td>3366.62</td><td>215.2</td><td>2315.3</td><td>22920.0</td><td></td><td>0</td><td>Float64</td></tr><tr><th>6</th><td>CPI</td><td>73.5967</td><td>30.6</td><td>62.9</td><td>140.3</td><td></td><td>0</td><td>Float64</td></tr><tr><th>7</th><td>NDI</td><td>7525.02</td><td>1322.57</td><td>6281.2</td><td>23074.0</td><td></td><td>0</td><td>Float64</td></tr><tr><th>8</th><td>Sales</td><td>123.951</td><td>53.4</td><td>121.2</td><td>297.9</td><td></td><td>0</td><td>Float64</td></tr><tr><th>9</th><td>Pimin</td><td>62.8993</td><td>23.4</td><td>46.4</td><td>178.5</td><td></td><td>0</td><td>Float64</td></tr><tr><th>10</th><td>StateCategorical</td><td></td><td>1</td><td></td><td>51</td><td>46</td><td>0</td><td>CategoricalValue{Int64,UInt32}</td></tr><tr><th>11</th><td>YearCategorical</td><td></td><td>63</td><td></td><td>92</td><td>30</td><td>0</td><td>CategoricalValue{Int64,UInt32}</td></tr></tbody></table>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[24]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-julia"><pre><span></span><span class="n">fixedeffectresults</span> <span class="o">=</span> <span class="n">reg</span><span class="p">(</span><span class="n">cigar</span><span class="p">,</span> 
+    <span class="nd">@model</span><span class="p">(</span><span class="n">Sales</span> <span class="o">~</span> <span class="n">NDI</span><span class="p">,</span> <span class="n">fe</span> <span class="o">=</span> <span class="n">StateCategorical</span> <span class="o">+</span> <span class="n">YearCategorical</span><span class="p">,</span>
                             <span class="n">weights</span> <span class="o">=</span> <span class="n">Pop</span><span class="p">,</span> <span class="n">vcov</span> <span class="o">=</span> <span class="n">cluster</span><span class="p">(</span><span class="n">StateCategorical</span><span class="p">)))</span>
 <span class="n">regtable</span><span class="p">(</span><span class="n">fixedeffectresults</span><span class="p">)</span>
 </pre></div>
@@ -14331,6 +15147,723 @@ R2                     0.804
 </div>
 </div>
 
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[25]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-julia"><pre><span></span><span class="o">?</span><span class="n">reg</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>search: <span class="ansi-bold">r</span><span class="ansi-bold">e</span><span class="ansi-bold">g</span> <span class="ansi-bold">R</span><span class="ansi-bold">e</span><span class="ansi-bold">g</span>ex <span class="ansi-bold">r</span><span class="ansi-bold">e</span><span class="ansi-bold">g</span>table <span class="ansi-bold">R</span><span class="ansi-bold">e</span><span class="ansi-bold">g</span>exMatch <span class="ansi-bold">R</span><span class="ansi-bold">e</span><span class="ansi-bold">g</span>ressionModel <span class="ansi-bold">R</span><span class="ansi-bold">e</span><span class="ansi-bold">g</span>ressionResult
+
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[25]:</div>
+
+
+
+<div class="output_markdown rendered_html output_subarea output_execute_result">
+<p>Estimate a linear model with high dimensional categorical variables / instrumental variables</p>
+<h3 id="Arguments">Arguments<a class="anchor-link" href="#Arguments">&#182;</a></h3><ul>
+<li><code>df::AbstractDataFrame</code></li>
+<li><code>model::Model</code>: A model created using <a href="@ref"><code>@model</code></a></li>
+<li><code>save::Union{Bool, Symbol} = false</code>: Should residuals and eventual estimated fixed effects saved in a dataframe? Use <code>save = :residuals</code> to only save residuals. Use <code>save = :fe</code> to only save fixed effects.</li>
+<li><code>method::Symbol = :lsmr</code>: Method to deman regressors. <code>:lsmr</code> is akin to conjugate gradient descent.  With parallel use <code>:lsmr_parallel</code>. To use multi threaded use <code>lsmr_threads</code>. Other choices are <code>:qr</code> and <code>:cholesky</code> (factorization methods)</li>
+<li><code>contrasts::Dict = Dict()</code> An optional Dict of contrast codings for each categorical variable in the <code>formula</code>.  Any unspecified variables will have <code>DummyCoding</code>.</li>
+<li><code>maxiter::Integer = 10000</code>: Maximum number of iterations</li>
+<li><code>tol::Real =1e-8</code>: Tolerance</li>
+</ul>
+<h3 id="Details">Details<a class="anchor-link" href="#Details">&#182;</a></h3><p>Models with instruments variables are estimated using 2SLS. <code>reg</code> tests for weak instruments by computing the Kleibergen-Paap rk Wald F statistic, a generalization of the Cragg-Donald Wald F statistic for non i.i.d. errors. The statistic is similar to the one returned by the Stata command <code>ivreg2</code>.</p>
+<h3 id="Examples">Examples<a class="anchor-link" href="#Examples">&#182;</a></h3><div class="highlight"><pre><span></span><span class="k">using</span> <span class="n">DataFrames</span><span class="p">,</span> <span class="n">RDatasets</span><span class="p">,</span> <span class="n">FixedEffectModels</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">dataset</span><span class="p">(</span><span class="s">&quot;plm&quot;</span><span class="p">,</span> <span class="s">&quot;Cigar&quot;</span><span class="p">)</span>
+<span class="n">df</span><span class="p">[</span><span class="o">:</span><span class="n">StateC</span><span class="p">]</span> <span class="o">=</span>  <span class="n">categorical</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="o">:</span><span class="n">State</span><span class="p">])</span>
+<span class="n">df</span><span class="p">[</span><span class="o">:</span><span class="n">YearC</span><span class="p">]</span> <span class="o">=</span>  <span class="n">categorical</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="o">:</span><span class="n">Year</span><span class="p">])</span>
+<span class="n">reg</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="nd">@model</span><span class="p">(</span><span class="n">Sales</span> <span class="o">~</span> <span class="n">Price</span><span class="p">,</span> <span class="n">fe</span> <span class="o">=</span> <span class="n">StateC</span> <span class="o">+</span> <span class="n">YearC</span><span class="p">))</span>
+<span class="n">reg</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="nd">@model</span><span class="p">(</span><span class="n">Sales</span> <span class="o">~</span> <span class="n">NDI</span><span class="p">,</span> <span class="n">fe</span> <span class="o">=</span> <span class="n">StateC</span> <span class="o">+</span> <span class="n">StateC</span><span class="o">&amp;</span><span class="n">Year</span><span class="p">))</span>
+<span class="n">reg</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="nd">@model</span><span class="p">(</span><span class="n">Sales</span> <span class="o">~</span> <span class="n">NDI</span><span class="p">,</span> <span class="n">fe</span> <span class="o">=</span> <span class="n">StateC</span><span class="o">*</span><span class="n">Year</span><span class="p">))</span>
+<span class="n">reg</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="nd">@model</span><span class="p">(</span><span class="n">Sales</span> <span class="o">~</span> <span class="p">(</span><span class="n">Price</span> <span class="o">~</span> <span class="n">Pimin</span><span class="p">)))</span>
+<span class="n">reg</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="nd">@model</span><span class="p">(</span><span class="n">Sales</span> <span class="o">~</span> <span class="n">Price</span><span class="p">,</span> <span class="n">weights</span> <span class="o">=</span> <span class="n">Pop</span><span class="p">))</span>
+<span class="n">reg</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="nd">@model</span><span class="p">(</span><span class="n">Sales</span> <span class="o">~</span> <span class="n">NDI</span><span class="p">,</span> <span class="n">subset</span> <span class="o">=</span> <span class="n">State</span> <span class="o">.&lt;</span> <span class="mi">30</span><span class="p">))</span>
+<span class="n">reg</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="nd">@model</span><span class="p">(</span><span class="n">Sales</span> <span class="o">~</span> <span class="n">NDI</span><span class="p">,</span> <span class="n">vcov</span> <span class="o">=</span> <span class="n">robust</span><span class="p">))</span>
+<span class="n">reg</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="nd">@model</span><span class="p">(</span><span class="n">Sales</span> <span class="o">~</span> <span class="n">NDI</span><span class="p">,</span> <span class="n">vcov</span> <span class="o">=</span> <span class="n">cluster</span><span class="p">(</span><span class="n">StateC</span><span class="p">)))</span>
+<span class="n">reg</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="nd">@model</span><span class="p">(</span><span class="n">Sales</span> <span class="o">~</span> <span class="n">NDI</span><span class="p">,</span> <span class="n">vcov</span> <span class="o">=</span> <span class="n">cluster</span><span class="p">(</span><span class="n">StateC</span> <span class="o">+</span> <span class="n">YearC</span><span class="p">)))</span>
+<span class="n">reg</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="nd">@model</span><span class="p">(</span><span class="n">Sales</span> <span class="o">~</span> <span class="n">YearC</span><span class="p">),</span> <span class="n">contrasts</span> <span class="o">=</span> <span class="kt">Dict</span><span class="p">(</span><span class="o">:</span><span class="n">YearC</span> <span class="o">=&gt;</span> <span class="n">DummyCoding</span><span class="p">(</span><span class="n">base</span> <span class="o">=</span> <span class="mi">80</span><span class="p">)))</span>
+</pre></div>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="R-LFE-vs-FixedEffects.jl-Shootout">R LFE vs FixedEffects.jl Shootout<a class="anchor-link" href="#R-LFE-vs-FixedEffects.jl-Shootout">&#182;</a></h2><ul>
+<li>High dimensional Fixed effect estimation is compuationally intensive</li>
+<li>The R packge <a href="https://cran.r-project.org/web/packages/lfe/index.html">lfe</a> is a good option that uses multithreading, if available.</li>
+<li>Let's see how FixedEffects.jl compares to it.</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-julia"><pre><span></span><span class="s">&quot;&quot;&quot;</span>
+<span class="s">    FEbenchmark(;N=10_000_000,K= 100)</span>
+
+<span class="s">A function to create a 2-way fixed effect dataset. `N` observations, `K` </span>
+<span class="s">and `N/K` categories for Fixed effects respectively. We generate 7 regressors as well as a weight vector.</span>
+<span class="s">&quot;&quot;&quot;</span>
+<span class="k">function</span> <span class="n">FEbenchmark</span><span class="p">(;</span><span class="n">N</span><span class="o">=</span><span class="mi">10_000_000</span><span class="p">,</span><span class="n">K</span><span class="o">=</span> <span class="mi">100</span><span class="p">)</span>
+    <span class="n">id1_int</span> <span class="o">=</span> <span class="kt">Int</span><span class="o">.</span><span class="p">(</span><span class="n">rand</span><span class="p">(</span><span class="mi">1</span><span class="o">:</span><span class="p">(</span><span class="n">N</span><span class="o">/</span><span class="n">K</span><span class="p">),</span> <span class="n">N</span><span class="p">))</span>
+    <span class="n">id2_int</span> <span class="o">=</span> <span class="kt">Int</span><span class="o">.</span><span class="p">(</span><span class="n">rand</span><span class="p">(</span><span class="mi">1</span><span class="o">:</span><span class="n">K</span><span class="p">,</span> <span class="n">N</span><span class="p">))</span>
+    <span class="n">w</span> <span class="o">=</span> <span class="n">cos</span><span class="o">.</span><span class="p">(</span><span class="n">id1_int</span><span class="p">)</span>
+    
+    <span class="n">x1</span> <span class="o">=</span> <span class="mi">5</span> <span class="o">*</span> <span class="n">cos</span><span class="o">.</span><span class="p">(</span><span class="n">id1_int</span><span class="p">)</span> <span class="o">+</span> <span class="mi">5</span> <span class="o">*</span> <span class="n">sin</span><span class="o">.</span><span class="p">(</span><span class="n">id2_int</span><span class="p">)</span> <span class="o">+</span> <span class="n">randn</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
+    <span class="n">x2</span> <span class="o">=</span>  <span class="n">cos</span><span class="o">.</span><span class="p">(</span><span class="n">id1_int</span><span class="p">)</span> <span class="o">+</span> <span class="n">sin</span><span class="o">.</span><span class="p">(</span><span class="n">id2_int</span><span class="p">)</span> <span class="o">+</span> <span class="n">randn</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
+    <span class="n">x3</span> <span class="o">=</span>  <span class="n">cos</span><span class="o">.</span><span class="p">(</span><span class="n">id1_int</span><span class="p">)</span> <span class="o">+</span> <span class="n">sin</span><span class="o">.</span><span class="p">(</span><span class="n">id2_int</span><span class="p">)</span> <span class="o">+</span> <span class="n">randn</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
+    <span class="n">x4</span> <span class="o">=</span>  <span class="n">cos</span><span class="o">.</span><span class="p">(</span><span class="n">id1_int</span><span class="p">)</span> <span class="o">+</span> <span class="n">sin</span><span class="o">.</span><span class="p">(</span><span class="n">id2_int</span><span class="p">)</span> <span class="o">+</span> <span class="n">randn</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
+    <span class="n">x5</span> <span class="o">=</span>  <span class="n">cos</span><span class="o">.</span><span class="p">(</span><span class="n">id1_int</span><span class="p">)</span> <span class="o">+</span> <span class="n">sin</span><span class="o">.</span><span class="p">(</span><span class="n">id2_int</span><span class="p">)</span> <span class="o">+</span> <span class="n">randn</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
+    <span class="n">x6</span> <span class="o">=</span>  <span class="n">cos</span><span class="o">.</span><span class="p">(</span><span class="n">id1_int</span><span class="p">)</span> <span class="o">+</span> <span class="n">sin</span><span class="o">.</span><span class="p">(</span><span class="n">id2_int</span><span class="p">)</span> <span class="o">+</span> <span class="n">randn</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
+    <span class="n">x7</span> <span class="o">=</span>  <span class="n">cos</span><span class="o">.</span><span class="p">(</span><span class="n">id1_int</span><span class="p">)</span> <span class="o">+</span> <span class="n">sin</span><span class="o">.</span><span class="p">(</span><span class="n">id2_int</span><span class="p">)</span> <span class="o">+</span> <span class="n">randn</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
+    <span class="n">y</span><span class="o">=</span> <span class="mi">3</span> <span class="o">.*</span> <span class="n">x1</span> <span class="o">.+</span> <span class="mi">5</span> <span class="o">.*</span> <span class="n">x2</span> <span class="o">.+</span> <span class="n">x3</span> <span class="o">.+</span> <span class="n">x4</span> <span class="o">.+</span> <span class="n">x5</span> <span class="o">.+</span> <span class="n">x6</span> <span class="o">.+</span> <span class="n">x7</span> <span class="o">.+</span> <span class="n">cos</span><span class="o">.</span><span class="p">(</span><span class="n">id1_int</span><span class="p">)</span> <span class="o">.+</span> <span class="n">cos</span><span class="o">.</span><span class="p">(</span><span class="n">id2_int</span><span class="p">)</span><span class="o">.^</span><span class="mi">2</span> <span class="o">.+</span> <span class="n">randn</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">DataFrame</span><span class="p">(</span><span class="n">id1</span> <span class="o">=</span> <span class="n">categorical</span><span class="p">(</span><span class="n">id1_int</span><span class="p">),</span><span class="n">id1_int</span> <span class="o">=</span> <span class="n">id1_int</span><span class="p">,</span> 
+                   <span class="n">id2</span> <span class="o">=</span> <span class="n">categorical</span><span class="p">(</span><span class="n">id2_int</span><span class="p">),</span> <span class="n">id2_int</span> <span class="o">=</span> <span class="n">id2_int</span><span class="p">,</span>
+                   <span class="n">x1</span> <span class="o">=</span> <span class="n">x1</span><span class="p">,</span> 
+                   <span class="n">x2</span> <span class="o">=</span> <span class="n">x2</span><span class="p">,</span>
+                   <span class="n">x3</span> <span class="o">=</span> <span class="n">x3</span><span class="p">,</span>
+                   <span class="n">x4</span> <span class="o">=</span> <span class="n">x4</span><span class="p">,</span>
+                   <span class="n">x5</span> <span class="o">=</span> <span class="n">x5</span><span class="p">,</span>
+                   <span class="n">x6</span> <span class="o">=</span> <span class="n">x6</span><span class="p">,</span>
+                   <span class="n">x7</span> <span class="o">=</span> <span class="n">x7</span><span class="p">,</span>        
+                   <span class="n">w</span> <span class="o">=</span> <span class="n">w</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">y</span><span class="p">)</span>
+    <span class="n">df</span>
+<span class="k">end</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[2]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>FEbenchmark</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-julia"><pre><span></span><span class="c"># create our dataset</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">FEbenchmark</span><span class="p">()</span>
+
+<span class="c"># run a bunch of different models</span>
+<span class="nd">@time</span> <span class="n">reg</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="nd">@model</span><span class="p">(</span><span class="n">y</span> <span class="o">~</span> <span class="n">x1</span> <span class="o">+</span> <span class="n">x2</span><span class="p">))</span>
+<span class="c"># 0.582029 seconds (852 allocations: 535.311 MiB, 18.28% gc time)</span>
+<span class="nd">@time</span> <span class="n">reg</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="nd">@model</span><span class="p">(</span><span class="n">y</span> <span class="o">~</span> <span class="n">x1</span> <span class="o">+</span> <span class="n">x2</span><span class="p">,</span> <span class="n">vcov</span> <span class="o">=</span> <span class="n">cluster</span><span class="p">(</span><span class="n">id2</span><span class="p">)))</span>
+<span class="c"># 0.809652 seconds (1.55 k allocations: 649.821 MiB, 14.40% gc time)</span>
+<span class="nd">@time</span> <span class="n">reg</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="nd">@model</span><span class="p">(</span><span class="n">y</span> <span class="o">~</span> <span class="n">x1</span> <span class="o">+</span> <span class="n">x2</span><span class="p">,</span> <span class="n">fe</span> <span class="o">=</span> <span class="n">id1</span><span class="p">))</span>
+<span class="c"># 1.655732 seconds (1.21 k allocations: 734.353 MiB, 16.88% gc time)</span>
+<span class="nd">@time</span> <span class="n">reg</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="nd">@model</span><span class="p">(</span><span class="n">y</span> <span class="o">~</span> <span class="n">x1</span> <span class="o">+</span> <span class="n">x2</span><span class="p">,</span> <span class="n">fe</span> <span class="o">=</span> <span class="n">id1</span><span class="p">,</span> <span class="n">vcov</span> <span class="o">=</span> <span class="n">cluster</span><span class="p">(</span><span class="n">id1</span><span class="p">)))</span>
+<span class="c">#  2.113248 seconds (499.66 k allocations: 811.751 MiB, 15.08% gc time)</span>
+<span class="nd">@time</span> <span class="n">reg</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="nd">@model</span><span class="p">(</span><span class="n">y</span> <span class="o">~</span> <span class="n">x1</span> <span class="o">+</span> <span class="n">x2</span><span class="p">,</span> <span class="n">fe</span> <span class="o">=</span> <span class="n">id1</span> <span class="o">+</span> <span class="n">id2</span><span class="p">))</span>
+<span class="c"># 3.553678 seconds (1.36 k allocations: 1005.101 MiB, 10.55% gc time))</span>
+
+<span class="c"># let&#39;s take the biggest model as our benchmark timing</span>
+<span class="nd">@time</span> <span class="n">result</span> <span class="o">=</span> <span class="n">reg</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="nd">@model</span><span class="p">(</span><span class="n">y</span> <span class="o">~</span> <span class="n">x1</span> <span class="o">+</span> <span class="n">x2</span> <span class="o">+</span> <span class="n">x3</span> <span class="o">+</span> <span class="n">x4</span> <span class="o">+</span> <span class="n">x5</span> <span class="o">+</span> <span class="n">x6</span> <span class="o">+</span> <span class="n">x7</span><span class="p">,</span> <span class="n">fe</span> <span class="o">=</span> <span class="n">id1</span> <span class="o">+</span> <span class="n">id2</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_text output_error">
+<pre>
+UndefVarError: categorical not defined
+
+Stacktrace:
+ [1] #FEbenchmark#5(::Int64, ::Int64, ::Function) at ./In[2]:20
+ [2] FEbenchmark() at ./In[2]:8
+ [3] top-level scope at In[3]:1</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div></section></section><section><section>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-julia"><pre><span></span><span class="c"># using R lfe package</span>
+<span class="k">using</span> <span class="n">RCall</span>
+<span class="n">rstring</span> <span class="o">=</span> <span class="n">R</span><span class="s">&quot;&quot;&quot;</span>
+<span class="s"># factorize data</span>
+<span class="s"># notice that we have to pass the integer data in id1_int.</span>
+<span class="s">r_d = </span><span class="si">$df</span><span class="s"></span>
+<span class="s">r_d[,&quot;id1&quot;] = factor(r_d[,&quot;id1_int&quot;])</span>
+<span class="s">r_d[,&quot;id2&quot;] = factor(r_d[,&quot;id2_int&quot;])</span>
+
+<span class="s">library(lfe)</span>
+<span class="s">r_time = system.time(lfe &lt;- felm(y ~x1 + x2 + x3 + x4 + x5 + x6 + x7| id1 + id2, data=r_d))</span>
+<span class="s">print(paste0(&quot;R lfe time: &quot;,r_time[1]))</span>
+<span class="s">print(summary(lfe))</span>
+<span class="s">r_time[1]</span>
+<span class="s">#</span>
+<span class="s">## OLS.</span>
+<span class="s">#ols &lt;- lm(y ~x1 + x2 + x3 + x4 + x5 + x6 + x7 + id1 + id2 -1, data=r_d)</span>
+<span class="s">#summary(ols)</span>
+<span class="s">&quot;&quot;&quot;</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>┌ Info: Precompiling RCall [6f49c342-dc21-5d91-9882-a32aef131414]
+└ @ Base loading.jl:1186
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_text output_error">
+<pre>
+UndefVarError: df not defined
+
+Stacktrace:
+ [1] top-level scope at /Users/florian.oswald/.julia/packages/RCall/29zDq/src/macros.jl:66
+ [2] top-level scope at In[1]:3</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div></section></section><section><section>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[35]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-julia"><pre><span></span><span class="c"># use option save=true to store estimated fixed effects</span>
+<span class="nd">@time</span> <span class="n">result</span> <span class="o">=</span> <span class="n">reg</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="nd">@model</span><span class="p">(</span><span class="n">y</span> <span class="o">~</span> <span class="n">x1</span> <span class="o">+</span> <span class="n">x2</span> <span class="o">+</span> <span class="n">x3</span> <span class="o">+</span> <span class="n">x4</span> <span class="o">+</span> <span class="n">x5</span> <span class="o">+</span> <span class="n">x6</span> <span class="o">+</span> <span class="n">x7</span><span class="p">,</span> <span class="n">fe</span> <span class="o">=</span> <span class="n">id1</span> <span class="o">+</span> <span class="n">id2</span><span class="p">),</span> <span class="n">save</span> <span class="o">=</span> <span class="kc">true</span><span class="p">)</span>
+<span class="k">using</span> <span class="n">RegressionTables</span>
+<span class="n">regtable</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre> 20.261003 seconds (2.21 k allocations: 3.096 GiB, 9.50% gc time)
+
+----------------------
+                 y    
+            ----------
+                   (1)
+----------------------
+x1            3.000***
+               (0.000)
+x2            5.000***
+               (0.000)
+x3            1.000***
+               (0.000)
+x4            1.000***
+               (0.000)
+x5            1.000***
+               (0.000)
+x6            1.000***
+               (0.000)
+x7            1.000***
+               (0.000)
+----------------------
+id1                Yes
+id2                Yes
+----------------------
+Estimator          OLS
+----------------------
+N           10,000,000
+R2               0.999
+----------------------
+
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[27]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-julia"><pre><span></span><span class="n">cor</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">augmentdf</span><span class="o">.</span><span class="n">id1</span><span class="p">,</span><span class="n">result</span><span class="o">.</span><span class="n">augmentdf</span><span class="o">.</span><span class="n">id2</span><span class="p">)</span>   <span class="c"># AKM sorting?</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[27]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>-0.00020160140915523005</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[28]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-julia"><pre><span></span><span class="c"># more models</span>
+<span class="n">result2</span> <span class="o">=</span> <span class="n">reg</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="nd">@model</span><span class="p">(</span><span class="n">y</span> <span class="o">~</span> <span class="n">x1</span> <span class="o">+</span> <span class="n">x2</span> <span class="o">+</span> <span class="n">x3</span><span class="p">,</span> <span class="n">fe</span> <span class="o">=</span> <span class="n">id1</span> <span class="o">+</span> <span class="n">id2</span><span class="p">))</span>
+<span class="n">result3</span> <span class="o">=</span> <span class="n">reg</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="nd">@model</span><span class="p">(</span><span class="n">y</span> <span class="o">~</span> <span class="n">x1</span>      <span class="o">+</span> <span class="n">x3</span><span class="p">,</span> <span class="n">fe</span> <span class="o">=</span> <span class="n">id1</span> <span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[28]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>                      Fixed Effect Model                      
+==============================================================
+Number of obs:        10000000  Degrees of freedom:     100002
+R2:                      0.953  R2 within:               0.907
+F-Statistic:         8.63907e7  p-value:                 0.000
+Iterations:                  1  Converged:                true
+     Estimate   Std.Error t value Pr(&gt;|t|) Lower 95% Upper 95%
+x1    4.60759 0.000596781 7720.74    0.000   4.60642   4.60876
+x3    1.31957  0.00179355  735.73    0.000   1.31606   1.32309
+</pre>
+</div>
+
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>==============================================================
+--------------------------------------------------------------
+==============================================================
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[29]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-julia"><pre><span></span><span class="c"># how to look at those? -&gt; regtable!</span>
+<span class="n">regtable</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="n">result2</span><span class="p">,</span> <span class="n">result3</span> <span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>
+------------------------------------------------
+                              y                 
+            ------------------------------------
+                   (1)          (2)          (3)
+------------------------------------------------
+x1            3.000***     3.000***     4.608***
+               (0.000)      (0.001)      (0.001)
+x2            5.000***     5.001***             
+               (0.000)      (0.001)             
+x3            1.000***     1.000***     1.320***
+               (0.000)      (0.001)      (0.002)
+x4            1.000***                          
+               (0.000)                          
+x5            1.000***                          
+               (0.000)                          
+x6            1.000***                          
+               (0.000)                          
+x7            1.000***                          
+               (0.000)                          
+------------------------------------------------
+id1                Yes          Yes          Yes
+id2                Yes          Yes             
+------------------------------------------------
+Estimator          OLS          OLS          OLS
+------------------------------------------------
+N           10,000,000   10,000,000   10,000,000
+R2               0.999        0.993        0.953
+------------------------------------------------
+
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[30]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-julia"><pre><span></span><span class="c"># latex?</span>
+<span class="n">regtable</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="n">result2</span><span class="p">,</span> <span class="n">result3</span><span class="p">,</span> <span class="n">renderSettings</span> <span class="o">=</span> <span class="n">latexOutput</span><span class="p">()</span> <span class="p">)</span>  <span class="c"># latexOutput(filename::String)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>\begin{tabular}{lrrr}
+\toprule
+          &amp;         \multicolumn{3}{c}{y}        \\ 
+\cmidrule(lr){2-4} 
+          &amp;        (1) &amp;        (2) &amp;        (3) \\ 
+\midrule
+x1        &amp;   3.000*** &amp;   3.000*** &amp;   4.608*** \\ 
+          &amp;    (0.000) &amp;    (0.001) &amp;    (0.001) \\ 
+x2        &amp;   5.000*** &amp;   5.001*** &amp;            \\ 
+          &amp;    (0.000) &amp;    (0.001) &amp;            \\ 
+x3        &amp;   1.000*** &amp;   1.000*** &amp;   1.320*** \\ 
+          &amp;    (0.000) &amp;    (0.001) &amp;    (0.002) \\ 
+x4        &amp;   1.000*** &amp;            &amp;            \\ 
+          &amp;    (0.000) &amp;            &amp;            \\ 
+x5        &amp;   1.000*** &amp;            &amp;            \\ 
+          &amp;    (0.000) &amp;            &amp;            \\ 
+x6        &amp;   1.000*** &amp;            &amp;            \\ 
+          &amp;    (0.000) &amp;            &amp;            \\ 
+x7        &amp;   1.000*** &amp;            &amp;            \\ 
+          &amp;    (0.000) &amp;            &amp;            \\ 
+\midrule
+id1       &amp;        Yes &amp;        Yes &amp;        Yes \\ 
+id2       &amp;        Yes &amp;        Yes &amp;            \\ 
+\midrule
+Estimator &amp;        OLS &amp;        OLS &amp;        OLS \\ 
+\midrule
+$N$       &amp; 10,000,000 &amp; 10,000,000 &amp; 10,000,000 \\ 
+$R^2$     &amp;      0.999 &amp;      0.993 &amp;      0.953 \\ 
+\bottomrule
+\end{tabular}
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[31]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-julia"><pre><span></span><span class="c"># options</span>
+<span class="n">regtable</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="n">result2</span><span class="p">,</span> <span class="n">result3</span> <span class="p">,</span> <span class="n">below_statistic</span> <span class="o">=</span> <span class="o">:</span><span class="n">blank</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>
+------------------------------------------------
+                              y                 
+            ------------------------------------
+                   (1)          (2)          (3)
+------------------------------------------------
+x1            3.000***     3.000***     4.608***
+                                                
+x2            5.000***     5.001***             
+                                                
+x3            1.000***     1.000***     1.320***
+                                                
+x4            1.000***                          
+                                                
+x5            1.000***                          
+                                                
+x6            1.000***                          
+                                                
+x7            1.000***                          
+                                                
+------------------------------------------------
+id1                Yes          Yes          Yes
+id2                Yes          Yes             
+------------------------------------------------
+Estimator          OLS          OLS          OLS
+------------------------------------------------
+N           10,000,000   10,000,000   10,000,000
+R2               0.999        0.993        0.953
+------------------------------------------------
+
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[32]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-julia"><pre><span></span><span class="k">using</span> <span class="n">GLM</span>
+<span class="n">ols</span> <span class="o">=</span> <span class="n">lm</span><span class="p">(</span><span class="nd">@formula</span><span class="p">(</span><span class="n">y</span> <span class="o">~</span> <span class="n">x1</span> <span class="o">+</span> <span class="n">x2</span><span class="p">),</span><span class="n">df</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[32]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>StatsModels.DataFrameRegressionModel{LinearModel{LmResp{Array{Float64,1}},DensePredChol{Float64,Cholesky{Float64,Array{Float64,2}}}},Array{Float64,2}}
+
+Formula: y ~ 1 + x1 + x2
+
+Coefficients:
+             Estimate   Std.Error t value Pr(&gt;|t|)
+(Intercept)  0.497543 0.000865641 574.768   &lt;1e-99
+x1            4.01824 0.000235451 17066.2   &lt;1e-99
+x2            5.20388 0.000849626 6124.91   &lt;1e-99
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[33]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-julia"><pre><span></span><span class="n">regtable</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="n">result2</span><span class="p">,</span><span class="n">ols</span><span class="p">,</span><span class="n">below_decoration</span> <span class="o">=</span> <span class="n">s</span> <span class="o">-&gt;</span> <span class="s">&quot;[</span><span class="si">$</span><span class="p">(</span><span class="n">s</span><span class="p">)</span><span class="s">]&quot;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>
+--------------------------------------------------
+                                y                 
+              ------------------------------------
+                     (1)          (2)          (3)
+--------------------------------------------------
+x1              3.000***     3.000***     4.018***
+                 [0.000]      [0.001]      [0.000]
+x2              5.000***     5.001***     5.204***
+                 [0.000]      [0.001]      [0.001]
+x3              1.000***     1.000***             
+                 [0.000]      [0.001]             
+x4              1.000***                          
+                 [0.000]                          
+x5              1.000***                          
+                 [0.000]                          
+x6              1.000***                          
+                 [0.000]                          
+x7              1.000***                          
+                 [0.000]                          
+(Intercept)                               0.498***
+                                           [0.001]
+--------------------------------------------------
+id1                  Yes          Yes             
+id2                  Yes          Yes             
+--------------------------------------------------
+Estimator            OLS          OLS          OLS
+--------------------------------------------------
+N             10,000,000   10,000,000   10,000,000
+R2                 0.999        0.993        0.989
+--------------------------------------------------
+
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>💪 <a href="https://twitter.com/johannesmboehm">@jmboehm</a></p>
+
+</div>
+</div>
 </div></section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
@@ -14342,7 +15875,7 @@ R2                     0.804
 </div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[22]:</div>
+<div class="prompt input_prompt">In&nbsp;[34]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="c"># cigar |&gt; Voyager()</span>
@@ -14366,7 +15899,7 @@ R2                     0.804
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[22]:</div>
+    <div class="prompt output_prompt">Out[34]:</div>
 
 
 
@@ -14378,6 +15911,19 @@ R2                     0.804
 
 </div>
 
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-julia"><pre><span></span>
+</pre></div>
+
+    </div>
 </div>
 </div>
 

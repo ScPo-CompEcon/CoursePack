@@ -13242,10 +13242,12 @@ a.anchor-link {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Packages,-Testing,-and-Continuous-Integration">Packages, Testing, and Continuous Integration<a class="anchor-link" href="#Packages,-Testing,-and-Continuous-Integration">&#182;</a></h1>
+<h1 id="Packages,-Testing,-and-Continuous-Integration">Packages, Testing, and Continuous Integration<a class="anchor-link" href="#Packages,-Testing,-and-Continuous-Integration">&#182;</a></h1><p>Florian Oswald</p>
+<p>This is lecture is a slightly modified version of <a href="https://lectures.quantecon.org/jl/testing.html">https://lectures.quantecon.org/jl/testing.html</a> Thank you to the amazing Quantecon.org team!</p>
+
 </div>
 </div>
-</div>
+</div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -13268,50 +13270,44 @@ a.anchor-link {
 
 </div>
 </div>
-</div>
+</div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Co-authored with Arnav Sood</p>
-<p>This lecture discusses structuring a project as a Julia module, and testing it with tools from GitHub</p>
-<p>Benefits include</p>
-<ul>
+<p>This lecture discusses structuring a project as a Julia module, and testing it with tools from GitHub.</p>
+<p>Benefits include:</p>
+<ol>
 <li>Specifying dependencies (and their versions) so that your project works across Julia setups and over time  </li>
 <li>Being able to load your project’s functions from outside without copy/pasting  </li>
 <li>Writing tests that run locally, <em>and automatically on the GitHub server</em>  </li>
 <li>Having GitHub test your project across operating systems, Julia versions, etc.  </li>
-</ul>
+</ol>
 <p><a id='project-setup'></a></p>
 
 </div>
 </div>
-</div>
+</div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Project-Setup">Project Setup<a class="anchor-link" href="#Project-Setup">&#182;</a></h2>
+<h2 id="Setting-Up-your-Github-Accounts">Setting Up your Github Accounts<a class="anchor-link" href="#Setting-Up-your-Github-Accounts">&#182;</a></h2>
 </div>
 </div>
-</div>
+</div></section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Account-Setup">Account Setup<a class="anchor-link" href="#Account-Setup">&#182;</a></h3>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="Travis-CI">Travis CI<a class="anchor-link" href="#Travis-CI">&#182;</a></h4><p>As we’ll see later, Travis is a service that automatically tests your project on the GitHub server</p>
-<p>First, we need to make sure that your GitHub account is set up with Travis CI and Codecov</p>
-<p>As a reminder, make sure you signed up for the GitHub <a href="https://education.github.com/pack/">Student Developer Pack</a> or <a href="https://help.github.com/articles/applying-for-an-academic-research-discount/">Academic Plan</a> if eligible</p>
-<p>Navigate to the <a href="https://travis-ci.com/">travis-ci.com website</a> and click “sign up with GitHub” – supply your credentials</p>
-<p>If you get stuck, see the <a href="https://docs.travis-ci.com/user/tutorial/">Travis tutorial</a></p>
+<h4 id="Travis-CI">Travis CI<a class="anchor-link" href="#Travis-CI">&#182;</a></h4><ul>
+<li>Travis is a service that automatically tests your projects.</li>
+<li>First, we need to make sure that your GitHub account is set up with Travis CI and Codecov</li>
+<li>As a reminder, make sure you signed up for the GitHub <a href="https://education.github.com/pack/">Student Developer Pack</a> or <a href="https://help.github.com/articles/applying-for-an-academic-research-discount/">Academic Plan</a> if eligible</li>
+<li>Navigate to the <a href="https://travis-ci.com/">travis-ci.com website</a> and click “sign up with GitHub” – supply your credentials</li>
+<li>If you get stuck, see the <a href="https://docs.travis-ci.com/user/tutorial/">Travis tutorial</a></li>
+</ul>
 
 </div>
 </div>
-</div>
+</div></section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -13325,14 +13321,14 @@ a.anchor-link {
 
 </div>
 </div>
-</div>
+</div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Julia-Setup">Julia Setup<a class="anchor-link" href="#Julia-Setup">&#182;</a></h3>
 </div>
 </div>
-</div>
+</div></section></section><section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[1]:</div>
@@ -13341,14 +13337,14 @@ a.anchor-link {
 <div class=" highlight hl-julia"><pre><span></span><span class="k">using</span> <span class="n">InstantiateFromURL</span>
 
 <span class="c"># activate the QuantEcon environment</span>
-<span class="n">activate_github</span><span class="p">(</span><span class="s">&quot;QuantEcon/QuantEconLectureAllPackages&quot;</span><span class="p">,</span> <span class="n">tag</span> <span class="o">=</span> <span class="s">&quot;v0.9.5&quot;</span><span class="p">);</span>
+<span class="n">activate_github</span><span class="p">(</span><span class="s">&quot;QuantEcon/QuantEconLectureAllPackages&quot;</span><span class="p">,</span> <span class="n">tag</span> <span class="o">=</span> <span class="s">&quot;v0.9.7&quot;</span><span class="p">);</span>
 </pre></div>
 
     </div>
 </div>
 </div>
 
-</div>
+</div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -13357,16 +13353,16 @@ a.anchor-link {
 
 </div>
 </div>
-</div>
+</div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">config</span> <span class="o">--</span> <span class="kd">global</span> <span class="n">user</span><span class="o">.</span><span class="n">name</span> <span class="s">&quot;Your Name&quot;</span>
+<div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">config</span> <span class="o">--</span><span class="kd">global</span> <span class="n">user</span><span class="o">.</span><span class="n">name</span> <span class="s">&quot;Your Name&quot;</span>
 </pre></div>
 
 </div>
 </div>
-</div>
+</div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -13377,7 +13373,7 @@ a.anchor-link {
 
 </div>
 </div>
-</div>
+</div></section></section><section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[2]:</div>
@@ -13390,7 +13386,7 @@ a.anchor-link {
 </div>
 </div>
 
-</div>
+</div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -13401,13 +13397,13 @@ a.anchor-link {
 
 </div>
 </div>
-</div>
+</div></section></section><section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-julia"><pre><span></span><span class="n">ourTemplate</span> <span class="o">=</span> <span class="n">Template</span><span class="p">(;</span><span class="n">user</span><span class="o">=</span><span class="s">&quot;quanteconuser&quot;</span><span class="p">,</span> <span class="n">plugins</span> <span class="o">=</span> <span class="p">[</span><span class="n">TravisCI</span><span class="p">(),</span> <span class="n">Codecov</span><span class="p">()])</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="n">ourTemplate</span> <span class="o">=</span> <span class="n">Template</span><span class="p">(;</span><span class="n">user</span><span class="o">=</span><span class="s">&quot;ScPo-CompEcon&quot;</span><span class="p">,</span> <span class="n">plugins</span> <span class="o">=</span> <span class="p">[</span><span class="n">TravisCI</span><span class="p">(),</span> <span class="n">Codecov</span><span class="p">()])</span>
 </pre></div>
 
     </div>
@@ -13420,18 +13416,18 @@ a.anchor-link {
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[3]:</div>
+    <div class="prompt output_prompt">Out[4]:</div>
 
 
 
 
 <div class="output_text output_subarea output_execute_result">
 <pre>Template:
-  → User: quanteconuser
+  → User: ScPo-CompEcon
   → Host: github.com
-  → License: MIT (QuantEcon 2019)
+  → License: MIT (florian oswald 2019)
   → Package directory: ~/.julia/dev
-  → Minimum Julia version: v1.0
+  → Minimum Julia version: v1.1
   → SSH remote: No
   → Commit Manifest.toml: No
   → Plugins:
@@ -13448,21 +13444,21 @@ a.anchor-link {
 </div>
 </div>
 
-</div>
+</div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>Note</strong>: Make sure you replace the <code>quanteconuser</code> with your GitHub ID</p>
+<p><strong>Note</strong>: Make sure you replace the <code>ScPo-CompEcon</code> with your GitHub ID</p>
 <ul>
 <li>Create a specific project based off this template  </li>
 </ul>
 
 </div>
 </div>
-</div>
+</div></section></section><section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="n">generate</span><span class="p">(</span><span class="s">&quot;ExamplePackage.jl&quot;</span><span class="p">,</span> <span class="n">ourTemplate</span><span class="p">)</span>
@@ -13483,8 +13479,8 @@ a.anchor-link {
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre><span class="ansi-green-intense-fg ansi-bold">Generating</span> project ExamplePackage:
-    /home/quantecon/.julia/dev/ExamplePackage/Project.toml
-    /home/quantecon/.julia/dev/ExamplePackage/src/ExamplePackage.jl
+    /Users/florian.oswald/.julia/dev/ExamplePackage/Project.toml
+    /Users/florian.oswald/.julia/dev/ExamplePackage/src/ExamplePackage.jl
 </pre>
 </div>
 </div>
@@ -13495,10 +13491,10 @@ a.anchor-link {
 
 
 <div class="output_subarea output_stream output_stderr output_text">
-<pre>┌ Info: Initialized Git repo at /home/quantecon/.julia/dev/ExamplePackage
-└ @ PkgTemplates /home/quantecon/.julia/packages/PkgTemplates/TYX2I/src/generate.jl:24
-┌ Info: Set remote origin to https://github.com/quanteconuser/ExamplePackage.jl
-└ @ PkgTemplates /home/quantecon/.julia/packages/PkgTemplates/TYX2I/src/generate.jl:43
+<pre>┌ Info: Initialized Git repo at /Users/florian.oswald/.julia/dev/ExamplePackage
+└ @ PkgTemplates /Users/florian.oswald/.julia/packages/PkgTemplates/YbOlC/src/generate.jl:29
+┌ Info: Set remote origin to https://github.com/ScPo-CompEcon/ExamplePackage.jl
+└ @ PkgTemplates /Users/florian.oswald/.julia/packages/PkgTemplates/YbOlC/src/generate.jl:48
 </pre>
 </div>
 </div>
@@ -13511,15 +13507,13 @@ a.anchor-link {
 <div class="output_subarea output_stream output_stdout output_text">
 <pre><span class="ansi-green-intense-fg ansi-bold">  Updating</span> registry at `~/.julia/registries/General`
 <span class="ansi-green-intense-fg ansi-bold">  Updating</span> git-repo `https://github.com/JuliaRegistries/General.git`
-<span class="ansi-green-intense-fg ansi-bold"> Resolving</span> package versions...
+[1mFetching: [========================================&gt;]  100.0 %.0 %<span class="ansi-green-intense-fg ansi-bold"> Resolving</span> package versions...
 <span class="ansi-green-intense-fg ansi-bold">  Updating</span> `~/.julia/dev/ExamplePackage/Project.toml`
  <span class="ansi-black-intense-fg"> [8dfed614]</span><span class="ansi-green-intense-fg"> + Test </span>
 <span class="ansi-green-intense-fg ansi-bold">  Updating</span> `~/.julia/dev/ExamplePackage/Manifest.toml`
  <span class="ansi-black-intense-fg"> [2a0f44e3]</span><span class="ansi-green-intense-fg"> + Base64 </span>
  <span class="ansi-black-intense-fg"> [8ba89e20]</span><span class="ansi-green-intense-fg"> + Distributed </span>
  <span class="ansi-black-intense-fg"> [b77e0a4c]</span><span class="ansi-green-intense-fg"> + InteractiveUtils </span>
- <span class="ansi-black-intense-fg"> [8f399da3]</span><span class="ansi-green-intense-fg"> + Libdl </span>
- <span class="ansi-black-intense-fg"> [37e2e46d]</span><span class="ansi-green-intense-fg"> + LinearAlgebra </span>
  <span class="ansi-black-intense-fg"> [56ddb016]</span><span class="ansi-green-intense-fg"> + Logging </span>
  <span class="ansi-black-intense-fg"> [d6f4376e]</span><span class="ansi-green-intense-fg"> + Markdown </span>
  <span class="ansi-black-intense-fg"> [9a3f8284]</span><span class="ansi-green-intense-fg"> + Random </span>
@@ -13535,14 +13529,13 @@ a.anchor-link {
  <span class="ansi-black-intense-fg"> [2a0f44e3]</span><span class="ansi-red-intense-fg"> - Base64 </span>
  <span class="ansi-black-intense-fg"> [8ba89e20]</span><span class="ansi-red-intense-fg"> - Distributed </span>
  <span class="ansi-black-intense-fg"> [b77e0a4c]</span><span class="ansi-red-intense-fg"> - InteractiveUtils </span>
- <span class="ansi-black-intense-fg"> [8f399da3]</span><span class="ansi-red-intense-fg"> - Libdl </span>
- <span class="ansi-black-intense-fg"> [37e2e46d]</span><span class="ansi-red-intense-fg"> - LinearAlgebra </span>
  <span class="ansi-black-intense-fg"> [56ddb016]</span><span class="ansi-red-intense-fg"> - Logging </span>
  <span class="ansi-black-intense-fg"> [d6f4376e]</span><span class="ansi-red-intense-fg"> - Markdown </span>
  <span class="ansi-black-intense-fg"> [9a3f8284]</span><span class="ansi-red-intense-fg"> - Random </span>
  <span class="ansi-black-intense-fg"> [9e88b42a]</span><span class="ansi-red-intense-fg"> - Serialization </span>
  <span class="ansi-black-intense-fg"> [6462fe0b]</span><span class="ansi-red-intense-fg"> - Sockets </span>
  <span class="ansi-black-intense-fg"> [8dfed614]</span><span class="ansi-red-intense-fg"> - Test </span>
+<span class="ansi-green-intense-fg ansi-bold"> Resolving</span> package versions...
 </pre>
 </div>
 </div>
@@ -13554,7 +13547,7 @@ a.anchor-link {
 
 <div class="output_subarea output_stream output_stderr output_text">
 <pre>┌ Info: Committed 8 files/directories: src/, Project.toml, test/, REQUIRE, README.md, LICENSE, .travis.yml, .gitignore
-└ @ PkgTemplates /home/quantecon/.julia/packages/PkgTemplates/TYX2I/src/generate.jl:68
+└ @ PkgTemplates /Users/florian.oswald/.julia/packages/PkgTemplates/YbOlC/src/generate.jl:73
 </pre>
 </div>
 </div>
@@ -13565,11 +13558,10 @@ a.anchor-link {
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre><span class="ansi-green-intense-fg ansi-bold"> Resolving</span> package versions...
-<span class="ansi-green-intense-fg ansi-bold">  Updating</span> `~/.julia/environments/v1.0/Project.toml`
- <span class="ansi-black-intense-fg"> [f377855a]</span><span class="ansi-green-intense-fg"> + ExamplePackage v0.1.0 [`~/.julia/dev/ExamplePackage`]</span>
-<span class="ansi-green-intense-fg ansi-bold">  Updating</span> `~/.julia/environments/v1.0/Manifest.toml`
- <span class="ansi-black-intense-fg"> [f377855a]</span><span class="ansi-green-intense-fg"> + ExamplePackage v0.1.0 [`~/.julia/dev/ExamplePackage`]</span>
+<pre><span class="ansi-green-intense-fg ansi-bold">  Updating</span> `~/.julia/environments/v1.1/Project.toml`
+ <span class="ansi-black-intense-fg"> [63b64609]</span><span class="ansi-green-intense-fg"> + ExamplePackage v0.1.0 [`~/.julia/dev/ExamplePackage`]</span>
+<span class="ansi-green-intense-fg ansi-bold">  Updating</span> `~/.julia/environments/v1.1/Manifest.toml`
+ <span class="ansi-black-intense-fg"> [63b64609]</span><span class="ansi-green-intense-fg"> + ExamplePackage v0.1.0 [`~/.julia/dev/ExamplePackage`]</span>
 </pre>
 </div>
 </div>
@@ -13580,8 +13572,8 @@ a.anchor-link {
 
 
 <div class="output_subarea output_stream output_stderr output_text">
-<pre>┌ Info: New package is at /home/quantecon/.julia/dev/ExamplePackage
-└ @ PkgTemplates /home/quantecon/.julia/packages/PkgTemplates/TYX2I/src/generate.jl:79
+<pre>┌ Info: New package is at /Users/florian.oswald/.julia/dev/ExamplePackage
+└ @ PkgTemplates /Users/florian.oswald/.julia/packages/PkgTemplates/YbOlC/src/generate.jl:84
 </pre>
 </div>
 </div>
@@ -13589,7 +13581,7 @@ a.anchor-link {
 </div>
 </div>
 
-</div>
+</div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -13599,13 +13591,13 @@ a.anchor-link {
 
 </div>
 </div>
-</div>
+</div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Adding-a-Project-to-Git">Adding a Project to Git<a class="anchor-link" href="#Adding-a-Project-to-Git">&#182;</a></h3><p>The next step is to add this project to Git version control</p>
+<h3 id="Adding-a-Project-to-Github">Adding a Project to Github<a class="anchor-link" href="#Adding-a-Project-to-Github">&#182;</a></h3><p>The next step is to creat a repository online where to store our code.</p>
 <ul>
-<li>Open the repository screen in your account as discussed previously  </li>
+<li>go to github.com, login, and click on new repository</li>
 </ul>
 <p>We’ll want the following settings</p>
 <p><img src="https://s3-ap-southeast-2.amazonaws.com/lectures.quantecon.org/jl/_static/figures/testing-git1.png" style="width:100%;height:100%"></p>
@@ -13614,12 +13606,18 @@ a.anchor-link {
 <li>The repo you create should have the same name as the project we added  </li>
 <li>We should leave the boxes unchecked for the <code>README.md</code>, <code>LICENSE</code>, and <code>.gitignore</code>, since these are handled by <code>PkgTemplates</code>  </li>
 </ul>
-<p>Then,</p>
+<p>Then, if you use Github Desktop</p>
 <ul>
 <li>Drag and drop your folder from your <code>~/.julia/dev</code> directory to GitHub Desktop  </li>
 <li>Click the “publish branch” button to upload your files to GitHub  </li>
 </ul>
-<p>If you navigate to your git repo (ours is <a href="https://github.com/quanteconuser/ExamplePackage.jl/">here</a>), you should see something like</p>
+<p>Else, if you use the commandline, do</p>
+<div class="highlight"><pre><span></span><span class="nb">cd</span> ~/.julia/dev/ExamplePackage
+git add .
+git commit -m <span class="s1">&#39;initial commit&#39;</span>
+git push origin master
+</pre></div>
+<p>If you navigate to your git repo (ours is <a href="https://github.com/ScPo-CompEcon/ExamplePackage.jl/">here</a>), you should see something like</p>
 <p><img src="https://s3-ap-southeast-2.amazonaws.com/lectures.quantecon.org/jl/_static/figures/testing-git2.png" style="width:100%;height:100%"></p>
 <p><strong>Note:</strong> Be sure that you don’t separately clone the repo you just added to another location (i.e., to your desktop)</p>
 <p>A key note is that you have some set of files on your local machine (here in <code>~/.julia/dev/ExamplePackage.jl</code>) and git is plugged into those files</p>
@@ -13627,45 +13625,39 @@ a.anchor-link {
 
 </div>
 </div>
-</div>
+</div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Adding-a-Project-to-the-Julia-Package-Manager">Adding a Project to the Julia Package Manager<a class="anchor-link" href="#Adding-a-Project-to-the-Julia-Package-Manager">&#182;</a></h3><p>We also want Julia’s package manager to be aware of the project</p>
-<ul>
-<li>Open a REPL in the newly created project directory, either by noting the path printed above, or by running the following in a REPL  </li>
+<h3 id="Adding-a-Project-to-the-Julia-Package-Manager">Adding a Project to the Julia Package Manager<a class="anchor-link" href="#Adding-a-Project-to-the-Julia-Package-Manager">&#182;</a></h3><ul>
+<li>We also want Julia’s package manager to be aware of the project</li>
+<li><p>In order to make it <em>visible</em> to the package manager, we need to execute the Pkg-mode command <code>dev</code></p>
+</li>
+<li><p>Open a REPL in the newly created project directory, either by noting the path printed above, or by running the following in a REPL</p>
+</li>
 </ul>
 
 </div>
 </div>
-</div>
+</div></section></section><section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-julia"><pre><span></span><span class="n">cd</span><span class="p">(</span><span class="n">joinpath</span><span class="p">(</span><span class="n">DEPOT_PATH</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="s">&quot;dev&quot;</span><span class="p">,</span> <span class="s">&quot;ExamplePackage&quot;</span><span class="p">))</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="c"># first we go to where our package is on our computer</span>
+<span class="n">cd</span><span class="p">(</span><span class="n">joinpath</span><span class="p">(</span><span class="n">DEPOT_PATH</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="s">&quot;dev&quot;</span><span class="p">,</span> <span class="s">&quot;ExamplePackage&quot;</span><span class="p">))</span>   <span class="c"># Note the lack of `.jl`!</span>
+<span class="c"># ] goes into pkg mode!</span>
 </pre></div>
 
     </div>
 </div>
 </div>
 
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Note the lack of <code>.jl</code>!</p>
-<ul>
-<li>Run the following  </li>
-</ul>
-
-</div>
-</div>
-</div>
+</div></section></section><section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="prompt input_prompt">In&nbsp;[13]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="p">]</span> <span class="n">activate</span>
@@ -13675,21 +13667,10 @@ a.anchor-link {
 </div>
 </div>
 
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>to get into the main Julia environment (more on environments in the second half of this lecture)</p>
-<ul>
-<li>And run  </li>
-</ul>
-
-</div>
-</div>
-</div>
+</div></section></section><section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="p">]</span> <span class="n">dev</span> <span class="o">.</span>
@@ -13710,9 +13691,9 @@ a.anchor-link {
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre><span class="ansi-green-intense-fg ansi-bold"> Resolving</span> package versions...
-<span class="ansi-green-intense-fg ansi-bold">  Updating</span> `~/.julia/environments/v1.0/Project.toml`
+<span class="ansi-green-intense-fg ansi-bold">  Updating</span> `~/.julia/environments/v1.1/Project.toml`
 <span class="ansi-black-intense-fg"> [no changes]</span>
-<span class="ansi-green-intense-fg ansi-bold">  Updating</span> `~/.julia/environments/v1.0/Manifest.toml`
+<span class="ansi-green-intense-fg ansi-bold">  Updating</span> `~/.julia/environments/v1.1/Manifest.toml`
 <span class="ansi-black-intense-fg"> [no changes]</span>
 </pre>
 </div>
@@ -13721,19 +13702,10 @@ a.anchor-link {
 </div>
 </div>
 
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>to add the package</p>
-<p>We see the change reflected in our default package list</p>
-
-</div>
-</div>
-</div>
+</div></section></section><section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="prompt input_prompt">In&nbsp;[15]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="p">]</span> <span class="n">st</span>
@@ -13753,33 +13725,82 @@ a.anchor-link {
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre><span class="ansi-green-intense-fg ansi-bold">    Status</span> `~/.julia/environments/v1.0/Project.toml`
+<pre><span class="ansi-green-intense-fg ansi-bold">    Status</span> `~/.julia/environments/v1.1/Project.toml`
+ <span class="ansi-black-intense-fg"> [c52e3926]</span><span class="ansi-white-fg"> Atom v0.7.14</span>
+ <span class="ansi-black-intense-fg"> [aae01518]</span><span class="ansi-white-fg"> BandedMatrices v0.8.1</span>
+ <span class="ansi-black-intense-fg"> [6e4b80f9]</span><span class="ansi-white-fg"> BenchmarkTools v0.4.2</span>
+ <span class="ansi-black-intense-fg"> [a134a8b2]</span><span class="ansi-white-fg"> BlackBoxOptim v0.4.0</span>
+ <span class="ansi-black-intense-fg"> [ad839575]</span><span class="ansi-white-fg"> Blink v0.10.1</span>
+ <span class="ansi-black-intense-fg"> [324d7699]</span><span class="ansi-white-fg"> CategoricalArrays v0.5.2</span>
+ <span class="ansi-black-intense-fg"> [3da002f7]</span><span class="ansi-white-fg"> ColorTypes v0.7.5</span>
  <span class="ansi-black-intense-fg"> [34da2185]</span><span class="ansi-white-fg"> Compat v1.4.0</span>
+ <span class="ansi-black-intense-fg"> [8f4d0f93]</span><span class="ansi-white-fg"> Conda v1.2.0</span>
+ <span class="ansi-black-intense-fg"> [2023c74b]</span><span class="ansi-white-fg"> CourseMatch v0.1.0 [`../../dev/CourseMatch`]</span>
+ <span class="ansi-black-intense-fg"> [a93c6f00]</span><span class="ansi-white-fg"> DataFrames v0.17.0</span>
+ <span class="ansi-black-intense-fg"> [1313f7d8]</span><span class="ansi-white-fg"> DataFramesMeta v0.4.0</span>
+ <span class="ansi-black-intense-fg"> [864edb3b]</span><span class="ansi-white-fg"> DataStructures v0.15.0</span>
+ <span class="ansi-black-intense-fg"> [5721bf48]</span><span class="ansi-white-fg"> DataVoyager v0.3.1</span>
+ <span class="ansi-black-intense-fg"> [01453d9d]</span><span class="ansi-white-fg"> DiffEqDiffTools v0.7.1</span>
+ <span class="ansi-black-intense-fg"> [0c46a032]</span><span class="ansi-white-fg"> DifferentialEquations v6.3.0</span>
  <span class="ansi-black-intense-fg"> [31c24e10]</span><span class="ansi-white-fg"> Distributions v0.16.4</span>
- <span class="ansi-black-intense-fg"> [f377855a]</span><span class="ansi-white-fg"> ExamplePackage v0.1.0 [`../../dev/ExamplePackage`]</span>
- <span class="ansi-black-intense-fg"> [2fe49d83]</span><span class="ansi-white-fg"> Expectations v1.0.2</span>
- <span class="ansi-black-intense-fg"> [28b8d3ca]</span><span class="ansi-white-fg"> GR v0.36.0</span>
- <span class="ansi-black-intense-fg"> [7073ff75]</span><span class="ansi-white-fg"> IJulia v1.14.1</span>
- <span class="ansi-black-intense-fg"> [43edad99]</span><span class="ansi-white-fg"> InstantiateFromURL v0.1.0</span>
- <span class="ansi-black-intense-fg"> [a98d9a8b]</span><span class="ansi-white-fg"> Interpolations v0.11.0</span>
- <span class="ansi-black-intense-fg"> [d96e819e]</span><span class="ansi-white-fg"> Parameters v0.10.2</span>
- <span class="ansi-black-intense-fg"> [91a5bcdd]</span><span class="ansi-white-fg"> Plots v0.21.0</span>
+ <span class="ansi-black-intense-fg"> [63b64609]</span><span class="ansi-white-fg"> ExamplePackage v0.1.0 [`../../dev/ExamplePackage`]</span>
+ <span class="ansi-black-intense-fg"> [442a2c76]</span><span class="ansi-white-fg"> FastGaussQuadrature v0.3.2</span>
+ <span class="ansi-black-intense-fg"> [1a297f60]</span><span class="ansi-white-fg"> FillArrays v0.4.0</span>
+ <span class="ansi-black-intense-fg"> [9d5cd8c9]</span><span class="ansi-white-fg"> FixedEffectModels v0.7.1</span>
+ <span class="ansi-black-intense-fg"> [587475ba]</span><span class="ansi-white-fg"> Flux v0.7.1</span>
+ <span class="ansi-black-intense-fg"> [f6369f11]</span><span class="ansi-white-fg"> ForwardDiff v0.10.2</span>
+ <span class="ansi-black-intense-fg"> [38e38edf]</span><span class="ansi-white-fg"> GLM v1.0.2</span>
+ <span class="ansi-black-intense-fg"> [28b8d3ca]</span><span class="ansi-white-fg"> GR v0.37.0</span>
+ <span class="ansi-black-intense-fg"> [7073ff75]</span><span class="ansi-white-fg"> IJulia v1.15.2</span>
+ <span class="ansi-black-intense-fg"> [43edad99]</span><span class="ansi-white-fg"> InstantiateFromURL v0.2.1</span>
+ <span class="ansi-black-intense-fg"> [a98d9a8b]</span><span class="ansi-white-fg"> Interpolations v0.11.1</span>
+ <span class="ansi-black-intense-fg"> [b6b21f68]</span><span class="ansi-white-fg"> Ipopt v0.5.1</span>
+ <span class="ansi-black-intense-fg"> [4076af6c]</span><span class="ansi-white-fg"> JuMP v0.18.5</span>
+ <span class="ansi-black-intense-fg"> [e5e0dc1b]</span><span class="ansi-white-fg"> Juno v0.5.4</span>
+ <span class="ansi-black-intense-fg"> [5ab0869b]</span><span class="ansi-white-fg"> KernelDensity v0.5.1</span>
+ <span class="ansi-black-intense-fg"> [b964fa9f]</span><span class="ansi-white-fg"> LaTeXStrings v1.0.3</span>
+ <span class="ansi-black-intense-fg"> [23fbe1c1]</span><span class="ansi-white-fg"> Latexify v0.6.0</span>
+ <span class="ansi-black-intense-fg"> [5078a376]</span><span class="ansi-white-fg"> LazyArrays v0.5.1</span>
+ <span class="ansi-black-intense-fg"> [0fc2ff8b]</span><span class="ansi-white-fg"> LeastSquaresOptim v0.7.1</span>
+ <span class="ansi-black-intense-fg"> [093fc24a]</span><span class="ansi-white-fg"> LightGraphs v1.2.0</span>
+ <span class="ansi-black-intense-fg"> [739be429]</span><span class="ansi-white-fg"> MbedTLS v0.6.8</span>
+ <span class="ansi-black-intense-fg"> [76087f3c]</span><span class="ansi-white-fg"> NLopt v0.5.1</span>
+ <span class="ansi-black-intense-fg"> [2774e3e8]</span><span class="ansi-white-fg"> NLsolve v3.0.1</span>
+ <span class="ansi-black-intense-fg"> [47be7bcc]</span><span class="ansi-white-fg"> ORCA v0.2.1</span>
+ <span class="ansi-black-intense-fg"> [429524aa]</span><span class="ansi-white-fg"> Optim v0.17.2</span>
+ <span class="ansi-black-intense-fg"> [3b7a836e]</span><span class="ansi-white-fg"> PGFPlots v3.0.3</span>
+ <span class="ansi-black-intense-fg"> [d96e819e]</span><span class="ansi-white-fg"> Parameters v0.10.3</span>
+ <span class="ansi-black-intense-fg"> [14b8a8f1]</span><span class="ansi-white-fg"> PkgTemplates v0.4.1</span>
+ <span class="ansi-black-intense-fg"> [f0f68f2c]</span><span class="ansi-white-fg"> PlotlyJS v0.12.3</span>
+ <span class="ansi-black-intense-fg"> [91a5bcdd]</span><span class="ansi-white-fg"> Plots v0.22.5</span>
+ <span class="ansi-black-intense-fg"> [f27b6e38]</span><span class="ansi-white-fg"> Polynomials v0.5.2</span>
+ <span class="ansi-black-intense-fg"> [92933f4c]</span><span class="ansi-white-fg"> ProgressMeter v0.9.0</span>
+ <span class="ansi-black-intense-fg"> [438e738f]</span><span class="ansi-white-fg"> PyCall v1.18.5</span>
+ <span class="ansi-black-intense-fg"> [d330b81b]</span><span class="ansi-white-fg"> PyPlot v2.7.0</span>
+ <span class="ansi-black-intense-fg"> [1fd47b50]</span><span class="ansi-white-fg"> QuadGK v2.0.3</span>
  <span class="ansi-black-intense-fg"> [fcd29c91]</span><span class="ansi-white-fg"> QuantEcon v0.15.0</span>
- <span class="ansi-black-intense-fg"> [295af30f]</span><span class="ansi-white-fg"> Revise v0.7.13</span>
-<span class="ansi-red-fg">→</span><span class="ansi-black-intense-fg"> [b1780d29]</span><span class="ansi-white-fg"> jl v0.0.0 [`../../../repos-collab/quantecon.build.lectures/_build_jupyter/jl`]</span>
+ <span class="ansi-black-intense-fg"> [1a8c2f83]</span><span class="ansi-white-fg"> Query v0.10.1</span>
+ <span class="ansi-black-intense-fg"> [612083be]</span><span class="ansi-white-fg"> Queryverse v0.2.0</span>
+ <span class="ansi-black-intense-fg"> [6f49c342]</span><span class="ansi-white-fg"> RCall v0.13.1</span>
+ <span class="ansi-black-intense-fg"> [ce6b1742]</span><span class="ansi-white-fg"> RDatasets v0.6.1</span>
+ <span class="ansi-black-intense-fg"> [d519eb52]</span><span class="ansi-white-fg"> RegressionTables v0.2.0</span>
+ <span class="ansi-black-intense-fg"> [295af30f]</span><span class="ansi-white-fg"> Revise v1.0.2</span>
+ <span class="ansi-black-intense-fg"> [f2b01f46]</span><span class="ansi-white-fg"> Roots v0.7.4</span>
+ <span class="ansi-black-intense-fg"> [ed01d8cd]</span><span class="ansi-white-fg"> Sobol v1.1.0</span>
+ <span class="ansi-black-intense-fg"> [60ddc479]</span><span class="ansi-white-fg"> StatPlots v0.9.1</span>
+ <span class="ansi-black-intense-fg"> [90137ffa]</span><span class="ansi-white-fg"> StaticArrays v0.10.2</span>
+ <span class="ansi-black-intense-fg"> [2913bbd2]</span><span class="ansi-white-fg"> StatsBase v0.27.0</span>
+ <span class="ansi-black-intense-fg"> [3eaba693]</span><span class="ansi-white-fg"> StatsModels v0.4.0</span>
+ <span class="ansi-black-intense-fg"> [37b6cedf]</span><span class="ansi-white-fg"> Traceur v0.2.1</span>
+ <span class="ansi-black-intense-fg"> [0ae4a718]</span><span class="ansi-white-fg"> VegaDatasets v0.5.0</span>
+ <span class="ansi-black-intense-fg"> [112f6efa]</span><span class="ansi-white-fg"> VegaLite v0.5.2</span>
+ <span class="ansi-black-intense-fg"> [44d3d7a6]</span><span class="ansi-white-fg"> Weave v0.7.1</span>
+ <span class="ansi-black-intense-fg"> [37e2e46d]</span><span class="ansi-white-fg"> LinearAlgebra </span>
  <span class="ansi-black-intense-fg"> [3fa0cd96]</span><span class="ansi-white-fg"> REPL </span>
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>┌ Warning: Some packages (indicated with a red arrow) are not downloaded, use `instantiate` to instantiate the current environment
-└ @ Pkg.Display /buildworker/worker/package_linux64/build/usr/share/julia/stdlib/v1.0/Pkg/src/Display.jl:194
+ <span class="ansi-black-intense-fg"> [9a3f8284]</span><span class="ansi-white-fg"> Random </span>
+ <span class="ansi-black-intense-fg"> [2f01184e]</span><span class="ansi-white-fg"> SparseArrays </span>
+ <span class="ansi-black-intense-fg"> [10745b16]</span><span class="ansi-white-fg"> Statistics </span>
+ <span class="ansi-black-intense-fg"> [8dfed614]</span><span class="ansi-white-fg"> Test </span>
 </pre>
 </div>
 </div>
@@ -13787,51 +13808,22 @@ a.anchor-link {
 </div>
 </div>
 
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>For more on the package mode, see the :docs:<code>tools and editors &lt;tools_editors&gt;</code>_ lecture</p>
-
-</div>
-</div>
-</div>
+</div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Using-the-Package-Manager">Using the Package Manager<a class="anchor-link" href="#Using-the-Package-Manager">&#182;</a></h3><p>Now, from any Julia terminal in the future, we can run</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
 <div class="highlight"><pre><span></span>using ExamplePackage
 </pre></div>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
 <p>To use its exported functions</p>
 <p>We can also get the path to this by running</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<div class="highlight"><pre><span></span>using ExamplePackage
-pathof(ExamplePackage) # returns path to src/ExamplePackage.jl
+<div class="highlight"><pre><span></span><span class="k">using</span> <span class="n">ExamplePackage</span>
+<span class="n">pathof</span><span class="p">(</span><span class="n">ExamplePackage</span><span class="p">)</span> <span class="c"># returns path to src/ExamplePackage.jl</span>
 </pre></div>
 
 </div>
 </div>
-</div>
+</div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -13843,20 +13835,20 @@ pathof(ExamplePackage) # returns path to src/ExamplePackage.jl
 
 </div>
 </div>
-</div>
+</div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<div class="highlight"><pre><span></span>module ExamplePackage
+<div class="highlight"><pre><span></span><span class="k">module</span> <span class="n">ExamplePackage</span>
 
-greet() = print(&quot;Hello World!&quot;)
+<span class="n">greet</span><span class="p">()</span> <span class="o">=</span> <span class="n">print</span><span class="p">(</span><span class="s">&quot;Hello World!&quot;</span><span class="p">)</span>
 
-end # module
+<span class="k">end</span> <span class="c"># module</span>
 </pre></div>
 
 </div>
 </div>
-</div>
+</div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -13866,21 +13858,21 @@ end # module
 
 </div>
 </div>
-</div>
+</div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<div class="highlight"><pre><span></span>using ExamplePackage
-using Test
+<div class="highlight"><pre><span></span><span class="k">using</span> <span class="n">ExamplePackage</span>
+<span class="k">using</span> <span class="n">Test</span>
 
-@testset &quot;ExamplePackage.jl&quot; begin
-    # Write your own tests here.
-end
+<span class="nd">@testset</span> <span class="s">&quot;ExamplePackage.jl&quot;</span> <span class="k">begin</span>
+    <span class="c"># Write your own tests here.</span>
+<span class="k">end</span>
 </pre></div>
 
 </div>
 </div>
-</div>
+</div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -13900,17 +13892,10 @@ end
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Project-Workflow">Project Workflow<a class="anchor-link" href="#Project-Workflow">&#182;</a></h2>
+<h2 id="Project-Workflow-and-Dependencies">Project Workflow and Dependencies<a class="anchor-link" href="#Project-Workflow-and-Dependencies">&#182;</a></h2>
 </div>
 </div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Dependency-Management">Dependency Management<a class="anchor-link" href="#Dependency-Management">&#182;</a></h3>
-</div>
-</div>
-</div>
+</div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -13924,7 +13909,7 @@ be reflected in our <code>ExamplePackage.jl</code> directory’s TOML, once that
 
 </div>
 </div>
-</div>
+</div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -13935,10 +13920,10 @@ be reflected in our <code>ExamplePackage.jl</code> directory’s TOML, once that
 
 </div>
 </div>
-</div>
+</div></section></section><section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="prompt input_prompt">In&nbsp;[16]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="p">]</span> <span class="n">activate</span> <span class="n">ExamplePackage</span>
@@ -13948,7 +13933,7 @@ be reflected in our <code>ExamplePackage.jl</code> directory’s TOML, once that
 </div>
 </div>
 
-</div>
+</div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -13969,7 +13954,7 @@ and use the versions of packages specified there
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="prompt input_prompt">In&nbsp;[17]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="p">]</span> <span class="n">add</span> <span class="n">Expectations</span>
@@ -13996,20 +13981,20 @@ and use the versions of packages specified there
  <span class="ansi-black-intense-fg"> [7d9fca2a]</span><span class="ansi-green-intense-fg"> + Arpack v0.3.0</span>
  <span class="ansi-black-intense-fg"> [9e28174c]</span><span class="ansi-green-intense-fg"> + BinDeps v0.8.10</span>
  <span class="ansi-black-intense-fg"> [b99e7846]</span><span class="ansi-green-intense-fg"> + BinaryProvider v0.5.3</span>
- <span class="ansi-black-intense-fg"> [34da2185]</span><span class="ansi-green-intense-fg"> + Compat v1.4.0</span>
- <span class="ansi-black-intense-fg"> [864edb3b]</span><span class="ansi-green-intense-fg"> + DataStructures v0.14.0</span>
+ <span class="ansi-black-intense-fg"> [34da2185]</span><span class="ansi-green-intense-fg"> + Compat v2.0.0</span>
+ <span class="ansi-black-intense-fg"> [864edb3b]</span><span class="ansi-green-intense-fg"> + DataStructures v0.15.0</span>
  <span class="ansi-black-intense-fg"> [31c24e10]</span><span class="ansi-green-intense-fg"> + Distributions v0.16.4</span>
  <span class="ansi-black-intense-fg"> [2fe49d83]</span><span class="ansi-green-intense-fg"> + Expectations v1.0.2</span>
  <span class="ansi-black-intense-fg"> [442a2c76]</span><span class="ansi-green-intense-fg"> + FastGaussQuadrature v0.3.2</span>
- <span class="ansi-black-intense-fg"> [e1d29d7a]</span><span class="ansi-green-intense-fg"> + Missings v0.3.1</span>
+ <span class="ansi-black-intense-fg"> [e1d29d7a]</span><span class="ansi-green-intense-fg"> + Missings v0.4.0</span>
  <span class="ansi-black-intense-fg"> [bac558e1]</span><span class="ansi-green-intense-fg"> + OrderedCollections v1.0.2</span>
  <span class="ansi-black-intense-fg"> [90014a1f]</span><span class="ansi-green-intense-fg"> + PDMats v0.9.6</span>
  <span class="ansi-black-intense-fg"> [1fd47b50]</span><span class="ansi-green-intense-fg"> + QuadGK v2.0.3</span>
  <span class="ansi-black-intense-fg"> [79098fc4]</span><span class="ansi-green-intense-fg"> + Rmath v0.5.0</span>
  <span class="ansi-black-intense-fg"> [a2af1166]</span><span class="ansi-green-intense-fg"> + SortingAlgorithms v0.3.1</span>
  <span class="ansi-black-intense-fg"> [276daf66]</span><span class="ansi-green-intense-fg"> + SpecialFunctions v0.7.2</span>
- <span class="ansi-black-intense-fg"> [2913bbd2]</span><span class="ansi-green-intense-fg"> + StatsBase v0.27.0</span>
- <span class="ansi-black-intense-fg"> [4c63d2b9]</span><span class="ansi-green-intense-fg"> + StatsFuns v0.7.0</span>
+ <span class="ansi-black-intense-fg"> [2913bbd2]</span><span class="ansi-green-intense-fg"> + StatsBase v0.29.0</span>
+ <span class="ansi-black-intense-fg"> [4c63d2b9]</span><span class="ansi-green-intense-fg"> + StatsFuns v0.8.0</span>
  <span class="ansi-black-intense-fg"> [30578b45]</span><span class="ansi-green-intense-fg"> + URIParser v0.4.0</span>
  <span class="ansi-black-intense-fg"> [2a0f44e3]</span><span class="ansi-green-intense-fg"> + Base64 </span>
  <span class="ansi-black-intense-fg"> [ade2ca70]</span><span class="ansi-green-intense-fg"> + Dates </span>
@@ -14043,7 +14028,7 @@ and use the versions of packages specified there
 </div>
 </div>
 
-</div>
+</div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -14056,10 +14041,10 @@ and use the versions of packages specified there
 
 </div>
 </div>
-</div>
+</div></section></section><section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="prompt input_prompt">In&nbsp;[18]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="p">]</span> <span class="n">activate</span>
@@ -14069,15 +14054,7 @@ and use the versions of packages specified there
 </div>
 </div>
 
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Without any arguments</p>
-
-</div>
-</div>
-</div>
+</div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -14086,10 +14063,10 @@ and use the versions of packages specified there
 
 </div>
 </div>
-</div>
+</div></section></section><section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="prompt input_prompt">In&nbsp;[19]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="p">]</span> <span class="n">activate</span> <span class="n">ExamplePackage</span>
@@ -14099,10 +14076,10 @@ and use the versions of packages specified there
 </div>
 </div>
 
-</div>
+</div></section></section><section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="prompt input_prompt">In&nbsp;[20]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="p">]</span> <span class="n">add</span> <span class="n">Distributions</span>
@@ -14134,7 +14111,7 @@ and use the versions of packages specified there
 </div>
 </div>
 
-</div>
+</div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -14142,7 +14119,7 @@ and use the versions of packages specified there
 
 </div>
 </div>
-</div>
+</div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -14165,18 +14142,10 @@ and use the versions of packages specified there
 
 </div>
 </div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Let’s try calling this</p>
-
-</div>
-</div>
-</div>
+</div></section></section><section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[14]:</div>
+<div class="prompt input_prompt">In&nbsp;[21]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="p">]</span> <span class="n">activate</span>
@@ -14186,10 +14155,10 @@ and use the versions of packages specified there
 </div>
 </div>
 
-</div>
+</div></section></section><section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[15]:</div>
+<div class="prompt input_prompt">In&nbsp;[22]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="k">using</span> <span class="n">ExamplePackage</span>
@@ -14210,8 +14179,8 @@ and use the versions of packages specified there
 
 
 <div class="output_subarea output_stream output_stderr output_text">
-<pre>┌ Info: Precompiling ExamplePackage [f377855a-0e61-11e9-37a0-97bb8b7ac6c1]
-└ @ Base loading.jl:1192
+<pre>┌ Info: Recompiling stale cache file /Users/florian.oswald/.julia/compiled/v1.1/ExamplePackage/bt9ZU.ji for ExamplePackage [63b64609-ed96-5e0f-b5ca-5e4fd3ab9311]
+└ @ Base loading.jl:1184
 </pre>
 </div>
 </div>
@@ -14229,7 +14198,7 @@ and use the versions of packages specified there
 </div>
 </div>
 
-</div>
+</div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -14238,7 +14207,7 @@ and use the versions of packages specified there
 
 </div>
 </div>
-</div>
+</div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -14246,57 +14215,7 @@ and use the versions of packages specified there
 
 </div>
 </div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Jupyter-Workflow">Jupyter Workflow<a class="anchor-link" href="#Jupyter-Workflow">&#182;</a></h3><p>We can also work with the package from a Jupyter notebook</p>
-<p>Let’s create a new output directory in our project, and run <code>jupyter lab</code> from it</p>
-<p>Create a new notebook <code>output.ipynb</code></p>
-<p><img src="https://s3-ap-southeast-2.amazonaws.com/lectures.quantecon.org/jl/_static/figures/testing-output.png" style="width:100%;height:100%"></p>
-<p>From here, we can use our package’s functions as we would functions from other packages</p>
-<p>This lets us produce neat output documents, without pasting the whole codebase</p>
-<p>We can also run package operations inside the notebook</p>
-<p><img src="https://s3-ap-southeast-2.amazonaws.com/lectures.quantecon.org/jl/_static/figures/testing-notebook.png" style="width:100%;height:100%"></p>
-<p>The change will be reflected in the <code>Project.toml</code> file</p>
-<p>Note that, as usual, we had to first activate <code>ExamplePackage</code> first before making our dependency changes</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<div class="highlight"><pre><span></span><span class="n">name</span> <span class="o">=</span> <span class="s">&quot;ExamplePackage&quot;</span>
-<span class="n">uuid</span> <span class="o">=</span> <span class="s">&quot;f85830d0-e1f0-11e8-2fad-8762162ab251&quot;</span>
-<span class="n">authors</span> <span class="o">=</span> <span class="p">[</span><span class="s">&quot;QuantEcon User &lt;quanteconuser@gmail.com&gt;&quot;</span><span class="p">]</span>
-<span class="n">version</span> <span class="o">=</span> <span class="s">&quot;0.1.0&quot;</span>
-
-<span class="p">[</span><span class="n">deps</span><span class="p">]</span>
-<span class="n">Distributions</span> <span class="o">=</span> <span class="s">&quot;31c24e10-a181-5473-b8eb-7969acd0382f&quot;</span>
-<span class="n">Expectations</span> <span class="o">=</span> <span class="s">&quot;2fe49d83-0758-5602-8f54-1f90ad0d522b&quot;</span>
-<span class="n">Parameters</span> <span class="o">=</span> <span class="s">&quot;d96e819e-fc66-5662-9728-84c9c7592b0a&quot;</span>
-
-<span class="p">[</span><span class="n">extras</span><span class="p">]</span>
-<span class="n">Test</span> <span class="o">=</span> <span class="s">&quot;8dfed614-e22c-5e08-85e1-65c5234f0b40&quot;</span>
-
-<span class="p">[</span><span class="n">targets</span><span class="p">]</span>
-<span class="n">test</span> <span class="o">=</span> <span class="p">[</span><span class="s">&quot;Test&quot;</span><span class="p">]</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>And the Manifest as well</p>
-<p>Be sure to add <code>output/.ipynb_checkpoints</code> to your <code>.gitignore</code> file, so that’s not checked in</p>
-<p>Make sure you’ve activated the project environment (<code>] activate ExamplePackage</code>) before you try to propagate changes</p>
-
-</div>
-</div>
-</div>
+</div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -14304,19 +14223,13 @@ and use the versions of packages specified there
 <ul>
 <li>Run the following command  </li>
 </ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<div class="highlight"><pre><span></span><span class="p">]</span> <span class="n">dev</span> <span class="n">https</span><span class="o">://</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">quanteconuser</span><span class="o">/</span><span class="n">ExamplePackage</span><span class="o">.</span><span class="n">jl</span><span class="o">.</span><span class="n">git</span>
+<div class="highlight"><pre><span></span><span class="p">]</span> <span class="n">dev</span> <span class="n">https</span><span class="o">://</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">ScPo</span><span class="o">-</span><span class="n">CompEcon</span><span class="o">/</span><span class="n">ExamplePackage</span><span class="o">.</span><span class="n">jl</span><span class="o">.</span><span class="n">git</span>   
+<span class="c"># using your github ID!</span>
 </pre></div>
 
 </div>
 </div>
-</div>
+</div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -14328,13 +14241,87 @@ and use the versions of packages specified there
 
 </div>
 </div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[15]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-julia"><pre><span></span><span class="n">DEPOT_PATH</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+
+    </div>
 </div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[15]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&#34;/Users/florian.oswald/.julia&#34;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>They can then collaborate as they would on other git repositories</p>
+<p>In particular, they can run</p>
+<div class="highlight"><pre><span></span><span class="p">]</span> <span class="n">activate</span> <span class="n">ExamplePackage</span>  <span class="c"># to activate</span>
+<span class="p">]</span> <span class="n">instantiate</span>  <span class="c"># to get all required packages onto their machine</span>
+<span class="p">]</span> <span class="n">precompile</span>   <span class="c"># precompile all packages</span>
+<span class="p">]</span> <span class="n">test</span>         <span class="c"># run the packages unit tests</span>
+</pre></div>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Unit-Testing">Unit Testing<a class="anchor-link" href="#Unit-Testing">&#182;</a></h2><p>It’s important to make sure that your code is well-tested</p>
+<p>There are a few different kinds of test, each with different purposes</p>
+<ul>
+<li><em>Unit testing</em> makes sure that individual pieces of a project work as expected  </li>
+<li><em>Integration testing</em> makes sure that they fit together as expected  </li>
+<li><em>Regression testing</em> makes sure that behavior is unchanged over time  </li>
+</ul>
+<p>In this lecture, we’ll focus on unit testing</p>
+<p>In general, well-written unit tests (which also guard against regression, for example by comparing function output to hardcoded values) are sufficient for most small projects</p>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="The-Test-Module">The <code>Test</code> Module<a class="anchor-link" href="#The-Test-Module">&#182;</a></h3><p>Julia provides testing features through a built-in package called <code>Test</code>, which we get by <code>using Test</code></p>
+<p>The basic object is the macro <code>@test</code></p>
+
+</div>
+</div>
+</div></section></section><section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[16]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-julia"><pre><span></span><span class="n">DEPOT_PATH</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="k">using</span> <span class="n">Test</span>
+<span class="nd">@test</span> <span class="mi">1</span> <span class="o">==</span> <span class="mi">1</span>
+<span class="nd">@test</span> <span class="mi">1</span> <span class="n">≈</span> <span class="mi">1</span>
 </pre></div>
 
     </div>
@@ -14353,136 +14340,6 @@ and use the versions of packages specified there
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&#34;/home/quantecon/.julia&#34;</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>They can then collaborate as they would on other git repositories</p>
-<p>In particular, they can run</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[17]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-julia"><pre><span></span><span class="p">]</span> <span class="n">activate</span> <span class="n">ExamplePackage</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>to load the list of dependencies, and</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[18]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-julia"><pre><span></span><span class="p">]</span> <span class="n">instantiate</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre><span class="ansi-green-intense-fg ansi-bold">  Updating</span> registry at `~/.julia/registries/General`
-<span class="ansi-green-intense-fg ansi-bold">  Updating</span> git-repo `https://github.com/JuliaRegistries/General.git`
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>to make sure they are installed on the local machine</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Unit-Testing">Unit Testing<a class="anchor-link" href="#Unit-Testing">&#182;</a></h2><p>It’s important to make sure that your code is well-tested</p>
-<p>There are a few different kinds of test, each with different purposes</p>
-<ul>
-<li><em>Unit testing</em> makes sure that individual pieces of a project work as expected  </li>
-<li><em>Integration testing</em> makes sure that they fit together as expected  </li>
-<li><em>Regression testing</em> makes sure that behavior is unchanged over time  </li>
-</ul>
-<p>In this lecture, we’ll focus on unit testing</p>
-<p>In general, well-written unit tests (which also guard against regression, for example by comparing function output to hardcoded values) are sufficient for most small projects</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="The-Test-Module">The <code>Test</code> Module<a class="anchor-link" href="#The-Test-Module">&#182;</a></h3><p>Julia provides testing features through a built-in package called <code>Test</code>, which we get by <code>using Test</code></p>
-<p>The basic object is the macro <code>@test</code></p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[19]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-julia"><pre><span></span><span class="k">using</span> <span class="n">Test</span>
-<span class="nd">@test</span> <span class="mi">1</span> <span class="o">==</span> <span class="mi">1</span>
-<span class="nd">@test</span> <span class="mi">1</span> <span class="n">≈</span> <span class="mi">1</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[19]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
 <pre><span class="ansi-green-intense-fg ansi-bold">Test Passed</span></pre>
 </div>
 
@@ -14491,7 +14348,7 @@ and use the versions of packages specified there
 </div>
 </div>
 
-</div>
+</div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -14500,10 +14357,10 @@ and use the versions of packages specified there
 
 </div>
 </div>
-</div>
+</div></section></section><section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[20]:</div>
+<div class="prompt input_prompt">In&nbsp;[17]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="nd">@test_broken</span> <span class="mi">1</span> <span class="o">==</span> <span class="mi">2</span>
@@ -14519,7 +14376,7 @@ and use the versions of packages specified there
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[20]:</div>
+    <div class="prompt output_prompt">Out[17]:</div>
 
 
 
@@ -14534,7 +14391,7 @@ and use the versions of packages specified there
 </div>
 </div>
 
-</div>
+</div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -14544,7 +14401,7 @@ and use the versions of packages specified there
 
 </div>
 </div>
-</div>
+</div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -14554,7 +14411,7 @@ and use the versions of packages specified there
 
 </div>
 </div>
-</div>
+</div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -14568,7 +14425,7 @@ and use the versions of packages specified there
 
 </div>
 </div>
-</div>
+</div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -14576,7 +14433,7 @@ and use the versions of packages specified there
 
 </div>
 </div>
-</div>
+</div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -14586,7 +14443,7 @@ and use the versions of packages specified there
 
 </div>
 </div>
-</div>
+</div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -14599,18 +14456,11 @@ and use the versions of packages specified there
 
 </div>
 </div>
-</div>
+</div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Continuous-Integration-with-Travis">Continuous Integration with Travis<a class="anchor-link" href="#Continuous-Integration-with-Travis">&#182;</a></h2>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Setup">Setup<a class="anchor-link" href="#Setup">&#182;</a></h3><p>By default, Travis should have access to all your repositories and deploy automatically</p>
+<h2 id="Continuous-Integration-with-Travis">Continuous Integration with Travis<a class="anchor-link" href="#Continuous-Integration-with-Travis">&#182;</a></h2><h3 id="Setup">Setup<a class="anchor-link" href="#Setup">&#182;</a></h3><p>By default, Travis should have access to all your repositories and deploy automatically</p>
 <p>This includes private repos if you’re on a student developer pack or an academic plan (Travis detects this automatically)</p>
 <p>To change this, go to “settings” under your GitHub profile</p>
 <p><img src="https://s3-ap-southeast-2.amazonaws.com/lectures.quantecon.org/jl/_static/figures/git-settings.png" style="width:100%;height:100%"></p>
@@ -14730,231 +14580,13 @@ and use the versions of packages specified there
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Pull-Requests-to-External-Julia-Projects">Pull Requests to External Julia Projects<a class="anchor-link" href="#Pull-Requests-to-External-Julia-Projects">&#182;</a></h2><p>As mentioned in <a href="https://lectures.quantecon.org/jl/version_control.html#">version control</a>, sometimes we’ll want to work on external repos that are also Julia projects</p>
-<ul>
-<li><code>] dev</code> the git URL (or package name, if the project is a registered Julia package), which will both clone the git repo to <code>~/.julia/dev</code> and sync it with the Julia package manager  </li>
-</ul>
-<p>For example, running</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<div class="highlight"><pre><span></span><span class="p">]</span> <span class="n">dev</span> <span class="n">Expectations</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>will clone the repo <code>https://github.com/quantecon/Expectations.jl</code> to <code>~/.julia/dev/Expectations</code></p>
-<p>Make sure you do this from the base Julia environment (i.e., after running <code>] activate</code> without arguments)</p>
-<p>As a reminder, you can find the location of your <code>~/.julia</code> folder (called the “user depot”), by running</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[21]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-julia"><pre><span></span><span class="n">DEPOT_PATH</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[21]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>&#34;/home/quantecon/.julia&#34;</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>The <code>] dev</code> command will also add the target to the package manager, so that whenever we run <code>using Expectations</code>, Julia will load our cloned copy from that location</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<div class="highlight"><pre><span></span><span class="k">using</span> <span class="n">Expectations</span>
-<span class="n">pathof</span><span class="p">(</span><span class="n">Expectations</span><span class="p">)</span> <span class="c"># points to our git clone</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li>Drag that folder to GitHub Desktop  </li>
-<li><p>The next step is to fork the original (external) package from its website (i.e., <code>https://github.com/quantecon/Expectations.jl</code>) to your account (<code>https://github.com/quanteconuser/Expectations.jl</code> in our case)</p>
-<p><img src="https://s3-ap-southeast-2.amazonaws.com/lectures.quantecon.org/jl/_static/figures/testing-fork.png" style="width:100%;height:100%"></p>
-</li>
-</ul>
-<ul>
-<li><p>Edit the settings in GitHub Desktop (from the “Repository” dropdown) to reflect the new URL</p>
-<p><img src="https://s3-ap-southeast-2.amazonaws.com/lectures.quantecon.org/jl/_static/figures/testing-repo-settings.png" style="width:100%;height:100%"></p>
-</li>
-</ul>
-<p>Here, we’d change the highlighted text to read <code>quanteconuser</code>, or whatever our GitHub ID is</p>
-<ul>
-<li>If you make some changes in a text editor and return to GitHub Desktop, you’ll see something like  </li>
-</ul>
-<p><strong>Note:</strong> As before, we’re editing the files directly in <code>~/.julia/dev</code>, as opposed to cloning the repo again.</p>
-<p><img src="https://s3-ap-southeast-2.amazonaws.com/lectures.quantecon.org/jl/_static/figures/testing-commit.png" style="width:100%;height:100%"></p>
-<p>Here, for example, we’re revising the README</p>
-<ul>
-<li>Clicking “commit to master” (recall that the checkboxes next to each file indicate whether it’s to be committed) and then pushing (e.g., hitting “push” under the “Repository” dropdown) will add the committed changes to your account  </li>
-</ul>
-<p>To confirm this, we can check the history on our account <a href="https://github.com/quanteconuser/Expectations.jl/commits/master">here</a>; for more on working with git repositories, see the <a href="https://lectures.quantecon.org/jl/version_control.html#">version control</a> lecture</p>
-<p><img src="https://s3-ap-southeast-2.amazonaws.com/lectures.quantecon.org/jl/_static/figures/testing-expectations.png" style="width:100%;height:100%"></p>
-<p>The green check mark indicates that Travis tests passed for this commit</p>
-<ul>
-<li>Clicking “new pull request” from the pull requests tab will show us a snapshot of the changes, and let us create a pull request for project maintainers to review and approve  </li>
-</ul>
-<p><img src="https://s3-ap-southeast-2.amazonaws.com/lectures.quantecon.org/jl/_static/figures/testing-pr2.png" style="width:100%;height:100%"></p>
-<p>For more on PRs, see the relevant section of the <a href="https://lectures.quantecon.org/jl/version_control.html#">version control</a> lecture</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Case-with-Write-Access">Case with Write Access<a class="anchor-link" href="#Case-with-Write-Access">&#182;</a></h3><p>If you have write access to the repo, we can skip the preceding steps about forking and changing the URL</p>
-<p>You can use <code>] dev</code> on a package name or the URL of the package.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<div class="highlight"><pre><span></span><span class="p">]</span> <span class="n">dev</span> <span class="n">Expectations</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>or <code>] dev https://github.com/quanteconuser/Expectations.jl.git</code> as an example for an unreleased package by URL</p>
-<p>Which will again clone the repo to <code>~/.julia/dev</code>, and use it as a Julia package</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<div class="highlight"><pre><span></span><span class="k">using</span> <span class="n">Expectations</span>
-<span class="n">pathof</span><span class="p">(</span><span class="n">Expectations</span><span class="p">)</span> <span class="c"># points to our git clone</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Next, drag that folder to GitHub Desktop as before</p>
-<p>Then, in order to work with the package locally, all we need to do is open the <code>~/.julia/dev/Expectations</code> in a text editor (like Atom)</p>
-<p><img src="https://s3-ap-southeast-2.amazonaws.com/lectures.quantecon.org/jl/_static/figures/testing-atom-package.png" style="width:100%;height:100%"></p>
-<p>From here, we can edit this package just like we created it ourselves and use GitHub Desktop to track versions of our package files (say, after <code>] up</code>, or editing source code, <code>] add Package</code>, etc.)</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Removing-a-Julia-Package">Removing a Julia Package<a class="anchor-link" href="#Removing-a-Julia-Package">&#182;</a></h3><p>To “un-dev” a Julia package (say, if we want to use our old <code>Expectations.jl</code>), you can simply run</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<div class="highlight"><pre><span></span><span class="p">]</span> <span class="n">free</span> <span class="n">Expectations</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>To delete it entirely, simply run</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<div class="highlight"><pre><span></span><span class="p">]</span> <span class="n">rm</span> <span class="n">Expectations</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>From a REPL where that package is in the active environment</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Benchmarking">Benchmarking<a class="anchor-link" href="#Benchmarking">&#182;</a></h2><p>Another goal of testing is to make sure that code doesn’t slow down significantly from one version to the next</p>
-<p>We can do this using tools provided by the <code>BenchmarkTools.jl</code> package</p>
-<p>See the <a href="https://lectures.quantecon.org/jl/need_for_speed.html#">need for speed</a> lecture for more details</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Additional-Notes">Additional Notes<a class="anchor-link" href="#Additional-Notes">&#182;</a></h2><ul>
 <li>The <a href="https://github.com/JuliaCI/">JuliaCI</a> organization provides more Julia utilities for continuous integration and testing  </li>
 </ul>
 
 </div>
 </div>
-</div>
+</div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -14965,7 +14597,7 @@ and use the versions of packages specified there
 <li>Drag-and-drop that folder to GitHub Desktop  </li>
 <li>Create an empty repository with the same name on the GitHub server  </li>
 <li>Push from GitHub Desktop to the server  </li>
-<li>Open <strong>the original project folder</strong> (e.g., <code>~/.julia/dev/ExamplePackage.jl</code>) in Atom  </li>
+<li>Open <strong>the original project folder</strong> (e.g., <code>~/.julia/dev/ExamplePackage.jl</code>) in Atom / your editor </li>
 <li>Make changes, test, iterate on it, etc. As a rule, functions like should live in the <code>src/</code> directory once they’re stable, and you should export them from that file with <code>export func1, func2</code>. This will export all methods of <code>func1</code>, <code>func2</code>, etc.  </li>
 <li>Commit them in GitHub Desktop as you go (i.e., you can and should use version control to track intermediate states)  </li>
 <li>Push to the server, and see the Travis and Codecov results (note that these may take a few minutes the first time)  </li>
