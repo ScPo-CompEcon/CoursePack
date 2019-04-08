@@ -13089,7 +13089,7 @@ div#notebook {
 
 <!-- Loading mathjax macro -->
 <!-- Load mathjax -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS_HTML"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_HTML"></script>
     <!-- MathJax configuration -->
     <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
@@ -13145,14 +13145,38 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="k">using</span> <span class="n">BasisMatrices</span><span class="p">,</span> <span class="n">Optim</span><span class="p">,</span> <span class="n">QuantEcon</span><span class="p">,</span> <span class="n">Parameters</span>
 <span class="k">using</span> <span class="n">BasisMatrices</span><span class="o">:</span> <span class="n">Degree</span><span class="p">,</span> <span class="n">Derivative</span>
+<span class="k">using</span> <span class="n">Printf</span>
 </pre></div>
 
     </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>┌ Info: Precompiling BasisMatrices [08854c51-b66b-5062-a90d-8e7ae4547a49]
+└ @ Base loading.jl:1187
+┌ Warning: Use of final value of loop variable `its` around /Users/florian.oswald/.julia/packages/QuantEcon/7w41U/src/quad.jl:91 is deprecated. In the future the variable will be local to the loop instead.
+└ @ ~/.julia/packages/QuantEcon/7w41U/src/quad.jl:91
+┌ Warning: Use of final value of loop variable `its` around /Users/florian.oswald/.julia/packages/QuantEcon/7w41U/src/quad.jl:373 is deprecated. In the future the variable will be local to the loop instead.
+└ @ ~/.julia/packages/QuantEcon/7w41U/src/quad.jl:373
+</pre>
+</div>
+</div>
+
 </div>
 </div>
 
@@ -13192,7 +13216,7 @@ $$
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="s">&quot;&quot;&quot;</span>
@@ -13225,8 +13249,8 @@ $$
     <span class="n">A</span><span class="o">::</span><span class="kt">Float64</span> <span class="o">=</span> <span class="p">(</span><span class="mf">1.0</span><span class="o">/</span><span class="n">β</span> <span class="o">-</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">δ</span><span class="p">))</span> <span class="o">/</span> <span class="n">α</span>
 
     <span class="c"># Grids</span>
-    <span class="n">kgrid</span><span class="o">::</span><span class="kt">Vector</span><span class="p">{</span><span class="kt">Float64</span><span class="p">}</span> <span class="o">=</span> <span class="n">collect</span><span class="p">(</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.9</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
-    <span class="n">zgrid</span><span class="o">::</span><span class="kt">Vector</span><span class="p">{</span><span class="kt">Float64</span><span class="p">}</span> <span class="o">=</span> <span class="n">collect</span><span class="p">(</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.9</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+    <span class="n">kgrid</span><span class="o">::</span><span class="kt">Vector</span><span class="p">{</span><span class="kt">Float64</span><span class="p">}</span> <span class="o">=</span> <span class="n">collect</span><span class="p">(</span><span class="n">range</span><span class="p">(</span><span class="mf">0.9</span><span class="p">,</span> <span class="n">stop</span> <span class="o">=</span> <span class="mf">1.1</span><span class="p">,</span><span class="n">length</span> <span class="o">=</span> <span class="mi">10</span><span class="p">))</span>
+    <span class="n">zgrid</span><span class="o">::</span><span class="kt">Vector</span><span class="p">{</span><span class="kt">Float64</span><span class="p">}</span> <span class="o">=</span> <span class="n">collect</span><span class="p">(</span><span class="n">range</span><span class="p">(</span><span class="mf">0.9</span><span class="p">,</span> <span class="n">stop</span> <span class="o">=</span> <span class="mf">1.1</span><span class="p">,</span><span class="n">length</span> <span class="o">=</span> <span class="mi">10</span><span class="p">))</span>
     <span class="n">grid</span><span class="o">::</span><span class="kt">Matrix</span><span class="p">{</span><span class="kt">Float64</span><span class="p">}</span> <span class="o">=</span> <span class="n">gridmake</span><span class="p">(</span><span class="n">kgrid</span><span class="p">,</span> <span class="n">zgrid</span><span class="p">)</span>
     <span class="n">eps_nodes</span><span class="o">::</span><span class="kt">Vector</span><span class="p">{</span><span class="kt">Float64</span><span class="p">}</span> <span class="o">=</span> <span class="n">qnwnorm</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="n">σ</span><span class="o">^</span><span class="mi">2</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
     <span class="n">weights</span><span class="o">::</span><span class="kt">Vector</span><span class="p">{</span><span class="kt">Float64</span><span class="p">}</span> <span class="o">=</span> <span class="n">qnwnorm</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="n">σ</span><span class="o">^</span><span class="mi">2</span><span class="p">)[</span><span class="mi">2</span><span class="p">]</span>
@@ -13244,7 +13268,7 @@ $$
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[3]:</div>
+    <div class="prompt output_prompt">Out[2]:</div>
 
 
 
@@ -13269,7 +13293,7 @@ $$
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="c"># Helper functions</span>
@@ -13293,7 +13317,7 @@ $$
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[4]:</div>
+    <div class="prompt output_prompt">Out[3]:</div>
 
 
 
@@ -13360,7 +13384,8 @@ $$
     <span class="n">k_coeffs</span><span class="o">::</span><span class="kt">Vector</span><span class="p">{</span><span class="kt">Float64</span><span class="p">}</span>
 <span class="k">end</span>
 
-<span class="k">function</span> <span class="n">ValueCoeffs</span><span class="p">{</span><span class="n">T</span><span class="o">&lt;:</span><span class="n">SolutionMethod</span><span class="p">,</span><span class="n">d</span><span class="p">}(</span><span class="o">::</span><span class="kt">Type</span><span class="p">{</span><span class="kt">Val</span><span class="p">{</span><span class="n">d</span><span class="p">}},</span> <span class="n">method</span><span class="o">::</span><span class="n">T</span><span class="p">)</span>
+
+<span class="k">function</span> <span class="n">ValueCoeffs</span><span class="p">(</span><span class="o">::</span><span class="kt">Type</span><span class="p">{</span><span class="kt">Val</span><span class="p">{</span><span class="n">d</span><span class="p">}},</span> <span class="n">method</span><span class="o">::</span><span class="n">T</span><span class="p">)</span> <span class="n">where</span> <span class="p">{</span><span class="n">T</span> <span class="o">&lt;:</span> <span class="n">SolutionMethod</span><span class="p">,</span> <span class="n">d</span><span class="p">}</span>
     <span class="c"># Initialize two vectors of zeros</span>
     <span class="n">deg</span> <span class="o">=</span> <span class="n">Degree</span><span class="p">{</span><span class="n">d</span><span class="p">}()</span>
     <span class="n">n</span> <span class="o">=</span> <span class="n">n_complete</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">deg</span><span class="p">)</span>
@@ -13370,9 +13395,7 @@ $$
     <span class="k">return</span> <span class="n">ValueCoeffs</span><span class="p">{</span><span class="n">T</span><span class="p">,</span><span class="n">Degree</span><span class="p">{</span><span class="n">d</span><span class="p">}}(</span><span class="n">deg</span><span class="p">,</span> <span class="n">v_coeffs</span><span class="p">,</span> <span class="n">k_coeffs</span><span class="p">)</span>
 <span class="k">end</span>
 
-<span class="k">function</span> <span class="n">ValueCoeffs</span><span class="p">{</span><span class="n">T</span><span class="o">&lt;:</span><span class="n">SolutionMethod</span><span class="p">,</span><span class="n">d</span><span class="p">}(</span>
-        <span class="n">ncgm</span><span class="o">::</span><span class="n">NeoclassicalGrowth</span><span class="p">,</span> <span class="o">::</span><span class="kt">Type</span><span class="p">{</span><span class="kt">Val</span><span class="p">{</span><span class="n">d</span><span class="p">}},</span> <span class="n">method</span><span class="o">::</span><span class="n">T</span>
-    <span class="p">)</span>
+<span class="k">function</span> <span class="n">ValueCoeffs</span><span class="p">(</span><span class="n">ncgm</span><span class="o">::</span><span class="n">NeoclassicalGrowth</span><span class="p">,</span> <span class="o">::</span><span class="kt">Type</span><span class="p">{</span><span class="kt">Val</span><span class="p">{</span><span class="n">d</span><span class="p">}},</span> <span class="n">method</span><span class="o">::</span><span class="n">T</span><span class="p">)</span> <span class="n">where</span> <span class="p">{</span><span class="n">T</span> <span class="o">&lt;:</span> <span class="n">SolutionMethod</span><span class="p">,</span> <span class="n">d</span><span class="p">}</span>
     <span class="c"># Initialize with vector of zeros</span>
     <span class="n">deg</span> <span class="o">=</span> <span class="n">Degree</span><span class="p">{</span><span class="n">d</span><span class="p">}()</span>
     <span class="n">n</span> <span class="o">=</span> <span class="n">n_complete</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">deg</span><span class="p">)</span>
@@ -13391,18 +13414,17 @@ $$
     <span class="k">return</span> <span class="n">ValueCoeffs</span><span class="p">{</span><span class="n">T</span><span class="p">,</span><span class="n">Degree</span><span class="p">{</span><span class="n">d</span><span class="p">}}(</span><span class="n">deg</span><span class="p">,</span> <span class="n">v_coeffs</span><span class="p">,</span> <span class="n">k_coeffs</span><span class="p">)</span>
 <span class="k">end</span>
 
-<span class="n">solutionmethod</span><span class="p">{</span><span class="n">T</span><span class="o">&lt;:</span><span class="n">SolutionMethod</span><span class="p">}(</span><span class="o">::</span><span class="n">ValueCoeffs</span><span class="p">{</span><span class="n">T</span><span class="p">})</span> <span class="o">=</span> <span class="n">T</span>
+<span class="n">solutionmethod</span><span class="p">(</span><span class="o">::</span><span class="n">ValueCoeffs</span><span class="p">{</span><span class="n">T</span><span class="p">})</span> <span class="n">where</span> <span class="n">T</span> <span class="o">&lt;:</span> <span class="n">SolutionMethod</span> <span class="o">=</span> <span class="n">T</span>
+<span class="c"># solutionmethod{T&lt;:SolutionMethod}(::ValueCoeffs{T}) = T</span>
 
 <span class="c"># A few copy methods to make life easier</span>
-<span class="n">Base</span><span class="o">.</span><span class="n">copy</span><span class="p">{</span><span class="n">T</span><span class="p">,</span><span class="n">D</span><span class="p">}(</span><span class="n">vp</span><span class="o">::</span><span class="n">ValueCoeffs</span><span class="p">{</span><span class="n">T</span><span class="p">,</span><span class="n">D</span><span class="p">})</span> <span class="o">=</span>
+<span class="n">Base</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">vp</span><span class="o">::</span><span class="n">ValueCoeffs</span><span class="p">{</span><span class="n">T</span><span class="p">,</span> <span class="n">D</span><span class="p">})</span> <span class="n">where</span> <span class="p">{</span><span class="n">T</span><span class="p">,</span> <span class="n">D</span><span class="p">}</span> <span class="o">=</span>
     <span class="n">ValueCoeffs</span><span class="p">{</span><span class="n">T</span><span class="p">,</span><span class="n">D</span><span class="p">}(</span><span class="n">vp</span><span class="o">.</span><span class="n">d</span><span class="p">,</span> <span class="n">vp</span><span class="o">.</span><span class="n">v_coeffs</span><span class="p">,</span> <span class="n">vp</span><span class="o">.</span><span class="n">k_coeffs</span><span class="p">)</span>
 
-<span class="n">Base</span><span class="o">.</span><span class="n">copy</span><span class="p">{</span><span class="n">T1</span><span class="p">,</span><span class="n">D</span><span class="p">,</span><span class="n">T2</span><span class="o">&lt;:</span><span class="n">SolutionMethod</span><span class="p">}(</span><span class="n">vp</span><span class="o">::</span><span class="n">ValueCoeffs</span><span class="p">{</span><span class="n">T1</span><span class="p">,</span><span class="n">D</span><span class="p">},</span> <span class="o">::</span><span class="n">T2</span><span class="p">)</span> <span class="o">=</span>
+<span class="n">Base</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">vp</span><span class="o">::</span><span class="n">ValueCoeffs</span><span class="p">{</span><span class="n">T1</span><span class="p">,</span> <span class="n">D</span><span class="p">},</span> <span class="o">::</span><span class="n">T2</span><span class="p">)</span> <span class="n">where</span> <span class="p">{</span><span class="n">T1</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">T2</span> <span class="o">&lt;:</span> <span class="n">SolutionMethod</span><span class="p">}</span> <span class="o">=</span>
     <span class="n">ValueCoeffs</span><span class="p">{</span><span class="n">T2</span><span class="p">,</span><span class="n">D</span><span class="p">}(</span><span class="n">vp</span><span class="o">.</span><span class="n">d</span><span class="p">,</span> <span class="n">vp</span><span class="o">.</span><span class="n">v_coeffs</span><span class="p">,</span> <span class="n">vp</span><span class="o">.</span><span class="n">k_coeffs</span><span class="p">)</span>
 
-<span class="k">function</span> <span class="n">Base</span><span class="o">.</span><span class="n">copy</span><span class="p">{</span><span class="n">T</span><span class="p">,</span><span class="n">new_degree</span><span class="p">}(</span>
-        <span class="n">ncgm</span><span class="o">::</span><span class="n">NeoclassicalGrowth</span><span class="p">,</span> <span class="n">vp</span><span class="o">::</span><span class="n">ValueCoeffs</span><span class="p">{</span><span class="n">T</span><span class="p">},</span> <span class="o">::</span><span class="kt">Type</span><span class="p">{</span><span class="kt">Val</span><span class="p">{</span><span class="n">new_degree</span><span class="p">}}</span>
-    <span class="p">)</span>
+<span class="k">function</span> <span class="n">Base</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">ncgm</span><span class="o">::</span><span class="n">NeoclassicalGrowth</span><span class="p">,</span> <span class="n">vp</span><span class="o">::</span><span class="n">ValueCoeffs</span><span class="p">{</span><span class="n">T</span><span class="p">},</span> <span class="o">::</span><span class="kt">Type</span><span class="p">{</span><span class="kt">Val</span><span class="p">{</span><span class="n">new_degree</span><span class="p">}})</span> <span class="n">where</span> <span class="p">{</span><span class="n">T</span><span class="p">,</span> <span class="n">new_degree</span><span class="p">}</span>
     <span class="c"># Build Value and policy matrix</span>
     <span class="n">deg</span> <span class="o">=</span> <span class="n">Degree</span><span class="p">{</span><span class="n">new_degree</span><span class="p">}()</span>
     <span class="n">V</span> <span class="o">=</span> <span class="n">build_V</span><span class="p">(</span><span class="n">ncgm</span><span class="p">,</span> <span class="n">vp</span><span class="p">)</span>
@@ -13623,12 +13645,13 @@ $$
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-julia"><pre><span></span><span class="k">function</span> <span class="n">solve</span><span class="p">{</span><span class="n">T</span><span class="o">&lt;:</span><span class="n">SolutionMethod</span><span class="p">}(</span><span class="n">ncgm</span><span class="o">::</span><span class="n">NeoclassicalGrowth</span><span class="p">,</span> <span class="n">vp</span><span class="o">::</span><span class="n">ValueCoeffs</span><span class="p">{</span><span class="n">T</span><span class="p">};</span>
-                                  <span class="n">tol</span><span class="o">::</span><span class="kt">Float64</span><span class="o">=</span><span class="mf">1e-6</span><span class="p">,</span> <span class="n">maxiter</span><span class="o">::</span><span class="kt">Int</span><span class="o">=</span><span class="mi">5000</span><span class="p">,</span> <span class="n">dampen</span><span class="o">::</span><span class="kt">Float64</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span>
-                                  <span class="n">nskipprint</span><span class="o">::</span><span class="kt">Int</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">verbose</span><span class="o">::</span><span class="kt">Bool</span><span class="o">=</span><span class="kc">true</span><span class="p">)</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="k">function</span> <span class="n">solve</span><span class="p">(</span><span class="n">ncgm</span><span class="o">::</span><span class="n">NeoclassicalGrowth</span><span class="p">,</span> <span class="n">vp</span><span class="o">::</span><span class="n">ValueCoeffs</span><span class="p">{</span><span class="n">T</span><span class="p">};</span> 
+    <span class="n">tol</span><span class="o">::</span><span class="kt">Float64</span> <span class="o">=</span> <span class="mf">1e-06</span><span class="p">,</span> <span class="n">maxiter</span><span class="o">::</span><span class="kt">Int</span> <span class="o">=</span> <span class="mi">5000</span><span class="p">,</span> <span class="n">dampen</span><span class="o">::</span><span class="kt">Float64</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> 
+    <span class="n">nskipprint</span><span class="o">::</span><span class="kt">Int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">verbose</span><span class="o">::</span><span class="kt">Bool</span> <span class="o">=</span> <span class="kc">true</span><span class="p">)</span> <span class="n">where</span> <span class="n">T</span> <span class="o">&lt;:</span> <span class="n">SolutionMethod</span>
+
     <span class="c"># Get number of k and z on grid</span>
     <span class="n">nk</span><span class="p">,</span> <span class="n">nz</span> <span class="o">=</span> <span class="n">length</span><span class="p">(</span><span class="n">ncgm</span><span class="o">.</span><span class="n">kgrid</span><span class="p">),</span> <span class="n">length</span><span class="p">(</span><span class="n">ncgm</span><span class="o">.</span><span class="n">zgrid</span><span class="p">)</span>
 
@@ -13696,7 +13719,23 @@ $$
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[8]:</div>
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>WARNING: Base.@printf is deprecated: it has been moved to the standard library package `Printf`.
+Add `using Printf` to your imports.
+  likely near /Users/florian.oswald/.julia/packages/IJulia/9ajf8/src/kernel.jl:52
+WARNING: Base.@printf is deprecated: it has been moved to the standard library package `Printf`.
+Add `using Printf` to your imports.
+  likely near /Users/florian.oswald/.julia/packages/IJulia/9ajf8/src/kernel.jl:52
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[9]:</div>
 
 
 
@@ -13726,7 +13765,7 @@ $$
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="k">function</span> <span class="n">update!</span><span class="p">(</span><span class="n">V</span><span class="o">::</span><span class="kt">Vector</span><span class="p">{</span><span class="kt">Float64</span><span class="p">},</span> <span class="n">kpol</span><span class="o">::</span><span class="kt">Vector</span><span class="p">{</span><span class="kt">Float64</span><span class="p">},</span>
@@ -13770,7 +13809,7 @@ $$
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[9]:</div>
+    <div class="prompt output_prompt">Out[10]:</div>
 
 
 
@@ -13802,7 +13841,7 @@ $$
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="k">function</span> <span class="n">update!</span><span class="p">(</span><span class="n">V</span><span class="o">::</span><span class="kt">Vector</span><span class="p">{</span><span class="kt">Float64</span><span class="p">},</span> <span class="n">kpol</span><span class="o">::</span><span class="kt">Vector</span><span class="p">{</span><span class="kt">Float64</span><span class="p">},</span>
@@ -13850,7 +13889,7 @@ $$
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[10]:</div>
+    <div class="prompt output_prompt">Out[11]:</div>
 
 
 
@@ -13881,7 +13920,7 @@ $$
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="k">function</span> <span class="n">update!</span><span class="p">(</span><span class="n">V</span><span class="o">::</span><span class="kt">Vector</span><span class="p">{</span><span class="kt">Float64</span><span class="p">},</span> <span class="n">kpol</span><span class="o">::</span><span class="kt">Vector</span><span class="p">{</span><span class="kt">Float64</span><span class="p">},</span>
@@ -13942,7 +13981,7 @@ $$
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[11]:</div>
+    <div class="prompt output_prompt">Out[12]:</div>
 
 
 
@@ -13970,7 +14009,7 @@ $$k^*(k_t, z_t) = z_t f(k_t) + (1-\delta)k_t - c^*(k_t, z_t)$$<p>The functions b
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="prompt input_prompt">In&nbsp;[13]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="k">function</span> <span class="n">env_condition_kp!</span><span class="p">(</span><span class="n">cp_out</span><span class="o">::</span><span class="kt">Vector</span><span class="p">{</span><span class="kt">Float64</span><span class="p">},</span> <span class="n">ncgm</span><span class="o">::</span><span class="n">NeoclassicalGrowth</span><span class="p">,</span>
@@ -14015,7 +14054,7 @@ $$k^*(k_t, z_t) = z_t f(k_t) + (1-\delta)k_t - c^*(k_t, z_t)$$<p>The functions b
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[12]:</div>
+    <div class="prompt output_prompt">Out[13]:</div>
 
 
 
@@ -14045,7 +14084,7 @@ $$k^*(k_t, z_t) = z_t f(k_t) + (1-\delta)k_t - c^*(k_t, z_t)$$<p>The functions b
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="k">function</span> <span class="n">update!</span><span class="p">(</span><span class="n">V</span><span class="o">::</span><span class="kt">Vector</span><span class="p">{</span><span class="kt">Float64</span><span class="p">},</span> <span class="n">kpol</span><span class="o">::</span><span class="kt">Vector</span><span class="p">{</span><span class="kt">Float64</span><span class="p">},</span>
@@ -14090,7 +14129,7 @@ $$k^*(k_t, z_t) = z_t f(k_t) + (1-\delta)k_t - c^*(k_t, z_t)$$<p>The functions b
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[13]:</div>
+    <div class="prompt output_prompt">Out[14]:</div>
 
 
 
@@ -14120,7 +14159,7 @@ $$k^*(k_t, z_t) = z_t f(k_t) + (1-\delta)k_t - c^*(k_t, z_t)$$<p>The functions b
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[14]:</div>
+<div class="prompt input_prompt">In&nbsp;[15]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="k">function</span> <span class="n">update!</span><span class="p">(</span><span class="n">V</span><span class="o">::</span><span class="kt">Vector</span><span class="p">{</span><span class="kt">Float64</span><span class="p">},</span> <span class="n">kpol</span><span class="o">::</span><span class="kt">Vector</span><span class="p">{</span><span class="kt">Float64</span><span class="p">},</span>
@@ -14173,7 +14212,7 @@ $$k^*(k_t, z_t) = z_t f(k_t) + (1-\delta)k_t - c^*(k_t, z_t)$$<p>The functions b
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[14]:</div>
+    <div class="prompt output_prompt">Out[15]:</div>
 
 
 
@@ -14203,7 +14242,7 @@ $$k^*(k_t, z_t) = z_t f(k_t) + (1-\delta)k_t - c^*(k_t, z_t)$$<p>The functions b
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[15]:</div>
+<div class="prompt input_prompt">In&nbsp;[16]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="k">function</span> <span class="n">update!</span><span class="p">(</span><span class="n">V</span><span class="o">::</span><span class="kt">Vector</span><span class="p">{</span><span class="kt">Float64</span><span class="p">},</span> <span class="n">kpol</span><span class="o">::</span><span class="kt">Vector</span><span class="p">{</span><span class="kt">Float64</span><span class="p">},</span>
@@ -14237,7 +14276,7 @@ $$k^*(k_t, z_t) = z_t f(k_t) + (1-\delta)k_t - c^*(k_t, z_t)$$<p>The functions b
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[15]:</div>
+    <div class="prompt output_prompt">Out[16]:</div>
 
 
 
@@ -14269,7 +14308,7 @@ $$k^*(k_t, z_t) = z_t f(k_t) + (1-\delta)k_t - c^*(k_t, z_t)$$<p>The functions b
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[16]:</div>
+<div class="prompt input_prompt">In&nbsp;[17]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="k">function</span> <span class="n">update!</span><span class="p">(</span><span class="n">dV</span><span class="o">::</span><span class="kt">Vector</span><span class="p">{</span><span class="kt">Float64</span><span class="p">},</span> <span class="n">kpol</span><span class="o">::</span><span class="kt">Vector</span><span class="p">{</span><span class="kt">Float64</span><span class="p">},</span>
@@ -14368,7 +14407,7 @@ $$k^*(k_t, z_t) = z_t f(k_t) + (1-\delta)k_t - c^*(k_t, z_t)$$<p>The functions b
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[16]:</div>
+    <div class="prompt output_prompt">Out[17]:</div>
 
 
 
@@ -14399,7 +14438,7 @@ $$k^*(k_t, z_t) = z_t f(k_t) + (1-\delta)k_t - c^*(k_t, z_t)$$<p>The functions b
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[17]:</div>
+<div class="prompt input_prompt">In&nbsp;[18]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="k">function</span> <span class="n">update!</span><span class="p">(</span><span class="n">dV</span><span class="o">::</span><span class="kt">Vector</span><span class="p">{</span><span class="kt">Float64</span><span class="p">},</span> <span class="n">kpol</span><span class="o">::</span><span class="kt">Vector</span><span class="p">{</span><span class="kt">Float64</span><span class="p">},</span>
@@ -14443,7 +14482,7 @@ $$k^*(k_t, z_t) = z_t f(k_t) + (1-\delta)k_t - c^*(k_t, z_t)$$<p>The functions b
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[17]:</div>
+    <div class="prompt output_prompt">Out[18]:</div>
 
 
 
@@ -14468,7 +14507,7 @@ $$k^*(k_t, z_t) = z_t f(k_t) + (1-\delta)k_t - c^*(k_t, z_t)$$<p>The functions b
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[18]:</div>
+<div class="prompt input_prompt">In&nbsp;[19]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="s">&quot;&quot;&quot;</span>
@@ -14590,7 +14629,7 @@ $$k^*(k_t, z_t) = z_t f(k_t) + (1-\delta)k_t - c^*(k_t, z_t)$$<p>The functions b
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[18]:</div>
+    <div class="prompt output_prompt">Out[19]:</div>
 
 
 
@@ -14615,7 +14654,7 @@ $$k^*(k_t, z_t) = z_t f(k_t) + (1-\delta)k_t - c^*(k_t, z_t)$$<p>The functions b
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[19]:</div>
+<div class="prompt input_prompt">In&nbsp;[20]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="k">function</span> <span class="n">main</span><span class="p">(</span><span class="n">sm</span><span class="o">::</span><span class="n">SolutionMethod</span><span class="p">,</span> <span class="n">nd</span><span class="o">::</span><span class="kt">Int</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">shocks</span><span class="o">=</span><span class="n">randn</span><span class="p">(</span><span class="n">capT</span><span class="o">+</span><span class="n">nburn</span><span class="p">);</span>
@@ -14671,7 +14710,7 @@ $$k^*(k_t, z_t) = z_t f(k_t) + (1-\delta)k_t - c^*(k_t, z_t)$$<p>The functions b
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[19]:</div>
+    <div class="prompt output_prompt">Out[20]:</div>
 
 
 
@@ -14688,10 +14727,10 @@ $$k^*(k_t, z_t) = z_t f(k_t) + (1-\delta)k_t - c^*(k_t, z_t)$$<p>The functions b
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[20]:</div>
+<div class="prompt input_prompt">In&nbsp;[21]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-julia"><pre><span></span><span class="n">srand</span><span class="p">(</span><span class="mi">52</span><span class="p">)</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="n">Random</span><span class="o">.</span><span class="n">seed!</span><span class="p">(</span><span class="mi">52</span><span class="p">)</span>
 <span class="n">shocks</span> <span class="o">=</span> <span class="n">randn</span><span class="p">(</span><span class="mi">10200</span><span class="p">)</span>
 
 <span class="k">for</span> <span class="n">sol_method</span> <span class="kp">in</span> <span class="p">[</span><span class="n">VFI</span><span class="p">(),</span> <span class="n">VFI_EGM</span><span class="p">(),</span> <span class="n">VFI_ECM</span><span class="p">(),</span> <span class="n">dVFI_ECM</span><span class="p">(),</span>
@@ -14725,71 +14764,33 @@ $$k^*(k_t, z_t) = z_t f(k_t) + (1-\delta)k_t - c^*(k_t, z_t)$$<p>The functions b
     <div class="prompt"></div>
 
 
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Solution Method: VFI()
-	Degree 2 took time 1.0177571773529053
-	Mean &amp; Max EE are-3.803 &amp; -2.875
-	Degree 3 took time 0.8022429943084717
-	Mean &amp; Max EE are-4.914 &amp; -3.487
-	Degree 4 took time 0.911290168762207
-	Mean &amp; Max EE are-5.978 &amp; -4.226
-	Degree 5 took time 0.820288896560669
-	Mean &amp; Max EE are-6.916 &amp; -4.942
-Solution Method: VFI_EGM()
-	Degree 2 took time 0.455186128616333
-	Mean &amp; Max EE are-3.803 &amp; -2.876
-	Degree 3 took time 0.3205699920654297
-	Mean &amp; Max EE are-4.914 &amp; -3.487
-	Degree 4 took time 0.3630049228668213
-	Mean &amp; Max EE are-5.978 &amp; -4.226
-	Degree 5 took time 0.23671388626098633
-	Mean &amp; Max EE are-6.916 &amp; -4.942
-Solution Method: VFI_ECM()
-	Degree 2 took time 0.2338249683380127
-	Mean &amp; Max EE are-3.803 &amp; -2.875
-	Degree 3 took time 0.17187905311584473
-	Mean &amp; Max EE are-4.914 &amp; -3.487
-	Degree 4 took time 0.21409082412719727
-	Mean &amp; Max EE are-5.978 &amp; -4.226
-	Degree 5 took time 0.11565899848937988
-	Mean &amp; Max EE are-6.916 &amp; -4.942
-Solution Method: dVFI_ECM()
-	Degree 2 took time 0.4599738121032715
-	Mean &amp; Max EE are-3.803 &amp; -2.876
-	Degree 3 took time 0.5642499923706055
-	Mean &amp; Max EE are-4.914 &amp; -3.487
-	Degree 4 took time 0.7007639408111572
-	Mean &amp; Max EE are-5.978 &amp; -4.226
-	Degree 5 took time 0.8416028022766113
-	Mean &amp; Max EE are-6.916 &amp; -4.942
-Solution Method: PFI()
-	Degree 2 took time 0.23304009437561035
-	Mean &amp; Max EE are-3.803 &amp; -2.876
-	Degree 3 took time 0.6633918285369873
-	Mean &amp; Max EE are-4.914 &amp; -3.487
-	Degree 4 took time 0.9226529598236084
-	Mean &amp; Max EE are-5.978 &amp; -4.226
-	Degree 5 took time 0.8429489135742188
-	Mean &amp; Max EE are-6.916 &amp; -4.942
-Solution Method: PFI_ECM()
-	Degree 2 took time 0.2126469612121582
-	Mean &amp; Max EE are-3.803 &amp; -2.876
-	Degree 3 took time 0.17271208763122559
-	Mean &amp; Max EE are-4.914 &amp; -3.487
-	Degree 4 took time 0.2106919288635254
-	Mean &amp; Max EE are-5.978 &amp; -4.226
-	Degree 5 took time 0.11862683296203613
-	Mean &amp; Max EE are-6.916 &amp; -4.942
-Solution Method: EulEq()
-	Degree 2 took time 0.27344584465026855
-	Mean &amp; Max EE are-3.803 &amp; -2.876
-	Degree 3 took time 0.20004796981811523
-	Mean &amp; Max EE are-4.914 &amp; -3.487
-	Degree 4 took time 0.24544811248779297
-	Mean &amp; Max EE are-5.978 &amp; -4.226
-	Degree 5 took time 0.14348387718200684
-	Mean &amp; Max EE are-6.916 &amp; -4.942
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>WARNING: Base.srand is deprecated: it has been moved to the standard library package `Random`.
+Add `using Random` to your imports.
+  likely near /Users/florian.oswald/.julia/packages/IJulia/9ajf8/src/kernel.jl:52
+┌ Warning: `srand` is deprecated, use `Random.seed!` instead.
+│   caller = top-level scope at In[21]:1
+└ @ Core In[21]:1
 </pre>
+</div>
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_text output_error">
+<pre>
+MethodError: no method matching #solve#9(::Float64, ::Int64, ::Int64, ::Int64, ::Bool, ::typeof(solve), ::NeoclassicalGrowth, ::ValueCoeffs{IterateOnPolicy,Degree{2}})
+Closest candidates are:
+  #solve#9(::Float64, ::Int64, !Matched::Float64, ::Int64, ::Bool, ::Any, ::NeoclassicalGrowth, ::ValueCoeffs{T&lt;:SolutionMethod,D} where D&lt;:Degree) where T&lt;:SolutionMethod at In[9]:7
+
+Stacktrace:
+ [1] (::getfield(Main, Symbol(&#34;#kw##solve&#34;)))(::NamedTuple{(:tol, :verbose),Tuple{Float64,Bool}}, ::typeof(solve), ::NeoclassicalGrowth, ::ValueCoeffs{IterateOnPolicy,Degree{2}}) at ./none:0
+ [2] #main#17(::Int64, ::Int64, ::Float64, ::Int64, ::Int64, ::Bool, ::Function, ::VFI, ::Int64, ::Array{Float64,1}) at ./In[20]:9
+ [3] (::getfield(Main, Symbol(&#34;#kw##main&#34;)))(::NamedTuple{(:maxiter, :verbose),Tuple{Int64,Bool}}, ::typeof(main), ::VFI, ::Int64, ::Array{Float64,1}) at ./none:0
+ [4] top-level scope at ./In[21]:7</pre>
 </div>
 </div>
 

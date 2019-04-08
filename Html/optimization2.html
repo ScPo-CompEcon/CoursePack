@@ -13089,7 +13089,7 @@ div#notebook {
 
 <!-- Loading mathjax macro -->
 <!-- Load mathjax -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS_HTML"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_HTML"></script>
     <!-- MathJax configuration -->
     <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
@@ -14071,12 +14071,10 @@ gradient descent 3 = Results of Optimization Algorithm
 <li>We would get a descent $\mathbf{d}^k$ by setting:
   $$\mathbf{d}^k = -\frac{\mathbf{g}^{k}}{\mathbf{H}^{k}}$$</li>
 <li>There are several options to avoid (often costly) computation of the Hessian $\mathbf{H}$:</li>
-</ul>
-<ol>
 <li>Quasi-Newton updates $\mathbf{H}$ starting from identity matrix</li>
 <li>Broyden-Fletcher-Goldfarb-Shanno (BFGS) does better with approx linesearch</li>
 <li>L-BFGS is the limited memory version for large problems</li>
-</ol>
+</ul>
 
 </div>
 </div>
@@ -21922,13 +21920,13 @@ $$<ul>
 <h2 id="&#160;Interior-Point-Method">&#160;Interior Point Method<a class="anchor-link" href="#&#160;Interior-Point-Method">&#182;</a></h2><ul>
 <li>Also called <em>barrier method</em>.</li>
 <li>These methods make sure that the search point remains always feasible.</li>
-<li>As one approaches the constraint boundary, the barrier function goes to infinity. Properties:</li>
-</ul>
-<ol>
-<li>$p_\text{barrier}(\mathbf{x})$ is continuous</li>
+<li><p>As one approaches the constraint boundary, the barrier function goes to infinity. Properties:</p>
+</li>
+<li><p>$p_\text{barrier}(\mathbf{x})$ is continuous</p>
+</li>
 <li>$p_\text{barrier}(\mathbf{x})$ is non negative</li>
 <li>$p_\text{barrier}(\mathbf{x})$ goes to infinitey as one approaches the constraint boundary</li>
-</ol>
+</ul>
 
 </div>
 </div>
