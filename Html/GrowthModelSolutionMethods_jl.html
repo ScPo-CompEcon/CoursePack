@@ -13121,6 +13121,7 @@ div#notebook {
 <blockquote><p>Coleman, Lyon, Maliar, and Maliar (2017)</p>
 </blockquote>
 </blockquote>
+<p><strong>The original notebook is Julia version 0.6. I (Florian Oswald) updated this to julia 1.0</strong></p>
 <p>In order to run the codes in this notebook you will need to install and configure a few Julia packages. We recommend following the instructions on <a href="https://lectures.quantecon.org/jl/getting_started.html">quantecon.org</a>.</p>
 <p>Once your Julia installation is up and running, there are a few additional packages you will need in order to run the code here. To do this uncomment the lines in the cell below (by deleting the <code>#</code> and space at the beginning of each line) and run the cell:</p>
 
@@ -13129,54 +13130,16 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[1]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-julia"><pre><span></span><span class="c"># Pkg.add(&quot;BasisMatrices&quot;)</span>
-<span class="c"># Pkg.add(&quot;Optim&quot;)</span>
-<span class="c"># Pkg.add(&quot;Parameters&quot;)</span>
-<span class="c"># Pkg.add(&quot;QuantEcon&quot;)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="k">using</span> <span class="n">BasisMatrices</span><span class="p">,</span> <span class="n">Optim</span><span class="p">,</span> <span class="n">QuantEcon</span><span class="p">,</span> <span class="n">Parameters</span>
 <span class="k">using</span> <span class="n">BasisMatrices</span><span class="o">:</span> <span class="n">Degree</span><span class="p">,</span> <span class="n">Derivative</span>
-<span class="k">using</span> <span class="n">Printf</span>
+<span class="k">using</span> <span class="n">Printf</span><span class="p">,</span> <span class="n">Random</span>
+<span class="k">using</span> <span class="n">LinearAlgebra</span>
 </pre></div>
 
     </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>┌ Info: Precompiling BasisMatrices [08854c51-b66b-5062-a90d-8e7ae4547a49]
-└ @ Base loading.jl:1187
-┌ Warning: Use of final value of loop variable `its` around /Users/florian.oswald/.julia/packages/QuantEcon/7w41U/src/quad.jl:91 is deprecated. In the future the variable will be local to the loop instead.
-└ @ ~/.julia/packages/QuantEcon/7w41U/src/quad.jl:91
-┌ Warning: Use of final value of loop variable `its` around /Users/florian.oswald/.julia/packages/QuantEcon/7w41U/src/quad.jl:373 is deprecated. In the future the variable will be local to the loop instead.
-└ @ ~/.julia/packages/QuantEcon/7w41U/src/quad.jl:373
-</pre>
-</div>
-</div>
-
 </div>
 </div>
 
@@ -13216,7 +13179,7 @@ $$
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="s">&quot;&quot;&quot;</span>
@@ -13268,7 +13231,7 @@ $$
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[2]:</div>
+    <div class="prompt output_prompt">Out[3]:</div>
 
 
 
@@ -13293,7 +13256,7 @@ $$
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="c"># Helper functions</span>
@@ -13317,7 +13280,7 @@ $$
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[3]:</div>
+    <div class="prompt output_prompt">Out[4]:</div>
 
 
 
@@ -13535,7 +13498,7 @@ $$
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="prompt input_prompt">In&nbsp;[21]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="k">function</span> <span class="n">compute_EV!</span><span class="p">(</span><span class="n">cp_kpzp</span><span class="o">::</span><span class="kt">Vector</span><span class="p">{</span><span class="kt">Float64</span><span class="p">},</span> <span class="n">ncgm</span><span class="o">::</span><span class="n">NeoclassicalGrowth</span><span class="p">,</span>
@@ -13557,7 +13520,7 @@ $$
 <span class="k">end</span>
 
 <span class="k">function</span> <span class="n">compute_EV</span><span class="p">(</span><span class="n">ncgm</span><span class="o">::</span><span class="n">NeoclassicalGrowth</span><span class="p">,</span> <span class="n">vp</span><span class="o">::</span><span class="n">ValueCoeffs</span><span class="p">,</span> <span class="n">kp</span><span class="p">,</span> <span class="n">iz</span><span class="p">)</span>
-    <span class="n">cp_kpzp</span> <span class="o">=</span> <span class="kt">Array</span><span class="p">{</span><span class="kt">Float64</span><span class="p">}(</span><span class="n">n_complete</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">vp</span><span class="o">.</span><span class="n">d</span><span class="p">))</span>
+    <span class="n">cp_kpzp</span> <span class="o">=</span> <span class="kt">Array</span><span class="p">{</span><span class="kt">Float64</span><span class="p">}(</span><span class="n">undef</span><span class="p">,</span><span class="n">n_complete</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">vp</span><span class="o">.</span><span class="n">d</span><span class="p">))</span>
 
     <span class="k">return</span> <span class="n">compute_EV!</span><span class="p">(</span><span class="n">cp_kpzp</span><span class="p">,</span> <span class="n">ncgm</span><span class="p">,</span> <span class="n">vp</span><span class="p">,</span> <span class="n">kp</span><span class="p">,</span> <span class="n">iz</span><span class="p">)</span>
 <span class="k">end</span>
@@ -13566,16 +13529,16 @@ $$
     <span class="c"># Get length of k and z grids</span>
     <span class="n">kgrid</span><span class="p">,</span> <span class="n">zgrid</span> <span class="o">=</span> <span class="n">ncgm</span><span class="o">.</span><span class="n">kgrid</span><span class="p">,</span> <span class="n">ncgm</span><span class="o">.</span><span class="n">zgrid</span>
     <span class="n">nk</span><span class="p">,</span> <span class="n">nz</span> <span class="o">=</span> <span class="n">length</span><span class="p">(</span><span class="n">kgrid</span><span class="p">),</span> <span class="n">length</span><span class="p">(</span><span class="n">zgrid</span><span class="p">)</span>
-    <span class="n">temp</span> <span class="o">=</span> <span class="kt">Array</span><span class="p">{</span><span class="kt">Float64</span><span class="p">}(</span><span class="n">n_complete</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">vp</span><span class="o">.</span><span class="n">d</span><span class="p">))</span>
+    <span class="n">temp</span> <span class="o">=</span> <span class="kt">Array</span><span class="p">{</span><span class="kt">Float64</span><span class="p">}(</span><span class="n">undef</span><span class="p">,</span><span class="n">n_complete</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">vp</span><span class="o">.</span><span class="n">d</span><span class="p">))</span>
 
     <span class="c"># Allocate space to store EV</span>
-    <span class="n">EV</span> <span class="o">=</span> <span class="kt">Array</span><span class="p">{</span><span class="kt">Float64</span><span class="p">}(</span><span class="n">nk</span><span class="o">*</span><span class="n">nz</span><span class="p">)</span>
+    <span class="n">EV</span> <span class="o">=</span> <span class="kt">Array</span><span class="p">{</span><span class="kt">Float64</span><span class="p">}(</span><span class="n">undef</span><span class="p">,</span> <span class="n">nk</span><span class="o">*</span><span class="n">nz</span><span class="p">)</span>
 
     <span class="k">for</span> <span class="n">ik</span> <span class="kp">in</span> <span class="mi">1</span><span class="o">:</span><span class="n">nk</span><span class="p">,</span> <span class="n">iz</span> <span class="kp">in</span> <span class="mi">1</span><span class="o">:</span><span class="n">nz</span>
         <span class="c"># Pull out states</span>
         <span class="n">k</span> <span class="o">=</span> <span class="n">kgrid</span><span class="p">[</span><span class="n">ik</span><span class="p">]</span>
         <span class="n">z</span> <span class="o">=</span> <span class="n">zgrid</span><span class="p">[</span><span class="n">iz</span><span class="p">]</span>
-        <span class="n">ikiz_index</span> <span class="o">=</span> <span class="n">sub2ind</span><span class="p">((</span><span class="n">nk</span><span class="p">,</span> <span class="n">nz</span><span class="p">),</span> <span class="n">ik</span><span class="p">,</span> <span class="n">iz</span><span class="p">)</span>
+            <span class="n">ikiz_index</span> <span class="o">=</span> <span class="n">LinearIndices</span><span class="p">((</span><span class="n">nk</span><span class="p">,</span><span class="n">nz</span><span class="p">))[(</span><span class="n">ik</span><span class="p">,</span> <span class="n">iz</span><span class="p">)</span><span class="o">...</span><span class="p">]</span>
 
         <span class="c"># Pass to scalar EV</span>
         <span class="n">complete_polynomial!</span><span class="p">(</span><span class="n">temp</span><span class="p">,</span> <span class="p">[</span><span class="n">k</span><span class="p">,</span> <span class="n">z</span><span class="p">],</span> <span class="n">vp</span><span class="o">.</span><span class="n">d</span><span class="p">)</span>
@@ -13620,7 +13583,7 @@ $$
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[7]:</div>
+    <div class="prompt output_prompt">Out[21]:</div>
 
 
 
@@ -13645,11 +13608,11 @@ $$
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="k">function</span> <span class="n">solve</span><span class="p">(</span><span class="n">ncgm</span><span class="o">::</span><span class="n">NeoclassicalGrowth</span><span class="p">,</span> <span class="n">vp</span><span class="o">::</span><span class="n">ValueCoeffs</span><span class="p">{</span><span class="n">T</span><span class="p">};</span> 
-    <span class="n">tol</span><span class="o">::</span><span class="kt">Float64</span> <span class="o">=</span> <span class="mf">1e-06</span><span class="p">,</span> <span class="n">maxiter</span><span class="o">::</span><span class="kt">Int</span> <span class="o">=</span> <span class="mi">5000</span><span class="p">,</span> <span class="n">dampen</span><span class="o">::</span><span class="kt">Float64</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> 
+    <span class="n">tol</span><span class="o">::</span><span class="kt">Float64</span> <span class="o">=</span> <span class="mf">1e-06</span><span class="p">,</span> <span class="n">maxiter</span><span class="o">::</span><span class="kt">Int</span> <span class="o">=</span> <span class="mi">5000</span><span class="p">,</span> <span class="n">dampen</span><span class="o">::</span><span class="kt">Float64</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">,</span> 
     <span class="n">nskipprint</span><span class="o">::</span><span class="kt">Int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">verbose</span><span class="o">::</span><span class="kt">Bool</span> <span class="o">=</span> <span class="kc">true</span><span class="p">)</span> <span class="n">where</span> <span class="n">T</span> <span class="o">&lt;:</span> <span class="n">SolutionMethod</span>
 
     <span class="c"># Get number of k and z on grid</span>
@@ -13719,23 +13682,7 @@ $$
 
 <div class="output_area">
 
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>WARNING: Base.@printf is deprecated: it has been moved to the standard library package `Printf`.
-Add `using Printf` to your imports.
-  likely near /Users/florian.oswald/.julia/packages/IJulia/9ajf8/src/kernel.jl:52
-WARNING: Base.@printf is deprecated: it has been moved to the standard library package `Printf`.
-Add `using Printf` to your imports.
-  likely near /Users/florian.oswald/.julia/packages/IJulia/9ajf8/src/kernel.jl:52
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[9]:</div>
+    <div class="prompt output_prompt">Out[8]:</div>
 
 
 
@@ -13765,7 +13712,7 @@ Add `using Printf` to your imports.
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="k">function</span> <span class="n">update!</span><span class="p">(</span><span class="n">V</span><span class="o">::</span><span class="kt">Vector</span><span class="p">{</span><span class="kt">Float64</span><span class="p">},</span> <span class="n">kpol</span><span class="o">::</span><span class="kt">Vector</span><span class="p">{</span><span class="kt">Float64</span><span class="p">},</span>
@@ -13782,7 +13729,7 @@ Add `using Printf` to your imports.
         <span class="n">z</span> <span class="o">=</span> <span class="n">zgrid</span><span class="p">[</span><span class="n">iz</span><span class="p">]</span>
 
         <span class="c"># Pull out policy and evaluate consumption</span>
-        <span class="n">ikiz_index</span> <span class="o">=</span> <span class="n">sub2ind</span><span class="p">((</span><span class="n">nk</span><span class="p">,</span> <span class="n">nz</span><span class="p">),</span> <span class="n">ik</span><span class="p">,</span> <span class="n">iz</span><span class="p">)</span>
+        <span class="n">ikiz_index</span> <span class="o">=</span> <span class="n">LinearIndices</span><span class="p">((</span><span class="n">nk</span><span class="p">,</span><span class="n">nz</span><span class="p">))[(</span><span class="n">ik</span><span class="p">,</span> <span class="n">iz</span><span class="p">)</span><span class="o">...</span><span class="p">]</span>
         <span class="n">k1</span> <span class="o">=</span> <span class="n">kpol</span><span class="p">[</span><span class="n">ikiz_index</span><span class="p">]</span>
         <span class="n">c</span> <span class="o">=</span> <span class="n">expendables_t</span><span class="p">(</span><span class="n">ncgm</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span> <span class="o">-</span> <span class="n">k1</span>
 
@@ -13809,7 +13756,7 @@ Add `using Printf` to your imports.
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[10]:</div>
+    <div class="prompt output_prompt">Out[9]:</div>
 
 
 
@@ -13841,7 +13788,7 @@ Add `using Printf` to your imports.
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="k">function</span> <span class="n">update!</span><span class="p">(</span><span class="n">V</span><span class="o">::</span><span class="kt">Vector</span><span class="p">{</span><span class="kt">Float64</span><span class="p">},</span> <span class="n">kpol</span><span class="o">::</span><span class="kt">Vector</span><span class="p">{</span><span class="kt">Float64</span><span class="p">},</span>
@@ -13852,7 +13799,7 @@ Add `using Printf` to your imports.
     <span class="n">nk</span><span class="p">,</span> <span class="n">nz</span> <span class="o">=</span> <span class="n">length</span><span class="p">(</span><span class="n">kgrid</span><span class="p">),</span> <span class="n">length</span><span class="p">(</span><span class="n">zgrid</span><span class="p">)</span>
 
     <span class="c"># Iterate over all states</span>
-    <span class="n">temp</span> <span class="o">=</span> <span class="kt">Array</span><span class="p">{</span><span class="kt">Float64</span><span class="p">}(</span><span class="n">n_complete</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">vp</span><span class="o">.</span><span class="n">d</span><span class="p">))</span>
+    <span class="n">temp</span> <span class="o">=</span> <span class="kt">Array</span><span class="p">{</span><span class="kt">Float64</span><span class="p">}(</span><span class="n">undef</span><span class="p">,</span><span class="n">n_complete</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">vp</span><span class="o">.</span><span class="n">d</span><span class="p">))</span>
     <span class="k">for</span> <span class="n">iz</span><span class="o">=</span><span class="mi">1</span><span class="o">:</span><span class="n">nz</span><span class="p">,</span> <span class="n">ik</span><span class="o">=</span><span class="mi">1</span><span class="o">:</span><span class="n">nk</span>
         <span class="n">k</span> <span class="o">=</span> <span class="n">kgrid</span><span class="p">[</span><span class="n">ik</span><span class="p">];</span> <span class="n">z</span> <span class="o">=</span> <span class="n">zgrid</span><span class="p">[</span><span class="n">iz</span><span class="p">]</span>
 
@@ -13865,7 +13812,7 @@ Add `using Printf` to your imports.
         <span class="n">c</span> <span class="o">=</span> <span class="n">expendables_t</span><span class="p">(</span><span class="n">ncgm</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span> <span class="o">-</span> <span class="n">kp</span>
 
         <span class="c"># New value</span>
-        <span class="n">ikiz_index</span> <span class="o">=</span> <span class="n">sub2ind</span><span class="p">((</span><span class="n">nk</span><span class="p">,</span> <span class="n">nz</span><span class="p">),</span> <span class="n">ik</span><span class="p">,</span> <span class="n">iz</span><span class="p">)</span>
+        <span class="n">ikiz_index</span> <span class="o">=</span> <span class="n">LinearIndices</span><span class="p">((</span><span class="n">nk</span><span class="p">,</span><span class="n">nz</span><span class="p">))[(</span><span class="n">ik</span><span class="p">,</span> <span class="n">iz</span><span class="p">)</span><span class="o">...</span><span class="p">]</span>
         <span class="n">EV</span> <span class="o">=</span> <span class="n">compute_EV!</span><span class="p">(</span><span class="n">temp</span><span class="p">,</span> <span class="n">ncgm</span><span class="p">,</span> <span class="n">vp</span><span class="p">,</span> <span class="n">kp</span><span class="p">,</span> <span class="n">iz</span><span class="p">)</span>
         <span class="n">V</span><span class="p">[</span><span class="n">ikiz_index</span><span class="p">]</span> <span class="o">=</span> <span class="n">u</span><span class="p">(</span><span class="n">ncgm</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span> <span class="o">+</span> <span class="n">ncgm</span><span class="o">.</span><span class="n">β</span><span class="o">*</span><span class="n">EV</span>
         <span class="n">kpol</span><span class="p">[</span><span class="n">ikiz_index</span><span class="p">]</span> <span class="o">=</span> <span class="n">kp</span>
@@ -13889,7 +13836,7 @@ Add `using Printf` to your imports.
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[11]:</div>
+    <div class="prompt output_prompt">Out[10]:</div>
 
 
 
@@ -13920,7 +13867,7 @@ Add `using Printf` to your imports.
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="k">function</span> <span class="n">update!</span><span class="p">(</span><span class="n">V</span><span class="o">::</span><span class="kt">Vector</span><span class="p">{</span><span class="kt">Float64</span><span class="p">},</span> <span class="n">kpol</span><span class="o">::</span><span class="kt">Vector</span><span class="p">{</span><span class="kt">Float64</span><span class="p">},</span>
@@ -13931,12 +13878,12 @@ Add `using Printf` to your imports.
     <span class="n">nk</span><span class="p">,</span> <span class="n">nz</span> <span class="o">=</span> <span class="n">length</span><span class="p">(</span><span class="n">kgrid</span><span class="p">),</span> <span class="n">length</span><span class="p">(</span><span class="n">zgrid</span><span class="p">)</span>
 
     <span class="c"># Iterate</span>
-    <span class="n">temp</span> <span class="o">=</span> <span class="kt">Array</span><span class="p">{</span><span class="kt">Float64</span><span class="p">}(</span><span class="n">n_complete</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">vp</span><span class="o">.</span><span class="n">d</span><span class="p">))</span>
+    <span class="n">temp</span> <span class="o">=</span> <span class="kt">Array</span><span class="p">{</span><span class="kt">Float64</span><span class="p">}(</span><span class="n">undef</span><span class="p">,</span><span class="n">n_complete</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">vp</span><span class="o">.</span><span class="n">d</span><span class="p">))</span>
     <span class="k">for</span> <span class="n">iz</span><span class="o">=</span><span class="mi">1</span><span class="o">:</span><span class="n">nz</span><span class="p">,</span> <span class="n">ik</span><span class="o">=</span><span class="mi">1</span><span class="o">:</span><span class="n">nk</span>
 
         <span class="c"># In EGM we use the grid points as if they were our</span>
         <span class="c"># policy for yesterday and find implied kt</span>
-        <span class="n">ikiz_index</span> <span class="o">=</span> <span class="n">sub2ind</span><span class="p">((</span><span class="n">nk</span><span class="p">,</span> <span class="n">nz</span><span class="p">),</span> <span class="n">ik</span><span class="p">,</span> <span class="n">iz</span><span class="p">)</span>
+        <span class="n">ikiz_index</span> <span class="o">=</span> <span class="n">LinearIndices</span><span class="p">((</span><span class="n">nk</span><span class="p">,</span><span class="n">nz</span><span class="p">))[(</span><span class="n">ik</span><span class="p">,</span> <span class="n">iz</span><span class="p">)</span><span class="o">...</span><span class="p">]</span>
         <span class="n">k1</span> <span class="o">=</span> <span class="n">kgrid</span><span class="p">[</span><span class="n">ik</span><span class="p">];</span><span class="n">z</span> <span class="o">=</span> <span class="n">zgrid</span><span class="p">[</span><span class="n">iz</span><span class="p">];</span>
 
         <span class="c"># Compute the derivative of expected values</span>
@@ -13981,7 +13928,7 @@ Add `using Printf` to your imports.
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[12]:</div>
+    <div class="prompt output_prompt">Out[11]:</div>
 
 
 
@@ -14009,7 +13956,7 @@ $$k^*(k_t, z_t) = z_t f(k_t) + (1-\delta)k_t - c^*(k_t, z_t)$$<p>The functions b
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="prompt input_prompt">In&nbsp;[25]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="k">function</span> <span class="n">env_condition_kp!</span><span class="p">(</span><span class="n">cp_out</span><span class="o">::</span><span class="kt">Vector</span><span class="p">{</span><span class="kt">Float64</span><span class="p">},</span> <span class="n">ncgm</span><span class="o">::</span><span class="n">NeoclassicalGrowth</span><span class="p">,</span>
@@ -14038,7 +13985,7 @@ $$k^*(k_t, z_t) = z_t f(k_t) + (1-\delta)k_t - c^*(k_t, z_t)$$<p>The functions b
     <span class="n">dPhi</span> <span class="o">=</span> <span class="n">complete_polynomial</span><span class="p">(</span><span class="n">ncgm</span><span class="o">.</span><span class="n">grid</span><span class="p">,</span> <span class="n">vp</span><span class="o">.</span><span class="n">d</span><span class="p">,</span> <span class="n">Derivative</span><span class="p">{</span><span class="mi">1</span><span class="p">}())</span>
 
     <span class="c"># Compute consumption</span>
-    <span class="n">c</span> <span class="o">=</span> <span class="n">duinv</span><span class="p">(</span><span class="n">ncgm</span><span class="p">,</span> <span class="p">(</span><span class="n">dPhi</span><span class="o">*</span><span class="n">vp</span><span class="o">.</span><span class="n">v_coeffs</span><span class="p">)</span> <span class="o">./</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">ncgm</span><span class="o">.</span><span class="n">δ</span><span class="o">+</span><span class="n">df</span><span class="p">(</span><span class="n">ncgm</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">z</span><span class="p">)))</span>
+    <span class="n">c</span> <span class="o">=</span> <span class="n">duinv</span><span class="p">(</span><span class="n">ncgm</span><span class="p">,</span> <span class="p">(</span><span class="n">dPhi</span><span class="o">*</span><span class="n">vp</span><span class="o">.</span><span class="n">v_coeffs</span><span class="p">)</span> <span class="o">./</span> <span class="p">(</span><span class="mi">1</span> <span class="o">.-</span> <span class="n">ncgm</span><span class="o">.</span><span class="n">δ</span> <span class="o">.+</span> <span class="n">df</span><span class="p">(</span><span class="n">ncgm</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">z</span><span class="p">)))</span>
 
     <span class="k">return</span> <span class="n">expendables_t</span><span class="p">(</span><span class="n">ncgm</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span> <span class="o">.-</span> <span class="n">c</span>
 <span class="k">end</span>
@@ -14054,7 +14001,7 @@ $$k^*(k_t, z_t) = z_t f(k_t) + (1-\delta)k_t - c^*(k_t, z_t)$$<p>The functions b
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[13]:</div>
+    <div class="prompt output_prompt">Out[25]:</div>
 
 
 
@@ -14084,7 +14031,7 @@ $$k^*(k_t, z_t) = z_t f(k_t) + (1-\delta)k_t - c^*(k_t, z_t)$$<p>The functions b
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[14]:</div>
+<div class="prompt input_prompt">In&nbsp;[13]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="k">function</span> <span class="n">update!</span><span class="p">(</span><span class="n">V</span><span class="o">::</span><span class="kt">Vector</span><span class="p">{</span><span class="kt">Float64</span><span class="p">},</span> <span class="n">kpol</span><span class="o">::</span><span class="kt">Vector</span><span class="p">{</span><span class="kt">Float64</span><span class="p">},</span>
@@ -14095,9 +14042,9 @@ $$k^*(k_t, z_t) = z_t f(k_t) + (1-\delta)k_t - c^*(k_t, z_t)$$<p>The functions b
     <span class="n">nk</span><span class="p">,</span> <span class="n">nz</span> <span class="o">=</span> <span class="n">length</span><span class="p">(</span><span class="n">kgrid</span><span class="p">),</span> <span class="n">length</span><span class="p">(</span><span class="n">zgrid</span><span class="p">)</span>
 
     <span class="c"># Iterate over all states</span>
-    <span class="n">temp</span> <span class="o">=</span> <span class="kt">Array</span><span class="p">{</span><span class="kt">Float64</span><span class="p">}(</span><span class="n">n_complete</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">vp</span><span class="o">.</span><span class="n">d</span><span class="p">))</span>
+    <span class="n">temp</span> <span class="o">=</span> <span class="kt">Array</span><span class="p">{</span><span class="kt">Float64</span><span class="p">}(</span><span class="n">undef</span><span class="p">,</span><span class="n">n_complete</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">vp</span><span class="o">.</span><span class="n">d</span><span class="p">))</span>
     <span class="k">for</span> <span class="n">ik</span> <span class="kp">in</span> <span class="mi">1</span><span class="o">:</span><span class="n">nk</span><span class="p">,</span> <span class="n">iz</span> <span class="kp">in</span> <span class="mi">1</span><span class="o">:</span><span class="n">nz</span>
-        <span class="n">ikiz_index</span> <span class="o">=</span> <span class="n">sub2ind</span><span class="p">((</span><span class="n">nk</span><span class="p">,</span> <span class="n">nz</span><span class="p">),</span> <span class="n">ik</span><span class="p">,</span> <span class="n">iz</span><span class="p">)</span>
+        <span class="n">ikiz_index</span> <span class="o">=</span> <span class="n">LinearIndices</span><span class="p">((</span><span class="n">nk</span><span class="p">,</span><span class="n">nz</span><span class="p">))[(</span><span class="n">ik</span><span class="p">,</span> <span class="n">iz</span><span class="p">)</span><span class="o">...</span><span class="p">]</span>
         <span class="n">k</span> <span class="o">=</span> <span class="n">kgrid</span><span class="p">[</span><span class="n">ik</span><span class="p">]</span>
         <span class="n">z</span> <span class="o">=</span> <span class="n">zgrid</span><span class="p">[</span><span class="n">iz</span><span class="p">]</span>
 
@@ -14129,7 +14076,7 @@ $$k^*(k_t, z_t) = z_t f(k_t) + (1-\delta)k_t - c^*(k_t, z_t)$$<p>The functions b
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[14]:</div>
+    <div class="prompt output_prompt">Out[13]:</div>
 
 
 
@@ -14159,7 +14106,7 @@ $$k^*(k_t, z_t) = z_t f(k_t) + (1-\delta)k_t - c^*(k_t, z_t)$$<p>The functions b
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[15]:</div>
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="k">function</span> <span class="n">update!</span><span class="p">(</span><span class="n">V</span><span class="o">::</span><span class="kt">Vector</span><span class="p">{</span><span class="kt">Float64</span><span class="p">},</span> <span class="n">kpol</span><span class="o">::</span><span class="kt">Vector</span><span class="p">{</span><span class="kt">Float64</span><span class="p">},</span>
@@ -14175,7 +14122,7 @@ $$k^*(k_t, z_t) = z_t f(k_t) + (1-\delta)k_t - c^*(k_t, z_t)$$<p>The functions b
     <span class="n">solve</span><span class="p">(</span><span class="n">ncgm</span><span class="p">,</span> <span class="n">vp_igp</span><span class="p">;</span> <span class="n">nskipprint</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">maxiter</span><span class="o">=</span><span class="mi">5000</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">false</span><span class="p">)</span>
 
     <span class="c"># Update the policy and values</span>
-    <span class="n">temp</span> <span class="o">=</span> <span class="kt">Array</span><span class="p">{</span><span class="kt">Float64</span><span class="p">}(</span><span class="n">n_complete</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">vp</span><span class="o">.</span><span class="n">d</span><span class="p">))</span>
+    <span class="n">temp</span> <span class="o">=</span> <span class="kt">Array</span><span class="p">{</span><span class="kt">Float64</span><span class="p">}(</span><span class="n">undef</span><span class="p">,</span><span class="n">n_complete</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">vp</span><span class="o">.</span><span class="n">d</span><span class="p">))</span>
     <span class="k">for</span> <span class="n">ik</span> <span class="kp">in</span> <span class="mi">1</span><span class="o">:</span><span class="n">nk</span><span class="p">,</span> <span class="n">iz</span> <span class="kp">in</span> <span class="mi">1</span><span class="o">:</span><span class="n">nz</span>
         <span class="n">k</span> <span class="o">=</span> <span class="n">kgrid</span><span class="p">[</span><span class="n">ik</span><span class="p">];</span> <span class="n">z</span> <span class="o">=</span> <span class="n">zgrid</span><span class="p">[</span><span class="n">iz</span><span class="p">];</span>
 
@@ -14187,7 +14134,7 @@ $$k^*(k_t, z_t) = z_t f(k_t) + (1-\delta)k_t - c^*(k_t, z_t)$$<p>The functions b
         <span class="n">kp</span> <span class="o">=</span> <span class="n">brent</span><span class="p">(</span><span class="n">solme</span><span class="p">,</span> <span class="mf">1e-8</span><span class="p">,</span> <span class="n">y</span><span class="o">-</span><span class="mf">1e-8</span><span class="p">;</span> <span class="n">rtol</span><span class="o">=</span><span class="mf">1e-12</span><span class="p">)</span>
 
         <span class="c"># Update policy function</span>
-        <span class="n">ikiz_index</span> <span class="o">=</span> <span class="n">sub2ind</span><span class="p">((</span><span class="n">nk</span><span class="p">,</span> <span class="n">nz</span><span class="p">),</span> <span class="n">ik</span><span class="p">,</span> <span class="n">iz</span><span class="p">)</span>
+        <span class="n">ikiz_index</span> <span class="o">=</span> <span class="n">LinearIndices</span><span class="p">((</span><span class="n">nk</span><span class="p">,</span><span class="n">nz</span><span class="p">))[(</span><span class="n">ik</span><span class="p">,</span> <span class="n">iz</span><span class="p">)</span><span class="o">...</span><span class="p">]</span>
         <span class="n">kpol</span><span class="p">[</span><span class="n">ikiz_index</span><span class="p">]</span> <span class="o">=</span> <span class="n">kp</span>
     <span class="k">end</span>
 
@@ -14212,7 +14159,7 @@ $$k^*(k_t, z_t) = z_t f(k_t) + (1-\delta)k_t - c^*(k_t, z_t)$$<p>The functions b
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[15]:</div>
+    <div class="prompt output_prompt">Out[14]:</div>
 
 
 
@@ -14242,7 +14189,7 @@ $$k^*(k_t, z_t) = z_t f(k_t) + (1-\delta)k_t - c^*(k_t, z_t)$$<p>The functions b
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[16]:</div>
+<div class="prompt input_prompt">In&nbsp;[15]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="k">function</span> <span class="n">update!</span><span class="p">(</span><span class="n">V</span><span class="o">::</span><span class="kt">Vector</span><span class="p">{</span><span class="kt">Float64</span><span class="p">},</span> <span class="n">kpol</span><span class="o">::</span><span class="kt">Vector</span><span class="p">{</span><span class="kt">Float64</span><span class="p">},</span>
@@ -14276,7 +14223,7 @@ $$k^*(k_t, z_t) = z_t f(k_t) + (1-\delta)k_t - c^*(k_t, z_t)$$<p>The functions b
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[16]:</div>
+    <div class="prompt output_prompt">Out[15]:</div>
 
 
 
@@ -14308,7 +14255,7 @@ $$k^*(k_t, z_t) = z_t f(k_t) + (1-\delta)k_t - c^*(k_t, z_t)$$<p>The functions b
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[17]:</div>
+<div class="prompt input_prompt">In&nbsp;[16]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="k">function</span> <span class="n">update!</span><span class="p">(</span><span class="n">dV</span><span class="o">::</span><span class="kt">Vector</span><span class="p">{</span><span class="kt">Float64</span><span class="p">},</span> <span class="n">kpol</span><span class="o">::</span><span class="kt">Vector</span><span class="p">{</span><span class="kt">Float64</span><span class="p">},</span>
@@ -14319,7 +14266,7 @@ $$k^*(k_t, z_t) = z_t f(k_t) + (1-\delta)k_t - c^*(k_t, z_t)$$<p>The functions b
     <span class="n">nk</span><span class="p">,</span> <span class="n">nz</span><span class="p">,</span> <span class="n">ns</span> <span class="o">=</span> <span class="n">length</span><span class="p">(</span><span class="n">kgrid</span><span class="p">),</span> <span class="n">length</span><span class="p">(</span><span class="n">zgrid</span><span class="p">),</span> <span class="n">size</span><span class="p">(</span><span class="n">grid</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 
     <span class="c"># Iterate over all states</span>
-    <span class="n">temp</span> <span class="o">=</span> <span class="kt">Array</span><span class="p">{</span><span class="kt">Float64</span><span class="p">}(</span><span class="n">n_complete</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">vp</span><span class="o">.</span><span class="n">d</span><span class="p">))</span>
+    <span class="n">temp</span> <span class="o">=</span> <span class="kt">Array</span><span class="p">{</span><span class="kt">Float64</span><span class="p">}(</span><span class="n">undef</span><span class="p">,</span><span class="n">n_complete</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">vp</span><span class="o">.</span><span class="n">d</span><span class="p">))</span>
     <span class="k">for</span> <span class="n">iz</span><span class="o">=</span><span class="mi">1</span><span class="o">:</span><span class="n">nz</span><span class="p">,</span> <span class="n">ik</span><span class="o">=</span><span class="mi">1</span><span class="o">:</span><span class="n">nk</span>
         <span class="n">k</span> <span class="o">=</span> <span class="n">kgrid</span><span class="p">[</span><span class="n">ik</span><span class="p">];</span> <span class="n">z</span> <span class="o">=</span> <span class="n">zgrid</span><span class="p">[</span><span class="n">iz</span><span class="p">];</span>
 
@@ -14328,7 +14275,7 @@ $$k^*(k_t, z_t) = z_t f(k_t) + (1-\delta)k_t - c^*(k_t, z_t)$$<p>The functions b
         <span class="n">c</span> <span class="o">=</span> <span class="n">expendables_t</span><span class="p">(</span><span class="n">ncgm</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span> <span class="o">-</span> <span class="n">kp</span>
 
         <span class="c"># New value</span>
-        <span class="n">ikiz_index</span> <span class="o">=</span> <span class="n">sub2ind</span><span class="p">((</span><span class="n">nk</span><span class="p">,</span> <span class="n">nz</span><span class="p">),</span> <span class="n">ik</span><span class="p">,</span> <span class="n">iz</span><span class="p">)</span>
+        <span class="n">ikiz_index</span> <span class="o">=</span> <span class="n">LinearIndices</span><span class="p">((</span><span class="n">nk</span><span class="p">,</span><span class="n">nz</span><span class="p">))[(</span><span class="n">ik</span><span class="p">,</span> <span class="n">iz</span><span class="p">)</span><span class="o">...</span><span class="p">]</span>
         <span class="n">dEV</span> <span class="o">=</span> <span class="n">compute_dEV!</span><span class="p">(</span><span class="n">temp</span><span class="p">,</span> <span class="n">ncgm</span><span class="p">,</span> <span class="n">vp</span><span class="p">,</span> <span class="n">kp</span><span class="p">,</span> <span class="n">iz</span><span class="p">)</span>
         <span class="n">dV</span><span class="p">[</span><span class="n">ikiz_index</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">ncgm</span><span class="o">.</span><span class="n">δ</span><span class="o">+</span><span class="n">df</span><span class="p">(</span><span class="n">ncgm</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">z</span><span class="p">))</span><span class="o">*</span><span class="n">ncgm</span><span class="o">.</span><span class="n">β</span><span class="o">*</span><span class="n">dEV</span>
         <span class="n">kpol</span><span class="p">[</span><span class="n">ikiz_index</span><span class="p">]</span> <span class="o">=</span> <span class="n">kp</span>
@@ -14351,7 +14298,7 @@ $$k^*(k_t, z_t) = z_t f(k_t) + (1-\delta)k_t - c^*(k_t, z_t)$$<p>The functions b
     <span class="n">nk</span> <span class="o">=</span> <span class="n">length</span><span class="p">(</span><span class="n">kgrid</span><span class="p">)</span>
 
     <span class="c"># Iterate over all states</span>
-    <span class="n">temp</span> <span class="o">=</span> <span class="kt">Array</span><span class="p">{</span><span class="kt">Float64</span><span class="p">}(</span><span class="n">n_complete</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">vp</span><span class="o">.</span><span class="n">d</span><span class="p">))</span>
+    <span class="n">temp</span> <span class="o">=</span> <span class="kt">Array</span><span class="p">{</span><span class="kt">Float64</span><span class="p">}(</span><span class="n">undef</span><span class="p">,</span><span class="n">n_complete</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">vp</span><span class="o">.</span><span class="n">d</span><span class="p">))</span>
     <span class="k">for</span> <span class="n">iz</span> <span class="kp">in</span> <span class="mi">1</span><span class="o">:</span><span class="n">nz</span><span class="p">,</span> <span class="n">ik</span> <span class="kp">in</span> <span class="mi">1</span><span class="o">:</span><span class="n">nk</span>
         <span class="n">k</span> <span class="o">=</span> <span class="n">kgrid</span><span class="p">[</span><span class="n">ik</span><span class="p">];</span> <span class="n">z</span> <span class="o">=</span> <span class="n">zgrid</span><span class="p">[</span><span class="n">iz</span><span class="p">];</span>
 
@@ -14383,7 +14330,7 @@ $$k^*(k_t, z_t) = z_t f(k_t) + (1-\delta)k_t - c^*(k_t, z_t)$$<p>The functions b
         <span class="n">kp_star</span> <span class="o">=</span> <span class="n">expendables_t</span><span class="p">(</span><span class="n">ncgm</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span> <span class="o">-</span> <span class="n">c</span>
 
         <span class="c"># New value</span>
-        <span class="n">ikiz_index</span> <span class="o">=</span> <span class="n">sub2ind</span><span class="p">((</span><span class="n">nk</span><span class="p">,</span> <span class="n">nz</span><span class="p">),</span> <span class="n">ik</span><span class="p">,</span> <span class="n">iz</span><span class="p">)</span>
+        <span class="n">ikiz_index</span> <span class="o">=</span> <span class="n">LinearIndices</span><span class="p">((</span><span class="n">nk</span><span class="p">,</span><span class="n">nz</span><span class="p">))[(</span><span class="n">ik</span><span class="p">,</span> <span class="n">iz</span><span class="p">)</span><span class="o">...</span><span class="p">]</span>
         <span class="n">EV</span> <span class="o">=</span> <span class="n">compute_EV!</span><span class="p">(</span><span class="n">temp</span><span class="p">,</span> <span class="n">ncgm</span><span class="p">,</span> <span class="n">vp</span><span class="p">,</span> <span class="n">kp_star</span><span class="p">,</span> <span class="n">iz</span><span class="p">)</span>
         <span class="n">V</span><span class="p">[</span><span class="n">ikiz_index</span><span class="p">]</span> <span class="o">=</span> <span class="n">u</span><span class="p">(</span><span class="n">ncgm</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span> <span class="o">+</span> <span class="n">ncgm</span><span class="o">.</span><span class="n">β</span><span class="o">*</span><span class="n">EV</span>
         <span class="n">kpol</span><span class="p">[</span><span class="n">ikiz_index</span><span class="p">]</span> <span class="o">=</span> <span class="n">kp_star</span>
@@ -14394,6 +14341,81 @@ $$k^*(k_t, z_t) = z_t f(k_t) + (1-\delta)k_t - c^*(k_t, z_t)$$<p>The functions b
     <span class="n">update_k!</span><span class="p">(</span><span class="n">vp</span><span class="p">,</span> <span class="n">Φ</span> <span class="o">\</span> <span class="n">kpol</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span>
 
     <span class="k">return</span> <span class="n">V</span>
+<span class="k">end</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[16]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>update! (generic function with 8 methods)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Envelope-Condition-Derivative-Value-Function-Iteration">Envelope Condition Derivative Value Function Iteration<a class="anchor-link" href="#Envelope-Condition-Derivative-Value-Function-Iteration">&#182;</a></h3><p>This method uses the same insight of the "Envelope Condition Value Function Iteration," but, rather than iterate directly on the value function, it iterates on the derivative of the value function. The update steps are</p>
+<ul>
+<li>For each point, $(k_t, z_t)$ get $c^*(k_t, z_t)$ from the envelope condition (which only depends on the derivative of the value function!)</li>
+<li>Define $k^*(k_t, z_t) = (1 - \delta) k_t + z_t f(k_t) - c^*(k_t, z_t)$</li>
+<li>Update value function according to $\hat{V}_1(k_t, z_t) = \beta (1 - \delta + z_t f'(k_t)) E \left[ V_1(k^*(k_t, z_t), z_{t+1}) \right]$</li>
+</ul>
+<p>Once it has converged, you use the implied policy rule and iterate to convergence using the "iterate to convergence (given policy)" method.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[17]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-julia"><pre><span></span><span class="k">function</span> <span class="n">update!</span><span class="p">(</span><span class="n">dV</span><span class="o">::</span><span class="kt">Vector</span><span class="p">{</span><span class="kt">Float64</span><span class="p">},</span> <span class="n">kpol</span><span class="o">::</span><span class="kt">Vector</span><span class="p">{</span><span class="kt">Float64</span><span class="p">},</span>
+                 <span class="n">ncgm</span><span class="o">::</span><span class="n">NeoclassicalGrowth</span><span class="p">,</span> <span class="n">vp</span><span class="o">::</span><span class="n">ValueCoeffs</span><span class="p">{</span><span class="n">dVFI_ECM</span><span class="p">},</span>
+                 <span class="n">Φ</span><span class="o">::</span><span class="kt">Matrix</span><span class="p">{</span><span class="kt">Float64</span><span class="p">},</span> <span class="n">dΦ</span><span class="o">::</span><span class="kt">Matrix</span><span class="p">{</span><span class="kt">Float64</span><span class="p">})</span>
+    <span class="c"># Get sizes and allocate for complete_polynomial</span>
+    <span class="n">kgrid</span> <span class="o">=</span> <span class="n">ncgm</span><span class="o">.</span><span class="n">kgrid</span><span class="p">;</span> <span class="n">zgrid</span> <span class="o">=</span> <span class="n">ncgm</span><span class="o">.</span><span class="n">zgrid</span><span class="p">;</span> <span class="n">grid</span> <span class="o">=</span> <span class="n">ncgm</span><span class="o">.</span><span class="n">grid</span><span class="p">;</span>
+    <span class="n">nk</span><span class="p">,</span> <span class="n">nz</span><span class="p">,</span> <span class="n">ns</span> <span class="o">=</span> <span class="n">length</span><span class="p">(</span><span class="n">kgrid</span><span class="p">),</span> <span class="n">length</span><span class="p">(</span><span class="n">zgrid</span><span class="p">),</span> <span class="n">size</span><span class="p">(</span><span class="n">grid</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+
+    <span class="c"># Iterate over all states</span>
+    <span class="n">temp</span> <span class="o">=</span> <span class="kt">Array</span><span class="p">{</span><span class="kt">Float64</span><span class="p">}(</span><span class="n">undef</span><span class="p">,</span><span class="n">n_complete</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">vp</span><span class="o">.</span><span class="n">d</span><span class="p">))</span>
+    <span class="k">for</span> <span class="n">iz</span><span class="o">=</span><span class="mi">1</span><span class="o">:</span><span class="n">nz</span><span class="p">,</span> <span class="n">ik</span><span class="o">=</span><span class="mi">1</span><span class="o">:</span><span class="n">nk</span>
+        <span class="n">k</span> <span class="o">=</span> <span class="n">kgrid</span><span class="p">[</span><span class="n">ik</span><span class="p">];</span> <span class="n">z</span> <span class="o">=</span> <span class="n">zgrid</span><span class="p">[</span><span class="n">iz</span><span class="p">];</span>
+
+        <span class="c"># Envelope condition implies optimal kp</span>
+        <span class="n">kp</span> <span class="o">=</span> <span class="n">env_condition_kp!</span><span class="p">(</span><span class="n">temp</span><span class="p">,</span> <span class="n">ncgm</span><span class="p">,</span> <span class="n">vp</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span>
+        <span class="n">c</span> <span class="o">=</span> <span class="n">expendables_t</span><span class="p">(</span><span class="n">ncgm</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span> <span class="o">-</span> <span class="n">kp</span>
+
+        <span class="c"># New value</span>
+        <span class="n">ikiz_index</span> <span class="o">=</span> <span class="n">LinearIndices</span><span class="p">((</span><span class="n">nk</span><span class="p">,</span><span class="n">nz</span><span class="p">))[(</span><span class="n">ik</span><span class="p">,</span> <span class="n">iz</span><span class="p">)</span><span class="o">...</span><span class="p">]</span>
+        <span class="n">dEV</span> <span class="o">=</span> <span class="n">compute_dEV!</span><span class="p">(</span><span class="n">temp</span><span class="p">,</span> <span class="n">ncgm</span><span class="p">,</span> <span class="n">vp</span><span class="p">,</span> <span class="n">kp</span><span class="p">,</span> <span class="n">iz</span><span class="p">)</span>
+        <span class="n">dV</span><span class="p">[</span><span class="n">ikiz_index</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">ncgm</span><span class="o">.</span><span class="n">δ</span><span class="o">+</span><span class="n">df</span><span class="p">(</span><span class="n">ncgm</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">z</span><span class="p">))</span><span class="o">*</span><span class="n">ncgm</span><span class="o">.</span><span class="n">β</span><span class="o">*</span><span class="n">dEV</span>
+        <span class="n">kpol</span><span class="p">[</span><span class="n">ikiz_index</span><span class="p">]</span> <span class="o">=</span> <span class="n">kp</span>
+    <span class="k">end</span>
+
+    <span class="c"># Get new coeffs</span>
+    <span class="n">update_k!</span><span class="p">(</span><span class="n">vp</span><span class="p">,</span> <span class="n">Φ</span> <span class="o">\</span> <span class="n">kpol</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span>
+    <span class="n">update_v!</span><span class="p">(</span><span class="n">vp</span><span class="p">,</span> <span class="n">dΦ</span> <span class="o">\</span> <span class="n">dV</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">dV</span>
 <span class="k">end</span>
 </pre></div>
 
@@ -14425,81 +14447,6 @@ $$k^*(k_t, z_t) = z_t f(k_t) + (1-\delta)k_t - c^*(k_t, z_t)$$<p>The functions b
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Envelope-Condition-Derivative-Value-Function-Iteration">Envelope Condition Derivative Value Function Iteration<a class="anchor-link" href="#Envelope-Condition-Derivative-Value-Function-Iteration">&#182;</a></h3><p>This method uses the same insight of the "Envelope Condition Value Function Iteration," but, rather than iterate directly on the value function, it iterates on the derivative of the value function. The update steps are</p>
-<ul>
-<li>For each point, $(k_t, z_t)$ get $c^*(k_t, z_t)$ from the envelope condition (which only depends on the derivative of the value function!)</li>
-<li>Define $k^*(k_t, z_t) = (1 - \delta) k_t + z_t f(k_t) - c^*(k_t, z_t)$</li>
-<li>Update value function according to $\hat{V}_1(k_t, z_t) = \beta (1 - \delta + z_t f'(k_t)) E \left[ V_1(k^*(k_t, z_t), z_{t+1}) \right]$</li>
-</ul>
-<p>Once it has converged, you use the implied policy rule and iterate to convergence using the "iterate to convergence (given policy)" method.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[18]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-julia"><pre><span></span><span class="k">function</span> <span class="n">update!</span><span class="p">(</span><span class="n">dV</span><span class="o">::</span><span class="kt">Vector</span><span class="p">{</span><span class="kt">Float64</span><span class="p">},</span> <span class="n">kpol</span><span class="o">::</span><span class="kt">Vector</span><span class="p">{</span><span class="kt">Float64</span><span class="p">},</span>
-                 <span class="n">ncgm</span><span class="o">::</span><span class="n">NeoclassicalGrowth</span><span class="p">,</span> <span class="n">vp</span><span class="o">::</span><span class="n">ValueCoeffs</span><span class="p">{</span><span class="n">dVFI_ECM</span><span class="p">},</span>
-                 <span class="n">Φ</span><span class="o">::</span><span class="kt">Matrix</span><span class="p">{</span><span class="kt">Float64</span><span class="p">},</span> <span class="n">dΦ</span><span class="o">::</span><span class="kt">Matrix</span><span class="p">{</span><span class="kt">Float64</span><span class="p">})</span>
-    <span class="c"># Get sizes and allocate for complete_polynomial</span>
-    <span class="n">kgrid</span> <span class="o">=</span> <span class="n">ncgm</span><span class="o">.</span><span class="n">kgrid</span><span class="p">;</span> <span class="n">zgrid</span> <span class="o">=</span> <span class="n">ncgm</span><span class="o">.</span><span class="n">zgrid</span><span class="p">;</span> <span class="n">grid</span> <span class="o">=</span> <span class="n">ncgm</span><span class="o">.</span><span class="n">grid</span><span class="p">;</span>
-    <span class="n">nk</span><span class="p">,</span> <span class="n">nz</span><span class="p">,</span> <span class="n">ns</span> <span class="o">=</span> <span class="n">length</span><span class="p">(</span><span class="n">kgrid</span><span class="p">),</span> <span class="n">length</span><span class="p">(</span><span class="n">zgrid</span><span class="p">),</span> <span class="n">size</span><span class="p">(</span><span class="n">grid</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-
-    <span class="c"># Iterate over all states</span>
-    <span class="n">temp</span> <span class="o">=</span> <span class="kt">Array</span><span class="p">{</span><span class="kt">Float64</span><span class="p">}(</span><span class="n">n_complete</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">vp</span><span class="o">.</span><span class="n">d</span><span class="p">))</span>
-    <span class="k">for</span> <span class="n">iz</span><span class="o">=</span><span class="mi">1</span><span class="o">:</span><span class="n">nz</span><span class="p">,</span> <span class="n">ik</span><span class="o">=</span><span class="mi">1</span><span class="o">:</span><span class="n">nk</span>
-        <span class="n">k</span> <span class="o">=</span> <span class="n">kgrid</span><span class="p">[</span><span class="n">ik</span><span class="p">];</span> <span class="n">z</span> <span class="o">=</span> <span class="n">zgrid</span><span class="p">[</span><span class="n">iz</span><span class="p">];</span>
-
-        <span class="c"># Envelope condition implies optimal kp</span>
-        <span class="n">kp</span> <span class="o">=</span> <span class="n">env_condition_kp!</span><span class="p">(</span><span class="n">temp</span><span class="p">,</span> <span class="n">ncgm</span><span class="p">,</span> <span class="n">vp</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span>
-        <span class="n">c</span> <span class="o">=</span> <span class="n">expendables_t</span><span class="p">(</span><span class="n">ncgm</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span> <span class="o">-</span> <span class="n">kp</span>
-
-        <span class="c"># New value</span>
-        <span class="n">ikiz_index</span> <span class="o">=</span> <span class="n">sub2ind</span><span class="p">((</span><span class="n">nk</span><span class="p">,</span> <span class="n">nz</span><span class="p">),</span> <span class="n">ik</span><span class="p">,</span> <span class="n">iz</span><span class="p">)</span>
-        <span class="n">dEV</span> <span class="o">=</span> <span class="n">compute_dEV!</span><span class="p">(</span><span class="n">temp</span><span class="p">,</span> <span class="n">ncgm</span><span class="p">,</span> <span class="n">vp</span><span class="p">,</span> <span class="n">kp</span><span class="p">,</span> <span class="n">iz</span><span class="p">)</span>
-        <span class="n">dV</span><span class="p">[</span><span class="n">ikiz_index</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">ncgm</span><span class="o">.</span><span class="n">δ</span><span class="o">+</span><span class="n">df</span><span class="p">(</span><span class="n">ncgm</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">z</span><span class="p">))</span><span class="o">*</span><span class="n">ncgm</span><span class="o">.</span><span class="n">β</span><span class="o">*</span><span class="n">dEV</span>
-        <span class="n">kpol</span><span class="p">[</span><span class="n">ikiz_index</span><span class="p">]</span> <span class="o">=</span> <span class="n">kp</span>
-    <span class="k">end</span>
-
-    <span class="c"># Get new coeffs</span>
-    <span class="n">update_k!</span><span class="p">(</span><span class="n">vp</span><span class="p">,</span> <span class="n">Φ</span> <span class="o">\</span> <span class="n">kpol</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span>
-    <span class="n">update_v!</span><span class="p">(</span><span class="n">vp</span><span class="p">,</span> <span class="n">dΦ</span> <span class="o">\</span> <span class="n">dV</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span>
-
-    <span class="k">return</span> <span class="n">dV</span>
-<span class="k">end</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[18]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>update! (generic function with 8 methods)</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Simulation-and-Euler-Error-Methods">Simulation and Euler Error Methods<a class="anchor-link" href="#Simulation-and-Euler-Error-Methods">&#182;</a></h3><p>The following functions to simulate and compute Euler errors are easily defined given our model type and the solution type.</p>
 
 </div>
@@ -14507,7 +14454,7 @@ $$k^*(k_t, z_t) = z_t f(k_t) + (1-\delta)k_t - c^*(k_t, z_t)$$<p>The functions b
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[19]:</div>
+<div class="prompt input_prompt">In&nbsp;[32]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="s">&quot;&quot;&quot;</span>
@@ -14520,18 +14467,18 @@ $$k^*(k_t, z_t) = z_t f(k_t) + (1-\delta)k_t - c^*(k_t, z_t)$$<p>The functions b
                   <span class="n">nburn</span><span class="o">::</span><span class="kt">Int</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
     <span class="c"># Unpack parameters</span>
     <span class="n">kp</span> <span class="o">=</span> <span class="mf">0.0</span>  <span class="c"># Policy holder</span>
-    <span class="n">temp</span> <span class="o">=</span> <span class="kt">Array</span><span class="p">{</span><span class="kt">Float64</span><span class="p">}(</span><span class="n">n_complete</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">vp</span><span class="o">.</span><span class="n">d</span><span class="p">))</span>
+    <span class="n">temp</span> <span class="o">=</span> <span class="kt">Array</span><span class="p">{</span><span class="kt">Float64</span><span class="p">}(</span><span class="n">undef</span><span class="p">,</span><span class="n">n_complete</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">vp</span><span class="o">.</span><span class="n">d</span><span class="p">))</span>
 
     <span class="c"># Allocate space for k and z</span>
-    <span class="n">ksim</span> <span class="o">=</span> <span class="kt">Array</span><span class="p">{</span><span class="kt">Float64</span><span class="p">}(</span><span class="n">capT</span><span class="o">+</span><span class="n">nburn</span><span class="p">)</span>
-    <span class="n">zsim</span> <span class="o">=</span> <span class="kt">Array</span><span class="p">{</span><span class="kt">Float64</span><span class="p">}(</span><span class="n">capT</span><span class="o">+</span><span class="n">nburn</span><span class="p">)</span>
+    <span class="n">ksim</span> <span class="o">=</span> <span class="kt">Array</span><span class="p">{</span><span class="kt">Float64</span><span class="p">}(</span><span class="n">undef</span><span class="p">,</span><span class="n">capT</span><span class="o">+</span><span class="n">nburn</span><span class="p">)</span>
+    <span class="n">zsim</span> <span class="o">=</span> <span class="kt">Array</span><span class="p">{</span><span class="kt">Float64</span><span class="p">}(</span><span class="n">undef</span><span class="p">,</span><span class="n">capT</span><span class="o">+</span><span class="n">nburn</span><span class="p">)</span>
 
     <span class="c"># Initialize both k and z at 1</span>
     <span class="n">ksim</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span>
     <span class="n">zsim</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span>
 
     <span class="c"># Simulate</span>
-    <span class="n">temp</span> <span class="o">=</span> <span class="kt">Array</span><span class="p">{</span><span class="kt">Float64</span><span class="p">}(</span><span class="n">n_complete</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">vp</span><span class="o">.</span><span class="n">d</span><span class="p">))</span>
+    <span class="n">temp</span> <span class="o">=</span> <span class="kt">Array</span><span class="p">{</span><span class="kt">Float64</span><span class="p">}(</span><span class="n">undef</span><span class="p">,</span><span class="n">n_complete</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">vp</span><span class="o">.</span><span class="n">d</span><span class="p">))</span>
     <span class="k">for</span> <span class="n">t</span> <span class="kp">in</span> <span class="mi">2</span><span class="o">:</span><span class="n">capT</span><span class="o">+</span><span class="n">nburn</span>
         <span class="c"># Evaluate k_t given yesterday&#39;s (k_{t-1}, z_{t-1})</span>
         <span class="n">kp</span> <span class="o">=</span> <span class="n">env_condition_kp!</span><span class="p">(</span><span class="n">temp</span><span class="p">,</span> <span class="n">ncgm</span><span class="p">,</span> <span class="n">vp</span><span class="p">,</span> <span class="n">ksim</span><span class="p">[</span><span class="n">t</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">zsim</span><span class="p">[</span><span class="n">t</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
@@ -14546,7 +14493,7 @@ $$k^*(k_t, z_t) = z_t f(k_t) + (1-\delta)k_t - c^*(k_t, z_t)$$<p>The functions b
 
 <span class="k">function</span> <span class="n">simulate</span><span class="p">(</span><span class="n">ncgm</span><span class="o">::</span><span class="n">NeoclassicalGrowth</span><span class="p">,</span> <span class="n">vp</span><span class="o">::</span><span class="n">ValueCoeffs</span><span class="p">;</span>
                   <span class="n">capT</span><span class="o">::</span><span class="kt">Int</span><span class="o">=</span><span class="mi">10_000</span><span class="p">,</span> <span class="n">nburn</span><span class="o">::</span><span class="kt">Int</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
-    <span class="n">srand</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span>  <span class="c"># Set specific seed</span>
+    <span class="n">Random</span><span class="o">.</span><span class="n">seed!</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span>  <span class="c"># Set specific seed</span>
     <span class="n">shocks</span> <span class="o">=</span> <span class="n">randn</span><span class="p">(</span><span class="n">capT</span> <span class="o">+</span> <span class="n">nburn</span><span class="p">)</span>
 
     <span class="k">return</span> <span class="n">simulate</span><span class="p">(</span><span class="n">ncgm</span><span class="p">,</span> <span class="n">vp</span><span class="p">,</span> <span class="n">shocks</span><span class="p">;</span> <span class="n">capT</span><span class="o">=</span><span class="n">capT</span><span class="p">,</span> <span class="n">nburn</span><span class="o">=</span><span class="n">nburn</span><span class="p">)</span>
@@ -14596,10 +14543,10 @@ $$k^*(k_t, z_t) = z_t f(k_t) + (1-\delta)k_t - c^*(k_t, z_t)$$<p>The functions b
 
     <span class="c"># Finer integration nodes</span>
     <span class="n">eps_nodes</span><span class="p">,</span> <span class="n">weight_nodes</span> <span class="o">=</span> <span class="n">qnwnorm</span><span class="p">(</span><span class="n">Qn</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="n">ncgm</span><span class="o">.</span><span class="n">σ</span><span class="o">^</span><span class="mi">2</span><span class="p">)</span>
-    <span class="n">temp</span> <span class="o">=</span> <span class="kt">Array</span><span class="p">{</span><span class="kt">Float64</span><span class="p">}(</span><span class="n">n_complete</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">vp</span><span class="o">.</span><span class="n">d</span><span class="p">))</span>
+    <span class="n">temp</span> <span class="o">=</span> <span class="kt">Array</span><span class="p">{</span><span class="kt">Float64</span><span class="p">}(</span><span class="n">undef</span><span class="p">,</span><span class="n">n_complete</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">vp</span><span class="o">.</span><span class="n">d</span><span class="p">))</span>
 
     <span class="c"># Compute EE for each period</span>
-    <span class="n">EE_resid</span> <span class="o">=</span> <span class="kt">Array</span><span class="p">{</span><span class="kt">Float64</span><span class="p">}(</span><span class="n">capT</span><span class="p">)</span>
+    <span class="n">EE_resid</span> <span class="o">=</span> <span class="kt">Array</span><span class="p">{</span><span class="kt">Float64</span><span class="p">}(</span><span class="n">undef</span><span class="p">,</span><span class="n">capT</span><span class="p">)</span>
     <span class="k">for</span> <span class="n">t</span><span class="o">=</span><span class="mi">1</span><span class="o">:</span><span class="n">capT</span>
         <span class="c"># Pull out current state</span>
         <span class="n">k</span><span class="p">,</span> <span class="n">z</span> <span class="o">=</span> <span class="n">ksim</span><span class="p">[</span><span class="n">t</span><span class="p">],</span> <span class="n">zsim</span><span class="p">[</span><span class="n">t</span><span class="p">]</span>
@@ -14629,7 +14576,7 @@ $$k^*(k_t, z_t) = z_t f(k_t) + (1-\delta)k_t - c^*(k_t, z_t)$$<p>The functions b
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[19]:</div>
+    <div class="prompt output_prompt">Out[32]:</div>
 
 
 
@@ -14654,7 +14601,7 @@ $$k^*(k_t, z_t) = z_t f(k_t) + (1-\delta)k_t - c^*(k_t, z_t)$$<p>The functions b
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[20]:</div>
+<div class="prompt input_prompt">In&nbsp;[33]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="k">function</span> <span class="n">main</span><span class="p">(</span><span class="n">sm</span><span class="o">::</span><span class="n">SolutionMethod</span><span class="p">,</span> <span class="n">nd</span><span class="o">::</span><span class="kt">Int</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">shocks</span><span class="o">=</span><span class="n">randn</span><span class="p">(</span><span class="n">capT</span><span class="o">+</span><span class="n">nburn</span><span class="p">);</span>
@@ -14668,10 +14615,10 @@ $$k^*(k_t, z_t) = z_t f(k_t) + (1-\delta)k_t - c^*(k_t, z_t)$$<p>The functions b
     <span class="n">solve</span><span class="p">(</span><span class="n">ncgm</span><span class="p">,</span> <span class="n">vp</span><span class="p">;</span> <span class="n">tol</span><span class="o">=</span><span class="mf">1e-6</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">false</span><span class="p">)</span>
 
     <span class="c"># Allocate memory for timings</span>
-    <span class="n">times</span> <span class="o">=</span> <span class="kt">Array</span><span class="p">{</span><span class="kt">Float64</span><span class="p">}(</span><span class="n">nd</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-    <span class="n">sols</span> <span class="o">=</span> <span class="kt">Array</span><span class="p">{</span><span class="n">ValueCoeffs</span><span class="p">}(</span><span class="n">nd</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-    <span class="n">mean_ees</span> <span class="o">=</span> <span class="kt">Array</span><span class="p">{</span><span class="kt">Float64</span><span class="p">}(</span><span class="n">nd</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-    <span class="n">max_ees</span> <span class="o">=</span> <span class="kt">Array</span><span class="p">{</span><span class="kt">Float64</span><span class="p">}(</span><span class="n">nd</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">times</span> <span class="o">=</span> <span class="kt">Array</span><span class="p">{</span><span class="kt">Float64</span><span class="p">}(</span><span class="n">undef</span><span class="p">,</span><span class="n">nd</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">sols</span> <span class="o">=</span> <span class="kt">Array</span><span class="p">{</span><span class="n">ValueCoeffs</span><span class="p">}(</span><span class="n">undef</span><span class="p">,</span><span class="n">nd</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">mean_ees</span> <span class="o">=</span> <span class="kt">Array</span><span class="p">{</span><span class="kt">Float64</span><span class="p">}(</span><span class="n">undef</span><span class="p">,</span><span class="n">nd</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">max_ees</span> <span class="o">=</span> <span class="kt">Array</span><span class="p">{</span><span class="kt">Float64</span><span class="p">}(</span><span class="n">undef</span><span class="p">,</span><span class="n">nd</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
 
     <span class="c"># Solve using the solution method for degree 2 to 5</span>
     <span class="n">vp</span> <span class="o">=</span> <span class="n">copy</span><span class="p">(</span><span class="n">vp</span><span class="p">,</span> <span class="n">sm</span><span class="p">)</span>
@@ -14710,7 +14657,7 @@ $$k^*(k_t, z_t) = z_t f(k_t) + (1-\delta)k_t - c^*(k_t, z_t)$$<p>The functions b
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[20]:</div>
+    <div class="prompt output_prompt">Out[33]:</div>
 
 
 
@@ -14727,7 +14674,7 @@ $$k^*(k_t, z_t) = z_t f(k_t) + (1-\delta)k_t - c^*(k_t, z_t)$$<p>The functions b
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[21]:</div>
+<div class="prompt input_prompt">In&nbsp;[35]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="n">Random</span><span class="o">.</span><span class="n">seed!</span><span class="p">(</span><span class="mi">52</span><span class="p">)</span>
@@ -14746,7 +14693,7 @@ $$k^*(k_t, z_t) = z_t f(k_t) + (1-\delta)k_t - c^*(k_t, z_t)$$<p>The functions b
     <span class="k">for</span> <span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="n">t</span><span class="p">)</span> <span class="kp">in</span> <span class="n">zip</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> <span class="n">t_sm</span><span class="p">)</span>
         <span class="n">println</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\t</span><span class="s">Degree </span><span class="si">$d</span><span class="s"> took time </span><span class="si">$t</span><span class="s">&quot;</span><span class="p">)</span>
         <span class="n">println</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\t</span><span class="s">Mean &amp; Max EE are&quot;</span> <span class="o">*</span>
-                <span class="s">&quot;</span><span class="si">$</span><span class="p">(</span><span class="n">round</span><span class="p">(</span><span class="n">mean_eem</span><span class="p">[</span><span class="n">d</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="mi">3</span><span class="p">))</span><span class="s"> &amp; </span><span class="si">$</span><span class="p">(</span><span class="n">round</span><span class="p">(</span><span class="n">max_eem</span><span class="p">[</span><span class="n">d</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="mi">3</span><span class="p">))</span><span class="s">&quot;</span><span class="p">)</span>
+                <span class="s">&quot;</span><span class="si">$</span><span class="p">(</span><span class="n">round</span><span class="p">(</span><span class="n">mean_eem</span><span class="p">[</span><span class="n">d</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">digits</span> <span class="o">=</span> <span class="mi">3</span><span class="p">))</span><span class="s"> &amp; </span><span class="si">$</span><span class="p">(</span><span class="n">round</span><span class="p">(</span><span class="n">max_eem</span><span class="p">[</span><span class="n">d</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">digits</span> <span class="o">=</span>  <span class="mi">3</span><span class="p">))</span><span class="s">&quot;</span><span class="p">)</span>
     <span class="k">end</span>
 <span class="k">end</span>
 </pre></div>
@@ -14764,33 +14711,71 @@ $$k^*(k_t, z_t) = z_t f(k_t) + (1-\delta)k_t - c^*(k_t, z_t)$$<p>The functions b
     <div class="prompt"></div>
 
 
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>WARNING: Base.srand is deprecated: it has been moved to the standard library package `Random`.
-Add `using Random` to your imports.
-  likely near /Users/florian.oswald/.julia/packages/IJulia/9ajf8/src/kernel.jl:52
-┌ Warning: `srand` is deprecated, use `Random.seed!` instead.
-│   caller = top-level scope at In[21]:1
-└ @ Core In[21]:1
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Solution Method: VFI()
+	Degree 2 took time 1.1329259872436523
+	Mean &amp; Max EE are-3.803 &amp; -2.875
+	Degree 3 took time 0.9406940937042236
+	Mean &amp; Max EE are-4.914 &amp; -3.487
+	Degree 4 took time 0.9811251163482666
+	Mean &amp; Max EE are-5.978 &amp; -4.226
+	Degree 5 took time 0.7804930210113525
+	Mean &amp; Max EE are-6.916 &amp; -4.942
+Solution Method: VFI_EGM()
+	Degree 2 took time 0.3682701587677002
+	Mean &amp; Max EE are-3.803 &amp; -2.876
+	Degree 3 took time 0.25583505630493164
+	Mean &amp; Max EE are-4.914 &amp; -3.487
+	Degree 4 took time 0.3436100482940674
+	Mean &amp; Max EE are-5.978 &amp; -4.226
+	Degree 5 took time 0.1914680004119873
+	Mean &amp; Max EE are-6.916 &amp; -4.942
+Solution Method: VFI_ECM()
+	Degree 2 took time 0.313046932220459
+	Mean &amp; Max EE are-3.803 &amp; -2.875
+	Degree 3 took time 0.20926880836486816
+	Mean &amp; Max EE are-4.914 &amp; -3.487
+	Degree 4 took time 0.2631351947784424
+	Mean &amp; Max EE are-5.978 &amp; -4.226
+	Degree 5 took time 0.14853286743164062
+	Mean &amp; Max EE are-6.916 &amp; -4.942
+Solution Method: dVFI_ECM()
+	Degree 2 took time 0.5529260635375977
+	Mean &amp; Max EE are-3.803 &amp; -2.876
+	Degree 3 took time 0.6726861000061035
+	Mean &amp; Max EE are-4.914 &amp; -3.487
+	Degree 4 took time 0.8261260986328125
+	Mean &amp; Max EE are-5.978 &amp; -4.226
+	Degree 5 took time 1.0124220848083496
+	Mean &amp; Max EE are-6.916 &amp; -4.942
+Solution Method: PFI()
+	Degree 2 took time 0.3038930892944336
+	Mean &amp; Max EE are-3.803 &amp; -2.876
+	Degree 3 took time 0.6439759731292725
+	Mean &amp; Max EE are-4.914 &amp; -3.487
+	Degree 4 took time 0.9020040035247803
+	Mean &amp; Max EE are-5.978 &amp; -4.226
+	Degree 5 took time 0.7589418888092041
+	Mean &amp; Max EE are-6.916 &amp; -4.942
+Solution Method: PFI_ECM()
+	Degree 2 took time 0.3649711608886719
+	Mean &amp; Max EE are-3.803 &amp; -2.876
+	Degree 3 took time 0.2168431282043457
+	Mean &amp; Max EE are-4.914 &amp; -3.487
+	Degree 4 took time 0.344545841217041
+	Mean &amp; Max EE are-5.978 &amp; -4.226
+	Degree 5 took time 0.14392685890197754
+	Mean &amp; Max EE are-6.916 &amp; -4.942
+Solution Method: EulEq()
+	Degree 2 took time 0.33422088623046875
+	Mean &amp; Max EE are-3.803 &amp; -2.876
+	Degree 3 took time 0.23343491554260254
+	Mean &amp; Max EE are-4.914 &amp; -3.487
+	Degree 4 took time 0.2874870300292969
+	Mean &amp; Max EE are-5.978 &amp; -4.226
+	Degree 5 took time 0.16162109375
+	Mean &amp; Max EE are-6.916 &amp; -4.942
 </pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_text output_error">
-<pre>
-MethodError: no method matching #solve#9(::Float64, ::Int64, ::Int64, ::Int64, ::Bool, ::typeof(solve), ::NeoclassicalGrowth, ::ValueCoeffs{IterateOnPolicy,Degree{2}})
-Closest candidates are:
-  #solve#9(::Float64, ::Int64, !Matched::Float64, ::Int64, ::Bool, ::Any, ::NeoclassicalGrowth, ::ValueCoeffs{T&lt;:SolutionMethod,D} where D&lt;:Degree) where T&lt;:SolutionMethod at In[9]:7
-
-Stacktrace:
- [1] (::getfield(Main, Symbol(&#34;#kw##solve&#34;)))(::NamedTuple{(:tol, :verbose),Tuple{Float64,Bool}}, ::typeof(solve), ::NeoclassicalGrowth, ::ValueCoeffs{IterateOnPolicy,Degree{2}}) at ./none:0
- [2] #main#17(::Int64, ::Int64, ::Float64, ::Int64, ::Int64, ::Bool, ::Function, ::VFI, ::Int64, ::Array{Float64,1}) at ./In[20]:9
- [3] (::getfield(Main, Symbol(&#34;#kw##main&#34;)))(::NamedTuple{(:maxiter, :verbose),Tuple{Int64,Bool}}, ::typeof(main), ::VFI, ::Int64, ::Array{Float64,1}) at ./none:0
- [4] top-level scope at ./In[21]:7</pre>
 </div>
 </div>
 

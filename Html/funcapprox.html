@@ -13201,7 +13201,7 @@ div#notebook {
 <li>We call a basis $B$ of a vector space $V$ over a field $F$ (such as the real numbers $\mathbb{R}$) a <em>linearly independent subset</em> of $V$ that <em>spans</em> $V$.</li>
 <li>In other words $B \subset V$ is called a <em>basis</em> if it satisfies<ol>
 <li>linear independence: for all subsets $b_1,b_2,\dots,b_n$, and for all scalars $a_1,a_2,\dots,a_n\in F$, we have that if $b_1 a_1 + b_2 a_2 +\dots+b_n a_n = 0$, then $a_1 = a_2 =\dots= a_n = 0$</li>
-<li>spanning of $V$: for all vectors $\mathbf{v} \in V$, one can choose $b_1,b_2,\dots,b_n \in B$ and $v_1,v_2,\dots,v_n \in V$ s.t. $\mathbf{v} = b_1 v_1 + b_2 v_2 +\dots+b_n v_n $</li>
+<li>spanning of $V$: for all vectors $\mathbf{v} \in V$, one can choose $b_1,b_2,\dots,b_n \in B$ and $v_1,v_2,\dots,v_n \in V$ s.t. $\mathbf{v} = b_1 v_1 + b_2 v_2 +\dots+b_n v_n$</li>
 </ol>
 </li>
 <li>From those definitions you can see that the $b$ are like <em>weights</em>, and that one can represent vectors are <em>linear combinations</em> of other vectors.</li>
@@ -13287,7 +13287,7 @@ $$<p>where</p>
 <li>$c={c_0,c_1,\dots,c_{J-1}}$ is a coefficient vector</li>
 <li>The integer $J$ is the <em>order</em> of the interpolation.</li>
 <li>Our problem is to choose $(\phi_i,c)$ in some way.</li>
-<li>We want to minimize the residual function, i.e. $\gamma(x,c) \equiv f(x) - \sum_{j=0}^{J-1} c_j \phi_j(x) $</li>
+<li>We want to minimize the residual function, i.e. $\gamma(x,c) \equiv f(x) - \sum_{j=0}^{J-1} c_j \phi_j(x)$</li>
 </ul>
 
 </div>
@@ -13474,7 +13474,7 @@ $$<p>for the case with $m$ evaluation nodes for $x$, and $n$ basis functions for
 <span class="n">T2</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">n</span><span class="p">)</span> <span class="o">=</span> <span class="n">cos</span><span class="p">(</span><span class="n">n</span><span class="o">*</span> <span class="n">acos</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
 <span class="nd">@show</span> <span class="n">T</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
 <span class="k">using</span> <span class="n">Test</span>
-<span class="nd">@test</span> <span class="n">T2</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span> <span class="o">==</span> <span class="n">T</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+<span class="nd">@assert</span> <span class="n">T2</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span> <span class="o">==</span> <span class="n">T</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -13496,19 +13496,6 @@ $$<p>for the case with $m$ evaluation nodes for $x$, and $n$ basis functions for
 </div>
 </div>
 
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[1]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre><span class="ansi-green-intense-fg ansi-bold">Test Passed</span></pre>
-</div>
-
-</div>
-
 </div>
 </div>
 
@@ -13523,32 +13510,12 @@ $$<p>for the case with $m$ evaluation nodes for $x$, and $n$ basis functions for
 <span class="k">using</span> <span class="n">Statistics</span>
 <span class="k">using</span> <span class="n">Test</span>
 
-<span class="c"># simple monte carlo integration works for n not equal m</span>
-<span class="nd">@test</span> <span class="n">isapprox</span><span class="p">(</span><span class="n">mean</span><span class="p">(</span><span class="n">T</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span> <span class="o">*</span> <span class="n">T</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">w</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="kp">in</span> <span class="n">range</span><span class="p">(</span><span class="o">-</span><span class="mf">0.99</span><span class="p">,</span><span class="n">stop</span> <span class="o">=</span> <span class="mf">0.99</span><span class="p">,</span> <span class="n">length</span><span class="o">=</span><span class="mi">100</span><span class="p">)),</span> <span class="mf">0.0</span><span class="p">,</span> <span class="n">atol</span> <span class="o">=</span> <span class="mf">1e-16</span><span class="p">)</span>
-<span class="nd">@test</span> <span class="n">isapprox</span><span class="p">(</span><span class="n">mean</span><span class="p">(</span><span class="n">T</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span> <span class="o">*</span> <span class="n">T</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span> <span class="o">*</span> <span class="n">w</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="kp">in</span> <span class="n">range</span><span class="p">(</span><span class="o">-</span><span class="mf">0.99</span><span class="p">,</span><span class="n">stop</span> <span class="o">=</span> <span class="mf">0.99</span><span class="p">,</span> <span class="n">length</span><span class="o">=</span><span class="mi">100</span><span class="p">)),</span> <span class="mf">0.0</span><span class="p">,</span> <span class="n">atol</span> <span class="o">=</span> <span class="mf">1e-16</span><span class="p">)</span>
+<span class="c"># simple integration works for n not equal m</span>
+<span class="nd">@assert</span> <span class="n">isapprox</span><span class="p">(</span><span class="n">mean</span><span class="p">(</span><span class="n">T</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span> <span class="o">*</span> <span class="n">T</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">w</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="kp">in</span> <span class="n">range</span><span class="p">(</span><span class="o">-</span><span class="mf">0.99</span><span class="p">,</span><span class="n">stop</span> <span class="o">=</span> <span class="mf">0.99</span><span class="p">,</span> <span class="n">length</span><span class="o">=</span><span class="mi">100</span><span class="p">)),</span> <span class="mf">0.0</span><span class="p">,</span> <span class="n">atol</span> <span class="o">=</span> <span class="mf">1e-16</span><span class="p">)</span>
+<span class="nd">@assert</span> <span class="n">isapprox</span><span class="p">(</span><span class="n">mean</span><span class="p">(</span><span class="n">T</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span> <span class="o">*</span> <span class="n">T</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span> <span class="o">*</span> <span class="n">w</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="kp">in</span> <span class="n">range</span><span class="p">(</span><span class="o">-</span><span class="mf">0.99</span><span class="p">,</span><span class="n">stop</span> <span class="o">=</span> <span class="mf">0.99</span><span class="p">,</span> <span class="n">length</span><span class="o">=</span><span class="mi">100</span><span class="p">)),</span> <span class="mf">0.0</span><span class="p">,</span> <span class="n">atol</span> <span class="o">=</span> <span class="mf">1e-16</span><span class="p">)</span>
 </pre></div>
 
     </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[2]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre><span class="ansi-green-intense-fg ansi-bold">Test Passed</span></pre>
-</div>
-
-</div>
-
 </div>
 </div>
 
@@ -18438,7 +18405,7 @@ $$<ul>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[16]:</div>
+<div class="prompt input_prompt">In&nbsp;[34]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="c"># interpolation</span>
@@ -18446,7 +18413,7 @@ $$<ul>
 <span class="k">using</span> <span class="n">Interpolations</span>
 <span class="n">A</span> <span class="o">=</span> <span class="n">rand</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
 <span class="n">itp</span> <span class="o">=</span> <span class="n">interpolate</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">Interpolations</span><span class="o">.</span><span class="n">BSpline</span><span class="p">(</span><span class="n">Quadratic</span><span class="p">(</span><span class="n">Reflect</span><span class="p">(</span><span class="n">OnCell</span><span class="p">()))))</span>
-<span class="n">itp</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">itp</span><span class="p">(</span><span class="mf">1.9</span><span class="p">,</span><span class="mf">4.9</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -18459,24 +18426,13 @@ $$<ul>
 
 <div class="output_area">
 
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>WARNING: using Interpolations.BSpline in module Main conflicts with an existing identifier.
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[16]:</div>
+    <div class="prompt output_prompt">Out[34]:</div>
 
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>0.42003935019425137</pre>
+<pre>0.2609001368014953</pre>
 </div>
 
 </div>
@@ -18487,7 +18443,83 @@ $$<ul>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[17]:</div>
+<div class="prompt input_prompt">In&nbsp;[32]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-julia"><pre><span></span><span class="n">A</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[32]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>10×5 Array{Float64,2}:
+ 0.0440558  0.0759254  0.424806  0.0733616  0.0104042
+ 0.131006   0.692091   0.435421  0.363613   0.789312 
+ 0.423814   0.765224   0.962783  0.48646    0.768033 
+ 0.35892    0.394449   0.938537  0.729178   0.706436 
+ 0.54336    0.148386   0.236388  0.580917   0.192891 
+ 0.507772   0.517813   0.207813  0.930954   0.707769 
+ 0.868053   0.959416   0.726591  0.741459   0.283866 
+ 0.293944   0.547819   0.851113  0.550485   0.270864 
+ 0.134517   0.998558   0.975837  0.704406   0.862646 
+ 0.452014   0.307677   0.469785  0.365602   0.178347 </pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[33]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-julia"><pre><span></span><span class="n">A</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[33]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>0.7893123641918425</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[35]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="n">A_x</span> <span class="o">=</span> <span class="mf">1.</span><span class="o">:</span><span class="mf">2.</span><span class="o">:</span><span class="mf">40.</span>   <span class="c"># x in [1,40]</span>
@@ -18712,12 +18744,12 @@ $$<ul>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[22]:</div>
+<div class="prompt input_prompt">In&nbsp;[36]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="k">using</span> <span class="n">StaticArrays</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">stop</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span> <span class="n">length</span> <span class="o">=</span> <span class="mi">200</span><span class="p">)</span>
-<span class="n">a</span> <span class="o">=</span> <span class="kt">Float64</span><span class="p">[</span><span class="n">log</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">j</span><span class="p">)</span><span class="o">*</span><span class="n">i</span> <span class="k">for</span> <span class="n">j</span> <span class="kp">in</span> <span class="n">x</span><span class="p">,</span> <span class="n">i</span> <span class="kp">in</span> <span class="mi">1</span><span class="o">:</span><span class="mi">2</span><span class="p">]</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">stop</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span> <span class="n">length</span> <span class="o">=</span> <span class="mi">200</span><span class="p">)</span>  <span class="c"># cash on hand</span>
+<span class="n">a</span> <span class="o">=</span> <span class="kt">Float64</span><span class="p">[</span><span class="n">log</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">j</span><span class="p">)</span><span class="o">*</span><span class="n">i</span> <span class="k">for</span> <span class="n">j</span> <span class="kp">in</span> <span class="n">x</span><span class="p">,</span> <span class="n">i</span> <span class="kp">in</span> <span class="mi">1</span><span class="o">:</span><span class="mi">2</span><span class="p">]</span>   <span class="c"># cons and save function</span>
 <span class="n">b</span> <span class="o">=</span> <span class="n">reinterpret</span><span class="p">(</span><span class="n">SVector</span><span class="p">{</span><span class="mi">2</span><span class="p">,</span><span class="kt">Float64</span><span class="p">},</span> <span class="n">a</span><span class="o">&#39;</span><span class="p">)[</span><span class="o">:</span><span class="p">]</span>
 <span class="n">itp</span> <span class="o">=</span> <span class="n">interpolate</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">Interpolations</span><span class="o">.</span><span class="n">BSpline</span><span class="p">(</span><span class="n">Quadratic</span><span class="p">(</span><span class="n">Reflect</span><span class="p">(</span><span class="n">OnCell</span><span class="p">()))))</span>
 <span class="nd">@show</span> <span class="n">itp</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>

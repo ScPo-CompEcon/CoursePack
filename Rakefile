@@ -63,7 +63,7 @@ end
 
 rule ".pdf" => ".ipynb" do |t|
 	# exclude those from bibtex citations
-	exclude = ["BasicComputing","BasicIntroduction","Index","PlotsJL","HPC","data_statistical_packages","fundamental_types","fundamental_types-solutions","getting_started","GrowthModelSolutionMethods_jl","introduction_to_types","julia_by_example-solutions","julia_by_example","julia_essentials","need_for_speed","testing","tools_editors","CEPM"]
+	exclude = ["BasicComputing","BasicIntroduction","Index","PlotsJL","HPC","data_statistical_packages","fundamental_types","fundamental_types-solutions","getting_started","GrowthModelSolutionMethods_jl","introduction_to_types","julia_by_example-solutions","julia_by_example","julia_essentials","need_for_speed","testing","tools_editors","CEPM","HW1-solutions","HW1","Answers1","exercises1","languages-benchmark"]
 	no_bib = ["mpec-starters","CEPM","optimization","optimization2"]
 	bn = File.basename("#{t.source}")
 	b  = File.basename("#{t.source}",".ipynb")
