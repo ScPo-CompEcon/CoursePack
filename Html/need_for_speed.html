@@ -13183,10 +13183,10 @@ both high productivity and high performance with relatively little fuss.</p>
 <div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-julia"><pre><span></span><span class="k">using</span> <span class="n">InstantiateFromURL</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="c">#using InstantiateFromURL</span>
 
 <span class="c"># activate the QuantEcon environment</span>
-<span class="n">activate_github</span><span class="p">(</span><span class="s">&quot;QuantEcon/QuantEconLecturePackages&quot;</span><span class="p">,</span> <span class="n">tag</span> <span class="o">=</span> <span class="s">&quot;v0.9.5&quot;</span><span class="p">);</span>
+<span class="c">#activate_github(&quot;QuantEcon/QuantEconLecturePackages&quot;, tag = &quot;v0.9.5&quot;);</span>
 <span class="k">using</span> <span class="n">LinearAlgebra</span><span class="p">,</span> <span class="n">Statistics</span><span class="p">,</span> <span class="n">Compat</span>
 </pre></div>
 
@@ -13222,7 +13222,7 @@ both high productivity and high performance with relatively little fuss.</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="o">+</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
@@ -13238,7 +13238,7 @@ both high productivity and high performance with relatively little fuss.</p>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[2]:</div>
+    <div class="prompt output_prompt">Out[3]:</div>
 
 
 
@@ -13264,7 +13264,7 @@ both high productivity and high performance with relatively little fuss.</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span>
@@ -13281,12 +13281,12 @@ both high productivity and high performance with relatively little fuss.</p>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[3]:</div>
+    <div class="prompt output_prompt">Out[4]:</div>
 
 
 
 <div class="output_html rendered_html output_subarea output_execute_result">
-+(x::<b>Float64</b>, y::<b>Float64</b>) in Base at <a href="https://github.com/JuliaLang/julia/tree/80516ca20297a67b996caa08c38786332379b6a5/base/float.jl#L395" target="_blank">float.jl:395</a>
++(x::<b>Float64</b>, y::<b>Float64</b>) in Base at <a href="https://github.com/JuliaLang/julia/tree/46ce4d79337bdd257ee2e3d2f4bb1c55ff0a5030/base/float.jl#L401" target="_blank">float.jl:401</a>
 </div>
 
 </div>
@@ -13307,7 +13307,7 @@ floating point numbers</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span>
@@ -13324,12 +13324,12 @@ floating point numbers</p>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[4]:</div>
+    <div class="prompt output_prompt">Out[5]:</div>
 
 
 
 <div class="output_html rendered_html output_subarea output_execute_result">
-+<i>{T<:Union{Int128, Int16, Int32, Int64, Int8, UInt128, UInt16, UInt32, UInt64, UInt8}}</i>(x::<b>T</b>, y::<b>T</b>) in Base at <a href="https://github.com/JuliaLang/julia/tree/80516ca20297a67b996caa08c38786332379b6a5/base/int.jl#L53" target="_blank">int.jl:53</a>
++(x::<b>T</b>, y::<b>T</b>)<i> where T<:Union{Int128, Int16, Int32, Int64, Int8, UInt128, UInt16, UInt32, UInt64, UInt8}</i> in Base at <a href="https://github.com/JuliaLang/julia/tree/46ce4d79337bdd257ee2e3d2f4bb1c55ff0a5030/base/int.jl#L53" target="_blank">int.jl:53</a>
 </div>
 
 </div>
@@ -13351,7 +13351,7 @@ responsible for handling integer values</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">+</span> <span class="mf">1.0</span><span class="nb">im</span><span class="p">,</span> <span class="mf">1.0</span> <span class="o">+</span> <span class="mf">1.0</span><span class="nb">im</span>
@@ -13368,12 +13368,12 @@ responsible for handling integer values</p>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[5]:</div>
+    <div class="prompt output_prompt">Out[6]:</div>
 
 
 
 <div class="output_html rendered_html output_subarea output_execute_result">
-+(z::<b>Complex</b>, w::<b>Complex</b>) in Base at <a href="https://github.com/JuliaLang/julia/tree/80516ca20297a67b996caa08c38786332379b6a5/base/complex.jl#L266" target="_blank">complex.jl:266</a>
++(z::<b>Complex</b>, w::<b>Complex</b>) in Base at <a href="https://github.com/JuliaLang/julia/tree/46ce4d79337bdd257ee2e3d2f4bb1c55ff0a5030/base/complex.jl#L271" target="_blank">complex.jl:271</a>
 </div>
 
 </div>
@@ -13395,7 +13395,7 @@ responsible for handling integer values</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="k">import</span> <span class="n">Base</span><span class="o">:</span> <span class="o">+</span>  <span class="c"># enables adding methods to the + function</span>
@@ -13448,7 +13448,7 @@ immediate parents are <code>AbstractFloat</code> and <code>Number</code> respect
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="nd">@show</span> <span class="n">supertype</span><span class="p">(</span><span class="kt">Float64</span><span class="p">)</span>
@@ -13477,7 +13477,7 @@ supertype(ComplexF32) = Number
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[7]:</div>
+    <div class="prompt output_prompt">Out[8]:</div>
 
 
 
@@ -13508,7 +13508,7 @@ supertype(ComplexF32) = Number
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="nd">@show</span> <span class="p">(</span><span class="n">typeof</span><span class="p">(</span><span class="mf">100.0</span><span class="p">)</span> <span class="o">&lt;:</span> <span class="kt">Integer</span><span class="p">)</span> <span class="o">==</span> <span class="kc">false</span>  <span class="c"># 100.0 is not an integer</span>
@@ -13543,13 +13543,13 @@ supertype(ComplexF32) = Number
 <pre>
 MethodError: no method matching +(::Float64, ::String)
 Closest candidates are:
-  +(::Any, ::Any, !Matched::Any, !Matched::Any...) at operators.jl:502
-  +(::Float64, !Matched::Float64) at float.jl:395
-  +(::AbstractFloat, !Matched::Bool) at bool.jl:114
+  +(::Any, ::Any, !Matched::Any, !Matched::Any...) at operators.jl:529
+  +(::Float64, !Matched::Float64) at float.jl:401
+  +(::AbstractFloat, !Matched::Bool) at bool.jl:106
   ...
 
 Stacktrace:
- [1] top-level scope at In[8]:2</pre>
+ [1] top-level scope at In[9]:2</pre>
 </div>
 </div>
 
@@ -13578,7 +13578,7 @@ data in a less optimal way</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="k">function</span> <span class="n">q</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>  <span class="c"># or q(x::Any)</span>
@@ -13604,7 +13604,7 @@ data in a less optimal way</p>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[9]:</div>
+    <div class="prompt output_prompt">Out[10]:</div>
 
 
 
@@ -13630,7 +13630,7 @@ above</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="n">q</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
@@ -13661,7 +13661,7 @@ above</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="n">q</span><span class="p">(</span><span class="mf">3.0</span><span class="p">)</span>
@@ -13692,7 +13692,7 @@ above</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="prompt input_prompt">In&nbsp;[13]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="n">q</span><span class="p">(</span><span class="s">&quot;foo&quot;</span><span class="p">)</span>
@@ -13743,7 +13743,7 @@ above</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
@@ -13765,8 +13765,12 @@ above</p>
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Body<span class="ansi-cyan-fg">::Array{Int64,1}</span>
-<span class="ansi-black-intense-fg">1 ─</span> %1 = invoke Base.broadcast(Base.:*::typeof(*), 2::Int64, _2::Array{Int64,1})<span class="ansi-cyan-fg">::Array{Int64,1}</span>
+<pre>Variables
+  #self#<span class="ansi-cyan-fg">::Core.Compiler.Const(f, false)</span>
+  x<span class="ansi-cyan-fg">::Array{Int64,1}</span>
+
+Body<span class="ansi-cyan-fg">::Array{Int64,1}</span>
+<span class="ansi-black-intense-fg">1 ─</span> %1 = (2 * x)<span class="ansi-cyan-fg">::Array{Int64,1}</span>
 <span class="ansi-black-intense-fg">└──</span>      return %1
 </pre>
 </div>
@@ -13789,7 +13793,7 @@ function, when called with types like <code>[1, 2, 3]</code>, is always a vector
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[14]:</div>
+<div class="prompt input_prompt">In&nbsp;[15]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">=</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mf">0.0</span> <span class="o">?</span> <span class="n">x</span> <span class="o">:</span> <span class="nb">nothing</span>
@@ -13810,17 +13814,13 @@ function, when called with types like <code>[1, 2, 3]</code>, is always a vector
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Body<span class="ansi-yellow-intense-fg ansi-bold">::Union{Nothing, Int64}</span>
-<span class="ansi-black-intense-fg">1 ─</span> %1 = (Base.sitofp)(Float64, x)<span class="ansi-cyan-fg">::Float64</span>
-<span class="ansi-black-intense-fg">│  </span> %2 = (Base.lt_float)(0.0, %1)<span class="ansi-cyan-fg">::Bool</span>
-<span class="ansi-black-intense-fg">│  </span> %3 = (Base.eq_float)(0.0, %1)<span class="ansi-cyan-fg">::Bool</span>
-<span class="ansi-black-intense-fg">│  </span> %4 = (Base.lt_float)(%1, 9.223372036854776e18)<span class="ansi-cyan-fg">::Bool</span>
-<span class="ansi-black-intense-fg">│  </span> %5 = (Base.and_int)(%3, %4)<span class="ansi-cyan-fg">::Bool</span>
-<span class="ansi-black-intense-fg">│  </span> %6 = (Base.fptosi)(Int64, %1)<span class="ansi-cyan-fg">::Int64</span>
-<span class="ansi-black-intense-fg">│  </span> %7 = (Base.slt_int)(%6, x)<span class="ansi-cyan-fg">::Bool</span>
-<span class="ansi-black-intense-fg">│  </span> %8 = (Base.and_int)(%5, %7)<span class="ansi-cyan-fg">::Bool</span>
-<span class="ansi-black-intense-fg">│  </span> %9 = (Base.or_int)(%2, %8)<span class="ansi-cyan-fg">::Bool</span>
-<span class="ansi-black-intense-fg">└──</span>      goto #3 if not %9
+<pre>Variables
+  #self#<span class="ansi-cyan-fg">::Core.Compiler.Const(f, false)</span>
+  x<span class="ansi-cyan-fg">::Int64</span>
+
+Body<span class="ansi-yellow-intense-fg ansi-bold">::Union{Nothing, Int64}</span>
+<span class="ansi-black-intense-fg">1 ─</span> %1 = (x &gt; 0.0)<span class="ansi-cyan-fg">::Bool</span>
+<span class="ansi-black-intense-fg">└──</span>      goto #3 if not %1
 <span class="ansi-black-intense-fg">2 ─</span>      return x
 <span class="ansi-black-intense-fg">3 ─</span>      return Main.nothing
 </pre>
@@ -13842,7 +13842,7 @@ function, when called with types like <code>[1, 2, 3]</code>, is always a vector
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[15]:</div>
+<div class="prompt input_prompt">In&nbsp;[16]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">=</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mf">0.0</span> <span class="o">?</span> <span class="n">x</span> <span class="o">:</span> <span class="mf">0.0</span>
@@ -13863,17 +13863,13 @@ function, when called with types like <code>[1, 2, 3]</code>, is always a vector
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Body<span class="ansi-red-intense-fg ansi-bold">::Union{Float64, Int64}</span>
-<span class="ansi-black-intense-fg">1 ─</span> %1 = (Base.sitofp)(Float64, x)<span class="ansi-cyan-fg">::Float64</span>
-<span class="ansi-black-intense-fg">│  </span> %2 = (Base.lt_float)(0.0, %1)<span class="ansi-cyan-fg">::Bool</span>
-<span class="ansi-black-intense-fg">│  </span> %3 = (Base.eq_float)(0.0, %1)<span class="ansi-cyan-fg">::Bool</span>
-<span class="ansi-black-intense-fg">│  </span> %4 = (Base.lt_float)(%1, 9.223372036854776e18)<span class="ansi-cyan-fg">::Bool</span>
-<span class="ansi-black-intense-fg">│  </span> %5 = (Base.and_int)(%3, %4)<span class="ansi-cyan-fg">::Bool</span>
-<span class="ansi-black-intense-fg">│  </span> %6 = (Base.fptosi)(Int64, %1)<span class="ansi-cyan-fg">::Int64</span>
-<span class="ansi-black-intense-fg">│  </span> %7 = (Base.slt_int)(%6, x)<span class="ansi-cyan-fg">::Bool</span>
-<span class="ansi-black-intense-fg">│  </span> %8 = (Base.and_int)(%5, %7)<span class="ansi-cyan-fg">::Bool</span>
-<span class="ansi-black-intense-fg">│  </span> %9 = (Base.or_int)(%2, %8)<span class="ansi-cyan-fg">::Bool</span>
-<span class="ansi-black-intense-fg">└──</span>      goto #3 if not %9
+<pre>Variables
+  #self#<span class="ansi-cyan-fg">::Core.Compiler.Const(f, false)</span>
+  x<span class="ansi-cyan-fg">::Int64</span>
+
+Body<span class="ansi-red-intense-fg ansi-bold">::Union{Float64, Int64}</span>
+<span class="ansi-black-intense-fg">1 ─</span> %1 = (x &gt; 0.0)<span class="ansi-cyan-fg">::Bool</span>
+<span class="ansi-black-intense-fg">└──</span>      goto #3 if not %1
 <span class="ansi-black-intense-fg">2 ─</span>      return x
 <span class="ansi-black-intense-fg">3 ─</span>      return 0.0
 </pre>
@@ -13895,7 +13891,7 @@ function, when called with types like <code>[1, 2, 3]</code>, is always a vector
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[16]:</div>
+<div class="prompt input_prompt">In&nbsp;[17]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">=</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mf">0.0</span> <span class="o">?</span> <span class="n">x</span> <span class="o">:</span> <span class="mi">0</span>
@@ -13916,8 +13912,12 @@ function, when called with types like <code>[1, 2, 3]</code>, is always a vector
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Body<span class="ansi-red-intense-fg ansi-bold">::Union{Float64, Int64}</span>
-<span class="ansi-black-intense-fg">1 ─</span> %1 = (Base.lt_float)(0.0, x)<span class="ansi-cyan-fg">::Bool</span>
+<pre>Variables
+  #self#<span class="ansi-cyan-fg">::Core.Compiler.Const(f, false)</span>
+  x<span class="ansi-cyan-fg">::Float64</span>
+
+Body<span class="ansi-red-intense-fg ansi-bold">::Union{Float64, Int64}</span>
+<span class="ansi-black-intense-fg">1 ─</span> %1 = (x &gt; 0.0)<span class="ansi-cyan-fg">::Bool</span>
 <span class="ansi-black-intense-fg">└──</span>      goto #3 if not %1
 <span class="ansi-black-intense-fg">2 ─</span>      return x
 <span class="ansi-black-intense-fg">3 ─</span>      return 0
@@ -13940,7 +13940,7 @@ function, when called with types like <code>[1, 2, 3]</code>, is always a vector
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[17]:</div>
+<div class="prompt input_prompt">In&nbsp;[18]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="nd">@show</span> <span class="n">zero</span><span class="p">(</span><span class="mf">2.3</span><span class="p">)</span>
@@ -13968,11 +13968,16 @@ function, when called with types like <code>[1, 2, 3]</code>, is always a vector
 <pre>zero(2.3) = 0.0
 zero(4) = 0
 zero(2.0 + 3im) = 0.0 + 0.0im
+Variables
+  #self#<span class="ansi-cyan-fg">::Core.Compiler.Const(f, false)</span>
+  x<span class="ansi-cyan-fg">::Float64</span>
+
 Body<span class="ansi-cyan-fg">::Float64</span>
-<span class="ansi-black-intense-fg">1 ─</span> %1 = (Base.lt_float)(0.0, x)<span class="ansi-cyan-fg">::Bool</span>
+<span class="ansi-black-intense-fg">1 ─</span> %1 = (x &gt; 0.0)<span class="ansi-cyan-fg">::Bool</span>
 <span class="ansi-black-intense-fg">└──</span>      goto #3 if not %1
 <span class="ansi-black-intense-fg">2 ─</span>      return x
-<span class="ansi-black-intense-fg">3 ─</span>      return 0.0
+<span class="ansi-black-intense-fg">3 ─</span> %4 = Main.zero(x)<span class="ansi-cyan-fg">::Core.Compiler.Const(0.0, false)</span>
+<span class="ansi-black-intense-fg">└──</span>      return %4
 </pre>
 </div>
 </div>
@@ -14036,7 +14041,7 @@ where they can be easily written and understood</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[18]:</div>
+<div class="prompt input_prompt">In&nbsp;[19]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="k">function</span> <span class="n">f</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
@@ -14055,7 +14060,7 @@ where they can be easily written and understood</p>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[18]:</div>
+    <div class="prompt output_prompt">Out[19]:</div>
 
 
 
@@ -14193,7 +14198,7 @@ it can in principle generate efficient machine code</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[19]:</div>
+<div class="prompt input_prompt">In&nbsp;[20]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="k">function</span> <span class="n">f</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
@@ -14212,7 +14217,7 @@ it can in principle generate efficient machine code</p>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[19]:</div>
+    <div class="prompt output_prompt">Out[20]:</div>
 
 
 
@@ -14245,7 +14250,7 @@ stores it in memory</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[20]:</div>
+<div class="prompt input_prompt">In&nbsp;[21]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="nd">@code_native</span> <span class="n">f</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
@@ -14265,26 +14270,25 @@ stores it in memory</p>
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>	.section	__TEXT,__text,regular,pure_instructions
-; ┌ @ In[19]:2 within `f&#39;
-; │┌ @ In[19]:2 within `+&#39;
-	decl	%eax
-	leal	(%edi,%esi,8), %ecx
+<pre>	.text
+; ┌ @ In[20]:2 within `f&#39;
+	pushq	%rbp
+	movq	%rsp, %rbp
+; │┌ @ int.jl:53 within `+&#39;
+	leaq	(%rcx,%rdx,8), %rcx
 ; │└
-; │┌ @ intfuncs.jl:243 within `literal_pow&#39;
+; │┌ @ intfuncs.jl:244 within `literal_pow&#39;
 ; ││┌ @ int.jl:54 within `*&#39;
-	decl	%eax
-	imull	%ecx, %ecx
+	imulq	%rcx, %rcx
 ; │└└
-; │ @ In[19]:3 within `f&#39;
+; │ @ In[20]:3 within `f&#39;
 ; │┌ @ int.jl:54 within `*&#39;
-	decl	%eax
-	leal	(,%ecx,8), %eax
-	decl	%eax
-	subl	%ecx, %eax
+	leaq	(,%rcx,8), %rax
+	subq	%rcx, %rax
 ; │└
-	retl
-	nopw	%cs:(%eax,%eax)
+	popq	%rbp
+	retq
+	nopl	(%rax)
 ; └
 </pre>
 </div>
@@ -14308,7 +14312,7 @@ stores it in memory</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[21]:</div>
+<div class="prompt input_prompt">In&nbsp;[22]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="nd">@code_native</span> <span class="n">f</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">)</span>
@@ -14328,32 +14332,29 @@ stores it in memory</p>
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>	.section	__TEXT,__text,regular,pure_instructions
-; ┌ @ In[19]:2 within `f&#39;
-	decl	%eax
-	movl	$558071048, %eax        ## imm = 0x21437D08
-	addl	%eax, (%eax)
-	addb	%al, (%eax)
-; │┌ @ promotion.jl:314 within `*&#39; @ float.jl:399
-	vmulsd	(%eax), %xmm1, %xmm1
+<pre>	.text
+; ┌ @ In[20]:2 within `f&#39;
+	pushq	%rbp
+	movq	%rsp, %rbp
+	movabsq	$368862312, %rax        # imm = 0x15FC6468
+; │┌ @ promotion.jl:312 within `*&#39; @ float.jl:405
+	vmulsd	(%rax), %xmm1, %xmm1
 ; │└
-; │┌ @ float.jl:395 within `+&#39;
+; │┌ @ float.jl:401 within `+&#39;
 	vaddsd	%xmm0, %xmm1, %xmm0
 ; │└
-; │┌ @ intfuncs.jl:243 within `literal_pow&#39;
-; ││┌ @ float.jl:399 within `*&#39;
+; │┌ @ intfuncs.jl:244 within `literal_pow&#39;
+; ││┌ @ float.jl:405 within `*&#39;
 	vmulsd	%xmm0, %xmm0, %xmm0
-	decl	%eax
-	movl	$558071056, %eax        ## imm = 0x21437D10
-	addl	%eax, (%eax)
-	addb	%al, (%eax)
+	movabsq	$368862320, %rax        # imm = 0x15FC6470
 ; │└└
-; │ @ In[19]:3 within `f&#39;
-; │┌ @ promotion.jl:314 within `*&#39; @ float.jl:399
-	vmulsd	(%eax), %xmm0, %xmm0
+; │ @ In[20]:3 within `f&#39;
+; │┌ @ promotion.jl:312 within `*&#39; @ float.jl:405
+	vmulsd	(%rax), %xmm0, %xmm0
 ; │└
-	retl
-	nopw	%cs:(%eax,%eax)
+	popq	%rbp
+	retq
+	nopw	(%rax,%rax)
 ; └
 </pre>
 </div>

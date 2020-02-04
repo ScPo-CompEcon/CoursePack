@@ -13155,11 +13155,184 @@ div#notebook {
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="k">using</span> <span class="n">LinearAlgebra</span><span class="p">,</span> <span class="n">Statistics</span>
-<span class="k">using</span> <span class="n">DataFrames</span><span class="p">,</span> <span class="n">RDatasets</span><span class="p">,</span> <span class="n">DataFramesMeta</span><span class="p">,</span> <span class="n">CategoricalArrays</span><span class="p">,</span> <span class="n">Query</span><span class="p">,</span> <span class="n">VegaLite</span>
-<span class="k">using</span> <span class="n">DataVoyager</span><span class="p">,</span> <span class="n">GLM</span><span class="p">,</span> <span class="n">RegressionTables</span><span class="p">,</span> <span class="n">FixedEffectModels</span>
 </pre></div>
 
     </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-julia"><pre><span></span><span class="k">using</span> <span class="n">DataFrames</span><span class="p">,</span> <span class="n">RDatasets</span><span class="p">,</span> <span class="n">DataFramesMeta</span><span class="p">,</span> <span class="n">CategoricalArrays</span><span class="p">,</span> <span class="n">Query</span><span class="p">,</span> <span class="n">VegaLite</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>┌ Info: Precompiling DataFramesMeta [1313f7d8-7da2-5740-9ea0-a2ca25f37964]
+└ @ Base loading.jl:1273
+┌ Info: Precompiling VegaLite [112f6efa-9a02-5b7d-90c0-432ed331239a]
+└ @ Base loading.jl:1273
+ERROR: LoadError: NodeJS not properly installed. Please run
+Pkg.build(&#34;NodeJS&#34;)
+Stacktrace:
+ [1] error(::String) at .\error.jl:33
+ [2] top-level scope at C:\Users\cms27\.julia\packages\NodeJS\rx0mH\src\NodeJS.jl:7
+ [3] include at .\boot.jl:328 [inlined]
+ [4] include_relative(::Module, ::String) at .\loading.jl:1105
+ [5] include(::Module, ::String) at .\Base.jl:31
+ [6] top-level scope at none:2
+ [7] eval at .\boot.jl:330 [inlined]
+ [8] eval(::Expr) at .\client.jl:425
+ [9] top-level scope at .\none:3
+in expression starting at C:\Users\cms27\.julia\packages\NodeJS\rx0mH\src\NodeJS.jl:6
+ERROR: LoadError: Failed to precompile NodeJS [2bd173c7-0d6d-553b-b6af-13a54713934c] to C:\Users\cms27\.julia\compiled\v1.3\NodeJS\A9Jiy_qcK9J.ji.
+Stacktrace:
+ [1] error(::String) at .\error.jl:33
+ [2] compilecache(::Base.PkgId, ::String) at .\loading.jl:1283
+ [3] _require(::Base.PkgId) at .\loading.jl:1024
+ [4] require(::Base.PkgId) at .\loading.jl:922
+ [5] require(::Module, ::Symbol) at .\loading.jl:917
+ [6] include at .\boot.jl:328 [inlined]
+ [7] include_relative(::Module, ::String) at .\loading.jl:1105
+ [8] include(::Module, ::String) at .\Base.jl:31
+ [9] top-level scope at none:2
+ [10] eval at .\boot.jl:330 [inlined]
+ [11] eval(::Expr) at .\client.jl:425
+ [12] top-level scope at .\none:3
+in expression starting at C:\Users\cms27\.julia\packages\VegaLite\sHyyT\src\VegaLite.jl:3
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_text output_error">
+<pre>
+Failed to precompile VegaLite [112f6efa-9a02-5b7d-90c0-432ed331239a] to C:\Users\cms27\.julia\compiled\v1.3\VegaLite\lrJqi_qcK9J.ji.
+
+Stacktrace:
+ [1] error(::String) at .\error.jl:33
+ [2] compilecache(::Base.PkgId, ::String) at .\loading.jl:1283
+ [3] _require(::Base.PkgId) at .\loading.jl:1024
+ [4] require(::Base.PkgId) at .\loading.jl:922
+ [5] require(::Module, ::Symbol) at .\loading.jl:917
+ [6] top-level scope at In[2]:1</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-julia"><pre><span></span><span class="k">using</span> <span class="n">DataVoyager</span><span class="p">,</span> <span class="n">GLM</span><span class="p">,</span> <span class="n">RegressionTables</span><span class="p">,</span> <span class="n">FixedEffectModels</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>┌ Info: Precompiling DataVoyager [5721bf48-af8e-5845-8445-c9e18126e773]
+└ @ Base loading.jl:1273
+ERROR: LoadError: NodeJS not properly installed. Please run
+Pkg.build(&#34;NodeJS&#34;)
+Stacktrace:
+ [1] error(::String) at .\error.jl:33
+ [2] top-level scope at C:\Users\cms27\.julia\packages\NodeJS\rx0mH\src\NodeJS.jl:7
+ [3] include at .\boot.jl:328 [inlined]
+ [4] include_relative(::Module, ::String) at .\loading.jl:1105
+ [5] include(::Module, ::String) at .\Base.jl:31
+ [6] top-level scope at none:2
+ [7] eval at .\boot.jl:330 [inlined]
+ [8] eval(::Expr) at .\client.jl:425
+ [9] top-level scope at .\none:3
+in expression starting at C:\Users\cms27\.julia\packages\NodeJS\rx0mH\src\NodeJS.jl:6
+ERROR: LoadError: Failed to precompile NodeJS [2bd173c7-0d6d-553b-b6af-13a54713934c] to C:\Users\cms27\.julia\compiled\v1.3\NodeJS\A9Jiy_qcK9J.ji.
+Stacktrace:
+ [1] error(::String) at .\error.jl:33
+ [2] compilecache(::Base.PkgId, ::String) at .\loading.jl:1283
+ [3] _require(::Base.PkgId) at .\loading.jl:1024
+ [4] require(::Base.PkgId) at .\loading.jl:922
+ [5] require(::Module, ::Symbol) at .\loading.jl:917
+ [6] include at .\boot.jl:328 [inlined]
+ [7] include_relative(::Module, ::String) at .\loading.jl:1105
+ [8] include(::Module, ::String) at .\Base.jl:31
+ [9] top-level scope at none:2
+ [10] eval at .\boot.jl:330 [inlined]
+ [11] eval(::Expr) at .\client.jl:425
+ [12] top-level scope at .\none:3
+in expression starting at C:\Users\cms27\.julia\packages\VegaLite\sHyyT\src\VegaLite.jl:3
+ERROR: LoadError: Failed to precompile VegaLite [112f6efa-9a02-5b7d-90c0-432ed331239a] to C:\Users\cms27\.julia\compiled\v1.3\VegaLite\lrJqi_qcK9J.ji.
+Stacktrace:
+ [1] error(::String) at .\error.jl:33
+ [2] compilecache(::Base.PkgId, ::String) at .\loading.jl:1283
+ [3] _require(::Base.PkgId) at .\loading.jl:1024
+ [4] require(::Base.PkgId) at .\loading.jl:922
+ [5] require(::Module, ::Symbol) at .\loading.jl:917
+ [6] include at .\boot.jl:328 [inlined]
+ [7] include_relative(::Module, ::String) at .\loading.jl:1105
+ [8] include(::Module, ::String) at .\Base.jl:31
+ [9] top-level scope at none:2
+ [10] eval at .\boot.jl:330 [inlined]
+ [11] eval(::Expr) at .\client.jl:425
+ [12] top-level scope at .\none:3
+in expression starting at C:\Users\cms27\.julia\packages\DataVoyager\7x2Tx\src\DataVoyager.jl:5
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_text output_error">
+<pre>
+Failed to precompile DataVoyager [5721bf48-af8e-5845-8445-c9e18126e773] to C:\Users\cms27\.julia\compiled\v1.3\DataVoyager\5nnU1_qcK9J.ji.
+
+Stacktrace:
+ [1] error(::String) at .\error.jl:33
+ [2] compilecache(::Base.PkgId, ::String) at .\loading.jl:1283
+ [3] _require(::Base.PkgId) at .\loading.jl:1024
+ [4] require(::Base.PkgId) at .\loading.jl:922
+ [5] require(::Module, ::Symbol) at .\loading.jl:917
+ [6] top-level scope at In[3]:1</pre>
+</div>
+</div>
+
 </div>
 </div>
 
@@ -13187,7 +13360,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="k">using</span> <span class="n">DataFrames</span><span class="p">,</span> <span class="n">RDatasets</span>  <span class="c"># RDatasets provides good standard data examples from R</span>
@@ -13208,7 +13381,7 @@ div#notebook {
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[2]:</div>
+    <div class="prompt output_prompt">Out[8]:</div>
 
 
 
@@ -13232,10 +13405,10 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-julia"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="o">:</span><span class="n">price</span><span class="p">]</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="o">!</span><span class="p">,</span><span class="o">:</span><span class="n">price</span><span class="p">]</span>
 </pre></div>
 
     </div>
@@ -13248,20 +13421,7 @@ div#notebook {
 
 <div class="output_area">
 
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>┌ Warning: `getindex(df::DataFrame, col_ind::ColumnIndex)` is deprecated, use `df[!, col_ind]` instead.
-│   caller = top-level scope at In[3]:1
-└ @ Core In[3]:1
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[3]:</div>
+    <div class="prompt output_prompt">Out[9]:</div>
 
 
 
@@ -13282,7 +13442,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">price</span>
@@ -13298,7 +13458,7 @@ div#notebook {
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[4]:</div>
+    <div class="prompt output_prompt">Out[10]:</div>
 
 
 
@@ -13327,7 +13487,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">commod</span>
@@ -13343,7 +13503,7 @@ div#notebook {
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[5]:</div>
+    <div class="prompt output_prompt">Out[11]:</div>
 
 
 
@@ -13372,7 +13532,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="n">describe</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
@@ -13388,7 +13548,7 @@ div#notebook {
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[6]:</div>
+    <div class="prompt output_prompt">Out[12]:</div>
 
 
 
@@ -13412,7 +13572,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="prompt input_prompt">In&nbsp;[13]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="n">nt</span> <span class="o">=</span> <span class="p">(</span><span class="n">commod</span> <span class="o">=</span> <span class="s">&quot;nickel&quot;</span><span class="p">,</span> <span class="n">price</span><span class="o">=</span> <span class="mf">5.1</span><span class="p">)</span>
@@ -13429,7 +13589,7 @@ div#notebook {
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[7]:</div>
+    <div class="prompt output_prompt">Out[13]:</div>
 
 
 
@@ -13453,7 +13613,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="n">ntx</span> <span class="o">=</span> <span class="p">(</span><span class="n">t</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">col1</span> <span class="o">=</span> <span class="mf">3.0</span><span class="p">)</span>
@@ -13471,7 +13631,7 @@ div#notebook {
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[8]:</div>
+    <div class="prompt output_prompt">Out[14]:</div>
 
 
 
@@ -13497,7 +13657,7 @@ from a source with <code>missing</code>’s, or call <code>allowmissing!</code> 
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="prompt input_prompt">In&nbsp;[15]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="n">allowmissing!</span><span class="p">(</span><span class="n">df2</span><span class="p">,</span> <span class="o">:</span><span class="n">col1</span><span class="p">)</span> <span class="c"># necessary to add in a for col1</span>
@@ -13515,7 +13675,7 @@ from a source with <code>missing</code>’s, or call <code>allowmissing!</code> 
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[9]:</div>
+    <div class="prompt output_prompt">Out[15]:</div>
 
 
 
@@ -13531,7 +13691,7 @@ from a source with <code>missing</code>’s, or call <code>allowmissing!</code> 
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="prompt input_prompt">In&nbsp;[16]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="n">eltype</span><span class="p">(</span><span class="n">df2</span><span class="o">.</span><span class="n">col1</span><span class="p">)</span>
@@ -13547,7 +13707,7 @@ from a source with <code>missing</code>’s, or call <code>allowmissing!</code> 
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[10]:</div>
+    <div class="prompt output_prompt">Out[16]:</div>
 
 
 
@@ -13572,7 +13732,7 @@ from a source with <code>missing</code>’s, or call <code>allowmissing!</code> 
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="prompt input_prompt">In&nbsp;[17]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="nd">@show</span> <span class="n">mean</span><span class="p">(</span><span class="n">df2</span><span class="o">.</span><span class="n">col1</span><span class="p">)</span>
@@ -13601,7 +13761,7 @@ mean(skipmissing(df2.col1)) = 4.033333333333333
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[11]:</div>
+    <div class="prompt output_prompt">Out[17]:</div>
 
 
 
@@ -13626,7 +13786,7 @@ mean(skipmissing(df2.col1)) = 4.033333333333333
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="prompt input_prompt">In&nbsp;[18]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="n">df2</span><span class="o">.</span><span class="n">col1</span>  <span class="o">.=</span> <span class="n">coalesce</span><span class="o">.</span><span class="p">(</span><span class="n">df2</span><span class="o">.</span><span class="n">col1</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span> <span class="c"># replace all missing with 0.0</span>
@@ -13642,7 +13802,7 @@ mean(skipmissing(df2.col1)) = 4.033333333333333
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[12]:</div>
+    <div class="prompt output_prompt">Out[18]:</div>
 
 
 
@@ -13684,7 +13844,7 @@ mean(skipmissing(df2.col1)) = 4.033333333333333
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="prompt input_prompt">In&nbsp;[19]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="k">using</span> <span class="n">DataFramesMeta</span>
@@ -13702,7 +13862,7 @@ mean(skipmissing(df2.col1)) = 4.033333333333333
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[13]:</div>
+    <div class="prompt output_prompt">Out[19]:</div>
 
 
 
@@ -13726,7 +13886,7 @@ mean(skipmissing(df2.col1)) = 4.033333333333333
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[14]:</div>
+<div class="prompt input_prompt">In&nbsp;[20]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="k">using</span> <span class="n">CategoricalArrays</span>
@@ -13746,7 +13906,7 @@ mean(skipmissing(df2.col1)) = 4.033333333333333
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[14]:</div>
+    <div class="prompt output_prompt">Out[20]:</div>
 
 
 
@@ -13762,7 +13922,7 @@ mean(skipmissing(df2.col1)) = 4.033333333333333
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[15]:</div>
+<div class="prompt input_prompt">In&nbsp;[21]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="n">levels</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">y</span><span class="p">)</span>
@@ -13778,7 +13938,7 @@ mean(skipmissing(df2.col1)) = 4.033333333333333
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[15]:</div>
+    <div class="prompt output_prompt">Out[21]:</div>
 
 
 
@@ -13807,7 +13967,7 @@ mean(skipmissing(df2.col1)) = 4.033333333333333
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[16]:</div>
+<div class="prompt input_prompt">In&nbsp;[22]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mf">3.0</span>
@@ -13852,7 +14012,7 @@ mean(skipmissing(df2.col1)) = 4.033333333333333
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[17]:</div>
+<div class="prompt input_prompt">In&nbsp;[23]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="k">using</span> <span class="n">Query</span>
@@ -13876,7 +14036,7 @@ mean(skipmissing(df2.col1)) = 4.033333333333333
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[17]:</div>
+    <div class="prompt output_prompt">Out[23]:</div>
 
 
 
@@ -13900,40 +14060,22 @@ mean(skipmissing(df2.col1)) = 4.033333333333333
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[18]:</div>
+<div class="prompt input_prompt">In&nbsp;[26]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-julia"><pre><span></span><span class="k">using</span> <span class="n">RDatasets</span><span class="p">,</span> <span class="n">VegaLite</span>
-<span class="n">iris</span> <span class="o">=</span> <span class="n">dataset</span><span class="p">(</span><span class="s">&quot;datasets&quot;</span><span class="p">,</span> <span class="s">&quot;iris&quot;</span><span class="p">)</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="c"># Error with VegaLite and NodeJS in Jupyter</span>
+<span class="c">#using RDatasets, VegaLite</span>
+<span class="c">#iris = dataset(&quot;datasets&quot;, &quot;iris&quot;)</span>
 
-<span class="n">iris</span> <span class="o">|&gt;</span> <span class="nd">@vlplot</span><span class="p">(</span>
-    <span class="o">:</span><span class="n">point</span><span class="p">,</span>
-    <span class="n">x</span><span class="o">=:</span><span class="n">PetalLength</span><span class="p">,</span>
-    <span class="n">y</span><span class="o">=:</span><span class="n">PetalWidth</span><span class="p">,</span>
-    <span class="n">color</span><span class="o">=:</span><span class="n">Species</span>
-<span class="p">)</span>
+<span class="c">#iris |&gt; @vlplot(</span>
+<span class="c">#    :point,</span>
+<span class="c">#    x=:PetalLength,</span>
+<span class="c">#    y=:PetalWidth,</span>
+<span class="c">#    color=:Species</span>
+<span class="c">#)</span>
 </pre></div>
 
     </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[18]:</div>
-
-
-
-<div class="output_svg output_subarea output_execute_result">
-<svg class="marks" width="323" height="242" viewBox="0 0 323 242" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g transform="translate(41,5)"><g class="mark-group role-frame root"><g transform="translate(0,0)"><path class="background" d="M0.5,0.5h200v200h-200Z" style="fill: none; stroke: #ddd;"></path><g><g class="mark-group role-axis"><g transform="translate(0.5,200.5)"><path class="background" d="M0,0h0v0h0Z" style="pointer-events: none; fill: none;"></path><g><g class="mark-rule role-axis-grid" style="pointer-events: none;"><line transform="translate(0,-200)" x2="0" y2="200" style="fill: none; stroke: #ddd; stroke-width: 1; opacity: 1;"></line><line transform="translate(29,-200)" x2="0" y2="200" style="fill: none; stroke: #ddd; stroke-width: 1; opacity: 1;"></line><line transform="translate(57,-200)" x2="0" y2="200" style="fill: none; stroke: #ddd; stroke-width: 1; opacity: 1;"></line><line transform="translate(86,-200)" x2="0" y2="200" style="fill: none; stroke: #ddd; stroke-width: 1; opacity: 1;"></line><line transform="translate(114,-200)" x2="0" y2="200" style="fill: none; stroke: #ddd; stroke-width: 1; opacity: 1;"></line><line transform="translate(143,-200)" x2="0" y2="200" style="fill: none; stroke: #ddd; stroke-width: 1; opacity: 1;"></line><line transform="translate(171,-200)" x2="0" y2="200" style="fill: none; stroke: #ddd; stroke-width: 1; opacity: 1;"></line><line transform="translate(200,-200)" x2="0" y2="200" style="fill: none; stroke: #ddd; stroke-width: 1; opacity: 1;"></line></g></g></g></g><g class="mark-group role-axis"><g transform="translate(0.5,0.5)"><path class="background" d="M0,0h0v0h0Z" style="pointer-events: none; fill: none;"></path><g><g class="mark-rule role-axis-grid" style="pointer-events: none;"><line transform="translate(0,200)" x2="200" y2="0" style="fill: none; stroke: #ddd; stroke-width: 1; opacity: 1;"></line><line transform="translate(0,162)" x2="200" y2="0" style="fill: none; stroke: #ddd; stroke-width: 1; opacity: 1;"></line><line transform="translate(0,123)" x2="200" y2="0" style="fill: none; stroke: #ddd; stroke-width: 1; opacity: 1;"></line><line transform="translate(0,85)" x2="200" y2="0" style="fill: none; stroke: #ddd; stroke-width: 1; opacity: 1;"></line><line transform="translate(0,46)" x2="200" y2="0" style="fill: none; stroke: #ddd; stroke-width: 1; opacity: 1;"></line><line transform="translate(0,8)" x2="200" y2="0" style="fill: none; stroke: #ddd; stroke-width: 1; opacity: 1;"></line></g></g></g></g><g class="mark-symbol role-mark marks"><path transform="translate(40,184.6153846153846)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #4c78a8; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(40,184.6153846153846)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #4c78a8; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(37.142857142857146,184.6153846153846)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #4c78a8; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(42.857142857142854,184.6153846153846)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #4c78a8; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(40,184.6153846153846)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #4c78a8; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(48.57142857142857,169.23076923076923)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #4c78a8; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(40,176.92307692307693)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #4c78a8; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(42.857142857142854,184.6153846153846)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #4c78a8; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(40,184.6153846153846)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #4c78a8; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(42.857142857142854,192.30769230769232)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #4c78a8; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(42.857142857142854,184.6153846153846)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #4c78a8; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(45.714285714285715,184.6153846153846)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #4c78a8; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(40,192.30769230769232)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #4c78a8; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(31.428571428571434,192.30769230769232)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #4c78a8; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(34.285714285714285,184.6153846153846)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #4c78a8; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(42.857142857142854,169.23076923076923)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #4c78a8; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(37.142857142857146,169.23076923076923)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #4c78a8; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(40,176.92307692307693)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #4c78a8; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(48.57142857142857,176.92307692307693)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #4c78a8; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(42.857142857142854,176.92307692307693)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #4c78a8; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(48.57142857142857,184.6153846153846)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #4c78a8; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(42.857142857142854,169.23076923076923)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #4c78a8; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(28.57142857142857,184.6153846153846)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #4c78a8; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(48.57142857142857,161.53846153846155)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #4c78a8; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(54.285714285714285,184.6153846153846)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #4c78a8; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(45.714285714285715,184.6153846153846)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #4c78a8; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(45.714285714285715,169.23076923076923)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #4c78a8; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(42.857142857142854,184.6153846153846)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #4c78a8; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(40,184.6153846153846)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #4c78a8; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(45.714285714285715,184.6153846153846)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #4c78a8; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(45.714285714285715,184.6153846153846)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #4c78a8; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(42.857142857142854,169.23076923076923)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #4c78a8; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(42.857142857142854,192.30769230769232)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #4c78a8; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(40,184.6153846153846)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #4c78a8; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(42.857142857142854,184.6153846153846)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #4c78a8; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(34.285714285714285,184.6153846153846)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #4c78a8; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(37.142857142857146,184.6153846153846)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #4c78a8; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(40,192.30769230769232)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #4c78a8; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(37.142857142857146,184.6153846153846)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #4c78a8; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(42.857142857142854,184.6153846153846)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #4c78a8; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(37.142857142857146,176.92307692307693)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #4c78a8; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(37.142857142857146,176.92307692307693)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #4c78a8; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(37.142857142857146,184.6153846153846)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #4c78a8; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(45.714285714285715,153.84615384615384)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #4c78a8; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(54.285714285714285,169.23076923076923)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #4c78a8; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(40,176.92307692307693)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #4c78a8; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(45.714285714285715,184.6153846153846)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #4c78a8; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(40,184.6153846153846)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #4c78a8; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(42.857142857142854,184.6153846153846)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #4c78a8; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(40,184.6153846153846)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #4c78a8; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(134.2857142857143,92.3076923076923)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #f58518; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(128.57142857142858,84.61538461538463)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #f58518; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(140,84.61538461538463)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #f58518; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(114.28571428571428,100)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #f58518; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(131.42857142857142,84.61538461538463)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #f58518; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(128.57142857142858,100)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #f58518; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(134.2857142857143,76.92307692307692)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #f58518; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(94.28571428571428,123.07692307692308)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #f58518; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(131.42857142857142,100)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #f58518; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(111.42857142857143,92.3076923076923)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #f58518; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(100,123.07692307692308)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #f58518; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(120,84.61538461538463)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #f58518; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(114.28571428571428,123.07692307692308)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #f58518; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(134.2857142857143,92.3076923076923)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #f58518; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(102.85714285714288,100)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #f58518; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(125.71428571428574,92.3076923076923)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #f58518; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(128.57142857142858,84.61538461538463)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #f58518; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(117.14285714285712,123.07692307692308)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #f58518; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(128.57142857142858,84.61538461538463)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #f58518; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(111.42857142857143,115.38461538461539)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #f58518; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(137.14285714285714,61.53846153846155)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #f58518; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(114.28571428571428,100)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #f58518; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(140,84.61538461538463)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #f58518; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(134.2857142857143,107.6923076923077)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #f58518; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(122.85714285714285,100)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #f58518; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(125.71428571428574,92.3076923076923)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #f58518; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(137.14285714285714,92.3076923076923)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #f58518; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(142.85714285714286,69.23076923076923)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #f58518; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(128.57142857142858,84.61538461538463)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #f58518; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(100,123.07692307692308)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #f58518; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(108.57142857142857,115.38461538461539)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #f58518; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(105.71428571428572,123.07692307692308)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #f58518; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(111.42857142857143,107.6923076923077)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #f58518; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(145.7142857142857,76.92307692307692)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #f58518; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(128.57142857142858,84.61538461538463)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #f58518; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(128.57142857142858,76.92307692307692)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #f58518; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(134.2857142857143,84.61538461538463)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #f58518; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(125.71428571428574,100)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #f58518; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(117.14285714285712,100)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #f58518; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(114.28571428571428,100)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #f58518; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(125.71428571428574,107.6923076923077)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #f58518; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(131.42857142857142,92.3076923076923)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #f58518; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(114.28571428571428,107.6923076923077)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #f58518; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(94.28571428571428,123.07692307692308)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #f58518; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(120,100)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #f58518; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(120,107.6923076923077)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #f58518; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(120,100)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #f58518; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(122.85714285714285,100)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #f58518; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(85.71428571428571,115.38461538461539)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #f58518; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(117.14285714285712,100)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #f58518; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(171.42857142857142,7.692307692307708)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #e45756; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(145.7142857142857,53.84615384615387)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #e45756; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(168.57142857142858,38.46153846153845)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #e45756; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(160,61.53846153846155)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #e45756; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(165.7142857142857,30.769230769230774)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #e45756; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(188.57142857142856,38.46153846153845)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #e45756; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(128.57142857142858,69.23076923076923)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #e45756; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(180,61.53846153846155)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #e45756; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(165.7142857142857,61.53846153846155)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #e45756; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(174.28571428571428,7.692307692307708)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #e45756; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(145.7142857142857,46.15384615384616)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #e45756; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(151.42857142857142,53.84615384615387)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #e45756; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(157.14285714285714,38.46153846153845)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #e45756; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(142.85714285714286,46.15384615384616)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #e45756; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(145.7142857142857,15.384615384615387)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #e45756; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(151.42857142857142,23.076923076923094)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #e45756; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(157.14285714285714,61.53846153846155)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #e45756; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(191.42857142857144,30.769230769230774)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #e45756; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(197.14285714285717,23.076923076923094)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #e45756; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(142.85714285714286,84.61538461538463)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #e45756; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(162.85714285714286,23.076923076923094)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #e45756; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(140,46.15384615384616)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #e45756; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(191.42857142857144,46.15384615384616)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #e45756; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(140,61.53846153846155)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #e45756; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(162.85714285714286,38.46153846153845)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #e45756; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(171.42857142857142,61.53846153846155)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #e45756; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(137.14285714285714,61.53846153846155)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #e45756; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(140,61.53846153846155)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #e45756; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(160,38.46153846153845)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #e45756; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(165.7142857142857,76.92307692307692)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #e45756; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(174.28571428571428,53.84615384615387)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #e45756; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(182.85714285714286,46.15384615384616)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #e45756; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(160,30.769230769230774)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #e45756; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(145.7142857142857,84.61538461538463)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #e45756; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(160,92.3076923076923)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #e45756; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(174.28571428571428,23.076923076923094)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #e45756; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(160,15.384615384615387)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #e45756; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(157.14285714285714,61.53846153846155)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #e45756; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(137.14285714285714,61.53846153846155)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #e45756; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(154.2857142857143,38.46153846153845)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #e45756; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(160,15.384615384615387)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #e45756; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(145.7142857142857,23.076923076923094)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #e45756; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(145.7142857142857,53.84615384615387)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #e45756; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(168.57142857142858,23.076923076923094)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #e45756; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(162.85714285714286,7.692307692307708)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #e45756; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(148.57142857142858,23.076923076923094)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #e45756; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(142.85714285714286,53.84615384615387)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #e45756; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(148.57142857142858,46.15384615384616)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #e45756; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(154.2857142857143,23.076923076923094)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #e45756; stroke-width: 2; opacity: 0.7;"></path><path transform="translate(145.7142857142857,61.53846153846155)" d="M2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,-2.7386127875258306,0A2.7386127875258306,2.7386127875258306,0,1,1,2.7386127875258306,0" style="fill: none; stroke: #e45756; stroke-width: 2; opacity: 0.7;"></path></g><g class="mark-group role-legend"><g transform="translate(218,0)"><path class="background" d="M0,0h59v61h-59Z" style="pointer-events: none; fill: none;"></path><g><g class="mark-group role-legend-entry"><g transform="translate(0,16)"><path class="background" d="M0,0h0v0h0Z" style="pointer-events: none; fill: none;"></path><g><g class="mark-group role-scope"><g transform="translate(0,0)"><path class="background" d="M0,0h58.7880859375v12.5h-58.7880859375Z" style="pointer-events: none; fill: none; opacity: 1;"></path><g><g class="mark-symbol role-legend-symbol" style="pointer-events: none;"><path transform="translate(6,6)" d="M5,0A5,5,0,1,1,-5,0A5,5,0,1,1,5,0" style="fill: none; stroke: #4c78a8; stroke-width: 1.5; opacity: 0.7;"></path></g><g class="mark-text role-legend-label" style="pointer-events: none;"><text text-anchor="start" transform="translate(16,9)" style="font-family: sans-serif; font-size: 10px; fill: #000; opacity: 1;">setosa</text></g></g></g><g transform="translate(0,16)"><path class="background" d="M0,0h58.7880859375v12.5h-58.7880859375Z" style="pointer-events: none; fill: none; opacity: 1;"></path><g><g class="mark-symbol role-legend-symbol" style="pointer-events: none;"><path transform="translate(6,6)" d="M5,0A5,5,0,1,1,-5,0A5,5,0,1,1,5,0" style="fill: none; stroke: #f58518; stroke-width: 1.5; opacity: 0.7;"></path></g><g class="mark-text role-legend-label" style="pointer-events: none;"><text text-anchor="start" transform="translate(16,9)" style="font-family: sans-serif; font-size: 10px; fill: #000; opacity: 1;">versicolor</text></g></g></g><g transform="translate(0,32)"><path class="background" d="M0,0h58.7880859375v12.5h-58.7880859375Z" style="pointer-events: none; fill: none; opacity: 1;"></path><g><g class="mark-symbol role-legend-symbol" style="pointer-events: none;"><path transform="translate(6,6)" d="M5,0A5,5,0,1,1,-5,0A5,5,0,1,1,5,0" style="fill: none; stroke: #e45756; stroke-width: 1.5; opacity: 0.7;"></path></g><g class="mark-text role-legend-label" style="pointer-events: none;"><text text-anchor="start" transform="translate(16,9)" style="font-family: sans-serif; font-size: 10px; fill: #000; opacity: 1;">virginica</text></g></g></g></g></g></g></g><g class="mark-text role-legend-title" style="pointer-events: none;"><text text-anchor="start" transform="translate(0,9)" style="font-family: sans-serif; font-size: 11px; font-weight: bold; fill: #000; opacity: 1;">Species</text></g></g></g></g><g class="mark-group role-axis"><g transform="translate(0.5,200.5)"><path class="background" d="M0,0h0v0h0Z" style="pointer-events: none; fill: none;"></path><g><g class="mark-rule role-axis-tick" style="pointer-events: none;"><line transform="translate(0,0)" x2="0" y2="5" style="fill: none; stroke: #888; stroke-width: 1; opacity: 1;"></line><line transform="translate(29,0)" x2="0" y2="5" style="fill: none; stroke: #888; stroke-width: 1; opacity: 1;"></line><line transform="translate(57,0)" x2="0" y2="5" style="fill: none; stroke: #888; stroke-width: 1; opacity: 1;"></line><line transform="translate(86,0)" x2="0" y2="5" style="fill: none; stroke: #888; stroke-width: 1; opacity: 1;"></line><line transform="translate(114,0)" x2="0" y2="5" style="fill: none; stroke: #888; stroke-width: 1; opacity: 1;"></line><line transform="translate(143,0)" x2="0" y2="5" style="fill: none; stroke: #888; stroke-width: 1; opacity: 1;"></line><line transform="translate(171,0)" x2="0" y2="5" style="fill: none; stroke: #888; stroke-width: 1; opacity: 1;"></line><line transform="translate(200,0)" x2="0" y2="5" style="fill: none; stroke: #888; stroke-width: 1; opacity: 1;"></line></g><g class="mark-text role-axis-label" style="pointer-events: none;"><text text-anchor="start" transform="translate(0,15)" style="font-family: sans-serif; font-size: 10px; fill: #000; opacity: 1;">0</text><text text-anchor="middle" transform="translate(28.57142857142857,15)" style="font-family: sans-serif; font-size: 10px; fill: #000; opacity: 1;">1</text><text text-anchor="middle" transform="translate(57.14285714285714,15)" style="font-family: sans-serif; font-size: 10px; fill: #000; opacity: 1;">2</text><text text-anchor="middle" transform="translate(85.71428571428571,15)" style="font-family: sans-serif; font-size: 10px; fill: #000; opacity: 1;">3</text><text text-anchor="middle" transform="translate(114.28571428571428,15)" style="font-family: sans-serif; font-size: 10px; fill: #000; opacity: 1;">4</text><text text-anchor="middle" transform="translate(142.85714285714286,15)" style="font-family: sans-serif; font-size: 10px; fill: #000; opacity: 1;">5</text><text text-anchor="middle" transform="translate(171.42857142857142,15)" style="font-family: sans-serif; font-size: 10px; fill: #000; opacity: 1;">6</text><text text-anchor="end" transform="translate(200,15)" style="font-family: sans-serif; font-size: 10px; fill: #000; opacity: 1;">7</text></g><g class="mark-rule role-axis-domain" style="pointer-events: none;"><line transform="translate(0,0)" x2="200" y2="0" style="fill: none; stroke: #888; stroke-width: 1; opacity: 1;"></line></g><g class="mark-text role-axis-title" style="pointer-events: none;"><text text-anchor="middle" transform="translate(100,30)" style="font-family: sans-serif; font-size: 11px; font-weight: bold; fill: #000; opacity: 1;">PetalLength</text></g></g></g></g><g class="mark-group role-axis"><g transform="translate(0.5,0.5)"><path class="background" d="M0,0h0v0h0Z" style="pointer-events: none; fill: none;"></path><g><g class="mark-rule role-axis-tick" style="pointer-events: none;"><line transform="translate(0,200)" x2="-5" y2="0" style="fill: none; stroke: #888; stroke-width: 1; opacity: 1;"></line><line transform="translate(0,162)" x2="-5" y2="0" style="fill: none; stroke: #888; stroke-width: 1; opacity: 1;"></line><line transform="translate(0,123)" x2="-5" y2="0" style="fill: none; stroke: #888; stroke-width: 1; opacity: 1;"></line><line transform="translate(0,85)" x2="-5" y2="0" style="fill: none; stroke: #888; stroke-width: 1; opacity: 1;"></line><line transform="translate(0,46)" x2="-5" y2="0" style="fill: none; stroke: #888; stroke-width: 1; opacity: 1;"></line><line transform="translate(0,8)" x2="-5" y2="0" style="fill: none; stroke: #888; stroke-width: 1; opacity: 1;"></line></g><g class="mark-text role-axis-label" style="pointer-events: none;"><text text-anchor="end" transform="translate(-7,203)" style="font-family: sans-serif; font-size: 10px; fill: #000; opacity: 1;">0.0</text><text text-anchor="end" transform="translate(-7,164.53846153846155)" style="font-family: sans-serif; font-size: 10px; fill: #000; opacity: 1;">0.5</text><text text-anchor="end" transform="translate(-7,126.07692307692308)" style="font-family: sans-serif; font-size: 10px; fill: #000; opacity: 1;">1.0</text><text text-anchor="end" transform="translate(-7,87.61538461538463)" style="font-family: sans-serif; font-size: 10px; fill: #000; opacity: 1;">1.5</text><text text-anchor="end" transform="translate(-7,49.15384615384616)" style="font-family: sans-serif; font-size: 10px; fill: #000; opacity: 1;">2.0</text><text text-anchor="end" transform="translate(-7,10.692307692307708)" style="font-family: sans-serif; font-size: 10px; fill: #000; opacity: 1;">2.5</text></g><g class="mark-rule role-axis-domain" style="pointer-events: none;"><line transform="translate(0,200)" x2="0" y2="-200" style="fill: none; stroke: #888; stroke-width: 1; opacity: 1;"></line></g><g class="mark-text role-axis-title" style="pointer-events: none;"><text text-anchor="middle" transform="translate(-24.9013671875,100) rotate(-90) translate(0,-2)" style="font-family: sans-serif; font-size: 11px; font-weight: bold; fill: #000; opacity: 1;">PetalWidth</text></g></g></g></g></g></g></g></g></svg>
-</div>
-
-</div>
-
 </div>
 </div>
 
@@ -13980,7 +14122,7 @@ mean(skipmissing(df2.col1)) = 4.033333333333333
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[19]:</div>
+<div class="prompt input_prompt">In&nbsp;[30]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="k">using</span> <span class="n">GLM</span>
@@ -14001,7 +14143,7 @@ mean(skipmissing(df2.col1)) = 4.033333333333333
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[19]:</div>
+    <div class="prompt output_prompt">Out[30]:</div>
 
 
 
@@ -14015,8 +14157,8 @@ Coefficients:
 ──────────────────────────────────────────────────────────────────────────
              Estimate  Std. Error  t value  Pr(&gt;|t|)  Lower 95%  Upper 95%
 ──────────────────────────────────────────────────────────────────────────
-(Intercept)  0.255206   0.0153504  16.6254    &lt;1e-29   0.224744   0.285669
-x            0.901744   0.0167931  53.6973    &lt;1e-73   0.868418   0.935069
+(Intercept)  0.255058   0.0150475  16.9502    &lt;1e-30   0.225196   0.284919
+x            0.929994   0.0193715  48.0085    &lt;1e-69   0.891552   0.968436
 ──────────────────────────────────────────────────────────────────────────</pre>
 </div>
 
@@ -14038,10 +14180,11 @@ similar to the Stata package esttab and the R package stargazer</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[20]:</div>
+<div class="prompt input_prompt">In&nbsp;[31]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-julia"><pre><span></span><span class="k">using</span> <span class="n">RegressionTables</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="c"># Need to install NVIDIA Cuda (?)</span>
+<span class="k">using</span> <span class="n">RegressionTables</span>
 <span class="n">regtable</span><span class="p">(</span><span class="n">ols</span><span class="p">)</span>
 </pre></div>
 
@@ -14067,13 +14210,13 @@ similar to the Stata package esttab and the R package stargazer</p>
 ----------------------
 (Intercept)   0.255***
                (0.015)
-x             0.902***
-               (0.017)
+x             0.930***
+               (0.019)
 ----------------------
 Estimator          OLS
 ----------------------
 N                  100
-R2               0.967
+R2               0.959
 ----------------------
 
 
@@ -14097,7 +14240,7 @@ fixed-effects estimation with dummies for multiple variables are much more compu
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[21]:</div>
+<div class="prompt input_prompt">In&nbsp;[42]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="k">using</span> <span class="n">FixedEffectModels</span>
@@ -14118,7 +14261,7 @@ fixed-effects estimation with dummies for multiple variables are much more compu
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[21]:</div>
+    <div class="prompt output_prompt">Out[42]:</div>
 
 
 
@@ -14134,13 +14277,17 @@ fixed-effects estimation with dummies for multiple variables are much more compu
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[22]:</div>
+<div class="prompt input_prompt">In&nbsp;[38]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-julia"><pre><span></span><span class="n">fixedeffectresults</span> <span class="o">=</span> <span class="n">reg</span><span class="p">(</span><span class="n">cigar</span><span class="p">,</span> 
-    <span class="nd">@formula</span><span class="p">(</span><span class="n">Sales</span> <span class="o">~</span> <span class="n">NDI</span> <span class="o">+</span> <span class="n">fe</span><span class="p">(</span><span class="n">StateCategorical</span><span class="p">)</span> <span class="o">+</span> <span class="n">fe</span><span class="p">(</span><span class="n">YearCategorical</span><span class="p">)),</span> 
-    <span class="n">Vcov</span><span class="o">.</span><span class="n">cluster</span><span class="p">(</span><span class="o">:</span><span class="n">StateCategorical</span><span class="p">),</span> 
-    <span class="n">weights</span> <span class="o">=</span> <span class="o">:</span><span class="n">Pop</span><span class="p">)</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="c"># fixedeffectresults = reg(cigar, </span>
+<span class="c">#   @formula(Sales ~ NDI + fe(StateCategorical) + fe(YearCategorical)), </span>
+<span class="c">#    Vcov.cluster(:StateCategorical), </span>
+<span class="c">#    weights = :Pop)</span>
+
+<span class="n">fixedeffectresults</span> <span class="o">=</span> <span class="n">reg</span><span class="p">(</span><span class="n">cigar</span><span class="p">,</span> <span class="nd">@model</span><span class="p">(</span><span class="n">Sales</span> <span class="o">~</span> <span class="n">NDI</span><span class="p">,</span> <span class="n">fe</span> <span class="o">=</span> <span class="n">StateCategorical</span> <span class="o">+</span> <span class="n">YearCategorical</span><span class="p">,</span>
+                            <span class="n">weights</span> <span class="o">=</span> <span class="n">Pop</span><span class="p">,</span> <span class="n">vcov</span> <span class="o">=</span> <span class="n">cluster</span><span class="p">(</span><span class="n">StateCategorical</span><span class="p">)))</span>
+<span class="n">regtable</span><span class="p">(</span><span class="n">fixedeffectresults</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -14153,27 +14300,31 @@ fixed-effects estimation with dummies for multiple variables are much more compu
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[22]:</div>
+    <div class="prompt"></div>
 
 
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>
+----------------------------
+                     Sales  
+                   ---------
+                         (1)
+----------------------------
+NDI                -0.005***
+                     (0.001)
+----------------------------
+StateCategorical         Yes
+YearCategorical          Yes
+----------------------------
+Estimator                OLS
+----------------------------
+N                      1,380
+R2                   -70.104
+----------------------------
 
 
-<div class="output_text output_subarea output_execute_result">
-<pre>                         Fixed Effect Model                         
-====================================================================
-Number of obs:               1380  Degrees of freedom:          1335
-R2:                       -70.104  R2 Adjusted:              -71.739
-F Statistic:              13.3382  p-value:                    0.001
-R2 within:                  0.139  Iterations:                     6
-Converged:                   true  
-====================================================================
-        Estimate  Std.Error  t value Pr(&gt;|t|)  Lower 95%   Upper 95%
---------------------------------------------------------------------
-NDI  -0.00526264 0.00144097 -3.65216    0.001 -0.0081649 -0.00236038
-====================================================================
 </pre>
 </div>
-
 </div>
 
 </div>
@@ -14265,7 +14416,7 @@ NDI  -0.00526264 0.00144097 -3.65216    0.001 -0.0081649 -0.00236038
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[24]:</div>
+<div class="prompt input_prompt">In&nbsp;[39]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="s">&quot;&quot;&quot;</span>
@@ -14311,7 +14462,7 @@ NDI  -0.00526264 0.00144097 -3.65216    0.001 -0.0081649 -0.00236038
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[24]:</div>
+    <div class="prompt output_prompt">Out[39]:</div>
 
 
 
@@ -14328,7 +14479,7 @@ NDI  -0.00526264 0.00144097 -3.65216    0.001 -0.0081649 -0.00236038
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[25]:</div>
+<div class="prompt input_prompt">In&nbsp;[41]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="c"># create our dataset</span>
@@ -14365,45 +14516,60 @@ NDI  -0.00526264 0.00144097 -3.65216    0.001 -0.0081649 -0.00236038
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>  5.196776 seconds (2.61 M allocations: 1.178 GiB, 35.71% gc time)
-  3.375173 seconds (1.17 M allocations: 1.181 GiB, 28.47% gc time)
-  6.664933 seconds (2.09 M allocations: 1.343 GiB, 25.83% gc time)
-  5.341276 seconds (2.07 M allocations: 1.465 GiB, 23.35% gc time)
-  9.072142 seconds (1.04 M allocations: 1.403 GiB, 16.61% gc time)
- 17.800502 seconds (2.07 M allocations: 4.061 GiB, 13.48% gc time)
+<pre>  1.839808 seconds (548 allocations: 1.044 GiB, 25.86% gc time)
 </pre>
 </div>
 </div>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[25]:</div>
+    <div class="prompt"></div>
 
 
+<div class="output_subarea output_text output_error">
+<pre>
+UndefVarError: Vcov not defined
 
-
-<div class="output_text output_subarea output_execute_result">
-<pre>                      Fixed Effect Model                      
-==============================================================
-Number of obs:        10000000  Degrees of freedom:     100107
-R2:                      0.999  R2 Adjusted:             0.999
-F Statistic:         5.51766e7  p-value:                 0.000
-R2 within:               0.975  Iterations:                  6
-Converged:                true  
-==============================================================
-     Estimate   Std.Error t value Pr(&gt;|t|) Lower 95% Upper 95%
---------------------------------------------------------------
-x1    3.00003 0.000317701 9442.92    0.000    2.9994   3.00065
-x2    5.00039 0.000317761 15736.3    0.000   4.99977   5.00102
-x3    1.00046 0.000317782 3148.28    0.000  0.999842   1.00109
-x4    1.00003 0.000317983 3144.93    0.000  0.999411   1.00066
-x5   0.999961 0.000317887 3145.65    0.000  0.999338   1.00058
-x6    1.00004 0.000317855 3146.22    0.000   0.99942   1.00067
-x7   0.999784 0.000317874 3145.23    0.000  0.999161   1.00041
-==============================================================
-</pre>
+Stacktrace:
+ [1] top-level scope at util.jl:155
+ [2] top-level scope at In[41]:7</pre>
+</div>
 </div>
 
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[43]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-julia"><pre><span></span><span class="k">using</span> <span class="n">DataFrames</span><span class="p">,</span> <span class="n">RDatasets</span><span class="p">,</span> <span class="n">FixedEffectModels</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">dataset</span><span class="p">(</span><span class="s">&quot;plm&quot;</span><span class="p">,</span> <span class="s">&quot;Cigar&quot;</span><span class="p">)</span>
+<span class="n">reg</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="nd">@formula</span><span class="p">(</span><span class="n">Sales</span> <span class="o">~</span> <span class="n">NDI</span> <span class="o">+</span> <span class="n">fe</span><span class="p">(</span><span class="n">State</span><span class="p">)</span> <span class="o">+</span> <span class="n">fe</span><span class="p">(</span><span class="n">Year</span><span class="p">)),</span> <span class="n">Vcov</span><span class="o">.</span><span class="n">cluster</span><span class="p">(</span><span class="o">:</span><span class="n">State</span><span class="p">),</span> <span class="n">weights</span> <span class="o">=</span> <span class="o">:</span><span class="n">Pop</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_text output_error">
+<pre>
+UndefVarError: fe not defined
+
+Stacktrace:
+ [1] top-level scope at In[43]:3</pre>
+</div>
 </div>
 
 </div>

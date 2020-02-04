@@ -13205,7 +13205,7 @@ div#notebook {
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&#34;/Users/florian.oswald/.julia&#34;</pre>
+<pre>&#34;C:\\Users\\cms27\\.julia&#34;</pre>
 </div>
 
 </div>
@@ -13267,7 +13267,8 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-julia"><pre><span></span><span class="p">;</span> <span class="n">pwd</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="c">#; pwd</span>
+<span class="n">pwd</span><span class="p">()</span>
 </pre></div>
 
     </div>
@@ -13280,13 +13281,15 @@ div#notebook {
 
 <div class="output_area">
 
-    <div class="prompt"></div>
+    <div class="prompt output_prompt">Out[2]:</div>
 
 
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>/Users/florian.oswald/Dropbox/teaching/ScPo/ScPo-CompEcon/CoursePack/Notebooks
-</pre>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&#34;C:\\Users\\cms27\\Desktop\\GitHub\\CompEcon2020\\CoursePack\\Notebooks&#34;</pre>
 </div>
+
 </div>
 
 </div>
@@ -13339,28 +13342,10 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-julia"><pre><span></span><span class="p">;</span> <span class="n">echo</span> <span class="o">$</span><span class="n">x</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="c"># ; echo $x</span>
 </pre></div>
 
     </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>2
-</pre>
-</div>
-</div>
-
 </div>
 </div>
 
@@ -13439,14 +13424,6 @@ div#notebook {
 
   <span class="ansi-cyan-fg">preview</span>: previews a subsequent command without affecting the current state
 
-  <span class="ansi-cyan-fg">registry-add</span>: add package registries
-
-  <span class="ansi-cyan-fg">registry-remove</span>: remove package registries
-
-  <span class="ansi-cyan-fg">registry-status</span>: information about installed registries
-
-  <span class="ansi-cyan-fg">registry-update</span>: update package registries
-
   <span class="ansi-cyan-fg">remove</span>: remove packages from project or manifest
 
   <span class="ansi-cyan-fg">resolve</span>: resolves to update the manifest from changes in dependencies of
@@ -13456,7 +13433,15 @@ div#notebook {
 
   <span class="ansi-cyan-fg">test</span>: run tests for packages
 
-  <span class="ansi-cyan-fg">update</span>: update packages in manifest</pre>
+  <span class="ansi-cyan-fg">update</span>: update packages in manifest
+
+  <span class="ansi-cyan-fg">registry add</span>: add package registries
+
+  <span class="ansi-cyan-fg">registry remove</span>: remove package registries
+
+  <span class="ansi-cyan-fg">registry status</span>: information about installed registries
+
+  <span class="ansi-cyan-fg">registry update</span>: update package registries</pre>
 </div>
 </div>
 
